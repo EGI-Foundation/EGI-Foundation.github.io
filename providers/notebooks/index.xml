@@ -1,546 +1,472 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>EGI Docs – Notebooks</title>
-    <link>/providers/notebooks/</link>
-    <description>Recent content in Notebooks on EGI Docs</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="/providers/notebooks/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Providers: Architecture</title>
-      <link>/providers/notebooks/architecture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/providers/notebooks/architecture/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The EGI Notebooks service relies on the following technologies to
-provide its functionality:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/jupyterhub/jupyterhub&#34;&gt;JupyterHub&lt;/a&gt; with custom
-&lt;a href=&#34;https://github.com/enolfc/oauthenticator&#34;&gt;EGI Check-in
-oauthentication&lt;/a&gt;
-configured to spawn pods on Kubernetes.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/&#34;&gt;Kubernetes&lt;/a&gt; as container orchestration
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Notebooks</title><link>/providers/notebooks/</link><description>Recent content in Notebooks on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/providers/notebooks/index.xml" rel="self" type="application/rss+xml"/><item><title>Providers: Architecture</title><link>/providers/notebooks/architecture/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/notebooks/architecture/</guid><description>
+&lt;p>The EGI Notebooks service relies on the following technologies to
+provide its functionality:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/jupyterhub/jupyterhub">JupyterHub&lt;/a> with custom
+&lt;a href="https://github.com/enolfc/oauthenticator">EGI Check-in
+oauthentication&lt;/a>
+configured to spawn pods on Kubernetes.&lt;/li>
+&lt;li>&lt;a href="https://kubernetes.io/">Kubernetes&lt;/a> as container orchestration
 platform running on top of EGI Cloud resources. Within the service
 it is in charge of managing the allocated resources and providing
 the right abstraction to deploy the containers that build the
 service. Resources are provided by EGI Federated Cloud providers,
-including persistent storage for users notebooks.&lt;/li&gt;
-&lt;li&gt;CA authority to allocate recognised certificates for the HTTPS
-server&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://prometheus.io/&#34;&gt;Prometheus&lt;/a&gt; for monitoring resource
-consumption.&lt;/li&gt;
-&lt;li&gt;Specific EGI hooks for
-&lt;a href=&#34;https://github.com/EGI-Foundation/egi-notebooks-monitoring&#34;&gt;monitoring&lt;/a&gt;,
-&lt;a href=&#34;https://github.com/EGI-Foundation/egi-notebooks-accounting&#34;&gt;accounting&lt;/a&gt;
+including persistent storage for users notebooks.&lt;/li>
+&lt;li>CA authority to allocate recognised certificates for the HTTPS
+server&lt;/li>
+&lt;li>&lt;a href="https://prometheus.io/">Prometheus&lt;/a> for monitoring resource
+consumption.&lt;/li>
+&lt;li>Specific EGI hooks for
+&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-monitoring">monitoring&lt;/a>,
+&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-accounting">accounting&lt;/a>
 and
-&lt;a href=&#34;https://github.com/EGI-Foundation/egi-notebooks-backup&#34;&gt;backup&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;VO-Specific storage/Big data facilities or any pluggable tools into
+&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-backup">backup&lt;/a>.&lt;/li>
+&lt;li>VO-Specific storage/Big data facilities or any pluggable tools into
 the notebooks environment can be added to community specific
-instances.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;kubernetes&#34;&gt;Kubernetes&lt;/h2&gt;
-&lt;p&gt;A Kubernetes (k8s) cluster deployed into a resource provider is in
+instances.&lt;/li>
+&lt;/ul>
+&lt;h2 id="kubernetes">Kubernetes&lt;/h2>
+&lt;p>A Kubernetes (k8s) cluster deployed into a resource provider is in
 charge of managing the containers that will provide the service. On this
-cluster there are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1 master node that manages the whole cluster&lt;/li&gt;
-&lt;li&gt;Support for load balancer or alternatively 1 or more edge nodes with
+cluster there are:&lt;/p>
+&lt;ul>
+&lt;li>1 master node that manages the whole cluster&lt;/li>
+&lt;li>Support for load balancer or alternatively 1 or more edge nodes with
 a public IP and corresponding public DNS name (e.g.
 notebooks.egi.eu) where a k8s ingress HTTP reverse proxy redirects
 requests from user to other components of the service. The HTTP
 server has a valid certificate from one CA recognised at most
-browsers (e.g. Let&#39;s Encrypt).&lt;/li&gt;
-&lt;li&gt;1 or more nodes that host the JupyterHub server, the notebooks
+browsers (e.g. Let's Encrypt).&lt;/li>
+&lt;li>1 or more nodes that host the JupyterHub server, the notebooks
 servers where the users will run their notebooks. Hub is deployed
-using the &lt;a href=&#34;https://jupyterhub.github.io/helm-chart/&#34;&gt;JupyterHub helm
-charts&lt;/a&gt;. These nodes
+using the &lt;a href="https://jupyterhub.github.io/helm-chart/">JupyterHub helm
+charts&lt;/a>. These nodes
 should have enough capacity to run as many concurrent user notebooks
-as needed. Main constraint is usually memory.&lt;/li&gt;
-&lt;li&gt;Support for &lt;a href=&#34;https://kubernetes.io/docs/concepts/storage/persistent-volumes/&#34;&gt;Kubernetes
-PersistentVolumeClaims&lt;/a&gt;
+as needed. Main constraint is usually memory.&lt;/li>
+&lt;li>Support for &lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Kubernetes
+PersistentVolumeClaims&lt;/a>
 for storing the persistent folders. Default EGI-Notebooks
 installation uses NFS, but any other volume type with ReadWriteOnce
-capabilities can be used.&lt;/li&gt;
-&lt;li&gt;Prometheus installation to monitor the usage of resources so
-accounting records are generated.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;All communication with the user goes via HTTPS and the service only
-needs a publicly accessible entry point (public IP with resolvable name)&lt;/p&gt;
-&lt;p&gt;Monitoring and accounting are provided by hooking into the respective
-monitoring and accounting EGI services.&lt;/p&gt;
-&lt;p&gt;There are no specific hardware requirements and the whole environment
-can run on commodity virtual machines.&lt;/p&gt;
-&lt;h2 id=&#34;egi-customisations&#34;&gt;EGI Customisations&lt;/h2&gt;
-&lt;p&gt;EGI Notebooks is deployed as a set of customisations of the &lt;a href=&#34;https://jupyterhub.github.io/helm-chart/&#34;&gt;JupyterHub
-helm charts&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;egi_notebooks_architecture.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
-&lt;p&gt;EGI Check-in can be easily configured as a OAuth2.0 provider for
-&lt;a href=&#34;https://github.com/jupyterhub/oauthenticator&#34;&gt;JupyterHub&#39;s
-oauthenticator&lt;/a&gt;. See below
+capabilities can be used.&lt;/li>
+&lt;li>Prometheus installation to monitor the usage of resources so
+accounting records are generated.&lt;/li>
+&lt;/ul>
+&lt;p>All communication with the user goes via HTTPS and the service only
+needs a publicly accessible entry point (public IP with resolvable name)&lt;/p>
+&lt;p>Monitoring and accounting are provided by hooking into the respective
+monitoring and accounting EGI services.&lt;/p>
+&lt;p>There are no specific hardware requirements and the whole environment
+can run on commodity virtual machines.&lt;/p>
+&lt;h2 id="egi-customisations">EGI Customisations&lt;/h2>
+&lt;p>EGI Notebooks is deployed as a set of customisations of the &lt;a href="https://jupyterhub.github.io/helm-chart/">JupyterHub
+helm charts&lt;/a>.&lt;/p>
+&lt;p>&lt;img src="egi_notebooks_architecture.png" alt="image">&lt;/p>
+&lt;h3 id="authentication">Authentication&lt;/h3>
+&lt;p>EGI Check-in can be easily configured as a OAuth2.0 provider for
+&lt;a href="https://github.com/jupyterhub/oauthenticator">JupyterHub's
+oauthenticator&lt;/a>. See below
 a sample configuration for the helm chart using Check-in production
-environment:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;hub:
-  extraEnv:
-    OAUTH2_AUTHORIZE_URL: https://aai.egi.eu/oidc/authorize
-    OAUTH2_TOKEN_URL: https://aai.egi.eu/oidc/token
-    OAUTH_CALLBACK_URL: https://&amp;lt;your host&amp;gt;/hub/oauth_callback
-
+environment:&lt;/p>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">hub:
+extraEnv:
+OAUTH2_AUTHORIZE_URL: https://aai.egi.eu/oidc/authorize
+OAUTH2_TOKEN_URL: https://aai.egi.eu/oidc/token
+OAUTH_CALLBACK_URL: https://&amp;lt;your host&amp;gt;/hub/oauth_callback
 auth:
-  type: custom
-  custom:
-    className: oauthenticator.generic.GenericOAuthenticator
-    config:
-      login_service: &amp;quot;EGI Check-in&amp;quot;
-      client_id: &amp;quot;&amp;lt;your client id&amp;gt;&amp;quot;
-      client_secret: &amp;quot;&amp;lt;your client secret&amp;gt;&amp;quot;
-      oauth_callback_url: &amp;quot;https://&amp;lt;your host&amp;gt;/hub/oauth_callback&amp;quot;
-      username_key: &amp;quot;sub&amp;quot;
-      token_url: &amp;quot;https://aai.egi.eu/oidc/token&amp;quot;
-      userdata_url: &amp;quot;https://aai.egi.eu/oidc/userinfo&amp;quot;
-      scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To simplify the configuration and to add refresh capabilities to the
-credentials, we have created a new &lt;a href=&#34;https://github.com/enolfc/oauthenticator&#34;&gt;EGI Check-in
-authenticator&lt;/a&gt; that can be
-configued as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;auth:
-  state:
-    enabled: true
-    cryptoKey: &amp;lt;some unique crypto key&amp;gt;
-  type: custom
-  custom:
-    className: oauthenticator.egicheckin.EGICheckinAuthenticator
-    config:
-      client_id: &amp;quot;&amp;lt;your client id&amp;gt;&amp;quot;
-      client_secret: &amp;quot;&amp;lt;your client secret&amp;gt;&amp;quot;
-      oauth_callback_url: &amp;quot;https://&amp;lt;your host&amp;gt;/hub/oauth_callback&amp;quot;
-      scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;offline_access&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;auth.state&lt;/code&gt; configuration allows to store refresh tokens for the
-users that will allow to get up-to-date valid credentials as needed.&lt;/p&gt;
-&lt;h3 id=&#34;accounting&#34;&gt;Accounting&lt;/h3&gt;
-
-
-&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+type: custom
+custom:
+className: oauthenticator.generic.GenericOAuthenticator
+config:
+login_service: &amp;quot;EGI Check-in&amp;quot;
+client_id: &amp;quot;&amp;lt;your client id&amp;gt;&amp;quot;
+client_secret: &amp;quot;&amp;lt;your client secret&amp;gt;&amp;quot;
+oauth_callback_url: &amp;quot;https://&amp;lt;your host&amp;gt;/hub/oauth_callback&amp;quot;
+username_key: &amp;quot;sub&amp;quot;
+token_url: &amp;quot;https://aai.egi.eu/oidc/token&amp;quot;
+userdata_url: &amp;quot;https://aai.egi.eu/oidc/userinfo&amp;quot;
+scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
+&lt;/code>&lt;/pre>&lt;p>To simplify the configuration and to add refresh capabilities to the
+credentials, we have created a new &lt;a href="https://github.com/enolfc/oauthenticator">EGI Check-in
+authenticator&lt;/a> that can be
+configued as follows:&lt;/p>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">auth:
+state:
+enabled: true
+cryptoKey: &amp;lt;some unique crypto key&amp;gt;
+type: custom
+custom:
+className: oauthenticator.egicheckin.EGICheckinAuthenticator
+config:
+client_id: &amp;quot;&amp;lt;your client id&amp;gt;&amp;quot;
+client_secret: &amp;quot;&amp;lt;your client secret&amp;gt;&amp;quot;
+oauth_callback_url: &amp;quot;https://&amp;lt;your host&amp;gt;/hub/oauth_callback&amp;quot;
+scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;offline_access&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
+&lt;/code>&lt;/pre>&lt;p>The &lt;code>auth.state&lt;/code> configuration allows to store refresh tokens for the
+users that will allow to get up-to-date valid credentials as needed.&lt;/p>
+&lt;h3 id="accounting">Accounting&lt;/h3>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
 This is Work in progress, expect changes!
-&lt;/div&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/EGI-Foundation/egi-notebooks-accounting&#34;&gt;Accounting
-module&lt;/a&gt;
+&lt;/div>
+&lt;p>&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-accounting">Accounting
+module&lt;/a>
 generates VM-like accounting records for each of the notebooks started
-at the service. It&#39;s available as a &lt;a href=&#34;https://egi-foundation.github.io/egi-notebooks-chart/&#34;&gt;helm chart&lt;/a&gt;
+at the service. It's available as a &lt;a href="https://egi-foundation.github.io/egi-notebooks-chart/">helm chart&lt;/a>
 that can be deployed in the same namespace as the JupyterHub chart. The
 only needed configuration for the chart is an IGTF-recognised
-certificate for the host registered in GOCDB as accounting.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;ssm:
-  hostcert: |-
-    &amp;lt;hostcert&amp;gt;
-  hostkey: |-
-    &amp;lt;hostkey&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;monitoring&#34;&gt;Monitoring&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/EGI-Foundation/egi-notebooks-monitoring&#34;&gt;Monitoring&lt;/a&gt;
+certificate for the host registered in GOCDB as accounting.&lt;/p>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">ssm:
+hostcert: |-
+&amp;lt;hostcert&amp;gt;
+hostkey: |-
+&amp;lt;hostkey&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="monitoring">Monitoring&lt;/h3>
+&lt;p>&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-monitoring">Monitoring&lt;/a>
 is performed by trying to execute a user notebook every hour. This is
 accomplished by registering a new service in the hub that has admin
-permissions. Monitoring is then deployed as a &lt;a href=&#34;https://egi-foundation.github.io/egi-notebooks-chart/&#34;&gt;helm chart&lt;/a&gt;
+permissions. Monitoring is then deployed as a &lt;a href="https://egi-foundation.github.io/egi-notebooks-chart/">helm chart&lt;/a>
 that must be deployed in the same namespace as the JupyterHub chart.
-Configuration of JupyterHub must include this section:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;hub:
-  services:
-    status:
-       url: &amp;quot;http://status-web/&amp;quot;
-       admin: true
-       apiToken: &amp;quot;&amp;lt;a unique API token&amp;gt;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Likewise the monitoring chart is configured as follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;service:
-  api_token: &amp;quot;&amp;lt;same API token as above&amp;gt;&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;docker-images&#34;&gt;Docker images&lt;/h3&gt;
-&lt;p&gt;Our service relies on custom images for the hub and the single-user
-notebooks. Dockerfiles are available at &lt;a href=&#34;https://github.com/EGI-foundation/egi-notebooks-images&#34;&gt;EGI Notebooks
-images&lt;/a&gt; git
+Configuration of JupyterHub must include this section:&lt;/p>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">hub:
+services:
+status:
+url: &amp;quot;http://status-web/&amp;quot;
+admin: true
+apiToken: &amp;quot;&amp;lt;a unique API token&amp;gt;&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>Likewise the monitoring chart is configured as follows:&lt;/p>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">service:
+api_token: &amp;quot;&amp;lt;same API token as above&amp;gt;&amp;quot;
+&lt;/code>&lt;/pre>&lt;h3 id="docker-images">Docker images&lt;/h3>
+&lt;p>Our service relies on custom images for the hub and the single-user
+notebooks. Dockerfiles are available at &lt;a href="https://github.com/EGI-foundation/egi-notebooks-images">EGI Notebooks
+images&lt;/a> git
 repository and automatically build for every commit pushed to the repo
-to &lt;a href=&#34;https://hub.docker.com/u/eginotebooks&#34;&gt;eginotebooks @ dockerhub&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;hub-image&#34;&gt;Hub image&lt;/h4&gt;
-&lt;p&gt;Builds from the &lt;a href=&#34;https://hub.docker.com/r/jupyterhub/k8s-hub&#34;&gt;JupyterHub k8s-hub
-image&lt;/a&gt; and adds:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;EGI and D4Science authenticators&lt;/li&gt;
-&lt;li&gt;EGISpawner&lt;/li&gt;
-&lt;li&gt;EGI look and feel for the login page&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;single-user-image&#34;&gt;Single-user image&lt;/h4&gt;
-&lt;p&gt;Builds from &lt;a href=&#34;https://hub.docker.com/r/jupyter/datascience-notebook&#34;&gt;Jupyter
-datasicence-notebook&lt;/a&gt;
+to &lt;a href="https://hub.docker.com/u/eginotebooks">eginotebooks @ dockerhub&lt;/a>.&lt;/p>
+&lt;h4 id="hub-image">Hub image&lt;/h4>
+&lt;p>Builds from the &lt;a href="https://hub.docker.com/r/jupyterhub/k8s-hub">JupyterHub k8s-hub
+image&lt;/a> and adds:&lt;/p>
+&lt;ul>
+&lt;li>EGI and D4Science authenticators&lt;/li>
+&lt;li>EGISpawner&lt;/li>
+&lt;li>EGI look and feel for the login page&lt;/li>
+&lt;/ul>
+&lt;h4 id="single-user-image">Single-user image&lt;/h4>
+&lt;p>Builds from &lt;a href="https://hub.docker.com/r/jupyter/datascience-notebook">Jupyter
+datasicence-notebook&lt;/a>
 and adds a wide range of libraries as requested by users of the
 services. We are currently looking into alternatives for better managing
-this image with CVMFS as a possible solution.&lt;/p&gt;
-&lt;h3 id=&#34;sample-helm-configuration&#34;&gt;Sample helm configuration&lt;/h3&gt;
-&lt;p&gt;If you want to build your own EGI Notebooks instance, you can start from
-the following sample configuration and adapt to your needs by setting:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;secret tokens (for &lt;code&gt;proxy.secretToken&lt;/code&gt;,
-&lt;code&gt;hub.services.status.api_token&lt;/code&gt;, &lt;code&gt;auth.state.cryptoKey&lt;/code&gt;). They can
-be generated with &lt;code&gt;openssl rand -hex 32&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;A valid host name (&lt;code&gt;&amp;lt;your notebooks host&amp;gt;&lt;/code&gt; below) that resolves to
-your Kubernetes Ingress&lt;/li&gt;
-&lt;li&gt;Valid EGI Check-in client credentials, these can be obtained by
-creating a new client at &lt;a href=&#34;https://aai-dev.egi.eu/oidc/&#34;&gt;EGI AAI OpenID Connect
-Provider&lt;/a&gt;. When moving to EGI Check-in
+this image with CVMFS as a possible solution.&lt;/p>
+&lt;h3 id="sample-helm-configuration">Sample helm configuration&lt;/h3>
+&lt;p>If you want to build your own EGI Notebooks instance, you can start from
+the following sample configuration and adapt to your needs by setting:&lt;/p>
+&lt;ul>
+&lt;li>secret tokens (for &lt;code>proxy.secretToken&lt;/code>,
+&lt;code>hub.services.status.api_token&lt;/code>, &lt;code>auth.state.cryptoKey&lt;/code>). They can
+be generated with &lt;code>openssl rand -hex 32&lt;/code>.&lt;/li>
+&lt;li>A valid host name (&lt;code>&amp;lt;your notebooks host&amp;gt;&lt;/code> below) that resolves to
+your Kubernetes Ingress&lt;/li>
+&lt;li>Valid EGI Check-in client credentials, these can be obtained by
+creating a new client at &lt;a href="https://aai-dev.egi.eu/oidc/">EGI AAI OpenID Connect
+Provider&lt;/a>. When moving to EGI Check-in
 production environment, make sure to remove the
-&lt;code&gt;hub.extraEnv.EGICHECKIN_HOST&lt;/code&gt; variable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.yaml}&#34; data-lang=&#34;{.yaml}&#34;&gt;---
+&lt;code>hub.extraEnv.EGICHECKIN_HOST&lt;/code> variable.&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">---
 proxy:
-  secretToken: &amp;quot;&amp;lt;some secret&amp;gt;&amp;quot;
-  service:
-    type: NodePort
-
+secretToken: &amp;quot;&amp;lt;some secret&amp;gt;&amp;quot;
+service:
+type: NodePort
 ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/tls-acme: &amp;quot;true&amp;quot;
-  hosts: [&amp;lt;your notebooks host&amp;gt;]
-  tls:
-  - hosts:
-    - &amp;lt;your notebooks host&amp;gt;
-    secretName: acme-tls-notebooks
-    enabled: true
-    hosts: [&amp;lt;your notebooks host&amp;gt;]
-
+enabled: true
+annotations:
+kubernetes.io/tls-acme: &amp;quot;true&amp;quot;
+hosts: [&amp;lt;your notebooks host&amp;gt;]
+tls:
+- hosts:
+- &amp;lt;your notebooks host&amp;gt;
+secretName: acme-tls-notebooks
+enabled: true
+hosts: [&amp;lt;your notebooks host&amp;gt;]
 singleuser:
-  storage:
-    capacity: 1Gi
-    dynamic:
-      pvcNameTemplate: claim-{userid}{servername}
-      volumeNameTemplate: vol-{userid}{servername}
-      storageAccessModes: [&amp;quot;ReadWriteMany&amp;quot;]
-  memory:
-    limit: 1G
-    guarantee: 512M
-  cpu:
-    limit: 2
-    guarantee: .02
-  defaultUrl: &amp;quot;/lab&amp;quot;
-  image:
-    name: eginotebooks/single-user
-    tag: c1b2a2a
-
+storage:
+capacity: 1Gi
+dynamic:
+pvcNameTemplate: claim-{userid}{servername}
+volumeNameTemplate: vol-{userid}{servername}
+storageAccessModes: [&amp;quot;ReadWriteMany&amp;quot;]
+memory:
+limit: 1G
+guarantee: 512M
+cpu:
+limit: 2
+guarantee: .02
+defaultUrl: &amp;quot;/lab&amp;quot;
+image:
+name: eginotebooks/single-user
+tag: c1b2a2a
 hub:
-  image:
-    name: eginotebooks/hub
-    tag: c1b2a2a
-  extraConfig:
-    enable-lab: |-
-      c.KubeSpawner.cmd = [&#39;jupyter-labhub&#39;]
-    volume-handling: |-
-      from egispawner.spawner import EGISpawner
-      c.JupyterHub.spawner_class = EGISpawner
-  extraEnv:
-    JUPYTER_ENABLE_LAB: 1
-    EGICHECKIN_HOST: aai-dev.egi.eu
-  services:
-    status:
-       url: &amp;quot;http://status-web/&amp;quot;
-       admin: true
-       api_token: &amp;quot;&amp;lt;monitor token&amp;gt;&amp;quot;
-
+image:
+name: eginotebooks/hub
+tag: c1b2a2a
+extraConfig:
+enable-lab: |-
+c.KubeSpawner.cmd = ['jupyter-labhub']
+volume-handling: |-
+from egispawner.spawner import EGISpawner
+c.JupyterHub.spawner_class = EGISpawner
+extraEnv:
+JUPYTER_ENABLE_LAB: 1
+EGICHECKIN_HOST: aai-dev.egi.eu
+services:
+status:
+url: &amp;quot;http://status-web/&amp;quot;
+admin: true
+api_token: &amp;quot;&amp;lt;monitor token&amp;gt;&amp;quot;
 auth:
-  type: custom
-  state:
-    enabled: true
-    cryptoKey: &amp;quot;&amp;lt;a unique crypto key&amp;gt;&amp;quot;
-  admin:
-    access: true
-    users: [&amp;lt;list of EGI Check-in users with admin powers&amp;gt;]
-  custom:
-    className: oauthenticator.egicheckin.EGICheckinAuthenticator
-    config:
-      client_id: &amp;quot;&amp;lt;your egi checkin_client_id&amp;gt;&amp;quot;
-      client_secret: &amp;quot;&amp;lt;your egi checkin_client_secret&amp;gt;&amp;quot;
-      oauth_callback_url: &amp;quot;https://&amp;lt;your notebooks host&amp;gt;/hub/oauth_callback&amp;quot;
-      enable_auth_state: true
-      scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;offline_access&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Providers: Service Operations</title>
-      <link>/providers/notebooks/operations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/providers/notebooks/operations/</guid>
-      <description>
-        
-        
-        &lt;p&gt;In this section you can find the common operational activities related
-to keep the service available to our users.&lt;/p&gt;
-&lt;h2 id=&#34;initial-set-up&#34;&gt;Initial set-up&lt;/h2&gt;
-&lt;h3 id=&#34;notebooks-vo&#34;&gt;Notebooks VO&lt;/h3&gt;
-&lt;p&gt;The resources used for the Notebooks deployments are managed with the
-&lt;code&gt;vo.notebooks.egi.eu&lt;/code&gt; VO. Operators of the service should join the VO,
-check the entry at the &lt;a href=&#34;https://operations-portal.egi.eu/vo/view/voname/vo.notebooks.egi.eu&#34;&gt;operations
-portal&lt;/a&gt;
-and at &lt;a href=&#34;https://appdb.egi.eu/store/vo/vo.notebooks.egi.eu&#34;&gt;AppDB&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;clients-installation&#34;&gt;Clients installation&lt;/h3&gt;
-&lt;p&gt;In order to manage the resources you will need these tools installed on
-your client machine:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;egicli&lt;/code&gt; for discovering sites and managing tokens,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;terraform&lt;/code&gt; to create the VMs at the providers,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ansible&lt;/code&gt; to configure the VMs and install kubernetes at the
-providers,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;terraform-inventory&lt;/code&gt; to get the list of hosts to use from
-terraform.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;get-the-configuration-repo&#34;&gt;Get the configuration repo&lt;/h3&gt;
-&lt;p&gt;All the configuration of the notebooks is stored at a git repo available
-in keybase. You&#39;ll need to be part of the &lt;code&gt;opslife&lt;/code&gt; team in keybase to
-access. Start by cloning the repo:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ git clone keybase://team/opslife/egi-notebooks
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;kubernetes&#34;&gt;Kubernetes&lt;/h2&gt;
-&lt;p&gt;We use &lt;code&gt;terraform&lt;/code&gt; and &lt;code&gt;ansible&lt;/code&gt; to build the cluster at one of the EGI
+type: custom
+state:
+enabled: true
+cryptoKey: &amp;quot;&amp;lt;a unique crypto key&amp;gt;&amp;quot;
+admin:
+access: true
+users: [&amp;lt;list of EGI Check-in users with admin powers&amp;gt;]
+custom:
+className: oauthenticator.egicheckin.EGICheckinAuthenticator
+config:
+client_id: &amp;quot;&amp;lt;your egi checkin_client_id&amp;gt;&amp;quot;
+client_secret: &amp;quot;&amp;lt;your egi checkin_client_secret&amp;gt;&amp;quot;
+oauth_callback_url: &amp;quot;https://&amp;lt;your notebooks host&amp;gt;/hub/oauth_callback&amp;quot;
+enable_auth_state: true
+scope: [&amp;quot;openid&amp;quot;, &amp;quot;profile&amp;quot;, &amp;quot;email&amp;quot;, &amp;quot;offline_access&amp;quot;, &amp;quot;eduperson_scoped_affiliation&amp;quot;, &amp;quot;eduperson_entitlement&amp;quot;]
+&lt;/code>&lt;/pre></description></item><item><title>Providers: Service Operations</title><link>/providers/notebooks/operations/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/notebooks/operations/</guid><description>
+&lt;p>In this section you can find the common operational activities related
+to keep the service available to our users.&lt;/p>
+&lt;h2 id="initial-set-up">Initial set-up&lt;/h2>
+&lt;h3 id="notebooks-vo">Notebooks VO&lt;/h3>
+&lt;p>The resources used for the Notebooks deployments are managed with the
+&lt;code>vo.notebooks.egi.eu&lt;/code> VO. Operators of the service should join the VO,
+check the entry at the &lt;a href="https://operations-portal.egi.eu/vo/view/voname/vo.notebooks.egi.eu">operations
+portal&lt;/a>
+and at &lt;a href="https://appdb.egi.eu/store/vo/vo.notebooks.egi.eu">AppDB&lt;/a>.&lt;/p>
+&lt;h3 id="clients-installation">Clients installation&lt;/h3>
+&lt;p>In order to manage the resources you will need these tools installed on
+your client machine:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>egicli&lt;/code> for discovering sites and managing tokens,&lt;/li>
+&lt;li>&lt;code>terraform&lt;/code> to create the VMs at the providers,&lt;/li>
+&lt;li>&lt;code>ansible&lt;/code> to configure the VMs and install kubernetes at the
+providers,&lt;/li>
+&lt;li>&lt;code>terraform-inventory&lt;/code> to get the list of hosts to use from
+terraform.&lt;/li>
+&lt;/ul>
+&lt;h3 id="get-the-configuration-repo">Get the configuration repo&lt;/h3>
+&lt;p>All the configuration of the notebooks is stored at a git repo available
+in keybase. You'll need to be part of the &lt;code>opslife&lt;/code> team in keybase to
+access. Start by cloning the repo:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ git clone keybase://team/opslife/egi-notebooks
+&lt;/code>&lt;/pre>&lt;h2 id="kubernetes">Kubernetes&lt;/h2>
+&lt;p>We use &lt;code>terraform&lt;/code> and &lt;code>ansible&lt;/code> to build the cluster at one of the EGI
 Cloud providers. If you are building the cluster for the first time,
 create a new directory on your local git repository from the template,
-add it to the repo, and get &lt;code&gt;terraform&lt;/code&gt; ready:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ cp -a template &amp;lt;new provider&amp;gt;
+add it to the repo, and get &lt;code>terraform&lt;/code> ready:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ cp -a template &amp;lt;new provider&amp;gt;
 $ git add &amp;lt;new provider&amp;gt;
 $ cd &amp;lt;new provider&amp;gt;/terraform
 $ terraform init
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Using the &lt;code&gt;egicli&lt;/code&gt; you can get the list of projects and their ids for a
-given site:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ egicli endpoint projects --site CESGA
-id                                Name                 enabled    site
---------------------------------  -------------------  ---------  ------
-3a8e9d966e644405bf19b536adf7743d  vo.access.egi.eu     True       CESGA
-916506ac136741c28e4326975eef0bff  vo.emso-eric.eu      True       CESGA
-b1d2ef2cc2284c57bcde21cf4ab141e3  vo.nextgeoss.eu      True       CESGA
-eb7ff20e603d471cb731bdb83a95a2b5  fedcloud.egi.eu      True       CESGA
-fcaf23d103c1485694e7494a59ee5f09  vo.notebooks.egi.eu  True       CESGA
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And with the project ID, you can obtain all the environment variables
-needed to interact with the OpenStack APIs of the site:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ eval &amp;quot;$(egicli endpoint env --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you are ready to use the openstack or terraform at the site. The
-token obtained is valid for 1 hour, you can refresh it at any time with:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ eval &amp;quot;$(egicli endpoint token --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;First get the network IDs and pool to use for the site:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ openstack network list
+&lt;/code>&lt;/pre>&lt;p>Using the &lt;code>egicli&lt;/code> you can get the list of projects and their ids for a
+given site:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ egicli endpoint projects --site CESGA
+id Name enabled site
+-------------------------------- ------------------- --------- ------
+3a8e9d966e644405bf19b536adf7743d vo.access.egi.eu True CESGA
+916506ac136741c28e4326975eef0bff vo.emso-eric.eu True CESGA
+b1d2ef2cc2284c57bcde21cf4ab141e3 vo.nextgeoss.eu True CESGA
+eb7ff20e603d471cb731bdb83a95a2b5 fedcloud.egi.eu True CESGA
+fcaf23d103c1485694e7494a59ee5f09 vo.notebooks.egi.eu True CESGA
+&lt;/code>&lt;/pre>&lt;p>And with the project ID, you can obtain all the environment variables
+needed to interact with the OpenStack APIs of the site:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ eval &amp;quot;$(egicli endpoint env --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09)&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>Now you are ready to use the openstack or terraform at the site. The
+token obtained is valid for 1 hour, you can refresh it at any time with:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ eval &amp;quot;$(egicli endpoint token --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09)&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>First get the network IDs and pool to use for the site:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ openstack network list
 +--------------------------------------+-------------------------+--------------------------------------+
-| ID                                   | Name                    | Subnets                              |
+| ID | Name | Subnets |
 +--------------------------------------+-------------------------+--------------------------------------+
 | 1aaf20b6-47a1-47ef-972e-7b36872f678f | net-vo.notebooks.egi.eu | 6465a327-c261-4391-a0f5-d503cc2d43d3 |
-| 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | public00                | 6af8c4f3-8e2e-405d-adea-c0b374c5bd99 |
+| 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | public00 | 6af8c4f3-8e2e-405d-adea-c0b374c5bd99 |
 +--------------------------------------+-------------------------+--------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In this case we will use &lt;code&gt;public00&lt;/code&gt; as the pool for public IPs and
-&lt;code&gt;1aaf20b6-47a1-47ef-972e-7b36872f678f&lt;/code&gt; as the network ID. Check with the
+&lt;/code>&lt;/pre>&lt;p>In this case we will use &lt;code>public00&lt;/code> as the pool for public IPs and
+&lt;code>1aaf20b6-47a1-47ef-972e-7b36872f678f&lt;/code> as the network ID. Check with the
 provider which is the right network to use. Use these values in the
-&lt;code&gt;terraform.tfvars&lt;/code&gt; file:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.terraform}&#34; data-lang=&#34;{.terraform}&#34;&gt;ip_pool = &amp;quot;public00&amp;quot;
-net_id  = &amp;quot;1aaf20b6-47a1-47ef-972e-7b36872f678f&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You may want to check the right flavors for your VMs and adapt other
-variables in &lt;code&gt;terraform.tfvars&lt;/code&gt;. To get a list of flavors you can use:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ openstack flavor list
+&lt;code>terraform.tfvars&lt;/code> file:&lt;/p>
+&lt;pre>&lt;code class="language-{.terraform}" data-lang="{.terraform}">ip_pool = &amp;quot;public00&amp;quot;
+net_id = &amp;quot;1aaf20b6-47a1-47ef-972e-7b36872f678f&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>You may want to check the right flavors for your VMs and adapt other
+variables in &lt;code>terraform.tfvars&lt;/code>. To get a list of flavors you can use:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ openstack flavor list
 +--------------------------------------+----------------+-------+------+-----------+-------+-----------+
-| ID                                   | Name           |   RAM | Disk | Ephemeral | VCPUs | Is Public |
+| ID | Name | RAM | Disk | Ephemeral | VCPUs | Is Public |
 +--------------------------------------+----------------+-------+------+-----------+-------+-----------+
-| 26d14547-96f2-4751-a686-f89a9f7cd9cc | cor4mem8hd40   |  8192 |   40 |         0 |     4 | True      |
-| 42eb9c81-e556-4b63-bc19-4c9fb735e344 | cor2mem2hd20   |  2048 |   20 |         0 |     2 | True      |
-| 4787d9fc-3923-4fc9-b770-30966fc3baee | cor4mem4hd40   |  4096 |   40 |         0 |     4 | True      |
-| 58586b06-7b9d-47af-b9d0-e16d49497d09 | cor24mem62hd60 | 63488 |   60 |         0 |    24 | True      |
-| 635c739a-692f-4890-b8fd-d50963bff00e | cor1mem1hd10   |  1024 |   10 |         0 |     1 | True      |
-| 6ba0080d-d71c-4aff-b6f9-b5a9484097f8 | small          |   512 |    2 |         0 |     1 | True      |
-| 6e514065-9013-4ce1-908a-0dcc173125e4 | cor2mem4hd20   |  4096 |   20 |         0 |     2 | True      |
-| 85f66ce6-0b66-4889-a0bf-df8dc23ee540 | cor1mem2hd10   |  2048 |   10 |         0 |     1 | True      |
-| c4aa496b-4684-4a86-bd7f-3a67c04b1fa6 | cor24mem50hd50 | 51200 |   50 |         0 |    24 | True      |
-| edac68c3-50ea-42c2-ae1d-76b8beb306b5 | test-bigHD     |  4096 |  237 |         0 |     2 | True      |
+| 26d14547-96f2-4751-a686-f89a9f7cd9cc | cor4mem8hd40 | 8192 | 40 | 0 | 4 | True |
+| 42eb9c81-e556-4b63-bc19-4c9fb735e344 | cor2mem2hd20 | 2048 | 20 | 0 | 2 | True |
+| 4787d9fc-3923-4fc9-b770-30966fc3baee | cor4mem4hd40 | 4096 | 40 | 0 | 4 | True |
+| 58586b06-7b9d-47af-b9d0-e16d49497d09 | cor24mem62hd60 | 63488 | 60 | 0 | 24 | True |
+| 635c739a-692f-4890-b8fd-d50963bff00e | cor1mem1hd10 | 1024 | 10 | 0 | 1 | True |
+| 6ba0080d-d71c-4aff-b6f9-b5a9484097f8 | small | 512 | 2 | 0 | 1 | True |
+| 6e514065-9013-4ce1-908a-0dcc173125e4 | cor2mem4hd20 | 4096 | 20 | 0 | 2 | True |
+| 85f66ce6-0b66-4889-a0bf-df8dc23ee540 | cor1mem2hd10 | 2048 | 10 | 0 | 1 | True |
+| c4aa496b-4684-4a86-bd7f-3a67c04b1fa6 | cor24mem50hd50 | 51200 | 50 | 0 | 24 | True |
+| edac68c3-50ea-42c2-ae1d-76b8beb306b5 | test-bigHD | 4096 | 237 | 0 | 2 | True |
 +--------------------------------------+----------------+-------+------+-----------+-------+-----------+
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Finally ensure your public ssh key is also listed in the
-&lt;code&gt;cloud-init.yaml&lt;/code&gt; file and then you are ready to deploy the cluster
-with:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ terraform apply
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Your VMs are up and running, it&#39;s time to get kubernetes configured and
-running with ansible.&lt;/p&gt;
-&lt;p&gt;The following ansible role needs to be installed first:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ ansible-galaxy install grycap.kubernetes
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and then:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ cd ..   # you should be now in &amp;lt;new provider&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>Finally ensure your public ssh key is also listed in the
+&lt;code>cloud-init.yaml&lt;/code> file and then you are ready to deploy the cluster
+with:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ terraform apply
+&lt;/code>&lt;/pre>&lt;p>Your VMs are up and running, it's time to get kubernetes configured and
+running with ansible.&lt;/p>
+&lt;p>The following ansible role needs to be installed first:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ ansible-galaxy install grycap.kubernetes
+&lt;/code>&lt;/pre>&lt;p>and then:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ cd .. # you should be now in &amp;lt;new provider&amp;gt;
 $ ANSIBLE_TRANSFORM_INVALID_GROUP_CHARS=silently TF_STATE=./terraform \
-  ansible-playbook --inventory-file=$(which terraform-inventory) \
-  playbooks/k8s.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;interacting-with-the-cluster&#34;&gt;Interacting with the cluster&lt;/h3&gt;
-&lt;p&gt;As the master will be on a private IP, you won&#39;t be able to directly
+ansible-playbook --inventory-file=$(which terraform-inventory) \
+playbooks/k8s.yaml
+&lt;/code>&lt;/pre>&lt;h3 id="interacting-with-the-cluster">Interacting with the cluster&lt;/h3>
+&lt;p>As the master will be on a private IP, you won't be able to directly
 interact with it, but you can still ssh into the VM using the ingress
 node as a gateway host (you can get the different hosts with
-&lt;code&gt;TF_STATE=./terraform terraform-inventory --inventory&lt;/code&gt;)&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ ssh -o ProxyCommand=&amp;quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -W %h:%p -q egi@&amp;lt;ingress ip&amp;gt;&amp;quot; \
-      -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null egi@&amp;lt;master ip&amp;gt;
+&lt;code>TF_STATE=./terraform terraform-inventory --inventory&lt;/code>)&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ ssh -o ProxyCommand=&amp;quot;ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -W %h:%p -q egi@&amp;lt;ingress ip&amp;gt;&amp;quot; \
+-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null egi@&amp;lt;master ip&amp;gt;
 egi@k8s-master:~$ kubectl get nodes
-NAME            STATUS   ROLES    AGE   VERSION
-k8s-master      Ready    master   33m   v1.15.7
-k8s-nfs         Ready    &amp;lt;none&amp;gt;   16m   v1.15.7
-k8s-w-ingress   Ready    &amp;lt;none&amp;gt;   16m   v1.15.7
+NAME STATUS ROLES AGE VERSION
+k8s-master Ready master 33m v1.15.7
+k8s-nfs Ready &amp;lt;none&amp;gt; 16m v1.15.7
+k8s-w-ingress Ready &amp;lt;none&amp;gt; 16m v1.15.7
 egi@k8s-master:~$ helm list
-NAME             REVISION    UPDATED                     STATUS      CHART                           APP VERSION NAMESPACE
-certs-man        2           Wed Jan  8 15:56:58 2020    DEPLOYED    cert-manager-v0.11.0            v0.11.0     cert-manager
-cluster-ingress  3           Wed Jan  8 15:56:53 2020    DEPLOYED    nginx-ingress-1.7.0             0.24.1      kube-system
-nfs-provisioner  3           Wed Jan  8 15:56:43 2020    DEPLOYED    nfs-client-provisioner-1.2.8    3.1.0       kube-system
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;modifyingdestroying-the-cluster&#34;&gt;Modifying/Destroying the cluster&lt;/h3&gt;
-&lt;p&gt;You should be able to change the number of workers in the cluster and
+NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
+certs-man 2 Wed Jan 8 15:56:58 2020 DEPLOYED cert-manager-v0.11.0 v0.11.0 cert-manager
+cluster-ingress 3 Wed Jan 8 15:56:53 2020 DEPLOYED nginx-ingress-1.7.0 0.24.1 kube-system
+nfs-provisioner 3 Wed Jan 8 15:56:43 2020 DEPLOYED nfs-client-provisioner-1.2.8 3.1.0 kube-system
+&lt;/code>&lt;/pre>&lt;h3 id="modifyingdestroying-the-cluster">Modifying/Destroying the cluster&lt;/h3>
+&lt;p>You should be able to change the number of workers in the cluster and
 re-apply terraform to start them and then execute the playbook to get
-them added to the cluster.&lt;/p&gt;
-&lt;p&gt;Any changes in the master, NFS or ingress VMs should be done carfully as
+them added to the cluster.&lt;/p>
+&lt;p>Any changes in the master, NFS or ingress VMs should be done carfully as
 those will probably break the configuration of the kubernetes cluster
-and of any application running on top.&lt;/p&gt;
-&lt;p&gt;Destroying the cluster can be done with a single command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ terraform destroy
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;notebooks-deployments&#34;&gt;Notebooks deployments&lt;/h2&gt;
-&lt;p&gt;Once the k8s cluster is up and running, you can deploy a notebooks
+and of any application running on top.&lt;/p>
+&lt;p>Destroying the cluster can be done with a single command:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ terraform destroy
+&lt;/code>&lt;/pre>&lt;h2 id="notebooks-deployments">Notebooks deployments&lt;/h2>
+&lt;p>Once the k8s cluster is up and running, you can deploy a notebooks
 instance. For each deployment you should create a file in the
-&lt;code&gt;deployments&lt;/code&gt; directory following the template provided:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ cp deployments/hub.yaml.template deployments/hub.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Each deployment will need a domain name pointing to your ingress host,
-you can create one at the &lt;a href=&#34;https://nsupdate.fedcloud.eu/&#34;&gt;FedCloud dynamic DNS
-service&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Then you will need to create an OpenID Connect client for EGI Check-in
+&lt;code>deployments&lt;/code> directory following the template provided:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ cp deployments/hub.yaml.template deployments/hub.yaml
+&lt;/code>&lt;/pre>&lt;p>Each deployment will need a domain name pointing to your ingress host,
+you can create one at the &lt;a href="https://nsupdate.fedcloud.eu/">FedCloud dynamic DNS
+service&lt;/a>.&lt;/p>
+&lt;p>Then you will need to create an OpenID Connect client for EGI Check-in
 to authorise users into the new deployment. You can create a client by
-going to the &lt;a href=&#34;https://aai-demo.egi.eu/oidc/manage/admin/clients&#34;&gt;Check-in demo OIDC clients
-management&lt;/a&gt;. Use the
+going to the &lt;a href="https://aai-demo.egi.eu/oidc/manage/admin/clients">Check-in demo OIDC clients
+management&lt;/a>. Use the
 following as redirect URL:
-&lt;code&gt;https://&amp;lt;your host domain name&amp;gt;/hub/oauth_callback&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;In the &lt;em&gt;Access&lt;/em&gt; tab, add &lt;code&gt;offline_access&lt;/code&gt; to the list of
+&lt;code>https://&amp;lt;your host domain name&amp;gt;/hub/oauth_callback&lt;/code>.&lt;/p>
+&lt;p>In the &lt;em>Access&lt;/em> tab, add &lt;code>offline_access&lt;/code> to the list of
 scopes. Save the client and take note of the client ID and client secret
-for later.&lt;/p&gt;
-&lt;p&gt;Finally you will also need 3 different random strings generated with
-&lt;code&gt;openssl rand -hex 32&lt;/code&gt; that will be used as secrets in the file
-describing the deployment.&lt;/p&gt;
-&lt;p&gt;Go and edit the deployment description file to add this information
-(search for &lt;code&gt;# FIXME NEEDS INPUT&lt;/code&gt; in the file to quickly get there)&lt;/p&gt;
-&lt;p&gt;For deploying the notebooks instance we will also use &lt;code&gt;ansible&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ ANSIBLE_TRANSFORM_INVALID_GROUP_CHARS=silently TF_STATE=./terraform ansible-playbook \
-       --inventory-file=$(which terraform-inventory) playbooks/notebooks.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The first deployment trial may fail due to a timeout caused by the
+for later.&lt;/p>
+&lt;p>Finally you will also need 3 different random strings generated with
+&lt;code>openssl rand -hex 32&lt;/code> that will be used as secrets in the file
+describing the deployment.&lt;/p>
+&lt;p>Go and edit the deployment description file to add this information
+(search for &lt;code># FIXME NEEDS INPUT&lt;/code> in the file to quickly get there)&lt;/p>
+&lt;p>For deploying the notebooks instance we will also use &lt;code>ansible&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ ANSIBLE_TRANSFORM_INVALID_GROUP_CHARS=silently TF_STATE=./terraform ansible-playbook \
+--inventory-file=$(which terraform-inventory) playbooks/notebooks.yaml
+&lt;/code>&lt;/pre>&lt;p>The first deployment trial may fail due to a timeout caused by the
 downloading of the container images needed. You can retry after a while
-to re-deploy.&lt;/p&gt;
-&lt;p&gt;In the master you can check the status of your deployment (the name of
+to re-deploy.&lt;/p>
+&lt;p>In the master you can check the status of your deployment (the name of
 the deployment will be the same as the name of your local deployment
-file):&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.shell}&#34; data-lang=&#34;{.shell}&#34;&gt;$ helm status hub
-LAST DEPLOYED: Thu Jan  9 08:14:49 2020
+file):&lt;/p>
+&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ helm status hub
+LAST DEPLOYED: Thu Jan 9 08:14:49 2020
 NAMESPACE: hub
 STATUS: DEPLOYED
-
 RESOURCES:
 ==&amp;gt; v1/ServiceAccount
-NAME            SECRETS  AGE
-hub             1        6m46s
-user-scheduler  1        3m34s
-
+NAME SECRETS AGE
+hub 1 6m46s
+user-scheduler 1 3m34s
 ==&amp;gt; v1/Service
-NAME          TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)                     AGE
-hub           ClusterIP  10.100.77.129  &amp;lt;none&amp;gt;       8081/TCP                    6m46s
-proxy-public  NodePort   10.107.127.44  &amp;lt;none&amp;gt;       443:32083/TCP,80:30581/TCP  6m45s
-proxy-api     ClusterIP  10.103.195.6   &amp;lt;none&amp;gt;       8001/TCP                    6m45s
-
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+hub ClusterIP 10.100.77.129 &amp;lt;none&amp;gt; 8081/TCP 6m46s
+proxy-public NodePort 10.107.127.44 &amp;lt;none&amp;gt; 443:32083/TCP,80:30581/TCP 6m45s
+proxy-api ClusterIP 10.103.195.6 &amp;lt;none&amp;gt; 8001/TCP 6m45s
 ==&amp;gt; v1/ConfigMap
-NAME            DATA  AGE
-hub-config      4     6m47s
-user-scheduler  1     3m35s
-
+NAME DATA AGE
+hub-config 4 6m47s
+user-scheduler 1 3m35s
 ==&amp;gt; v1/PersistentVolumeClaim
-NAME        STATUS   VOLUME               CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-hub-db-dir  Pending  managed-nfs-storage  6m46s
-
+NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
+hub-db-dir Pending managed-nfs-storage 6m46s
 ==&amp;gt; v1/ClusterRole
-NAME                              AGE
-hub-user-scheduler-complementary  3m34s
-
+NAME AGE
+hub-user-scheduler-complementary 3m34s
 ==&amp;gt; v1/ClusterRoleBinding
-NAME                              AGE
-hub-user-scheduler-base           3m34s
-hub-user-scheduler-complementary  3m34s
-
+NAME AGE
+hub-user-scheduler-base 3m34s
+hub-user-scheduler-complementary 3m34s
 ==&amp;gt; v1/RoleBinding
-NAME  AGE
-hub   6m46s
-
+NAME AGE
+hub 6m46s
 ==&amp;gt; v1/Pod(related)
-NAME                            READY  STATUS   RESTARTS  AGE
-continuous-image-puller-flf5t   1/1    Running  0         3m34s
-continuous-image-puller-scr49   1/1    Running  0         3m34s
-hub-569596fc54-vjbms            0/1    Pending  0         3m30s
-proxy-79fb6d57c5-nj8n2          1/1    Running  0         2m22s
-user-scheduler-9685d654b-9zt5d  1/1    Running  0         3m30s
-user-scheduler-9685d654b-k8v9p  1/1    Running  0         3m30s
-
+NAME READY STATUS RESTARTS AGE
+continuous-image-puller-flf5t 1/1 Running 0 3m34s
+continuous-image-puller-scr49 1/1 Running 0 3m34s
+hub-569596fc54-vjbms 0/1 Pending 0 3m30s
+proxy-79fb6d57c5-nj8n2 1/1 Running 0 2m22s
+user-scheduler-9685d654b-9zt5d 1/1 Running 0 3m30s
+user-scheduler-9685d654b-k8v9p 1/1 Running 0 3m30s
 ==&amp;gt; v1/Secret
-NAME        TYPE    DATA  AGE
-hub-secret  Opaque  3     6m47s
-
+NAME TYPE DATA AGE
+hub-secret Opaque 3 6m47s
 ==&amp;gt; v1/DaemonSet
-NAME                     DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
-continuous-image-puller  2        2        2      2           2          &amp;lt;none&amp;gt;         3m34s
-
+NAME DESIRED CURRENT READY UP-TO-DATE AVAILABLE NODE SELECTOR AGE
+continuous-image-puller 2 2 2 2 2 &amp;lt;none&amp;gt; 3m34s
 ==&amp;gt; v1/Deployment
-NAME            DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-hub             1        1        1           0          6m45s
-proxy           1        1        1           1          6m45s
-user-scheduler  2        2        2           2          3m32s
-
+NAME DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
+hub 1 1 1 0 6m45s
+proxy 1 1 1 1 6m45s
+user-scheduler 2 2 2 2 3m32s
 ==&amp;gt; v1/StatefulSet
-NAME              DESIRED  CURRENT  AGE
-user-placeholder  0        0        6m44s
-
+NAME DESIRED CURRENT AGE
+user-placeholder 0 0 6m44s
 ==&amp;gt; v1beta1/Ingress
-NAME        HOSTS                                 ADDRESS  PORTS  AGE
-jupyterhub  notebooktest.fedcloud-tf.fedcloud.eu  80, 443  6m44s
-
+NAME HOSTS ADDRESS PORTS AGE
+jupyterhub notebooktest.fedcloud-tf.fedcloud.eu 80, 443 6m44s
 ==&amp;gt; v1beta1/PodDisruptionBudget
-NAME              MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
-hub               1              N/A              0                    6m48s
-proxy             1              N/A              0                    6m48s
-user-placeholder  0              N/A              0                    6m48s
-user-scheduler    1              N/A              1                    6m47s
-
+NAME MIN AVAILABLE MAX UNAVAILABLE ALLOWED DISRUPTIONS AGE
+hub 1 N/A 0 6m48s
+proxy 1 N/A 0 6m48s
+user-placeholder 0 N/A 0 6m48s
+user-scheduler 1 N/A 1 6m47s
 ==&amp;gt; v1/Role
-NAME  AGE
-hub   6m46s
-
-
+NAME AGE
+hub 6m46s
 NOTES:
 Thank you for installing JupyterHub!
-
 Your release is named hub and installed into the namespace hub.
-
 You can find if the hub and proxy is ready by doing:
-
 kubectl --namespace=hub get pod
-
-and watching for both those pods to be in status &#39;Running&#39;.
-
+and watching for both those pods to be in status 'Running'.
 You can find the public IP of the JupyterHub by doing:
-
 kubectl --namespace=hub get svc proxy-public
-
 It might take a few minutes for it to appear!
-
 Note that this is still an alpha release! If you have questions, feel free to
 1. Read the guide at https://z2jh.jupyter.org
 2. Chat with us at https://gitter.im/jupyterhub/jupyterhub
 3. File issues at https://github.com/jupyterhub/zero-to-jupyterhub-k8s/issues
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;updating-a-deployment&#34;&gt;Updating a deployment&lt;/h3&gt;
-&lt;p&gt;Just edit the deployment description file and run ansible again. The helm will be upgraded at the cluster.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>&lt;h3 id="updating-a-deployment">Updating a deployment&lt;/h3>
+&lt;p>Just edit the deployment description file and run ansible again. The helm will be upgraded at the cluster.&lt;/p></description></item></channel></rss>

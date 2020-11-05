@@ -1,93 +1,70 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>EGI Docs – Check-in</title>
-    <link>/providers/check-in/</link>
-    <description>Recent content in Check-in on EGI Docs</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="/providers/check-in/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Providers: Identity Providers</title>
-      <link>/providers/check-in/idp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/providers/check-in/idp/</guid>
-      <description>
-        
-        
-        &lt;p&gt;This page contains information about integrating your identity
-provider (IdP) with &lt;a href=&#34;https://www.egi.eu/services/check-in/&#34;&gt;Check-in&lt;/a&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Check-in</title><link>/providers/check-in/</link><description>Recent content in Check-in on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/providers/check-in/index.xml" rel="self" type="application/rss+xml"/><item><title>Providers: Identity Providers</title><link>/providers/check-in/idp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/check-in/idp/</guid><description>
+&lt;p>This page contains information about integrating your identity
+provider (IdP) with &lt;a href="https://www.egi.eu/services/check-in/">Check-in&lt;/a>
 in order to allow users in your community to access EGI tools and
-services.&lt;/p&gt;
-&lt;p&gt;Organisations who want to register their IdP in Check-in needs to fill
-this &lt;a href=&#34;https://documents.egi.eu/document/3086&#34;&gt;form&lt;/a&gt; in case the IdP is
-not publishing REFEDS &lt;a href=&#34;https://refeds.org/category/research-and-scholarship&#34;&gt;R&amp;amp;S&lt;/a&gt;
-and &lt;a href=&#34;https://refeds.org/sirtfi&#34;&gt;Sirtfi&lt;/a&gt; compliance in eduGAIN. A PDF scan of a
-printed and signed copy should be sent to &lt;code&gt;operations_at_egi.eu&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;identity-provider-integration-workflow&#34;&gt;Identity Provider integration workflow&lt;/h2&gt;
-&lt;p&gt;To integrate your Identity Provider with the EGI Check-in service, you
-need to submit a &lt;a href=&#34;https://ggus.eu&#34;&gt;GGUS&lt;/a&gt; ticket indicating your request.
-The responsible support unit is &lt;a href=&#34;https://wiki.egi.eu/wiki/GGUS:AAI_SUPPORT_FAQ&#34;&gt;AAI
-Support&lt;/a&gt;.
-The integration follows a two-step process:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Register your Identity Provider and test integration
+services.&lt;/p>
+&lt;p>Organisations who want to register their IdP in Check-in needs to fill
+this &lt;a href="https://documents.egi.eu/document/3086">form&lt;/a> in case the IdP is
+not publishing REFEDS &lt;a href="https://refeds.org/category/research-and-scholarship">R&amp;amp;S&lt;/a>
+and &lt;a href="https://refeds.org/sirtfi">Sirtfi&lt;/a> compliance in eduGAIN. A PDF scan of a
+printed and signed copy should be sent to &lt;code>operations_at_egi.eu&lt;/code>&lt;/p>
+&lt;h2 id="identity-provider-integration-workflow">Identity Provider integration workflow&lt;/h2>
+&lt;p>To integrate your Identity Provider with the EGI Check-in service, you
+need to submit a &lt;a href="https://ggus.eu">GGUS&lt;/a> ticket indicating your request.
+The responsible support unit is &lt;a href="https://wiki.egi.eu/wiki/GGUS:AAI_SUPPORT_FAQ">AAI
+Support&lt;/a>.
+The integration follows a two-step process:&lt;/p>
+&lt;ol>
+&lt;li>Register your Identity Provider and test integration
 with the development instance of EGI Check-in. The development
 instance allows for testing authentication and authorisation to EGI
 services and resources without affecting the production environment
 of EGI. Note that the development instance is not connected to the
 production service and no information is shared between the two
-systems.&lt;/li&gt;
-&lt;li&gt;Register your Identity Provider with the production
+systems.&lt;/li>
+&lt;li>Register your Identity Provider with the production
 instance of EGI Check-in to allow members of your Community to
 access production EGI services and resources protected by Check-in.
-This requires that your Identity Provider meets all the &lt;a href=&#34;https://documents.egi.eu/document/3086&#34;&gt;policy
-requirements&lt;/a&gt; and that
-integration has been thoroughly tested during Step 1.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The most important URLs for each environment are listed in the table
+This requires that your Identity Provider meets all the &lt;a href="https://documents.egi.eu/document/3086">policy
+requirements&lt;/a> and that
+integration has been thoroughly tested during Step 1.&lt;/li>
+&lt;/ol>
+&lt;p>The most important URLs for each environment are listed in the table
 below but more information can be found in the protocol-specific
-sections that follow.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Protocol&lt;/th&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Demo environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SAML&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OpenID Connect&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;#client-registration&#34;&gt;client registration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;#client-registration&#34;&gt;client registration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;See &lt;a href=&#34;#client-registration&#34;&gt;client registration&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;general-requirements-for-integrating-identity-providers&#34;&gt;General requirements for integrating identity providers&lt;/h2&gt;
-&lt;p&gt;An institution or a community may connect their IdP with Check-in to
+sections that follow.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Protocol&lt;/th>
+&lt;th>Development environment&lt;/th>
+&lt;th>Demo environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SAML&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OpenID Connect&lt;/td>
+&lt;td>See &lt;a href="#client-registration">client registration&lt;/a>&lt;/td>
+&lt;td>See &lt;a href="#client-registration">client registration&lt;/a>&lt;/td>
+&lt;td>See &lt;a href="#client-registration">client registration&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="general-requirements-for-integrating-identity-providers">General requirements for integrating identity providers&lt;/h2>
+&lt;p>An institution or a community may connect their IdP with Check-in to
 allow their users to access EGI services, or any other services that
 have enabled Check-in as an authentication provider. This section
 presents the general requirements for integrating an IdP with EGI
 Check-in, while protocol-specific instructions are provided in the
-sections that follow.&lt;/p&gt;
-&lt;h3 id=&#34;attribute-release-requirements&#34;&gt;Attribute release requirements&lt;/h3&gt;
-&lt;p&gt;As a bare minimum, the IdP of a user&amp;rsquo;s Home Organisation or Community is
+sections that follow.&lt;/p>
+&lt;h3 id="attribute-release-requirements">Attribute release requirements&lt;/h3>
+&lt;p>As a bare minimum, the IdP of a user&amp;rsquo;s Home Organisation or Community is
 expected to release a non-reassignable identifier that uniquely
 identifies the user within the scope of that organisation or community.
 The unique identifier must be accompanied with a minimum set of
@@ -97,226 +74,226 @@ attributes will be acquired and verified through the user registration
 process with the EGI Account Registry. The following table describes the
 data requested from the user&amp;rsquo;s Home Organisation, which are
 communicated to the Check-in SP as either SAML attributes or OIDC
-claims, depending on the protocol supported by the authenticating IdP.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;Notes&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;At least one of the following unique user identifiers:&lt;ol&gt;&lt;li&gt;pseudonymous, non-targeted identifier;&lt;/li&gt;&lt;li&gt;name-based, non-targeted identifier;&lt;/li&gt;&lt;li&gt;pseudonymous, targeted identifier&lt;/li&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Preferred name for display purposes&lt;/td&gt;
-&lt;td&gt;For example to be used in a greeting or a descriptive listing&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;First name&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Surname&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Email address&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Affiliation within Home Organisation or Community&lt;/td&gt;
-&lt;td&gt;To be released &lt;strong&gt;only&lt;/strong&gt; if relevant for accessing EGI services&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Note that the above set of requested attributes, particularly the
+claims, depending on the protocol supported by the authenticating IdP.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Description&lt;/th>
+&lt;th>Notes&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>At least one of the following unique user identifiers:&lt;ol>&lt;li>pseudonymous, non-targeted identifier;&lt;/li>&lt;li>name-based, non-targeted identifier;&lt;/li>&lt;li>pseudonymous, targeted identifier&lt;/li>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Preferred name for display purposes&lt;/td>
+&lt;td>For example to be used in a greeting or a descriptive listing&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>First name&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Surname&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Email address&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Affiliation within Home Organisation or Community&lt;/td>
+&lt;td>To be released &lt;strong>only&lt;/strong> if relevant for accessing EGI services&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>Note that the above set of requested attributes, particularly the
 identifier, name, email and affiliation information, complies with the
-&lt;a href=&#34;https://refeds.org/category/research-and-scholarship&#34;&gt;REFEDS R&amp;amp;S attribute
-bundle&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Information about group membership and role information released by your
+&lt;a href="https://refeds.org/category/research-and-scholarship">REFEDS R&amp;amp;S attribute
+bundle&lt;/a>.&lt;/p>
+&lt;p>Information about group membership and role information released by your
 IdP should follow the URN scheme below (see also
-&lt;a href=&#34;https://aarc-community.org/guidelines/aarc-g002&#34;&gt;AARC-G002&lt;/a&gt;):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;NAMESPACE&amp;gt;:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*]][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;where:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;NAMESPACE&amp;gt;&lt;/code&gt; is in the form of
-&lt;code&gt;urn:&amp;lt;NID&amp;gt;:&amp;lt;DELEGATED-NAMESPACE&amp;gt;[:&amp;lt;SUBNAMESPACE&amp;gt;*]&lt;/code&gt;,
+&lt;a href="https://aarc-community.org/guidelines/aarc-g002">AARC-G002&lt;/a>):&lt;/p>
+&lt;pre>&lt;code>&amp;lt;NAMESPACE&amp;gt;:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*]][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
+&lt;/code>&lt;/pre>
+&lt;p>where:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;NAMESPACE&amp;gt;&lt;/code> is in the form of
+&lt;code>urn:&amp;lt;NID&amp;gt;:&amp;lt;DELEGATED-NAMESPACE&amp;gt;[:&amp;lt;SUBNAMESPACE&amp;gt;*]&lt;/code>,
 where
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;NID&amp;gt;&lt;/code&gt; is the namespace identifier associated with a URN
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;NID&amp;gt;&lt;/code> is the namespace identifier associated with a URN
 namespace registered with
-&lt;a href=&#34;https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml&#34;&gt;IANA&lt;/a&gt;,
+&lt;a href="https://www.iana.org/assignments/urn-namespaces/urn-namespaces.xhtml">IANA&lt;/a>,
 as per RFC8141, ensuring global uniqueness. Implementers can and
 should use one of the existing registered URN namespaces, such
-as &lt;a href=&#34;https://www.geant.org/Services/Trust_identity_and_security/Pages/NamespaceRegistry.aspx&#34;&gt;&lt;code&gt;urn:geant&lt;/code&gt;&lt;/a&gt;
-and &lt;a href=&#34;https://www.internet2.edu/products-services/trust-identity/mace-registries/urnmace-namespace/&#34;&gt;&lt;code&gt;urn:mace&lt;/code&gt;&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;DELEGATED-NAMESPACE&amp;gt;&lt;/code&gt; is a URN sub-namespace delegated
-from one of the IANA registered NIDs&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;to an organisation representing the e-infrastructure, research
-infrastructure or research collaboration.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt; is the name of a VO, research collaboration or a
-top level arbitrary group. &lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt; names are unique within
-the &lt;code&gt;urn:mace:egi.eu:group&lt;/code&gt; namespace;&lt;/li&gt;
-&lt;li&gt;zero or more &lt;code&gt;&amp;lt;SUBGROUP&amp;gt;&lt;/code&gt; components represent the hierarchy
-of subgroups in the &lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt;; specifying sub-groups is
-optional&lt;/li&gt;
-&lt;li&gt;the optional &lt;code&gt;&amp;lt;ROLE&amp;gt;&lt;/code&gt; component is scoped to the rightmost
+as &lt;a href="https://www.geant.org/Services/Trust_identity_and_security/Pages/NamespaceRegistry.aspx">&lt;code>urn:geant&lt;/code>&lt;/a>
+and &lt;a href="https://www.internet2.edu/products-services/trust-identity/mace-registries/urnmace-namespace/">&lt;code>urn:mace&lt;/code>&lt;/a>;&lt;/li>
+&lt;li>&lt;code>&amp;lt;DELEGATED-NAMESPACE&amp;gt;&lt;/code> is a URN sub-namespace delegated
+from one of the IANA registered NIDs&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>to an organisation representing the e-infrastructure, research
+infrastructure or research collaboration.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> is the name of a VO, research collaboration or a
+top level arbitrary group. &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> names are unique within
+the &lt;code>urn:mace:egi.eu:group&lt;/code> namespace;&lt;/li>
+&lt;li>zero or more &lt;code>&amp;lt;SUBGROUP&amp;gt;&lt;/code> components represent the hierarchy
+of subgroups in the &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code>; specifying sub-groups is
+optional&lt;/li>
+&lt;li>the optional &lt;code>&amp;lt;ROLE&amp;gt;&lt;/code> component is scoped to the rightmost
 (sub)group; if no group information is specified, the role applies
-to the VO&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;GROUP-AUTHORITY&amp;gt;&lt;/code&gt; is a non-empty string that indicates the
+to the VO&lt;/li>
+&lt;li>&lt;code>&amp;lt;GROUP-AUTHORITY&amp;gt;&lt;/code> is a non-empty string that indicates the
 authoritative source for the entitlement value. For example, it can
 be the FQDN of the group management system that is responsible for
-the identified group membership information&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Example entitlement values expressing VO/group membership and role
-information:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urn:geant:dariah.eu:group:egi-interop:role=member#aaiproxy.de.dariah.eu
+the identified group membership information&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example entitlement values expressing VO/group membership and role
+information:&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>urn:geant:dariah.eu:group:egi-interop:role=member#aaiproxy.de.dariah.eu
 urn:geant:dariah.eu:group:egi-interop:role=vm_operator#aaiproxy.de.dariah.eu
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;operational-and-security-requirements&#34;&gt;Operational and security requirements&lt;/h3&gt;
-&lt;p&gt;The IdP needs to comply with additional requirements to achieve a higher
+&lt;/code>&lt;/pre>
+&lt;h3 id="operational-and-security-requirements">Operational and security requirements&lt;/h3>
+&lt;p>The IdP needs to comply with additional requirements to achieve a higher
 level of assurance and allow its users to gain access to a wider set of
 EGI services. A first group of additional requirements are defined by
-the &lt;a href=&#34;https://refeds.org/wp-content/uploads/2016/01/Sirtfi-1.0.pdf&#34;&gt;Sirtfi framework
-v1.0&lt;/a&gt;.
+the &lt;a href="https://refeds.org/wp-content/uploads/2016/01/Sirtfi-1.0.pdf">Sirtfi framework
+v1.0&lt;/a>.
 Adherence to these requirements can be asserted either by publishing
 Sirtfi compliance in the eduGAIN metadata or by declaring it in this
-&lt;a href=&#34;https://documents.egi.eu/document/3086&#34;&gt;form&lt;/a&gt;. These requirements are
+&lt;a href="https://documents.egi.eu/document/3086">form&lt;/a>. These requirements are
 in the areas of operational security, incident response, traceability
-and IdPs and users responsibility.&lt;/p&gt;
-&lt;h3 id=&#34;branding-requirements&#34;&gt;Branding requirements&lt;/h3&gt;
-&lt;p&gt;Check-in provides a central Discovery Service (or &amp;ldquo;Where Are You From&amp;rdquo; - WAYF)
+and IdPs and users responsibility.&lt;/p>
+&lt;h3 id="branding-requirements">Branding requirements&lt;/h3>
+&lt;p>Check-in provides a central Discovery Service (or &amp;ldquo;Where Are You From&amp;rdquo; - WAYF)
 page where users in your Home Organisation or Community will be
 automatically redirected when necessary to select to authenticate at
 your IdP. You can provide us with a logo of your Organisation or
 Community (in high-res png or preferably in svg format) to include a
 dedicated login button that will allow users to easily identify your
-IdP.&lt;/p&gt;
-&lt;h2 id=&#34;saml-identity-provider&#34;&gt;SAML Identity Provider&lt;/h2&gt;
-&lt;p&gt;To allow users in your community to sign into federated EGI
+IdP.&lt;/p>
+&lt;h2 id="saml-identity-provider">SAML Identity Provider&lt;/h2>
+&lt;p>To allow users in your community to sign into federated EGI
 applications, you need to connect to the EGI AAI SP Proxy as a SAML
 Identity Provider (IdP). Users of the application will be redirected to
 the central Discovery Service page of the EGI AAI Proxy where they will
 able to select to authenticate at your IdP. Once the user is
 authenticated, the EGI AAI Proxy will return a SAML assertion to the
 application containing the information returned by your IdP about the
-authenticated user.&lt;/p&gt;
-&lt;h3 id=&#34;metadata-registration&#34;&gt;Metadata registration&lt;/h3&gt;
-&lt;p&gt;SAML authentication relies on the use of metadata. Both parties (you as
+authenticated user.&lt;/p>
+&lt;h3 id="metadata-registration">Metadata registration&lt;/h3>
+&lt;p>SAML authentication relies on the use of metadata. Both parties (you as
 an IdP and the EGI AAI SP) need to exchange metadata in order to know
 and trust each other. The metadata include information such as the
 location of the service endpoints that need to be invoked, as well as
 the certificates that will be used to sign SAML messages. The format of
-the exchanged metadata should be based on the XML-based &lt;a href=&#34;https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf&#34;&gt;SAML 2.0
-specification&lt;/a&gt;.
+the exchanged metadata should be based on the XML-based &lt;a href="https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf">SAML 2.0
+specification&lt;/a>.
 Usually, you will not need to manually create such an XML document, as
 this is automatically generated by all major SAML 2.0 IdP software
 solutions (e.g., Shibboleth, SimpleSAMLphp). It is important that you
 serve your metadata over HTTPS using a browser-friendly SSL certificate,
-i.e. issued by a trusted certificate authority.&lt;/p&gt;
-&lt;p&gt;To exchange metadata, please send an email including the following
-information:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;entityID&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Metadata URL&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Depending on the software you are using, the authoritative XML metadata
-URL for your IdP might be in the following form:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;https://your.idp.example.eu/idp/shibboleth&lt;/code&gt; (Shibboleth)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;https://your.idp.example.eu/simplesaml/module.php/saml2/idp/metadata.php&lt;/code&gt; (SimpleSAMLphp)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Note that if your IdP is part of a federation, then it would be
+i.e. issued by a trusted certificate authority.&lt;/p>
+&lt;p>To exchange metadata, please send an email including the following
+information:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>entityID&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Metadata URL&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Depending on the software you are using, the authoritative XML metadata
+URL for your IdP might be in the following form:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>https://your.idp.example.eu/idp/shibboleth&lt;/code> (Shibboleth)&lt;/li>
+&lt;li>&lt;code>https://your.idp.example.eu/simplesaml/module.php/saml2/idp/metadata.php&lt;/code> (SimpleSAMLphp)&lt;/li>
+&lt;/ul>
+&lt;p>Note that if your IdP is part of a federation, then it would be
 preferred to send us the URL to a signed federation metadata aggregate.
-We can then cherry pick the appropriate entityID from that.&lt;/p&gt;
-&lt;p&gt;You can get the metadata of the EGI Check-in SP Proxy on a dedicated URL
-that depends on the integration environment being used:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Demo environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;For the production environment, it is recommended that you get the
+We can then cherry pick the appropriate entityID from that.&lt;/p>
+&lt;p>You can get the metadata of the EGI Check-in SP Proxy on a dedicated URL
+that depends on the integration environment being used:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Development environment&lt;/th>
+&lt;th>Demo environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai-dev.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai-demo.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>For the production environment, it is recommended that you get the
 metadata for the EGI Check-in SP (entityID:
-&lt;a href=&#34;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&#34;&gt;&lt;code&gt;https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/code&gt;&lt;/a&gt;)
+&lt;a href="https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso">&lt;code>https://aai.egi.eu/proxy/module.php/saml/sp/metadata.php/sso&lt;/code>&lt;/a>)
 from a signed eduGAIN metadata aggregate. For example, the following
-aggregates are provided by GRNET:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://md.aai.grnet.gr/aggregates/grnet-metadata.xml&#34;&gt;GRNET federation&#39;s
-metadata&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://md.aai.grnet.gr/feeds/edugain-sp-samlmd.xml&#34;&gt;eduGAIN SP
-metadata&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;attribute-release&#34;&gt;Attribute release&lt;/h3&gt;
-&lt;p&gt;The SAML based Identity Provider of your Home Organisation or Community
+aggregates are provided by GRNET:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://md.aai.grnet.gr/aggregates/grnet-metadata.xml">GRNET federation's
+metadata&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://md.aai.grnet.gr/feeds/edugain-sp-samlmd.xml">eduGAIN SP
+metadata&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="attribute-release">Attribute release&lt;/h3>
+&lt;p>The SAML based Identity Provider of your Home Organisation or Community
 is expected to release a non-reassignable identifier that uniquely
 identifies the user within the scope of that organisation or community,
 along with a set of additional information as described in the following
-table (see also &lt;a href=&#34;#attribute-release-requirements&#34;&gt;general attribute release
-requirements&lt;/a&gt;):&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;SAML attribute&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;At least one of the following unique user identifiers:&lt;ol&gt;&lt;li&gt;pseudonymous, non-targeted identifier;&lt;/li&gt;&lt;li&gt;name-based, non-targeted identifier;&lt;/li&gt;&lt;li&gt;pseudonymous, targeted identifier&lt;/li&gt;&lt;/td&gt;
-&lt;td&gt;&lt;ol&gt;&lt;li&gt;&lt;code&gt;SubjectID&lt;/code&gt; (public) or  &lt;code&gt;eduPersonUniqueId&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;eduPersonPrincipalName&lt;/code&gt;&lt;/li&gt;&lt;li&gt;&lt;code&gt;SubjectID&lt;/code&gt; (pairwise) or &lt;code&gt;eduPersonTargetedID&lt;/code&gt; or  SAML persistent identifier&lt;/li&gt;&lt;/ol&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Preferred name for display purposes&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;displayName&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;First name&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;givenName&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Surname&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;sn&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Email address&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;mail&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Affiliation within Home Organisation or Community&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduPersonScopedAffiliation&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Group(s)/role(s) within Home Organisation or Community&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduPersonEntitlement&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;openid-connect-identity-provider&#34;&gt;OpenID Connect Identity Provider&lt;/h2&gt;
-&lt;p&gt;Users in your community can sign into federated EGI applications through
+table (see also &lt;a href="#attribute-release-requirements">general attribute release
+requirements&lt;/a>):&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Description&lt;/th>
+&lt;th>SAML attribute&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>At least one of the following unique user identifiers:&lt;ol>&lt;li>pseudonymous, non-targeted identifier;&lt;/li>&lt;li>name-based, non-targeted identifier;&lt;/li>&lt;li>pseudonymous, targeted identifier&lt;/li>&lt;/td>
+&lt;td>&lt;ol>&lt;li>&lt;code>SubjectID&lt;/code> (public) or &lt;code>eduPersonUniqueId&lt;/code>&lt;/li>&lt;li>&lt;code>eduPersonPrincipalName&lt;/code>&lt;/li>&lt;li>&lt;code>SubjectID&lt;/code> (pairwise) or &lt;code>eduPersonTargetedID&lt;/code> or SAML persistent identifier&lt;/li>&lt;/ol>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Preferred name for display purposes&lt;/td>
+&lt;td>&lt;code>displayName&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>First name&lt;/td>
+&lt;td>&lt;code>givenName&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Surname&lt;/td>
+&lt;td>&lt;code>sn&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Email address&lt;/td>
+&lt;td>&lt;code>mail&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Affiliation within Home Organisation or Community&lt;/td>
+&lt;td>&lt;code>eduPersonScopedAffiliation&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Group(s)/role(s) within Home Organisation or Community&lt;/td>
+&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="openid-connect-identity-provider">OpenID Connect Identity Provider&lt;/h2>
+&lt;p>Users in your community can sign into federated EGI applications through
 the Check-in service using your OpenID Connect or OAuth 2.0 based
-Identity Provider.&lt;/p&gt;
-&lt;h3 id=&#34;client-registration&#34;&gt;Client registration&lt;/h3&gt;
-&lt;p&gt;To enable your OIDC Identity Provider for user login, Check-in needs to
+Identity Provider.&lt;/p>
+&lt;h3 id="client-registration">Client registration&lt;/h3>
+&lt;p>To enable your OIDC Identity Provider for user login, Check-in needs to
 be registered as a client in order to obtain OAuth 2.0 credentials, such
 as a client ID and client secret, and to register one or more redirect
 URIs. Once Check-in is registered as a client, your users will be
@@ -326,409 +303,396 @@ to authenticate at your IdP. Once the user is authenticated, Check-in
 will be responsible for communicating the information returned by your
 IdP about the authenticated user to the connected application. Depending
 on the protocol, this information will be expressed through a SAML
-assertion, a set of OIDC claims or a (proxy) X.509 certificate.&lt;/p&gt;
-&lt;h3 id=&#34;provider-configuration&#34;&gt;Provider configuration&lt;/h3&gt;
-&lt;p&gt;Check-in needs to obtain your OpenID Provider&#39;s configuration
+assertion, a set of OIDC claims or a (proxy) X.509 certificate.&lt;/p>
+&lt;h3 id="provider-configuration">Provider configuration&lt;/h3>
+&lt;p>Check-in needs to obtain your OpenID Provider's configuration
 information, including the location of the Authorisation, Token and
 UserInfo endpoints. Your OpenID Provider is expected to make a JSON
 document available at the path formed by concatenating the string
-&lt;code&gt;/.well-known/openid-configuration&lt;/code&gt; to the Issuer, following the &lt;a href=&#34;https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig&#34;&gt;OpenID
+&lt;code>/.well-known/openid-configuration&lt;/code> to the Issuer, following the &lt;a href="https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig">OpenID
 Connect Discovery 1.0
-specification&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;attribute-release-1&#34;&gt;Attribute release&lt;/h3&gt;
-&lt;p&gt;The OpenID Connect or OAuth 2.0 based Identity Provider of your Home
+specification&lt;/a>.&lt;/p>
+&lt;h3 id="attribute-release-1">Attribute release&lt;/h3>
+&lt;p>The OpenID Connect or OAuth 2.0 based Identity Provider of your Home
 Organisation or Community is expected to release a non-reassignable
 identifier that uniquely identifies the user within the scope of that
 organisation or community, along with a set of additional information as
-described in the following table (see also &lt;a href=&#34;#attribute-release-requirements&#34;&gt;general attribute release
-requirements&lt;/a&gt;):&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;OIDC claim&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;At least one of the following unique user identifiers:&lt;ol&gt;&lt;li&gt;pseudonymous, non-targeted identifier;&lt;/li&gt;&lt;li&gt;name-based, non-targeted identifier;&lt;/li&gt;&lt;li&gt;pseudonymous, targeted identifier&lt;/li&gt;&lt;/td&gt;
-&lt;td&gt;&lt;ol&gt;&lt;li&gt;&lt;code&gt;sub&lt;/code&gt; (public)&lt;/li&gt;&lt;li&gt;N/A&lt;/li&gt;&lt;li&gt;&lt;code&gt;sub&lt;/code&gt; (pairwise)&lt;/li&gt;&lt;/ol&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Preferred name for display purposes&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;name&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;First name&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;given_name&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Surname&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;family_name&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Email address&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;email&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Affiliation within Home Organisation or Community&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduperson_scoped_affiliation&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Group(s)/role(s) within Home Organisation or Community&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduPerson_entitlement&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;integration-success-stories&#34;&gt;Integration success stories&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://wiki.egi.eu/wiki/EGI_AAI_integration_with_ELIXIR_AAI&#34;&gt;EGI AAI integration with ELIXIR&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Providers: Service Providers</title>
-      <link>/providers/check-in/sp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/providers/check-in/sp/</guid>
-      <description>
-        
-        
-        &lt;p&gt;This page contains information about connecting services to
-&lt;a href=&#34;https://www.egi.eu/services/check-in/&#34;&gt;Check-in&lt;/a&gt;
+described in the following table (see also &lt;a href="#attribute-release-requirements">general attribute release
+requirements&lt;/a>):&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Description&lt;/th>
+&lt;th>OIDC claim&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>At least one of the following unique user identifiers:&lt;ol>&lt;li>pseudonymous, non-targeted identifier;&lt;/li>&lt;li>name-based, non-targeted identifier;&lt;/li>&lt;li>pseudonymous, targeted identifier&lt;/li>&lt;/td>
+&lt;td>&lt;ol>&lt;li>&lt;code>sub&lt;/code> (public)&lt;/li>&lt;li>N/A&lt;/li>&lt;li>&lt;code>sub&lt;/code> (pairwise)&lt;/li>&lt;/ol>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Preferred name for display purposes&lt;/td>
+&lt;td>&lt;code>name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>First name&lt;/td>
+&lt;td>&lt;code>given_name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Surname&lt;/td>
+&lt;td>&lt;code>family_name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Email address&lt;/td>
+&lt;td>&lt;code>email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Affiliation within Home Organisation or Community&lt;/td>
+&lt;td>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Group(s)/role(s) within Home Organisation or Community&lt;/td>
+&lt;td>&lt;code>eduPerson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="integration-success-stories">Integration success stories&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.egi.eu/wiki/EGI_AAI_integration_with_ELIXIR_AAI">EGI AAI integration with ELIXIR&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Providers: Service Providers</title><link>/providers/check-in/sp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/check-in/sp/</guid><description>
+&lt;p>This page contains information about connecting services to
+&lt;a href="https://www.egi.eu/services/check-in/">Check-in&lt;/a>
 in order to allow user login through Check-in and to receive
-users&amp;rsquo; attributes.&lt;/p&gt;
-&lt;h2 id=&#34;services-eligible-for-integration&#34;&gt;Services eligible for integration&lt;/h2&gt;
-&lt;p&gt;EGI Operations, as owner of the Check-in service, must approve every
+users&amp;rsquo; attributes.&lt;/p>
+&lt;h2 id="services-eligible-for-integration">Services eligible for integration&lt;/h2>
+&lt;p>EGI Operations, as owner of the Check-in service, must approve every
 request for integration of new services with the AAI proxy. The approval
 (or non-approval) will be based on some pre-requisites, the relevance of
 the service for the EGI community and the available resources to support
 the integration. The pre-requisites are described in the following
-sections.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;EGI at any time can prevent a service provider to access the Check-in
-service&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&#34;services-federated-in-egi&#34;&gt;Services federated in EGI&lt;/h3&gt;
-&lt;p&gt;All the services that are operated by Resource Providers federated in
+sections.&lt;/p>
+&lt;p>&lt;strong>EGI at any time can prevent a service provider to access the Check-in
+service&lt;/strong>&lt;/p>
+&lt;h3 id="services-federated-in-egi">Services federated in EGI&lt;/h3>
+&lt;p>All the services that are operated by Resource Providers federated in
 EGI federation and that abide to the RC OLA, and consequently to the
 relevant security policies of EGI, can be SP for the EGI Check-in
 service. Fulfilling all the relevant EGI policies makes the service
-eligible in receiving attributes released by the Check-in proxy.&lt;/p&gt;
-&lt;h3 id=&#34;services-not-federated-in-egi&#34;&gt;Services not federated in EGI&lt;/h3&gt;
-&lt;p&gt;A service not part of the EGI federation can be integrated as a SP in
+eligible in receiving attributes released by the Check-in proxy.&lt;/p>
+&lt;h3 id="services-not-federated-in-egi">Services not federated in EGI&lt;/h3>
+&lt;p>A service not part of the EGI federation can be integrated as a SP in
 the Check-in AAI Proxy if the organisation providing the service
 complies with the EGI security requirements relevant to the service
-providers.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;To assert compliance, the organisation needs to fill in the
-&lt;a href=&#34;https://documents.egi.eu/document/3086&#34;&gt;registration form for SPs&lt;/a&gt;. A
+providers.&lt;/p>
+&lt;p>&lt;strong>To assert compliance, the organisation needs to fill in the
+&lt;a href="https://documents.egi.eu/document/3086">registration form for SPs&lt;/a>. A
 PDF scan of a printed and signed copy should be sent to
-&lt;code&gt;operations_at_egi.eu&lt;/code&gt;.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;By accepting the policies a service provider assures that they will
+&lt;code>operations_at_egi.eu&lt;/code>.&lt;/strong>&lt;/p>
+&lt;p>By accepting the policies a service provider assures that they will
 operate the service in good faith, without deliberately exposing the
 user to security risks, without claiming intellectual property on the
 data owned by the user, and protecting sensitive data generated by the
-interaction of the user with the service.&lt;/p&gt;
-&lt;p&gt;The policies that the service provider will have to accept are available
-in this page &lt;a href=&#34;https://wiki.egi.eu/wiki/Policies_and_Procedures&#34;&gt;EGI Policies and procedures
-page&lt;/a&gt; and specifically
-are:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/3015&#34;&gt;e-Infrastructure Security
-Policy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/3601&#34;&gt;Service Operations Security
-Policy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/81&#34;&gt;Traceability and Logging
-Policy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/82&#34;&gt;Security Incident Response
-Policy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/2732&#34;&gt;Policy on the Processing of Personal
-Data&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;service-provider-integration-workflow&#34;&gt;Service Provider integration workflow&lt;/h2&gt;
-&lt;p&gt;To integrate your Service Provider with the EGI Check-in service, you
-need to &lt;a href=&#34;https://ggus.eu/?mode=ticket_submit&#34;&gt;open a GGUS ticket&lt;/a&gt;
-indicating your request. The responsible support unit is &lt;a href=&#34;https://wiki.egi.eu/wiki/GGUS:AAI_SUPPORT_FAQ&#34;&gt;Check-in (AAI)
-Support&lt;/a&gt;.
-The integration follows a two-step process:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Register your Service Provider and test integration with
-the &lt;strong&gt;demo&lt;/strong&gt; instance of EGI Check-in. The demo instance allows for
+interaction of the user with the service.&lt;/p>
+&lt;p>The policies that the service provider will have to accept are available
+in this page &lt;a href="https://wiki.egi.eu/wiki/Policies_and_Procedures">EGI Policies and procedures
+page&lt;/a> and specifically
+are:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://documents.egi.eu/document/3015">e-Infrastructure Security
+Policy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://documents.egi.eu/document/3601">Service Operations Security
+Policy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://documents.egi.eu/document/81">Traceability and Logging
+Policy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://documents.egi.eu/document/82">Security Incident Response
+Policy&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://documents.egi.eu/document/2732">Policy on the Processing of Personal
+Data&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;h2 id="service-provider-integration-workflow">Service Provider integration workflow&lt;/h2>
+&lt;p>To integrate your Service Provider with the EGI Check-in service, you
+need to &lt;a href="https://ggus.eu/?mode=ticket_submit">open a GGUS ticket&lt;/a>
+indicating your request. The responsible support unit is &lt;a href="https://wiki.egi.eu/wiki/GGUS:AAI_SUPPORT_FAQ">Check-in (AAI)
+Support&lt;/a>.
+The integration follows a two-step process:&lt;/p>
+&lt;ol>
+&lt;li>Register your Service Provider and test integration with
+the &lt;strong>demo&lt;/strong> instance of EGI Check-in. The demo instance allows for
 testing authentication and authorisation without affecting the
 production Check-in service. Note that while the demo instance has
 identical functionality to the production instance, no information
 is shared between the two systems.
-&lt;ul&gt;
-&lt;li&gt;You can also test new features of Check-in that are not
+&lt;ul>
+&lt;li>You can also test new features of Check-in that are not
 available in production yet, by registering your Service
-Provider and testing integration with the &lt;strong&gt;development&lt;/strong&gt;
+Provider and testing integration with the &lt;strong>development&lt;/strong>
 instance of Check-in. As with the demo instance, the development
 instance allows for testing authentication and authorisation
-without affecting the production Check-in service. &lt;strong&gt;NB: the
+without affecting the production Check-in service. &lt;strong>NB: the
 list of supported Identity Providers in the development instance
 is limited. Therefore, we recommend using the EGI SSO or any of
 the social identity providers to test the login workflow when
-using the development instance.&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Register your Service Provider with the &lt;strong&gt;production&lt;/strong&gt;
+using the development instance.&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Register your Service Provider with the &lt;strong>production&lt;/strong>
 instance of EGI Check-in to allow members of the EGI User Community
 to access your service. This requires that your service meets all
-the &lt;a href=&#34;#Services_eligible_for_integration&#34; title=&#34;wikilink&#34;&gt;eligibility
-criteria&lt;/a&gt; and that
-integration has been thoroughly tested during Step 1.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;The most important URLs for each environment are listed in the table
+the &lt;a href="#Services_eligible_for_integration" title="wikilink">eligibility
+criteria&lt;/a> and that
+integration has been thoroughly tested during Step 1.&lt;/li>
+&lt;/ol>
+&lt;p>The most important URLs for each environment are listed in the table
 below but more information can be found in the protocol-specific
-sections that follow.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Protocol&lt;/th&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Demo environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SAML&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OpenID Connect&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;saml-service-provider&#34;&gt;SAML Service Provider&lt;/h2&gt;
-&lt;p&gt;To enable federated access to a web-based application, you can connect
+sections that follow.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Protocol&lt;/th>
+&lt;th>Development environment&lt;/th>
+&lt;th>Demo environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>SAML&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php">https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php">https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/proxy/saml2/idp/metadata.php">https://aai.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>OpenID Connect&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/.well-known/openid-configuration">https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/.well-known/openid-configuration">https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/.well-known/openid-configuration">https://aai.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="saml-service-provider">SAML Service Provider&lt;/h2>
+&lt;p>To enable federated access to a web-based application, you can connect
 to the EGI Check-in IdP as a SAML Service Provider (SP). Users of the
 application will be redirected to Check-in in order to log in, and
 Check-in can authenticate them using any of the supported backend
 authentication mechanisms, such as institutional IdPs registered with
 eduGAIN or Social Providers. Once the user is authenticated, EGI
 Check-in will return a SAML assertion to the application containing
-information about the authenticated user.&lt;/p&gt;
-&lt;h3 id=&#34;metadata-registration&#34;&gt;Metadata registration&lt;/h3&gt;
-&lt;p&gt;SAML authentication relies on the use of metadata. Both parties (you as
+information about the authenticated user.&lt;/p>
+&lt;h3 id="metadata-registration">Metadata registration&lt;/h3>
+&lt;p>SAML authentication relies on the use of metadata. Both parties (you as
 a SP and the EGI Check-in IdP) need to exchange metadata in order to
 know and trust each other. The metadata include information such as the
 location of the service endpoints that need to be invoked, as well as
 the certificates that will be used to sign SAML messages. The format of
-the exchanged metadata should be based on the XML-based &lt;a href=&#34;https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf&#34;&gt;SAML 2.0
-specification&lt;/a&gt;.
+the exchanged metadata should be based on the XML-based &lt;a href="https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf">SAML 2.0
+specification&lt;/a>.
 Usually, you will not need to manually create such an XML document, as
 this is automatically generated by all major SAML 2.0 SP software
-solutions (e.g., Shibboleth, SimpleSAMLphp, and &lt;code&gt;mod_auth_mellon&lt;/code&gt;). It is
+solutions (e.g., Shibboleth, SimpleSAMLphp, and &lt;code>mod_auth_mellon&lt;/code>). It is
 important that you serve your metadata over HTTPS using a
 browser-friendly SSL certificate, i.e. issued by a trusted certificate
-authority.&lt;/p&gt;
-&lt;p&gt;You can get the metadata of the EGI Check-in IdP Proxy on a dedicated
-URL that depends on the integration environment being used:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Demo environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/proxy/saml2/idp/metadata.php&#34;&gt;https://aai.egi.eu/proxy/saml2/idp/metadata.php&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;metadata&#34;&gt;Metadata&lt;/h3&gt;
-&lt;p&gt;Metadata provided by your SP should contain a descriptive name of the
+authority.&lt;/p>
+&lt;p>You can get the metadata of the EGI Check-in IdP Proxy on a dedicated
+URL that depends on the integration environment being used:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Development environment&lt;/th>
+&lt;th>Demo environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php">https://aai-dev.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php">https://aai-demo.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/proxy/saml2/idp/metadata.php">https://aai.egi.eu/proxy/saml2/idp/metadata.php&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="metadata">Metadata&lt;/h3>
+&lt;p>Metadata provided by your SP should contain a descriptive name of the
 service that your SP represents in at least English. It is recommended
 to also provide the name in other languages which are commonly used in
 the geographic scope of the deployment. The name should be placed in the
-&lt;code&gt;&amp;lt;md:ServiceName&amp;gt;&lt;/code&gt; in the &lt;code&gt;&amp;lt;md:AttributeConsumingService&amp;gt;&lt;/code&gt; container.&lt;/p&gt;
-&lt;p&gt;It is recommended that the &lt;code&gt;&amp;lt;md:IDPSSODescriptor&amp;gt;&lt;/code&gt; element
-included in your SP metadata contains both an &lt;code&gt;AuthnRequestsSigned&lt;/code&gt; and
-an &lt;code&gt;WantAssertionsSigned&lt;/code&gt; attribute set to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Your SP metadata should also contain contact information for support and
-for a technical contact. The &lt;code&gt;&amp;lt;md:EntityDescriptor&amp;gt;&lt;/code&gt; element
-should contain both a &lt;code&gt;&amp;lt;md:ContactPerson&amp;gt;&lt;/code&gt; element with a
-&lt;code&gt;contactType&lt;/code&gt; of &lt;code&gt;&amp;quot;support&amp;quot;&lt;/code&gt; and a &lt;code&gt;&amp;lt;md:ContactPerson&amp;gt;&lt;/code&gt; element
-with a &lt;code&gt;contactType&lt;/code&gt; of &lt;code&gt;&amp;quot;technical&amp;quot;&lt;/code&gt;. The &lt;code&gt;&amp;lt;md:ContactPerson&amp;gt;&lt;/code&gt;
-elements should contain at least one &lt;code&gt;&amp;lt;md:EmailAddress&amp;gt;&lt;/code&gt;. The
+&lt;code>&amp;lt;md:ServiceName&amp;gt;&lt;/code> in the &lt;code>&amp;lt;md:AttributeConsumingService&amp;gt;&lt;/code> container.&lt;/p>
+&lt;p>It is recommended that the &lt;code>&amp;lt;md:IDPSSODescriptor&amp;gt;&lt;/code> element
+included in your SP metadata contains both an &lt;code>AuthnRequestsSigned&lt;/code> and
+an &lt;code>WantAssertionsSigned&lt;/code> attribute set to &lt;code>true&lt;/code>.&lt;/p>
+&lt;p>Your SP metadata should also contain contact information for support and
+for a technical contact. The &lt;code>&amp;lt;md:EntityDescriptor&amp;gt;&lt;/code> element
+should contain both a &lt;code>&amp;lt;md:ContactPerson&amp;gt;&lt;/code> element with a
+&lt;code>contactType&lt;/code> of &lt;code>&amp;quot;support&amp;quot;&lt;/code> and a &lt;code>&amp;lt;md:ContactPerson&amp;gt;&lt;/code> element
+with a &lt;code>contactType&lt;/code> of &lt;code>&amp;quot;technical&amp;quot;&lt;/code>. The &lt;code>&amp;lt;md:ContactPerson&amp;gt;&lt;/code>
+elements should contain at least one &lt;code>&amp;lt;md:EmailAddress&amp;gt;&lt;/code>. The
 support address may be used for generic support questions about the
 service, while the technical contact may be contacted regarding
 technical interoperability problems. The technical contact must be
 responsible for the technical operation of the service represented by
-your SP.&lt;/p&gt;
-&lt;h3 id=&#34;attributes&#34;&gt;Attributes&lt;/h3&gt;
-&lt;p&gt;The EGI Check-in IdP is guaranteed to release a minimal subset of the
-&lt;a href=&#34;https://refeds.org/category/research-and-scholarship&#34;&gt;REFEDS R&amp;amp;S&lt;/a&gt;
+your SP.&lt;/p>
+&lt;h3 id="attributes">Attributes&lt;/h3>
+&lt;p>The EGI Check-in IdP is guaranteed to release a minimal subset of the
+&lt;a href="https://refeds.org/category/research-and-scholarship">REFEDS R&amp;amp;S&lt;/a>
 attribute bundle to connected Service Providers without administrative
 involvement, subject to user consent. The following attributes
-constitute a minimal subset of the R&amp;amp;S attribute bundle:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Persistent, non-reassignable, non-targeted, opaque, globally unique
-EGI user ID (&lt;code&gt;eduPersonUniqueId&lt;/code&gt;); this is always scoped &lt;code&gt;@egi.eu&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Email address (&lt;code&gt;mail&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;Display name (&lt;code&gt;displayName&lt;/code&gt;) OR (&lt;code&gt;givenName&lt;/code&gt; AND &lt;code&gt;sn&lt;/code&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;A more extensive list of all the attributes that may be made available
-to Service Providers is included in the following table:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Attribute friendly name&lt;/th&gt;
-&lt;th&gt;Attribute OID&lt;/th&gt;
-&lt;th&gt;Example value&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;eduPersonUniqueId&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:1.3.6.1.4.1.5923.1.1.1.13&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;mail&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:0.9.2342.19200300.100.1.3&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;john.doe@example.org&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;displayName&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:2.16.840.1.113730.3.1.241&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;John Doe&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;givenName&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:2.5.4.42&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;John&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;sn&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:2.5.4.4&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;Doe&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;eduPersonAssurance&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:1.3.6.1.4.1.5923.1.1.1.11&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;https://aai.egi.eu/LoA#Substantial&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;distinguishedName&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:2.5.4.49&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;/C=NL/O=Example.org/CN=John Doe&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;eduPersonScopedAffiliation&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:1.3.6.1.4.1.5923.1.1.1.9&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;faculty@example.org&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;eduPersonEntitlement&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code&gt;&lt;br/&gt;&lt;code&gt;urn:mace:egi.eu:aai.egi.eu:meber@vo.test.egi.eu&lt;/code&gt;  (WARNING this format will be deprecated)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;voPersonVerifiedEmail&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:oid:1.3.6.1.4.1.25178.4.1.14&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;john.doe@example.org&lt;/code&gt;&lt;br/&gt;&lt;code&gt;j.doe@mail.com&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;attribute-based-authorisation&#34;&gt;Attribute-based authorisation&lt;/h3&gt;
-&lt;p&gt;EGI Check-in provides information about the authenticated user that may
+constitute a minimal subset of the R&amp;amp;S attribute bundle:&lt;/p>
+&lt;ul>
+&lt;li>Persistent, non-reassignable, non-targeted, opaque, globally unique
+EGI user ID (&lt;code>eduPersonUniqueId&lt;/code>); this is always scoped &lt;code>@egi.eu&lt;/code>&lt;/li>
+&lt;li>Email address (&lt;code>mail&lt;/code>)&lt;/li>
+&lt;li>Display name (&lt;code>displayName&lt;/code>) OR (&lt;code>givenName&lt;/code> AND &lt;code>sn&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>A more extensive list of all the attributes that may be made available
+to Service Providers is included in the following table:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Attribute friendly name&lt;/th>
+&lt;th>Attribute OID&lt;/th>
+&lt;th>Example value&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>eduPersonUniqueId&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.13&lt;/code>&lt;/td>
+&lt;td>&lt;code>ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>mail&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:0.9.2342.19200300.100.1.3&lt;/code>&lt;/td>
+&lt;td>&lt;code>john.doe@example.org&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>displayName&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:2.16.840.1.113730.3.1.241&lt;/code>&lt;/td>
+&lt;td>&lt;code>John Doe&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>givenName&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:2.5.4.42&lt;/code>&lt;/td>
+&lt;td>&lt;code>John&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>sn&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:2.5.4.4&lt;/code>&lt;/td>
+&lt;td>&lt;code>Doe&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>eduPersonAssurance&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.11&lt;/code>&lt;/td>
+&lt;td>&lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>distinguishedName&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:2.5.4.49&lt;/code>&lt;/td>
+&lt;td>&lt;code>/C=NL/O=Example.org/CN=John Doe&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>eduPersonScopedAffiliation&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.9&lt;/code>&lt;/td>
+&lt;td>&lt;code>faculty@example.org&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>&lt;br/>&lt;code>urn:mace:egi.eu:aai.egi.eu:meber@vo.test.egi.eu&lt;/code> (WARNING this format will be deprecated)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>voPersonVerifiedEmail&lt;/code>&lt;/td>
+&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.25178.4.1.14&lt;/code>&lt;/td>
+&lt;td>&lt;code>john.doe@example.org&lt;/code>&lt;br/>&lt;code>j.doe@mail.com&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="attribute-based-authorisation">Attribute-based authorisation&lt;/h3>
+&lt;p>EGI Check-in provides information about the authenticated user that may
 be used by Service Providers in order to control user access to
 resources. This information is provided by the EGI Check-in IdP in the
-&lt;a href=&#34;#attributes&#34;&gt;SAML attribute assertion&lt;/a&gt;. The table below
-lists the SAML attributes that are relevant for user authorisation:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;SAML Attribute&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;#vogroup-membership-and-role-information&#34;&gt;VO/group membership/roles of the authenticated user&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduPersonEntitlement&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;#level-of-assurance&#34;&gt;Level of Assurance (LoA)&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;eduPersonAssurance&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfiguration&#34;&gt;Shibboleth SP
-Configuration&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://simplesamlphp.org/docs/stable/simplesamlphp-sp&#34;&gt;SimpleSAMLphp Service Provider
-QuickStart&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/UNINETT/mod_auth_mellon&#34;&gt;Simple SAML 2.0 service provider with mod_auth_mellon Apache
-module&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;openid-connect-service-provider&#34;&gt;OpenID Connect Service Provider&lt;/h2&gt;
-&lt;p&gt;Service Providers can be integrated with EGI Check-in using OpenID
+&lt;a href="#attributes">SAML attribute assertion&lt;/a>. The table below
+lists the SAML attributes that are relevant for user authorisation:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Description&lt;/th>
+&lt;th>SAML Attribute&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="#vogroup-membership-and-role-information">VO/group membership/roles of the authenticated user&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#level-of-assurance">Level of Assurance (LoA)&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduPersonAssurance&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="references">References&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfiguration">Shibboleth SP
+Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://simplesamlphp.org/docs/stable/simplesamlphp-sp">SimpleSAMLphp Service Provider
+QuickStart&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/UNINETT/mod_auth_mellon">Simple SAML 2.0 service provider with mod_auth_mellon Apache
+module&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="openid-connect-service-provider">OpenID Connect Service Provider&lt;/h2>
+&lt;p>Service Providers can be integrated with EGI Check-in using OpenID
 Connect (OIDC) as an alternative to the SAML2 protocol. To allow this,
 the EGI Check-in IdP provides an OpenID Connect (OAuth2) API based on
-&lt;a href=&#34;https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server&#34;&gt;MITREid
-Connect&lt;/a&gt;,
-which has been &lt;a href=&#34;http://openid.net/certification/&#34;&gt;certified by the OpenID
-Foundation&lt;/a&gt;. Interconnection with the
+&lt;a href="https://github.com/mitreid-connect/OpenID-Connect-Java-Spring-Server">MITREid
+Connect&lt;/a>,
+which has been &lt;a href="http://openid.net/certification/">certified by the OpenID
+Foundation&lt;/a>. Interconnection with the
 EGI Check-in OIDC Provider allows users to sign in using any of the
 supported backend authentication mechanisms, such as institutional IdPs
 registered with eduGAIN or Social Providers. Once the user has signed
 in, EGI Check-in can return OIDC Claims containing information about the
-authenticated user.&lt;/p&gt;
-&lt;h3 id=&#34;client-registration&#34;&gt;Client registration&lt;/h3&gt;
-&lt;p&gt;Before your service can use the EGI Check-in OIDC Provider for user
+authenticated user.&lt;/p>
+&lt;h3 id="client-registration">Client registration&lt;/h3>
+&lt;p>Before your service can use the EGI Check-in OIDC Provider for user
 login, you must set up a client at
-&lt;a href=&#34;https://aai-dev.egi.eu/oidc/manage/#admin/clients&#34;&gt;https://aai-dev.egi.eu/oidc/manage/#admin/clients&lt;/a&gt; in order to obtain
-OAuth 2.0 credentials and register one or more redirect URIs.&lt;/p&gt;
-&lt;h4 id=&#34;obtaining-oauth-20-credentials&#34;&gt;Obtaining OAuth 2.0 credentials&lt;/h4&gt;
-&lt;p&gt;You need OAuth 2.0 credentials, including a client ID and client secret,
-to authenticate users through the EGI Check-in OIDC Provider.&lt;/p&gt;
-&lt;p&gt;You can specify the client ID and secret when creating/editing your
-client or let the &lt;a href=&#34;https://aai-dev.egi.eu/oidc/manage/user/client/new&#34;&gt;New Client
-page&lt;/a&gt; generate the
-values for you (&lt;em&gt;recommended&lt;/em&gt;).&lt;/p&gt;
-&lt;p&gt;To find the ID and secret of your client, do the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Select your client from the &lt;a href=&#34;https://aai-dev.egi.eu/oidc/manage/user/clients&#34;&gt;Clients
-page&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Look for the &lt;strong&gt;Client ID&lt;/strong&gt; in the &lt;strong&gt;Main&lt;/strong&gt; tab.&lt;/li&gt;
-&lt;li&gt;Select the &lt;strong&gt;Display/edit client secret:&lt;/strong&gt; option from the
-&lt;strong&gt;Credentials&lt;/strong&gt; tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;setting-one-or-more-redirection-uris&#34;&gt;Setting one or more Redirection URIs&lt;/h4&gt;
-&lt;p&gt;The Redirection URI(s) that you set when creating/editing your client
+&lt;a href="https://aai-dev.egi.eu/oidc/manage/#admin/clients">https://aai-dev.egi.eu/oidc/manage/#admin/clients&lt;/a> in order to obtain
+OAuth 2.0 credentials and register one or more redirect URIs.&lt;/p>
+&lt;h4 id="obtaining-oauth-20-credentials">Obtaining OAuth 2.0 credentials&lt;/h4>
+&lt;p>You need OAuth 2.0 credentials, including a client ID and client secret,
+to authenticate users through the EGI Check-in OIDC Provider.&lt;/p>
+&lt;p>You can specify the client ID and secret when creating/editing your
+client or let the &lt;a href="https://aai-dev.egi.eu/oidc/manage/user/client/new">New Client
+page&lt;/a> generate the
+values for you (&lt;em>recommended&lt;/em>).&lt;/p>
+&lt;p>To find the ID and secret of your client, do the following:&lt;/p>
+&lt;ol>
+&lt;li>Select your client from the &lt;a href="https://aai-dev.egi.eu/oidc/manage/user/clients">Clients
+page&lt;/a>.&lt;/li>
+&lt;li>Look for the &lt;strong>Client ID&lt;/strong> in the &lt;strong>Main&lt;/strong> tab.&lt;/li>
+&lt;li>Select the &lt;strong>Display/edit client secret:&lt;/strong> option from the
+&lt;strong>Credentials&lt;/strong> tab.&lt;/li>
+&lt;/ol>
+&lt;h4 id="setting-one-or-more-redirection-uris">Setting one or more Redirection URIs&lt;/h4>
+&lt;p>The Redirection URI(s) that you set when creating/editing your client
 determine where the EGI Check-in OIDC Provider sends responses to your
 authentication requests. Note that the Redirection URI MUST use the
-&lt;code&gt;https&lt;/code&gt; scheme; the use of &lt;code&gt;http&lt;/code&gt; Redirection URIs is only allowed in
-the development environment.&lt;/p&gt;
-&lt;p&gt;To find the Redirection URI(s) for your client, do the following:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Open the &lt;a href=&#34;https://aai-dev.egi.eu/oidc/manage/user/clients&#34;&gt;Clients
-page&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Find the redirect URIs for your client listed under the
-&lt;strong&gt;Information&lt;/strong&gt; column of the overview table or &lt;strong&gt;Edit&lt;/strong&gt; the
-particular client and look for the &lt;strong&gt;Redirect URI(s)&lt;/strong&gt; in the
-&lt;strong&gt;Main&lt;/strong&gt; tab.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;setting-additional-information-about-the-client&#34;&gt;Setting additional information about the client&lt;/h4&gt;
-&lt;p&gt;It is strongly suggested that you add a short &lt;strong&gt;description&lt;/strong&gt; and a
-&lt;strong&gt;logo&lt;/strong&gt; for the client. Lastly, you need to set the email addresses of
-one or more contacts.&lt;/p&gt;
-&lt;h3 id=&#34;claims&#34;&gt;Claims&lt;/h3&gt;
-&lt;p&gt;The EGI Check-in UserInfo Endpoint is an OAuth 2.0 Protected Resource
+&lt;code>https&lt;/code> scheme; the use of &lt;code>http&lt;/code> Redirection URIs is only allowed in
+the development environment.&lt;/p>
+&lt;p>To find the Redirection URI(s) for your client, do the following:&lt;/p>
+&lt;ol>
+&lt;li>Open the &lt;a href="https://aai-dev.egi.eu/oidc/manage/user/clients">Clients
+page&lt;/a>&lt;/li>
+&lt;li>Find the redirect URIs for your client listed under the
+&lt;strong>Information&lt;/strong> column of the overview table or &lt;strong>Edit&lt;/strong> the
+particular client and look for the &lt;strong>Redirect URI(s)&lt;/strong> in the
+&lt;strong>Main&lt;/strong> tab.&lt;/li>
+&lt;/ol>
+&lt;h4 id="setting-additional-information-about-the-client">Setting additional information about the client&lt;/h4>
+&lt;p>It is strongly suggested that you add a short &lt;strong>description&lt;/strong> and a
+&lt;strong>logo&lt;/strong> for the client. Lastly, you need to set the email addresses of
+one or more contacts.&lt;/p>
+&lt;h3 id="claims">Claims&lt;/h3>
+&lt;p>The EGI Check-in UserInfo Endpoint is an OAuth 2.0 Protected Resource
 that returns specific information about the authenticated End-User as
 Claim Values. To obtain the requested Claims about the End-User, the
 Client makes a request to the UserInfo Endpoint using an Access Token
@@ -736,681 +700,673 @@ obtained through OpenID Connect Authentication. The scopes associated
 with the Access Token used to access the EGI Check-in UserInfo Endpoint
 will determine what Claims will be released. These Claims are
 represented by a JSON object that contains a collection of name and
-value pairs for the Claims.&lt;/p&gt;
-&lt;p&gt;The following scope values can be used to request Claims from the EGI
-Check-in UserInfo Endpoint:&lt;/p&gt;
-&lt;h4 id=&#34;openid-scope-claims&#34;&gt;&lt;code&gt;openid&lt;/code&gt; scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;sub&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;An identifier for the user, unique among all EGI accounts and never reused.
-Use &lt;code&gt;sub&lt;/code&gt; within your application as the unique-identifier key for the user.&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code&gt;&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h4 id=&#34;profile-scope-claims&#34;&gt;&lt;code&gt;profile&lt;/code&gt; scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;name&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The user&amp;rsquo;s full name, in a displayable form (in the future this will be
-provided only if your scope included the string &lt;code&gt;&amp;quot;profile&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;John Doe&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;given_name&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The user&amp;rsquo;s first name (in the future this will be provided only if your
-scope included the string &lt;code&gt;&amp;quot;profile&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;John&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;family_name&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The user&amp;rsquo;s last name (in the future this will be provided only if your scope
-included the string &lt;code&gt;&amp;quot;profile&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;Doe&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;preferred_username&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The username by which the user wishes to be referred to. The RP MUST NOT
-rely upon this value being unique.&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;jdoe&lt;/code&gt;&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h4 id=&#34;email-scope-claims&#34;&gt;&lt;code&gt;email&lt;/code&gt; scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;email&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The user&amp;rsquo;s email address. This may not be unique and is not suitable for use
+value pairs for the Claims.&lt;/p>
+&lt;p>The following scope values can be used to request Claims from the EGI
+Check-in UserInfo Endpoint:&lt;/p>
+&lt;h4 id="openid-scope-claims">&lt;code>openid&lt;/code> scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>sub&lt;/code>&lt;/dt>
+&lt;dd>An identifier for the user, unique among all EGI accounts and never reused.
+Use &lt;code>sub&lt;/code> within your application as the unique-identifier key for the user.&lt;/dd>
+&lt;dd>Example: &lt;code>ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code>&lt;/dd>
+&lt;/dl>
+&lt;h4 id="profile-scope-claims">&lt;code>profile&lt;/code> scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>name&lt;/code>&lt;/dt>
+&lt;dd>The user&amp;rsquo;s full name, in a displayable form (in the future this will be
+provided only if your scope included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>John Doe&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>given_name&lt;/code>&lt;/dt>
+&lt;dd>The user&amp;rsquo;s first name (in the future this will be provided only if your
+scope included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>John&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>family_name&lt;/code>&lt;/dt>
+&lt;dd>The user&amp;rsquo;s last name (in the future this will be provided only if your scope
+included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>Doe&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>preferred_username&lt;/code>&lt;/dt>
+&lt;dd>The username by which the user wishes to be referred to. The RP MUST NOT
+rely upon this value being unique.&lt;/dd>
+&lt;dd>Example: &lt;code>jdoe&lt;/code>&lt;/dd>
+&lt;/dl>
+&lt;h4 id="email-scope-claims">&lt;code>email&lt;/code> scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>email&lt;/code>&lt;/dt>
+&lt;dd>The user&amp;rsquo;s email address. This may not be unique and is not suitable for use
 as a primary key (in the future this will be provided only if your scope
-included the string &lt;code&gt;&amp;quot;email&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;john.doe@example.org&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;email_verified&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;True if the user&amp;rsquo;s email address has been verified; otherwise false (in the
+included the string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>john.doe@example.org&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>email_verified&lt;/code>&lt;/dt>
+&lt;dd>True if the user&amp;rsquo;s email address has been verified; otherwise false (in the
 future this will be provided only if your scope included the
-string &lt;code&gt;&amp;quot;email&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;true&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;voperson_verified_email&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;(multivalued)&lt;/strong&gt; A list of user&amp;rsquo;s email addresses that have been verified (in
+string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>true&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>voperson_verified_email&lt;/code>&lt;/dt>
+&lt;dd>&lt;strong>(multivalued)&lt;/strong> A list of user&amp;rsquo;s email addresses that have been verified (in
 the future this will be provided only if your scope included the
-string &lt;code&gt;&amp;quot;email&amp;quot;&lt;/code&gt;).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;john.doe@example.org&lt;/code&gt; &lt;code&gt;j.doe@mail.com&lt;/code&gt;&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h4 id=&#34;refeds_edu-deprecated-scope-claims&#34;&gt;&lt;code&gt;refeds_edu&lt;/code&gt; (deprecated) scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;acr&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The Authentication Context Class Reference that identifies the Level of
-Assurance (LoA) that the authentication performed satisfied.&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;https://aai.egi.eu/LoA#Substantial&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;eduperson_assurance&lt;/code&gt;&lt;/dt&gt;
-&lt;dd&gt;The Level of Assurance (LoA) that the authentication performed satisfied.&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;https://aai.egi.eu/LoA#Substantial&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;eduperson_scoped_affiliation&lt;/code&gt;&lt;/dt&gt;
-&lt;dt&gt;&lt;code&gt;edu_person_scoped_affiliations&lt;/code&gt; (deprecated)&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;(multivalued)&lt;/strong&gt; The user&amp;rsquo;s affiliation within a particular security domain
-(scope).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;member@example.org&lt;/code&gt;&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;eduperson_entitlement&lt;/code&gt;&lt;/dt&gt;
-&lt;dt&gt;&lt;code&gt;edu_person_entitlements&lt;/code&gt; (deprecated)&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;(multivalued)&lt;/strong&gt; The user&amp;rsquo;s entitlements expressed as group/VO
-membership/role information.&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code&gt;
-&lt;code&gt;urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code&gt; (WARNING this format
-will be deprecated)&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h4 id=&#34;eduperson_scoped_affiliation-scope-claims&#34;&gt;&lt;code&gt;eduperson_scoped_affiliation&lt;/code&gt; scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;eduperson_scoped_affiliation&lt;/code&gt;&lt;/dt&gt;
-&lt;dt&gt;&lt;code&gt;edu_person_scoped_affiliations&lt;/code&gt; (deprecated)&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;(multivalued)&lt;/strong&gt; The user&amp;rsquo;s affiliation within a particular security
-domain (scope).&lt;/dd&gt;
-&lt;dd&gt;Example: &lt;code&gt;member@example.org&lt;/code&gt;&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h4 id=&#34;eduperson_entitlement-scope-claims&#34;&gt;&lt;code&gt;eduperson_entitlement&lt;/code&gt; scope claims&lt;/h4&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;eduperson_entitlement&lt;/code&gt;&lt;/dt&gt;
-&lt;dt&gt;&lt;code&gt;edu_person_entitlements&lt;/code&gt; (deprecated)&lt;/dt&gt;
-&lt;dd&gt;&lt;strong&gt;(multivalued)&lt;/strong&gt; The user&amp;rsquo;s entitlements expressed as group/VO
-membership/role information.&lt;/dd&gt;
-&lt;dd&gt;Example:
-&lt;code&gt;urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code&gt;
-&lt;code&gt;urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code&gt; (WARNING this format will
-be deprecated)&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h3 id=&#34;grant-types&#34;&gt;Grant Types&lt;/h3&gt;
-&lt;p&gt;Check-in supports the following OpenID Connect/OAuth2 grant types:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Authorization Code: used by Web Apps executing on a server.&lt;/li&gt;
-&lt;li&gt;Implicit: used by JavaScript-centric apps (Single Page Applications)
-executing on the user&#39;s browser.&lt;/li&gt;
-&lt;li&gt;Token Exchange: used by clients to request and obtain security
-tokens in support of delegated access to resources.&lt;/li&gt;
-&lt;li&gt;Device Code: used by devices that lack a browser to perform a
-user-agent based OAuth flow.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;endpoints&#34;&gt;Endpoints&lt;/h3&gt;
-&lt;p&gt;The most important OIDC/OAuth2 endpoints are listed below:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Demo environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Provider configuration&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/.well-known/openid-configuration&#34;&gt;https://aai.egi.eu/oidc/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Client registration&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc&#34;&gt;https://aai-dev.egi.eu/oidc&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Contact &lt;a href=&#34;mailto:egi-aai-checkin@lists.grnet.gr&#34;&gt;EGI Check-in support&lt;/a&gt; for registering your client&lt;/em&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Contact &lt;a href=&#34;mailto:egi-aai-checkin@lists.grnet.gr&#34;&gt;EGI Check-in support&lt;/a&gt; for registering your client&lt;/em&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Authorisation&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/authorize&#34;&gt;https://aai-dev.egi.eu/oidc/authorize&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/authorize&#34;&gt;https://aai-demo.egi.eu/oidc/authorize&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/authorize&#34;&gt;https://aai.egi.eu/oidc/authorize&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Token&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/token&#34;&gt;https://aai-dev.egi.eu/oidc/token&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/token&#34;&gt;https://aai-demo.egi.eu/oidc/token&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/token&#34;&gt;https://aai.egi.eu/oidc/token&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;JSON Web Key(jwt)&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/jwk&#34;&gt;https://aai-dev.egi.eu/oidc/jwk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/jwk&#34;&gt;https://aai-demo.egi.eu/oidc/jwk&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/jwk&#34;&gt;https://aai.egi.eu/oidc/jwk&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;User Info&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/userinfo&#34;&gt;https://aai-dev.egi.eu/oidc/userinfo&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/userinfo&#34;&gt;https://aai-demo.egi.eu/oidc/userinfo&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/userinfo&#34;&gt;https://aai.egi.eu/oidc/userinfo&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Introspection&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-dev.egi.eu/oidc/introspect&#34;&gt;https://aai-dev.egi.eu/oidc/introspect&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/introspect&#34;&gt;https://aai-demo.egi.eu/oidc/introspect&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/oidc/introspect&#34;&gt;https://aai.egi.eu/oidc/introspect&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h4 id=&#34;authorization-endpoint&#34;&gt;Authorization Endpoint&lt;/h4&gt;
-&lt;p&gt;The Authorization Endpoint performs Authentication of the End-User. This
-is done by sending the User Agent to the Authorization Server&#39;s
+string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
+&lt;dd>Example: &lt;code>john.doe@example.org&lt;/code> &lt;code>j.doe@mail.com&lt;/code>&lt;/dd>
+&lt;/dl>
+&lt;h4 id="refeds_edu-deprecated-scope-claims">&lt;code>refeds_edu&lt;/code> (deprecated) scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>acr&lt;/code>&lt;/dt>
+&lt;dd>The Authentication Context Class Reference that identifies the Level of
+Assurance (LoA) that the authentication performed satisfied.&lt;/dd>
+&lt;dd>Example: &lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>eduperson_assurance&lt;/code>&lt;/dt>
+&lt;dd>The Level of Assurance (LoA) that the authentication performed satisfied.&lt;/dd>
+&lt;dd>Example: &lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/dt>
+&lt;dt>&lt;code>edu_person_scoped_affiliations&lt;/code> (deprecated)&lt;/dt>
+&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s affiliation within a particular security domain
+(scope).&lt;/dd>
+&lt;dd>Example: &lt;code>member@example.org&lt;/code>&lt;/dd>
+&lt;dt>&lt;code>eduperson_entitlement&lt;/code>&lt;/dt>
+&lt;dt>&lt;code>edu_person_entitlements&lt;/code> (deprecated)&lt;/dt>
+&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s entitlements expressed as group/VO
+membership/role information.&lt;/dd>
+&lt;dd>Example: &lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>
+&lt;code>urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code> (WARNING this format
+will be deprecated)&lt;/dd>
+&lt;/dl>
+&lt;h4 id="eduperson_scoped_affiliation-scope-claims">&lt;code>eduperson_scoped_affiliation&lt;/code> scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/dt>
+&lt;dt>&lt;code>edu_person_scoped_affiliations&lt;/code> (deprecated)&lt;/dt>
+&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s affiliation within a particular security
+domain (scope).&lt;/dd>
+&lt;dd>Example: &lt;code>member@example.org&lt;/code>&lt;/dd>
+&lt;/dl>
+&lt;h4 id="eduperson_entitlement-scope-claims">&lt;code>eduperson_entitlement&lt;/code> scope claims&lt;/h4>
+&lt;dl>
+&lt;dt>&lt;code>eduperson_entitlement&lt;/code>&lt;/dt>
+&lt;dt>&lt;code>edu_person_entitlements&lt;/code> (deprecated)&lt;/dt>
+&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s entitlements expressed as group/VO
+membership/role information.&lt;/dd>
+&lt;dd>Example:
+&lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>
+&lt;code>urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code> (WARNING this format will
+be deprecated)&lt;/dd>
+&lt;/dl>
+&lt;h3 id="grant-types">Grant Types&lt;/h3>
+&lt;p>Check-in supports the following OpenID Connect/OAuth2 grant types:&lt;/p>
+&lt;ul>
+&lt;li>Authorization Code: used by Web Apps executing on a server.&lt;/li>
+&lt;li>Implicit: used by JavaScript-centric apps (Single Page Applications)
+executing on the user's browser.&lt;/li>
+&lt;li>Token Exchange: used by clients to request and obtain security
+tokens in support of delegated access to resources.&lt;/li>
+&lt;li>Device Code: used by devices that lack a browser to perform a
+user-agent based OAuth flow.&lt;/li>
+&lt;/ul>
+&lt;h3 id="endpoints">Endpoints&lt;/h3>
+&lt;p>The most important OIDC/OAuth2 endpoints are listed below:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Endpoint&lt;/th>
+&lt;th>Development environment&lt;/th>
+&lt;th>Demo environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Provider configuration&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/.well-known/openid-configuration">https://aai-dev.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/.well-known/openid-configuration">https://aai-demo.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/.well-known/openid-configuration">https://aai.egi.eu/oidc/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Client registration&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc">https://aai-dev.egi.eu/oidc&lt;/a>&lt;/td>
+&lt;td>&lt;em>Contact &lt;a href="mailto:egi-aai-checkin@lists.grnet.gr">EGI Check-in support&lt;/a> for registering your client&lt;/em>&lt;/td>
+&lt;td>&lt;em>Contact &lt;a href="mailto:egi-aai-checkin@lists.grnet.gr">EGI Check-in support&lt;/a> for registering your client&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Authorisation&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/authorize">https://aai-dev.egi.eu/oidc/authorize&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/authorize">https://aai-demo.egi.eu/oidc/authorize&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/authorize">https://aai.egi.eu/oidc/authorize&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Token&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/token">https://aai-dev.egi.eu/oidc/token&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/token">https://aai-demo.egi.eu/oidc/token&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/token">https://aai.egi.eu/oidc/token&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>JSON Web Key(jwt)&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/jwk">https://aai-dev.egi.eu/oidc/jwk&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/jwk">https://aai-demo.egi.eu/oidc/jwk&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/jwk">https://aai.egi.eu/oidc/jwk&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>User Info&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/userinfo">https://aai-dev.egi.eu/oidc/userinfo&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/userinfo">https://aai-demo.egi.eu/oidc/userinfo&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/userinfo">https://aai.egi.eu/oidc/userinfo&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Introspection&lt;/td>
+&lt;td>&lt;a href="https://aai-dev.egi.eu/oidc/introspect">https://aai-dev.egi.eu/oidc/introspect&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/introspect">https://aai-demo.egi.eu/oidc/introspect&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/oidc/introspect">https://aai.egi.eu/oidc/introspect&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="authorization-endpoint">Authorization Endpoint&lt;/h4>
+&lt;p>The Authorization Endpoint performs Authentication of the End-User. This
+is done by sending the User Agent to the Authorization Server's
 Authorization Endpoint for Authentication and Authorization, using
 request parameters defined by OAuth 2.0 and additional parameters and
-parameter values defined by OpenID Connect.&lt;/p&gt;
-&lt;p&gt;The request parameters of the Authorization endpoint are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt;: id of the client that ask for authentication to the
-Authorization Server.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;redirect_uri&lt;/code&gt;: URI to which the response will be sent.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scope&lt;/code&gt;: A list of attributes that the application requires.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;state&lt;/code&gt;: Opaque value used to maintain state between the request and
-the callback.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;response_type&lt;/code&gt;: value that determines the authorization processing
-flow to be used.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;For &lt;strong&gt;Authorization Code&lt;/strong&gt; grant set &lt;code&gt;response_type=code&lt;/code&gt;. This way
-the response will include an authorization code.&lt;/li&gt;
-&lt;li&gt;For &lt;strong&gt;Implicit&lt;/strong&gt; grant set &lt;code&gt;response_type=token&lt;/code&gt;. This way the
-response will include both an Access Token and an ID Token.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;token-endpoint&#34;&gt;Token Endpoint&lt;/h4&gt;
-&lt;p&gt;To obtain an Access Token, an ID Token, and optionally a Refresh Token,
-the Client sends a Token Request to the Token Endpoint.&lt;/p&gt;
-&lt;p&gt;Depending on the grant type, the following parameters are required:&lt;/p&gt;
-&lt;h5 id=&#34;authorization-code&#34;&gt;Authorization Code&lt;/h5&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Presence&lt;/th&gt;
-&lt;th&gt;Values&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;grant_type&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;authorization_code&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The value of the code in the response from authorization endpoint.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;redirect_uri&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;URI to which the response will be sent (must be the same as the request to authorization endpoint)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h5 id=&#34;refresh-request&#34;&gt;Refresh request&lt;/h5&gt;
-&lt;p&gt;The following request allows obtaining an access token from a refresh
-token using the &lt;code&gt;grant_type&lt;/code&gt; value &lt;code&gt;refresh_token&lt;/code&gt;:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Presence&lt;/th&gt;
-&lt;th&gt;Values&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The identifier of the client.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;client_secret&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The secret value of the client.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;grant_type&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;refresh_token&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;refresh_token&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;The value of the refresh token&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;scope&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;This parameter should contain openid at least&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example request&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -X POST -u &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client_id&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client_secret&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;client_id={myClientID}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;client_secret={myClientSecret}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grant_type=refresh_token&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;refresh_token=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;myRefreshToken&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;scope=openid%20email%20profile&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; python -m json.tool&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Example response&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;access_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJvaWRjIiwiYWx...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3599&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJvaWRjIiwiYW...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;refresh_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJhbGciOiJub25...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;openid profile email&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;token_type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Bearer&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;token-exchange&#34;&gt;Token Exchange&lt;/h5&gt;
-&lt;p&gt;To get a token from client B using a token issued for client A, the
-parameters of the request are:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Presence&lt;/th&gt;
-&lt;th&gt;Values&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;grant_type&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:ietf:params:oauth:grant-type:token-exchange&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;audience&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;td&gt;Define the logical name of the service that the token will be used for&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;subject_token&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The value of the access token&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;subject_token_type&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:ietf:params:oauth:token-type:access_token&lt;/code&gt; (because this feature accepts access tokens only)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;scope&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;td&gt;Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example request&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -X POST -u &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client_B_id&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;client_B_secret&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;audience=tokenExchange&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\ &lt;/span&gt;
-    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;subject_token=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;${&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;access_token_A&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;subject_token_type=urn:ietf:params:oauth:token-type:access_token&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;scope=openid%20profile%20offline_access&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://aai.egi.eu/oidc/token&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; python -m json.tool&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Example response&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;access_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUl...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3599&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUl...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;refresh_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJhbGciOiJub25lIn0.eyJleHAiO...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;openid profile offline_access&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;token_type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Bearer&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;device-code&#34;&gt;Device Code&lt;/h5&gt;
-&lt;p&gt;The device code flow enables OAuth clients on (input-constrained)
+parameter values defined by OpenID Connect.&lt;/p>
+&lt;p>The request parameters of the Authorization endpoint are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>client_id&lt;/code>: id of the client that ask for authentication to the
+Authorization Server.&lt;/li>
+&lt;li>&lt;code>redirect_uri&lt;/code>: URI to which the response will be sent.&lt;/li>
+&lt;li>&lt;code>scope&lt;/code>: A list of attributes that the application requires.&lt;/li>
+&lt;li>&lt;code>state&lt;/code>: Opaque value used to maintain state between the request and
+the callback.&lt;/li>
+&lt;li>&lt;code>response_type&lt;/code>: value that determines the authorization processing
+flow to be used.&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>For &lt;strong>Authorization Code&lt;/strong> grant set &lt;code>response_type=code&lt;/code>. This way
+the response will include an authorization code.&lt;/li>
+&lt;li>For &lt;strong>Implicit&lt;/strong> grant set &lt;code>response_type=token&lt;/code>. This way the
+response will include both an Access Token and an ID Token.&lt;/li>
+&lt;/ol>
+&lt;h4 id="token-endpoint">Token Endpoint&lt;/h4>
+&lt;p>To obtain an Access Token, an ID Token, and optionally a Refresh Token,
+the Client sends a Token Request to the Token Endpoint.&lt;/p>
+&lt;p>Depending on the grant type, the following parameters are required:&lt;/p>
+&lt;h5 id="authorization-code">Authorization Code&lt;/h5>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Presence&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>grant_type&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>authorization_code&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>code&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The value of the code in the response from authorization endpoint.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>redirect_uri&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>URI to which the response will be sent (must be the same as the request to authorization endpoint)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h5 id="refresh-request">Refresh request&lt;/h5>
+&lt;p>The following request allows obtaining an access token from a refresh
+token using the &lt;code>grant_type&lt;/code> value &lt;code>refresh_token&lt;/code>:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Presence&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>client_id&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The identifier of the client.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>client_secret&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The secret value of the client.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>grant_type&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>refresh_token&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>refresh_token&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>The value of the refresh token&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>scope&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>This parameter should contain openid at least&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example request&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST -u &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_secret&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -d &lt;span style="color:#4e9a06">&amp;#34;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=refresh_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;refresh_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">myRefreshToken&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example response&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWx...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYW...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;refresh_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJhbGciOiJub25...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;scope&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid profile email&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;token_type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Bearer&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="token-exchange">Token Exchange&lt;/h5>
+&lt;p>To get a token from client B using a token issued for client A, the
+parameters of the request are:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Presence&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>grant_type&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>urn:ietf:params:oauth:grant-type:token-exchange&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>audience&lt;/code>&lt;/td>
+&lt;td>Optional&lt;/td>
+&lt;td>Define the logical name of the service that the token will be used for&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>subject_token&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The value of the access token&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>subject_token_type&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>urn:ietf:params:oauth:token-type:access_token&lt;/code> (because this feature accepts access tokens only)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>scope&lt;/code>&lt;/td>
+&lt;td>Optional&lt;/td>
+&lt;td>Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example request&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST -u &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_B_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_B_secret&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;audience=tokenExchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\ &lt;/span>
+    -d &lt;span style="color:#4e9a06">&amp;#34;subject_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">access_token_A&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;subject_token_type=urn:ietf:params:oauth:token-type:access_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20profile%20offline_access&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    &lt;span style="color:#4e9a06">&amp;#34;http://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example response&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUl...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUl...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;refresh_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJhbGciOiJub25lIn0.eyJleHAiO...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;scope&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid profile offline_access&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;token_type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Bearer&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="device-code">Device Code&lt;/h5>
+&lt;p>The device code flow enables OAuth clients on (input-constrained)
 devices to obtain user authorization for accessing protected resources
 without using an on-device user-agent, provided that they have an
-Internet connection.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Device Authorization Request&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The client initiates the authorization flow by requesting a set of
+Internet connection.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Device Authorization Request&lt;/strong>&lt;/p>
+&lt;p>The client initiates the authorization flow by requesting a set of
 verification codes from the authorization server by making an HTTP &amp;ldquo;POST&amp;rdquo;
  request to the device authorization endpoint. The client constructs the
- request with the following parameters:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Presence&lt;/th&gt;
-&lt;th&gt;Values&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The identifier of the client&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;scope&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;td&gt;Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example request&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -X POST &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://aai-dev.egi.eu/oidc/devicecode&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;client_id={myClientID}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;amp;scope=openid%20email%20profile&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; python -m json.tool
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Example response&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;device_code&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;c4341bd6-5e82-4f9c-9f6f-5842409d48db&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;600&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;user_code&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;IEJSJB&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;verification_uri&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://aai-dev.egi.eu/oidc/device)&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;User Interaction&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;After receiving a successful Authorization Response, the client displays or
-otherwise communicates the &lt;code&gt;user_code&lt;/code&gt; and the &lt;code&gt;verification_uri&lt;/code&gt; to the end
+ request with the following parameters:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Presence&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>client_id&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The identifier of the client&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>scope&lt;/code>&lt;/td>
+&lt;td>Optional&lt;/td>
+&lt;td>Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example request&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/devicecode&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example response&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;device_code&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c4341bd6-5e82-4f9c-9f6f-5842409d48db&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">600&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;user_code&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;IEJSJB&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;verification_uri&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/device)&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>User Interaction&lt;/strong>&lt;/p>
+&lt;p>After receiving a successful Authorization Response, the client displays or
+otherwise communicates the &lt;code>user_code&lt;/code> and the &lt;code>verification_uri&lt;/code> to the end
 user and instructs them to visit the URI in a user agent on a secondary
 device (for example, in a browser on their mobile phone), and enter the
-user code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Device Access Token Request&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;After displaying instructions to the user, the client makes an Access Token
-Request to the token endpoint. The request contains the following parameters:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Parameter&lt;/th&gt;
-&lt;th&gt;Presence&lt;/th&gt;
-&lt;th&gt;Values&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;grant_type&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;urn:ietf:params:oauth:grant-type:device_code&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;device_code&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The device verification code, &lt;code&gt;device_code&lt;/code&gt; from the Device Authorization Response&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The identifier of the client &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;client_secret&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Required&lt;/td&gt;
-&lt;td&gt;The secret value of the client&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;scope&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;Optional&lt;/td&gt;
-&lt;td&gt;Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Example request&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -X POST &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;amp;device_code={myDeviceCode}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;amp;client_id={myClientID}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;amp;client_secret={myClientSecret}&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;    -d &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;amp;scope=openid%20profile&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; python -m json.tool
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Example response&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;access_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIs...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;expires_in&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3599&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id_token&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI5MDM0Mi...&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scope&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;openid profile&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
-    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;token_type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Bearer&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;claims-based-authorisation&#34;&gt;Claims-based authorisation&lt;/h3&gt;
-&lt;p&gt;EGI Check-in provides information about the authenticated user that may
+user code.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Device Access Token Request&lt;/strong>&lt;/p>
+&lt;p>After displaying instructions to the user, the client makes an Access Token
+Request to the token endpoint. The request contains the following parameters:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Presence&lt;/th>
+&lt;th>Values&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>grant_type&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>&lt;code>urn:ietf:params:oauth:grant-type:device_code&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>device_code&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The device verification code, &lt;code>device_code&lt;/code> from the Device Authorization Response&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>client_id&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The identifier of the client &lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>client_secret&lt;/code>&lt;/td>
+&lt;td>Required&lt;/td>
+&lt;td>The secret value of the client&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>scope&lt;/code>&lt;/td>
+&lt;td>Optional&lt;/td>
+&lt;td>Define one or more scopes that are contained in the original token; otherwise all scopes will be selected&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>Example request&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;device_code={myDeviceCode}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example response&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIs...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;id_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI5MDM0Mi...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;scope&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid profile&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+    &lt;span style="color:#204a87;font-weight:bold">&amp;#34;token_type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Bearer&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="claims-based-authorisation">Claims-based authorisation&lt;/h3>
+&lt;p>EGI Check-in provides information about the authenticated user that may
 be used by Service Providers in order to control user access to
 resources. This information is provided by the EGI Check-in OIDC
-Provider in the form of &lt;a href=&#34;#claims&#34;&gt;OIDC claims&lt;/a&gt;. The table
-below lists the claims that are relevant for user authorisation:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;th&gt;OIDC Claim&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;#vogroup-membership-and-role-information&#34;&gt;VO/group membership/roles of the authenticated user&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;edu_person_entitlements&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;#level-of-assurance&#34;&gt;Level of Assurance (LoA)&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;acr&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;example-oidc-client&#34;&gt;Example OIDC Client&lt;/h3&gt;
-&lt;p&gt;In this guide we will demonstrate how to install and configure a &lt;a href=&#34;https://github.com/rciam/simple-oidc-client&#34;&gt;simple
-OIDC client&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;install-simple-oidc-client&#34;&gt;Install simple-oidc-client&lt;/h4&gt;
-&lt;p&gt;This guide assumes the Apache HTTP server has been installed and the
-document root is &lt;code&gt;/var/www/html&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Move to the apache document root and download and extract
-&lt;a href=&#34;https://github.com/rciam/simple-oidc-client/releases/download/v1.0.0/simple-oidc-client.zip&#34;&gt;simple-oidc-client.zip&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;configure-client&#34;&gt;Configure Client&lt;/h4&gt;
-&lt;p&gt;Go to this link and login &lt;a href=&#34;https://aai-dev.egi.eu/oidc/&#34;&gt;https://aai-dev.egi.eu/oidc/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Then create a new client or edit your existing client. In &lt;code&gt;main&lt;/code&gt; tab
-enter a &lt;code&gt;Client name&lt;/code&gt; and in the &lt;code&gt;Redirect URI(s)&lt;/code&gt; insert your
+Provider in the form of &lt;a href="#claims">OIDC claims&lt;/a>. The table
+below lists the claims that are relevant for user authorisation:&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Description&lt;/th>
+&lt;th>OIDC Claim&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;a href="#vogroup-membership-and-role-information">VO/group membership/roles of the authenticated user&lt;/a>&lt;/td>
+&lt;td>&lt;code>edu_person_entitlements&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#level-of-assurance">Level of Assurance (LoA)&lt;/a>&lt;/td>
+&lt;td>&lt;code>acr&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="example-oidc-client">Example OIDC Client&lt;/h3>
+&lt;p>In this guide we will demonstrate how to install and configure a &lt;a href="https://github.com/rciam/simple-oidc-client">simple
+OIDC client&lt;/a>.&lt;/p>
+&lt;h4 id="install-simple-oidc-client">Install simple-oidc-client&lt;/h4>
+&lt;p>This guide assumes the Apache HTTP server has been installed and the
+document root is &lt;code>/var/www/html&lt;/code>&lt;/p>
+&lt;p>Move to the apache document root and download and extract
+&lt;a href="https://github.com/rciam/simple-oidc-client/releases/download/v1.0.0/simple-oidc-client.zip">simple-oidc-client.zip&lt;/a>.&lt;/p>
+&lt;h4 id="configure-client">Configure Client&lt;/h4>
+&lt;p>Go to this link and login &lt;a href="https://aai-dev.egi.eu/oidc/">https://aai-dev.egi.eu/oidc/&lt;/a>&lt;/p>
+&lt;p>Then create a new client or edit your existing client. In &lt;code>main&lt;/code> tab
+enter a &lt;code>Client name&lt;/code> and in the &lt;code>Redirect URI(s)&lt;/code> insert your
 simple-oidc-client URL (e.g.
-&lt;a href=&#34;https://example.com/simple-oidc-client/popup.html&#34;&gt;https://example.com/simple-oidc-client/popup.html&lt;/a&gt;). This URL must link
-to popup.html which is located in simple-oidc-client directory.&lt;br&gt;
-Next, move to &lt;code&gt;access&lt;/code&gt; tab and pick the &lt;code&gt;scopes&lt;/code&gt; your service needs.
-Then, in &lt;code&gt;Grant types&lt;/code&gt; check &lt;code&gt;authorization code&lt;/code&gt; and &lt;code&gt;implicit&lt;/code&gt;. In
-&lt;code&gt;Response Types&lt;/code&gt; check &lt;code&gt;code&lt;/code&gt; and &lt;code&gt;token id_token&lt;/code&gt;.&lt;br&gt;
-Then, click save and copy your &lt;code&gt;Client ID&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;configure-simple-oidc-client&#34;&gt;Configure simple-oidc-client&lt;/h4&gt;
-&lt;p&gt;Now that we have everything we need, we can configure our login
-settings. Go to your terminal and open &lt;code&gt;configuration.js&lt;/code&gt; with your
-favorite text editor. ex.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;vi simple-oidc-client/configuration.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s go quickly through the settings:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;title&lt;/code&gt; is the title on the navigation bar.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;authority&lt;/code&gt; is the base URL of our IdentityServer instance. This
+&lt;a href="https://example.com/simple-oidc-client/popup.html">https://example.com/simple-oidc-client/popup.html&lt;/a>). This URL must link
+to popup.html which is located in simple-oidc-client directory.&lt;br>
+Next, move to &lt;code>access&lt;/code> tab and pick the &lt;code>scopes&lt;/code> your service needs.
+Then, in &lt;code>Grant types&lt;/code> check &lt;code>authorization code&lt;/code> and &lt;code>implicit&lt;/code>. In
+&lt;code>Response Types&lt;/code> check &lt;code>code&lt;/code> and &lt;code>token id_token&lt;/code>.&lt;br>
+Then, click save and copy your &lt;code>Client ID&lt;/code>.&lt;/p>
+&lt;h4 id="configure-simple-oidc-client">Configure simple-oidc-client&lt;/h4>
+&lt;p>Now that we have everything we need, we can configure our login
+settings. Go to your terminal and open &lt;code>configuration.js&lt;/code> with your
+favorite text editor. ex.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">vi simple-oidc-client/configuration.js
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s go quickly through the settings:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>title&lt;/code> is the title on the navigation bar.&lt;/li>
+&lt;li>&lt;code>authority&lt;/code> is the base URL of our IdentityServer instance. This
 will allow oidc-client to query the metadata endpoint so it can
-validate the tokens.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt; is the id of the client we want to use when hitting the
-authorization endpoint.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;popup_redirect_uri&lt;/code&gt; is the redirect URL used when using the
+validate the tokens.&lt;/li>
+&lt;li>&lt;code>client_id&lt;/code> is the id of the client we want to use when hitting the
+authorization endpoint.&lt;/li>
+&lt;li>&lt;code>popup_redirect_uri&lt;/code> is the redirect URL used when using the
 signinPopup method. If you prefer not having a popup and redirecting
-the user in the main window, you can use the &lt;code&gt;redirect_uri&lt;/code&gt; property
-and the signinRedirect method.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;post_logout_redirect_uri&lt;/code&gt; is the redirect URL used when using the
-signoutRedirect method.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;response_type&lt;/code&gt; defines in our case that we only expect an identity
-token back.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scope&lt;/code&gt; defines the scopes the application asks for.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;debug&lt;/code&gt; displays user data.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;filterProtocolClaims&lt;/code&gt; indicates to oidc-client if it has to filter
-some OIDC protocol claims from the response: &lt;code&gt;nonce&lt;/code&gt;, &lt;code&gt;at_hash&lt;/code&gt;, &lt;code&gt;iat&lt;/code&gt;,
-&lt;code&gt;nbf&lt;/code&gt;, &lt;code&gt;exp&lt;/code&gt;, &lt;code&gt;aud&lt;/code&gt;, &lt;code&gt;iss&lt;/code&gt; and &lt;code&gt;idp&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You must change the followings options based on your client
-configuration:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;authority&lt;/code&gt; (issuer)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;scope&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;An example configuration follows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var settings = {
-    title: &#39;Simple OIDC Client&#39;,
-    authority: &#39;https://aai-dev.egi.eu/oidc&#39;,
-    client_id: &#39;client&#39;,
-    popup_redirect_uri: &#39;https://example.com/simple-oidc-client/popup.html&#39;,
-    post_logout_redirect_uri: &#39;https://example.com/simple-oidc-client/index.html&#39;,
-    
-    response_type: &#39;token id_token&#39;,
-    scope: &#39;openid profile email&#39;, /* add offline_access to obtain a refresh token*/
-    
-    debug: false,
-    filterProtocolClaims: false
+the user in the main window, you can use the &lt;code>redirect_uri&lt;/code> property
+and the signinRedirect method.&lt;/li>
+&lt;li>&lt;code>post_logout_redirect_uri&lt;/code> is the redirect URL used when using the
+signoutRedirect method.&lt;/li>
+&lt;li>&lt;code>response_type&lt;/code> defines in our case that we only expect an identity
+token back.&lt;/li>
+&lt;li>&lt;code>scope&lt;/code> defines the scopes the application asks for.&lt;/li>
+&lt;li>&lt;code>debug&lt;/code> displays user data.&lt;/li>
+&lt;li>&lt;code>filterProtocolClaims&lt;/code> indicates to oidc-client if it has to filter
+some OIDC protocol claims from the response: &lt;code>nonce&lt;/code>, &lt;code>at_hash&lt;/code>, &lt;code>iat&lt;/code>,
+&lt;code>nbf&lt;/code>, &lt;code>exp&lt;/code>, &lt;code>aud&lt;/code>, &lt;code>iss&lt;/code> and &lt;code>idp&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;p>You must change the followings options based on your client
+configuration:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>authority&lt;/code> (issuer)&lt;/li>
+&lt;li>&lt;code>client_id&lt;/code>&lt;/li>
+&lt;li>&lt;code>scope&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>An example configuration follows:&lt;/p>
+&lt;pre>&lt;code>var settings = {
+title: 'Simple OIDC Client',
+authority: 'https://aai-dev.egi.eu/oidc',
+client_id: 'client',
+popup_redirect_uri: 'https://example.com/simple-oidc-client/popup.html',
+post_logout_redirect_uri: 'https://example.com/simple-oidc-client/index.html',
+response_type: 'token id_token',
+scope: 'openid profile email', /* add offline_access to obtain a refresh token*/
+debug: false,
+filterProtocolClaims: false
 };
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;integrating-science-gateways-with-rcauth-for-obtaining-proxy-certificates&#34;&gt;Integrating Science Gateways with RCauth for obtaining (proxy) certificates&lt;/h2&gt;
-&lt;p&gt;In order for Science Gateways (VO portals) to obtain RFC proxy
-certificates derived from &lt;strong&gt;personal&lt;/strong&gt; end-entity certificates, an EGI
+&lt;/code>&lt;/pre>&lt;h2 id="integrating-science-gateways-with-rcauth-for-obtaining-proxy-certificates">Integrating Science Gateways with RCauth for obtaining (proxy) certificates&lt;/h2>
+&lt;p>In order for Science Gateways (VO portals) to obtain RFC proxy
+certificates derived from &lt;strong>personal&lt;/strong> end-entity certificates, an EGI
 Science Gateway can make use of the IGTF-approved IOTA-type RCauth.eu
 online CA. The actual integration goes via an intermediary service,
 called a Master Portal. EGI is running two Master Portal instances, one
-development, one production instance.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Endpoint&lt;/th&gt;
-&lt;th&gt;Development environment&lt;/th&gt;
-&lt;th&gt;Production environment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Provider configuration&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&#34;&gt;https://aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Client registration&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/register&#34;&gt;https://aai.egi.eu/mp-oa2-server/register&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Authorisation&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/authorize&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/authorize&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/authorize&#34;&gt;https://aai.egi.eu/mp-oa2-server/authorize&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Token&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/token&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/token&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/token&#34;&gt;https://aai.egi.eu/mp-oa2-server/token&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;JSON Web Key(jwt)&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/certs&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/certs&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/certs&#34;&gt;https://aai.egi.eu/mp-oa2-server/certs&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;User Info&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/userinfo&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/userinfo&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://aai-demo.egi.eu/oidc/userinfo&#34;&gt;https://aai-demo.egi.eu/oidc/userinfo&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;registering-a-client-at-the-master-portal&#34;&gt;Registering a client at the Master Portal&lt;/h3&gt;
-&lt;p&gt;In order to register a new client for your VO portal go to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;EGI Development instance: &lt;a href=&#34;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&#34;&gt;https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;EGI Production instance: &lt;a href=&#34;https://aai.egi.eu/mp-oa2-server/register&#34;&gt;https://aai.egi.eu/mp-oa2-server/register&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;NOTE: Make sure to store the &lt;code&gt;client_id&lt;/code&gt; and &lt;code&gt;client_secret&lt;/code&gt; in a
-secure place.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;In order to get the client approved, send an email to the adminstrator
-of the EGI Master Portal using &lt;a href=&#34;mailto:egi-aai-checkin@lists.grnet.gr&#34;&gt;EGI Check-in
-support&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;detailed-information&#34;&gt;Detailed information&lt;/h4&gt;
-&lt;p&gt;For further and detailed instructions on the integration flow, see the
-generic &lt;a href=&#34;https://wiki.nikhef.nl/grid/RCauth.eu_and_MasterPortal_VOPortal_integration_guide&#34;&gt;RCAuth.eu MasterPortal VOPortal integration
-guide&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&#34;ssh-key-authentication-for-proxy-retrieval&#34;&gt;SSH key authentication for proxy retrieval&lt;/h4&gt;
-&lt;p&gt;The EGI MasterPortal also allows users to authenticate using &lt;em&gt;SSH key
-pair&lt;/em&gt;, in order to retrieve proxy certificates from the MasterPortal.
+development, one production instance.&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Endpoint&lt;/th>
+&lt;th>Development environment&lt;/th>
+&lt;th>Production environment&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Provider configuration&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/.well-known/openid-configuration">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/mp-oa2-server/.well-known/openid-configuration">https://aai.egi.eu/mp-oa2-server/.well-known/openid-configuration&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Client registration&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/mp-oa2-server/register">https://aai.egi.eu/mp-oa2-server/register&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Authorisation&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/authorize">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/authorize&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/mp-oa2-server/authorize">https://aai.egi.eu/mp-oa2-server/authorize&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Token&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/token">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/token&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/mp-oa2-server/token">https://aai.egi.eu/mp-oa2-server/token&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>JSON Web Key(jwt)&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/certs">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/certs&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai.egi.eu/mp-oa2-server/certs">https://aai.egi.eu/mp-oa2-server/certs&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>User Info&lt;/td>
+&lt;td>&lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/userinfo">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/userinfo&lt;/a>&lt;/td>
+&lt;td>&lt;a href="https://aai-demo.egi.eu/oidc/userinfo">https://aai-demo.egi.eu/oidc/userinfo&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="registering-a-client-at-the-master-portal">Registering a client at the Master Portal&lt;/h3>
+&lt;p>In order to register a new client for your VO portal go to:&lt;/p>
+&lt;ul>
+&lt;li>EGI Development instance: &lt;a href="https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register">https://masterportal-pilot.aai.egi.eu/mp-oa2-server/register&lt;/a>&lt;/li>
+&lt;li>EGI Production instance: &lt;a href="https://aai.egi.eu/mp-oa2-server/register">https://aai.egi.eu/mp-oa2-server/register&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>NOTE: Make sure to store the &lt;code>client_id&lt;/code> and &lt;code>client_secret&lt;/code> in a
+secure place.&lt;/strong>&lt;/p>
+&lt;p>In order to get the client approved, send an email to the adminstrator
+of the EGI Master Portal using &lt;a href="mailto:egi-aai-checkin@lists.grnet.gr">EGI Check-in
+support&lt;/a>.&lt;/p>
+&lt;h4 id="detailed-information">Detailed information&lt;/h4>
+&lt;p>For further and detailed instructions on the integration flow, see the
+generic &lt;a href="https://wiki.nikhef.nl/grid/RCauth.eu_and_MasterPortal_VOPortal_integration_guide">RCAuth.eu MasterPortal VOPortal integration
+guide&lt;/a>&lt;/p>
+&lt;h4 id="ssh-key-authentication-for-proxy-retrieval">SSH key authentication for proxy retrieval&lt;/h4>
+&lt;p>The EGI MasterPortal also allows users to authenticate using &lt;em>SSH key
+pair&lt;/em>, in order to retrieve proxy certificates from the MasterPortal.
 Users need to first upload the public key via a self-service portal,
-&lt;a href=&#34;https://aai.egi.eu/sshkeys/&#34;&gt;https://aai.egi.eu/sshkeys/&lt;/a&gt;. About once a week they need to follow a
+&lt;a href="https://aai.egi.eu/sshkeys/">https://aai.egi.eu/sshkeys/&lt;/a>. About once a week they need to follow a
 web-flow to ensure a long-lived proxy certificate is present in
-MasterPortal, e.g. by going to &lt;a href=&#34;https://aai.egi.eu/vo-portal/&#34;&gt;https://aai.egi.eu/vo-portal/&lt;/a&gt;. They can
-then obtain a proxy certificate by doing&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;ssh proxy@ssh.aai.egi.eu
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and storing the output in &lt;code&gt;/tmp/x509up_u$(id -u)&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Generic information for users on how to do this can be found at
-&lt;a href=&#34;https://wiki.nikhef.nl/grid/RCauth.eu_and_MasterPortal_SSH_Key_Portal&#34;&gt;Instructions for end-users on how to use the SSH key authN for proxy
-retrieval&lt;/a&gt;.
+MasterPortal, e.g. by going to &lt;a href="https://aai.egi.eu/vo-portal/">https://aai.egi.eu/vo-portal/&lt;/a>. They can
+then obtain a proxy certificate by doing&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh proxy@ssh.aai.egi.eu
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>and storing the output in &lt;code>/tmp/x509up_u$(id -u)&lt;/code>&lt;/p>
+&lt;p>Generic information for users on how to do this can be found at
+&lt;a href="https://wiki.nikhef.nl/grid/RCauth.eu_and_MasterPortal_SSH_Key_Portal">Instructions for end-users on how to use the SSH key authN for proxy
+retrieval&lt;/a>.
 Alternatively VO portals could implement such functionality themselves
-by using the API described at the &lt;a href=&#34;https://wiki.nikhef.nl/grid/Master_Portal_sshkey_endpoint&#34;&gt;Master Portal sshkey endpoint
-description&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;user-authorisation&#34;&gt;User authorisation&lt;/h2&gt;
-&lt;p&gt;The following information about the authenticated user can be provided
-by EGI Check-in in order to control user access to resources:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;VO/group membership and role information about the authenticated
-user&lt;/li&gt;
-&lt;li&gt;Level of Assurance (LoA)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;vogroup-membership-and-role-information&#34;&gt;VO/group membership and role information&lt;/h3&gt;
-&lt;h4 id=&#34;background&#34;&gt;Background&lt;/h4&gt;
-&lt;p&gt;VO/group membership and role information is encoded in entitlements
-(&lt;code&gt;eduPersonEntitlement&lt;/code&gt; attribute values in SAML or
-&lt;code&gt;edu_person_entitlements&lt;/code&gt; claim in OIDC). These entitlements are
+by using the API described at the &lt;a href="https://wiki.nikhef.nl/grid/Master_Portal_sshkey_endpoint">Master Portal sshkey endpoint
+description&lt;/a>.&lt;/p>
+&lt;h2 id="user-authorisation">User authorisation&lt;/h2>
+&lt;p>The following information about the authenticated user can be provided
+by EGI Check-in in order to control user access to resources:&lt;/p>
+&lt;ol>
+&lt;li>VO/group membership and role information about the authenticated
+user&lt;/li>
+&lt;li>Level of Assurance (LoA)&lt;/li>
+&lt;/ol>
+&lt;h3 id="vogroup-membership-and-role-information">VO/group membership and role information&lt;/h3>
+&lt;h4 id="background">Background&lt;/h4>
+&lt;p>VO/group membership and role information is encoded in entitlements
+(&lt;code>eduPersonEntitlement&lt;/code> attribute values in SAML or
+&lt;code>edu_person_entitlements&lt;/code> claim in OIDC). These entitlements are
 typically used to indicate access rights to protected resources.
-Entitlements are multi-valued, with each value formatted as a URN.&lt;/p&gt;
-&lt;h4 id=&#34;syntax&#34;&gt;Syntax&lt;/h4&gt;
-&lt;p&gt;An entitlement value expressing group membership and role information
+Entitlements are multi-valued, with each value formatted as a URN.&lt;/p>
+&lt;h4 id="syntax">Syntax&lt;/h4>
+&lt;p>An entitlement value expressing group membership and role information
 has the following syntax (components enclosed in square brackets are
-OPTIONAL):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urn:mace:egi.eu:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*]][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt; is the name of a VO, research collaboration or a
-top level arbitrary group. &lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt; names are unique within
-the &lt;code&gt;urn:mace:egi.eu:group&lt;/code&gt; namespace;&lt;/li&gt;
-&lt;li&gt;zero or more &lt;code&gt;&amp;lt;SUBGROUP&amp;gt;&lt;/code&gt; components represent the hierarchy
-of subgroups in the &lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt;; specifying sub-groups is
-optional&lt;/li&gt;
-&lt;li&gt;the optional &lt;code&gt;&amp;lt;ROLE&amp;gt;&lt;/code&gt; component is scoped to the rightmost
+OPTIONAL):&lt;/p>
+&lt;pre>&lt;code>urn:mace:egi.eu:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*]][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>where:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> is the name of a VO, research collaboration or a
+top level arbitrary group. &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> names are unique within
+the &lt;code>urn:mace:egi.eu:group&lt;/code> namespace;&lt;/li>
+&lt;li>zero or more &lt;code>&amp;lt;SUBGROUP&amp;gt;&lt;/code> components represent the hierarchy
+of subgroups in the &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code>; specifying sub-groups is
+optional&lt;/li>
+&lt;li>the optional &lt;code>&amp;lt;ROLE&amp;gt;&lt;/code> component is scoped to the rightmost
 (sub)group; if no group information is specified, the role applies
-to the VO&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;GROUP-AUTHORITY&amp;gt;&lt;/code&gt; is a non-empty string that indicates the
+to the VO&lt;/li>
+&lt;li>&lt;code>&amp;lt;GROUP-AUTHORITY&amp;gt;&lt;/code> is a non-empty string that indicates the
 authoritative source for the entitlement value. For example, it can
 be the FQDN of the group management system that is responsible for
-the identified group membership information&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urn:mace:egi.eu:group:fedcloud.egi.eu:role=vm_operator#aai.egi.eu
-&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;old-syntax-will-be-deprecated-in-a-next-release&#34;&gt;Old Syntax (will be deprecated in a next release)&lt;/h4&gt;
-&lt;p&gt;An entitlement value expressing group membership and role information
+the identified group membership information&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>urn:mace:egi.eu:group:fedcloud.egi.eu:role=vm_operator#aai.egi.eu
+&lt;/code>&lt;/pre>&lt;h4 id="old-syntax-will-be-deprecated-in-a-next-release">Old Syntax (will be deprecated in a next release)&lt;/h4>
+&lt;p>An entitlement value expressing group membership and role information
 has the following syntax (components enclosed in square brackets are
-OPTIONAL):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urn:mace:egi.eu:&amp;lt;GROUP-AUTHORITY&amp;gt;:[&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;:…]]:&amp;lt;ROLE&amp;gt;@&amp;lt;VO&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;urn:mace:egi.eu:aai.egi.eu:vm_operator@fedcloud.egi.eu
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;level-of-assurance&#34;&gt;Level of Assurance&lt;/h3&gt;
-&lt;p&gt;Based on the authentication method selected by the user, the EGI proxy
+OPTIONAL):&lt;/p>
+&lt;pre>&lt;code>urn:mace:egi.eu:&amp;lt;GROUP-AUTHORITY&amp;gt;:[&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;:…]]:&amp;lt;ROLE&amp;gt;@&amp;lt;VO&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;pre>&lt;code>urn:mace:egi.eu:aai.egi.eu:vm_operator@fedcloud.egi.eu
+&lt;/code>&lt;/pre>&lt;h3 id="level-of-assurance">Level of Assurance&lt;/h3>
+&lt;p>Based on the authentication method selected by the user, the EGI proxy
 assigns a Level of Assurance (LoA), which is conveyed to the SP through
-both the &lt;code&gt;eduPersonAssurance&lt;/code&gt; attribute and the Authentication Context
-Class (&lt;code&gt;AuthnContextClassRef&lt;/code&gt;) of the SAML authentication response. EGI
+both the &lt;code>eduPersonAssurance&lt;/code> attribute and the Authentication Context
+Class (&lt;code>AuthnContextClassRef&lt;/code>) of the SAML authentication response. EGI
 AAI currently distinguishes between three LoA levels, similarly to the
-&lt;a href=&#34;http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002&#34;&gt;eID Assurance Framework
-(eIDAF)&lt;/a&gt;.
-Each level is represented by a URI as follows:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Low&lt;/strong&gt;: Authentication through a social identity provider or other
-low identity assurance provider: &lt;code&gt;https://aai.egi.eu/LoA#Low&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Substantial&lt;/strong&gt;: Password/X.509 authentication at the user&#39;s home
-IdP: &lt;code&gt;https://aai.egi.eu/LoA#Substantial&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;High&lt;/strong&gt;: Substantial + multi-factor authn (not yet supported, TBD):
-&lt;code&gt;https://aai.egi.eu/LoA#High&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Some EGI SPs have been configured to provide limited access (or not to
-accept at all) credentials with the Low LoA.&lt;/p&gt;
-&lt;p&gt;Note: When logging in through the EGI SSO IdP, the LoA is determined
-based on the selected authentication mechanism as follows:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Username/password credentials → Low&lt;/li&gt;
-&lt;li&gt;X.509 certification → Substantial&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002">eID Assurance Framework
+(eIDAF)&lt;/a>.
+Each level is represented by a URI as follows:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Low&lt;/strong>: Authentication through a social identity provider or other
+low identity assurance provider: &lt;code>https://aai.egi.eu/LoA#Low&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Substantial&lt;/strong>: Password/X.509 authentication at the user's home
+IdP: &lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/li>
+&lt;li>&lt;strong>High&lt;/strong>: Substantial + multi-factor authn (not yet supported, TBD):
+&lt;code>https://aai.egi.eu/LoA#High&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>Some EGI SPs have been configured to provide limited access (or not to
+accept at all) credentials with the Low LoA.&lt;/p>
+&lt;p>Note: When logging in through the EGI SSO IdP, the LoA is determined
+based on the selected authentication mechanism as follows:&lt;/p>
+&lt;ul>
+&lt;li>Username/password credentials → Low&lt;/li>
+&lt;li>X.509 certification → Substantial&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,389 +1,348 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>EGI Docs – EC3</title>
-    <link>/users/cloud-compute/ec3/</link>
-    <description>Recent content in EC3 on EGI Docs</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	  <atom:link href="/users/cloud-compute/ec3/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
-    <item>
-      <title>Users: Introduction</title>
-      <link>/users/cloud-compute/ec3/basics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/users/cloud-compute/ec3/basics/</guid>
-      <description>
-        
-        
-        &lt;p&gt;You can find here documentation on how to deploy a sample SLURM cluster, which
-you can then adapt to create other kind of clusters easily.&lt;/p&gt;
-&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
-&lt;p&gt;We will use docker for running EC3, direct installation is also possible and
-described at &lt;a href=&#34;https://ec3.readthedocs.io/en/devel/intro.html#installation&#34;&gt;EC3 documentation&lt;/a&gt;.
-First get the docker image:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker pull grycap/ec3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And check that you can run a simple command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker run grycap/ec3 list
- name  state  IP  nodes
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – EC3</title><link>/users/cloud-compute/ec3/</link><description>Recent content in EC3 on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/cloud-compute/ec3/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Introduction</title><link>/users/cloud-compute/ec3/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/basics/</guid><description>
+&lt;p>You can find here documentation on how to deploy a sample SLURM cluster, which
+you can then adapt to create other kind of clusters easily.&lt;/p>
+&lt;h2 id="getting-started">Getting started&lt;/h2>
+&lt;p>We will use docker for running EC3, direct installation is also possible and
+described at &lt;a href="https://ec3.readthedocs.io/en/devel/intro.html#installation">EC3 documentation&lt;/a>.
+First get the docker image:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker pull grycap/ec3
+&lt;/code>&lt;/pre>&lt;p>And check that you can run a simple command:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker run grycap/ec3 list
+name state IP nodes
 ------------------------
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For convenience we will create a directory to keep the deployment configuration
-and status together.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ mkdir ec3-test
+&lt;/code>&lt;/pre>&lt;p>For convenience we will create a directory to keep the deployment configuration
+and status together.&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ mkdir ec3-test
 $ cd ec3-test
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can list the available templates for clusters with the &lt;code&gt;templates&lt;/code&gt; command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker run grycap/ec3 templates
-          name              kind                                         summary
+&lt;/code>&lt;/pre>&lt;p>You can list the available templates for clusters with the &lt;code>templates&lt;/code> command:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker run grycap/ec3 templates
+name kind summary
 ----------------------------------------------------------------------------------------------------------------------
-          blcr            component Tool for checkpointing applications.
+blcr component Tool for checkpointing applications.
 [...]
-           sge              main    Install and configure a cluster SGE from distribution repositories.
-          slurm             main    Install and configure a cluster using the grycap.slurm ansible role.
-       slurm-repo           main    Install and configure a cluster SLURM from distribution repositories.
+sge main Install and configure a cluster SGE from distribution repositories.
+slurm main Install and configure a cluster using the grycap.slurm ansible role.
+slurm-repo main Install and configure a cluster SLURM from distribution repositories.
 [...]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We will use the &lt;code&gt;slurm&lt;/code&gt; template for configuring our cluster.&lt;/p&gt;
-&lt;h2 id=&#34;site-details&#34;&gt;Site details&lt;/h2&gt;
-&lt;p&gt;EC3 needs some information on the site that you are planning to use to deploy
-your cluster:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;authentication information&lt;/li&gt;
-&lt;li&gt;network identifiers&lt;/li&gt;
-&lt;li&gt;VM image identifiers&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;We will use &lt;code&gt;egicli&lt;/code&gt; to discover all needed details, set your credentials
+&lt;/code>&lt;/pre>&lt;p>We will use the &lt;code>slurm&lt;/code> template for configuring our cluster.&lt;/p>
+&lt;h2 id="site-details">Site details&lt;/h2>
+&lt;p>EC3 needs some information on the site that you are planning to use to deploy
+your cluster:&lt;/p>
+&lt;ol>
+&lt;li>authentication information&lt;/li>
+&lt;li>network identifiers&lt;/li>
+&lt;li>VM image identifiers&lt;/li>
+&lt;/ol>
+&lt;p>We will use &lt;code>egicli&lt;/code> to discover all needed details, set your credentials
 (Check-in client id, client secret and refresh tokens) as shown in
-&lt;a href=&#34;../../auth/#oidc-auth-using-check-in&#34;&gt;the authentication guide&lt;/a&gt; and start by
-listing the available sites:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ egicli endpoint list
-Site                type                URL
-------------------  ------------------  ------------------------------------------------
-IFCA-LCG2           org.openstack.nova  https://api.cloud.ifca.es:5000/v3/
-IN2P3-IRES          org.openstack.nova  https://sbgcloud.in2p3.fr:5000/v3
-CETA-GRID           org.openstack.nova  https://controller.ceta-ciemat.es:5000/v3/
-UA-BITP             org.openstack.nova  https://openstack.bitp.kiev.ua:5000/v3
-RECAS-BARI          org.openstack.nova  https://cloud.recas.ba.infn.it:5000/v3
-CLOUDIFIN           org.openstack.nova  https://cloud-ctrl.nipne.ro:443/v3
-IISAS-GPUCloud      org.openstack.nova  https://keystone3.ui.savba.sk:5000/v3/
-IISAS-FedCloud      org.openstack.nova  https://nova.ui.savba.sk:5000/v3/
-UNIV-LILLE          org.openstack.nova  https://thor.univ-lille.fr:5000/v3
-INFN-PADOVA-STACK   org.openstack.nova  https://egi-cloud.pd.infn.it:443/v3
-CYFRONET-CLOUD      org.openstack.nova  https://panel.cloud.cyfronet.pl:5000/v3/
-SCAI                org.openstack.nova  https://fc.scai.fraunhofer.de:5000/v3
-CESNET-MCC          org.openstack.nova  https://identity.cloud.muni.cz/v3
-INFN-CATANIA-STACK  org.openstack.nova  https://stack-server.ct.infn.it:35357/v3
-CESGA               org.openstack.nova  https://fedcloud-osservices.egi.cesga.es:5000/v3
-100IT               org.openstack.nova  https://cloud-egi.100percentit.com:5000/v3/
-NCG-INGRID-PT       org.openstack.nova  https://stratus.ncg.ingrid.pt:5000/v3
-fedcloud.srce.hr    org.openstack.nova  https://cloud.cro-ngi.hr:5000/v3/
-Kharkov-KIPT-LCG2   org.openstack.nova  https://cloud.kipt.kharkov.ua:5000/v3
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We will use &lt;code&gt;CESGA&lt;/code&gt;, which has &lt;code&gt;https://fedcloud-osservices.egi.cesga.es:5000/v3&lt;/code&gt;
-as URL. Get the available projects at the site:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$  egicli endpoint projects --site CESGA
-id                                Name              enabled    site
---------------------------------  ----------------  ---------  ------
-3a8e9d966e644405bf19b536adf7743d  vo.access.egi.eu  True       CESGA
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Using the project id and the site name, you can create the authorisation files
-needed for ec3:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ egicli endpoint ec3 --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This will generate an &lt;code&gt;auth.dat&lt;/code&gt; file with your credentials to access the site
-and a &lt;code&gt;templates/refresh.radl&lt;/code&gt; with a token refreshal mechanism to allow long
-running clusters to be managed on the infrastructure.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s get also a working OpenStack setup:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ eval &amp;quot;$(egicli endpoint env --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now, get the available networks, we will need both a public and private network:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ openstack network list
+&lt;a href="../../auth/#oidc-auth-using-check-in">the authentication guide&lt;/a> and start by
+listing the available sites:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ egicli endpoint list
+Site type URL
+------------------ ------------------ ------------------------------------------------
+IFCA-LCG2 org.openstack.nova https://api.cloud.ifca.es:5000/v3/
+IN2P3-IRES org.openstack.nova https://sbgcloud.in2p3.fr:5000/v3
+CETA-GRID org.openstack.nova https://controller.ceta-ciemat.es:5000/v3/
+UA-BITP org.openstack.nova https://openstack.bitp.kiev.ua:5000/v3
+RECAS-BARI org.openstack.nova https://cloud.recas.ba.infn.it:5000/v3
+CLOUDIFIN org.openstack.nova https://cloud-ctrl.nipne.ro:443/v3
+IISAS-GPUCloud org.openstack.nova https://keystone3.ui.savba.sk:5000/v3/
+IISAS-FedCloud org.openstack.nova https://nova.ui.savba.sk:5000/v3/
+UNIV-LILLE org.openstack.nova https://thor.univ-lille.fr:5000/v3
+INFN-PADOVA-STACK org.openstack.nova https://egi-cloud.pd.infn.it:443/v3
+CYFRONET-CLOUD org.openstack.nova https://panel.cloud.cyfronet.pl:5000/v3/
+SCAI org.openstack.nova https://fc.scai.fraunhofer.de:5000/v3
+CESNET-MCC org.openstack.nova https://identity.cloud.muni.cz/v3
+INFN-CATANIA-STACK org.openstack.nova https://stack-server.ct.infn.it:35357/v3
+CESGA org.openstack.nova https://fedcloud-osservices.egi.cesga.es:5000/v3
+100IT org.openstack.nova https://cloud-egi.100percentit.com:5000/v3/
+NCG-INGRID-PT org.openstack.nova https://stratus.ncg.ingrid.pt:5000/v3
+fedcloud.srce.hr org.openstack.nova https://cloud.cro-ngi.hr:5000/v3/
+Kharkov-KIPT-LCG2 org.openstack.nova https://cloud.kipt.kharkov.ua:5000/v3
+&lt;/code>&lt;/pre>&lt;p>We will use &lt;code>CESGA&lt;/code>, which has &lt;code>https://fedcloud-osservices.egi.cesga.es:5000/v3&lt;/code>
+as URL. Get the available projects at the site:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ egicli endpoint projects --site CESGA
+id Name enabled site
+-------------------------------- ---------------- --------- ------
+3a8e9d966e644405bf19b536adf7743d vo.access.egi.eu True CESGA
+&lt;/code>&lt;/pre>&lt;p>Using the project id and the site name, you can create the authorisation files
+needed for ec3:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ egicli endpoint ec3 --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d
+&lt;/code>&lt;/pre>&lt;p>This will generate an &lt;code>auth.dat&lt;/code> file with your credentials to access the site
+and a &lt;code>templates/refresh.radl&lt;/code> with a token refreshal mechanism to allow long
+running clusters to be managed on the infrastructure.&lt;/p>
+&lt;p>Let&amp;rsquo;s get also a working OpenStack setup:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ eval &amp;quot;$(egicli endpoint env --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d)&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>Now, get the available networks, we will need both a public and private network:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ openstack network list
 +--------------------------------------+----------------------+--------------------------------------+
-| ID                                   | Name                 | Subnets                              |
+| ID | Name | Subnets |
 +--------------------------------------+----------------------+--------------------------------------+
 | 12ffb5f7-3e54-433f-86d0-8ffa43b52025 | net-vo.access.egi.eu | 754342b1-92df-4fc8-9499-2ee8b668141f |
-| 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | public00             | 6af8c4f3-8e2e-405d-adea-c0b374c5bd99 |
+| 6174db12-932f-4ee3-bb3e-7a0ca070d8f2 | public00 | 6af8c4f3-8e2e-405d-adea-c0b374c5bd99 |
 +--------------------------------------+----------------------+--------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Then, get the list of images available:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$  openstack image list
+&lt;/code>&lt;/pre>&lt;p>Then, get the list of images available:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ openstack image list
 +--------------------------------------+----------------------------------------------------------+--------+
-| ID                                   | Name                                                     | Status |
+| ID | Name | Status |
 +--------------------------------------+----------------------------------------------------------+--------+
-| 9d22cb3b-e6a3-4467-801a-a68214338b22 | Image for CernVM3 [CentOS/6/QEMU-KVM]                    | active |
-| b03e8720-d88a-4939-b93d-23289b8eed6c | Image for CernVM4 [CentOS/7/QEMU-KVM]                    | active |
-| 06cd7256-de22-4e9d-a1cf-997b5c44d938 | Image for Chipster [Ubuntu/16.04/KVM]                    | active |
-| 8c4e2568-67a2-441a-b696-ac1b7c60de9c | Image for EGI CentOS 7 [CentOS/7/VirtualBox]             | active |
-| abc5ebd8-f65c-4af9-8e54-a89e3b5587a3 | Image for EGI Docker [Ubuntu/18.04/VirtualBox]           | active |
+| 9d22cb3b-e6a3-4467-801a-a68214338b22 | Image for CernVM3 [CentOS/6/QEMU-KVM] | active |
+| b03e8720-d88a-4939-b93d-23289b8eed6c | Image for CernVM4 [CentOS/7/QEMU-KVM] | active |
+| 06cd7256-de22-4e9d-a1cf-997b5c44d938 | Image for Chipster [Ubuntu/16.04/KVM] | active |
+| 8c4e2568-67a2-441a-b696-ac1b7c60de9c | Image for EGI CentOS 7 [CentOS/7/VirtualBox] | active |
+| abc5ebd8-f65c-4af9-8e54-a89e3b5587a3 | Image for EGI Docker [Ubuntu/18.04/VirtualBox] | active |
 | 22064e93-6af9-430b-94a1-e96473c5a72b | Image for EGI Ubuntu 16.04 LTS [Ubuntu/16.04/VirtualBox] | active |
-| d5040b3e-ef33-4959-bb88-5505e229f579 | Image for EGI Ubuntu 18.04 [Ubuntu/18.04/VirtualBox]     | active |
-| 79fadf3f-6092-4bb7-ab78-9a322f0aad33 | cirros                                                   | active |
+| d5040b3e-ef33-4959-bb88-5505e229f579 | Image for EGI Ubuntu 18.04 [Ubuntu/18.04/VirtualBox] | active |
+| 79fadf3f-6092-4bb7-ab78-9a322f0aad33 | cirros | active |
 +--------------------------------------+----------------------------------------------------------+--------+
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For our example we will use the EGI CentOS 7 with id
-&lt;code&gt;8c4e2568-67a2-441a-b696-ac1b7c60de9c&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Finally, with all this information we can create the &lt;code&gt;images&lt;/code&gt; template for EC3
+&lt;/code>&lt;/pre>&lt;p>For our example we will use the EGI CentOS 7 with id
+&lt;code>8c4e2568-67a2-441a-b696-ac1b7c60de9c&lt;/code>.&lt;/p>
+&lt;p>Finally, with all this information we can create the &lt;code>images&lt;/code> template for EC3
 that specifies the site configuration for our deployment. Save this file as
-&lt;code&gt;templates/centos.radl&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;description centos-cesga (
-    kind = &#39;images&#39; and
-    short = &#39;centos7-cesga&#39; and
-    content = &#39;CentOS7 image at CESGA&#39;
+&lt;code>templates/centos.radl&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>description centos-cesga (
+kind = 'images' and
+short = 'centos7-cesga' and
+content = 'CentOS7 image at CESGA'
 )
-
 network public (
-    provider_id = &#39;public00&#39; and
-    outports contains &#39;22/tcp&#39;
+provider_id = 'public00' and
+outports contains '22/tcp'
 )
-
-network private (provider_id = &#39;net-vo.access.egi.eu&#39;)
-
+network private (provider_id = 'net-vo.access.egi.eu')
 system front (
-    cpu.arch = &#39;x86_64&#39; and
-    cpu.count &amp;gt;= 2 and
-    memory.size &amp;gt;= 2048 and
-    disk.0.os.name = &#39;linux&#39; and
-    disk.0.image.url = &#39;ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c&#39; and
-    disk.0.os.credentials.username = &#39;centos&#39;
+cpu.arch = 'x86_64' and
+cpu.count &amp;gt;= 2 and
+memory.size &amp;gt;= 2048 and
+disk.0.os.name = 'linux' and
+disk.0.image.url = 'ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c' and
+disk.0.os.credentials.username = 'centos'
 )
-
 system wn (
-    cpu.arch = &#39;x86_64&#39; and
-    cpu.count &amp;gt;= 2 and
-    memory.size &amp;gt;= 2048 and
-    ec3_max_instances = 5 and # maximum number of worker nodes in the cluster
-    disk.0.os.name = &#39;linux&#39; and
-    disk.0.image.url = &#39;ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c&#39; and
-    disk.0.os.credentials.username = &#39;centos&#39;
+cpu.arch = 'x86_64' and
+cpu.count &amp;gt;= 2 and
+memory.size &amp;gt;= 2048 and
+ec3_max_instances = 5 and # maximum number of worker nodes in the cluster
+disk.0.os.name = 'linux' and
+disk.0.image.url = 'ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c' and
+disk.0.os.credentials.username = 'centos'
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note we have used &lt;code&gt;public00&lt;/code&gt; as public network and opened port &lt;code&gt;22&lt;/code&gt; to allow
-ssh access. The private network uses &lt;code&gt;net-vo.access.egi.eu&lt;/code&gt;. We have two kind
-of VMs in almost every deployment: the &lt;code&gt;front&lt;/code&gt;, that runs the batch system, and
-the &lt;code&gt;wn&lt;/code&gt;, that will execute the jobs. In our example, both will use the same
-CentOS image, which is specified with the &lt;code&gt;disk.0.image.url = &#39;ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c&#39;&lt;/code&gt;
-line: &lt;code&gt;ost&lt;/code&gt; refers to OpenStack, &lt;code&gt;fedcloud-osservices.egi.cesga.es&lt;/code&gt; is the
-hostname of the URL obtained above with &lt;code&gt;egicli endpoint list&lt;/code&gt; and
-&lt;code&gt;8c4e2568-67a2-441a-b696-ac1b7c60de9c&lt;/code&gt; is the id of the image in OpenStack. The
-size of the VM is also specified.&lt;/p&gt;
-&lt;h2 id=&#34;launch-cluster&#34;&gt;Launch cluster&lt;/h2&gt;
-&lt;p&gt;We are ready now to deploy the cluster with ec3 (this can take several minutes):&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 launch mycluster slurm ubuntu refresh -a auth.dat
+&lt;/code>&lt;/pre>&lt;p>Note we have used &lt;code>public00&lt;/code> as public network and opened port &lt;code>22&lt;/code> to allow
+ssh access. The private network uses &lt;code>net-vo.access.egi.eu&lt;/code>. We have two kind
+of VMs in almost every deployment: the &lt;code>front&lt;/code>, that runs the batch system, and
+the &lt;code>wn&lt;/code>, that will execute the jobs. In our example, both will use the same
+CentOS image, which is specified with the &lt;code>disk.0.image.url = 'ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c'&lt;/code>
+line: &lt;code>ost&lt;/code> refers to OpenStack, &lt;code>fedcloud-osservices.egi.cesga.es&lt;/code> is the
+hostname of the URL obtained above with &lt;code>egicli endpoint list&lt;/code> and
+&lt;code>8c4e2568-67a2-441a-b696-ac1b7c60de9c&lt;/code> is the id of the image in OpenStack. The
+size of the VM is also specified.&lt;/p>
+&lt;h2 id="launch-cluster">Launch cluster&lt;/h2>
+&lt;p>We are ready now to deploy the cluster with ec3 (this can take several minutes):&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 launch mycluster slurm ubuntu refresh -a auth.dat
 Creating infrastructure
 Infrastructure successfully created with ID: 74fde7be-edee-11ea-a6e9-da8b0bbd7c73
 Front-end configured with IP 193.144.46.234
 Transferring infrastructure
 Front-end ready!
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can check the status of the deployment:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 list
-   name       state           IP        nodes
+&lt;/code>&lt;/pre>&lt;p>We can check the status of the deployment:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 list
+name state IP nodes
 ----------------------------------------------
- mycluster  configured  193.144.46.234    0
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And once configured, ssh to the front node. The &lt;code&gt;is_cluster_ready&lt;/code&gt; command will
-report whether the cluster is fully configured or not:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 ssh mycluster
-Warning: Permanently added &#39;193.144.46.234&#39; (ECDSA) to the list of known hosts.
-Last login: Thu Sep  3 14:07:46 2020 from torito.i3m.upv.es
+mycluster configured 193.144.46.234 0
+&lt;/code>&lt;/pre>&lt;p>And once configured, ssh to the front node. The &lt;code>is_cluster_ready&lt;/code> command will
+report whether the cluster is fully configured or not:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 ssh mycluster
+Warning: Permanently added '193.144.46.234' (ECDSA) to the list of known hosts.
+Last login: Thu Sep 3 14:07:46 2020 from torito.i3m.upv.es
 $ bash
 cloudadm@slurmserver:~$ is_cluster_ready
 Cluster configured!
 cloudadm@slurmserver:~$
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;EC3 will deploy &lt;a href=&#34;https://www.grycap.upv.es/clues/eng/index.php&#34;&gt;CLUES&lt;/a&gt;, a cluster
+&lt;/code>&lt;/pre>&lt;p>EC3 will deploy &lt;a href="https://www.grycap.upv.es/clues/eng/index.php">CLUES&lt;/a>, a cluster
 management system that will power on/off nodes as needed depending on the load.
-Initially all the nodes will be off:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;node                          state    enabled   time stable   (cpu,mem) used   (cpu,mem) total
+Initially all the nodes will be off:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">node state enabled time stable (cpu,mem) used (cpu,mem) total
 -----------------------------------------------------------------------------------------------
-wn1                             off    enabled     00h03&#39;55&amp;quot;      0,0.0            1,1073741824.0
-wn2                             off    enabled     00h03&#39;55&amp;quot;      0,0.0            1,1073741824.0
-wn3                             off    enabled     00h03&#39;55&amp;quot;      0,0.0            1,1073741824.0
-wn4                             off    enabled     00h03&#39;55&amp;quot;      0,0.0            1,1073741824.0
-wn5                             off    enabled     00h03&#39;55&amp;quot;      0,0.0            1,1073741824.0
-
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;SLURM will also report nodes as down:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-debug*       up   infinite      5  down* wn[1-5]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As we submit a first job, some nodes will be powered on to meet the request. You
-can also start them manually with &lt;code&gt;clues poweron&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;cloudadm@slurmserver:~$ srun hostname
+wn1 off enabled 00h03'55&amp;quot; 0,0.0 1,1073741824.0
+wn2 off enabled 00h03'55&amp;quot; 0,0.0 1,1073741824.0
+wn3 off enabled 00h03'55&amp;quot; 0,0.0 1,1073741824.0
+wn4 off enabled 00h03'55&amp;quot; 0,0.0 1,1073741824.0
+wn5 off enabled 00h03'55&amp;quot; 0,0.0 1,1073741824.0
+&lt;/code>&lt;/pre>&lt;p>SLURM will also report nodes as down:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
+debug* up infinite 5 down* wn[1-5]
+&lt;/code>&lt;/pre>&lt;p>As we submit a first job, some nodes will be powered on to meet the request. You
+can also start them manually with &lt;code>clues poweron&lt;/code>.&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">cloudadm@slurmserver:~$ srun hostname
 srun: Required node not available (down, drained or reserved)
 srun: job 2 queued and waiting for resources
 srun: job 2 has been allocated resources
 wn1.localdomain
 cloudadm@slurmserver:~$ clues status
-node                          state    enabled   time stable   (cpu,mem) used   (cpu,mem) total
+node state enabled time stable (cpu,mem) used (cpu,mem) total
 -----------------------------------------------------------------------------------------------
-wn1                            idle    enabled     00h07&#39;45&amp;quot;      0,0.0            1,1073741824.0
-wn2                             off    enabled     00h52&#39;25&amp;quot;      0,0.0            1,1073741824.0
-wn3                             off    enabled     00h52&#39;25&amp;quot;      0,0.0            1,1073741824.0
-wn4                             off    enabled     00h52&#39;25&amp;quot;      0,0.0            1,1073741824.0
-wn5                             off    enabled     00h52&#39;25&amp;quot;      0,0.0            1,1073741824.0
+wn1 idle enabled 00h07'45&amp;quot; 0,0.0 1,1073741824.0
+wn2 off enabled 00h52'25&amp;quot; 0,0.0 1,1073741824.0
+wn3 off enabled 00h52'25&amp;quot; 0,0.0 1,1073741824.0
+wn4 off enabled 00h52'25&amp;quot; 0,0.0 1,1073741824.0
+wn5 off enabled 00h52'25&amp;quot; 0,0.0 1,1073741824.0
 cloudadm@slurmserver:~$ sinfo
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-debug*       up   infinite      4  down* wn[2-5]
-debug*       up   infinite      1   idle wn1
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;destroying-the-cluster&#34;&gt;Destroying the cluster&lt;/h2&gt;
-&lt;p&gt;Once you are done with the cluster and want to destroy it, you can use the
-&lt;code&gt;destroy&lt;/code&gt; command. If your cluster was created more than one hour ago, your
+PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
+debug* up infinite 4 down* wn[2-5]
+debug* up infinite 1 idle wn1
+&lt;/code>&lt;/pre>&lt;h2 id="destroying-the-cluster">Destroying the cluster&lt;/h2>
+&lt;p>Once you are done with the cluster and want to destroy it, you can use the
+&lt;code>destroy&lt;/code> command. If your cluster was created more than one hour ago, your
 credentials to access the site will be expired and need to refreshed first with
-&lt;code&gt;egicli endpoint ec3-refresh&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.sh}&#34; data-lang=&#34;{.sh}&#34;&gt;$ egicli endpoint ec3-refresh # refresh your auth.dat
+&lt;code>egicli endpoint ec3-refresh&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-{.sh}" data-lang="{.sh}">$ egicli endpoint ec3-refresh # refresh your auth.dat
 $ docker run -it -v $PWD:/root/ -w /root grycap/ec3 list # list your clusters
-   name       state           IP        nodes
+name state IP nodes
 ----------------------------------------------
- mycluster  configured  193.144.46.234    0
+mycluster configured 193.144.46.234 0
 $ docker run -it -v $PWD:/root/ -w /root grycap/ec3 destroy mycluster -a auth.dat -y
 WARNING: you are going to delete the infrastructure (including frontend and nodes).
 Success deleting the cluster!
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Users: HTC</title>
-      <link>/users/cloud-compute/ec3/htc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/users/cloud-compute/ec3/htc/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;templates&#34;&gt;Templates&lt;/h2&gt;
-&lt;p&gt;We will build a torque cluster on one of the EGI Cloud providers using EC3.
-Create a directory to store EC3 configuration and init it with &lt;code&gt;egicli&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ mkdir -p torque
+&lt;/code>&lt;/pre></description></item><item><title>Users: HTC</title><link>/users/cloud-compute/ec3/htc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/htc/</guid><description>
+&lt;h2 id="templates">Templates&lt;/h2>
+&lt;p>We will build a torque cluster on one of the EGI Cloud providers using EC3.
+Create a directory to store EC3 configuration and init it with &lt;code>egicli&lt;/code>:&lt;/p>
+&lt;pre>&lt;code>$ mkdir -p torque
 $ cd torque
 $ egicli endpoint ec3 --site &amp;lt;your site&amp;gt; --project-id &amp;lt;project_id&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We will use the following templates:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;torque&lt;/code&gt; (from ec3 default templates)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nfs&lt;/code&gt; (from ec3 detault templates),&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ubuntu-1604&lt;/code&gt; (user&amp;rsquo;s template),&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cluster_configure&lt;/code&gt; (user&amp;rsquo;s template)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;You can find the content below (make sure that you adapt them to your needs):&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;templates/ubuntu-1604.radl&lt;/code&gt; specifies the VM image to use in the deployment:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.}&#34; data-lang=&#34;{.}&#34;&gt;description ubuntu-1604 (
-    kind = &#39;images&#39; and
-    short = &#39;Ubuntu 16.04&#39; and
-    content = &#39;FEDCLOUD Image for EGI Ubuntu 16.04 LTS [Ubuntu/16.04/VirtualBox]&#39;
+&lt;/code>&lt;/pre>&lt;p>We will use the following templates:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>torque&lt;/code> (from ec3 default templates)&lt;/li>
+&lt;li>&lt;code>nfs&lt;/code> (from ec3 detault templates),&lt;/li>
+&lt;li>&lt;code>ubuntu-1604&lt;/code> (user&amp;rsquo;s template),&lt;/li>
+&lt;li>&lt;code>cluster_configure&lt;/code> (user&amp;rsquo;s template)&lt;/li>
+&lt;/ol>
+&lt;p>You can find the content below (make sure that you adapt them to your needs):&lt;/p>
+&lt;p>&lt;code>templates/ubuntu-1604.radl&lt;/code> specifies the VM image to use in the deployment:&lt;/p>
+&lt;pre>&lt;code class="language-{.}" data-lang="{.}">description ubuntu-1604 (
+kind = 'images' and
+short = 'Ubuntu 16.04' and
+content = 'FEDCLOUD Image for EGI Ubuntu 16.04 LTS [Ubuntu/16.04/VirtualBox]'
 )
 system front (
-    cpu.arch = &#39;x86_64&#39; and
-    cpu.count &amp;gt;= 4 and
-    memory.size &amp;gt;= 8196 and
-    disk.0.os.name = &#39;linux&#39; and
-    disk.0.image.url = &#39;ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;&#39; and
-    disk.0.os.credentials.username = &#39;ubuntu&#39;
+cpu.arch = 'x86_64' and
+cpu.count &amp;gt;= 4 and
+memory.size &amp;gt;= 8196 and
+disk.0.os.name = 'linux' and
+disk.0.image.url = 'ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;' and
+disk.0.os.credentials.username = 'ubuntu'
 )
 system wn (
-    cpu.arch = &#39;x86_64&#39; and
-    cpu.count &amp;gt;= 2 and
-    memory.size &amp;gt;= 2048m and
-    ec3_max_instances = 10 and # maximum number of working nodes in the cluster
-    disk.0.os.name = &#39;linux&#39; and
-    disk.0.image.url = &#39;ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;&#39; and
-    disk.0.os.credentials.username = &#39;ubuntu&#39;
+cpu.arch = 'x86_64' and
+cpu.count &amp;gt;= 2 and
+memory.size &amp;gt;= 2048m and
+ec3_max_instances = 10 and # maximum number of working nodes in the cluster
+disk.0.os.name = 'linux' and
+disk.0.image.url = 'ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;' and
+disk.0.os.credentials.username = 'ubuntu'
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;templates/cluster_configure.radl&lt;/code&gt; customises the torque deployment to match our
-needs:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.}&#34; data-lang=&#34;{.}&#34;&gt;configure front (
+&lt;/code>&lt;/pre>&lt;p>&lt;code>templates/cluster_configure.radl&lt;/code> customises the torque deployment to match our
+needs:&lt;/p>
+&lt;pre>&lt;code class="language-{.}" data-lang="{.}">configure front (
 @begin
 ---
-  - vars:
-     - USERS:
-       - { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
-       - { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
+- vars:
+- USERS:
+- { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
+- { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
 [..]
-    tasks:
-    - user:
-        name: &amp;quot;{{ item.name }}&amp;quot;
-        password: &amp;quot;{{ item.password }}&amp;quot;
-        shell: /bin/bash
-        append: yes
-        state: present
-      with_items: &amp;quot;{{ USERS }}&amp;quot;
-    - name: Install missing dependences in Debian system
-      apt: pkg={{ item }} state=present
-      with_items:
-       - build-essential
-       - mpich
-       - gcc
-       - g++
-       - vim
-      become: yes
-      when: ansible_os_family == &amp;quot;Debian&amp;quot;
-    - name: SSH without password
-      include_role:
-        name: grycap.ssh
-      vars:
-        ssh_type_of_node: front
-        ssh_user: &amp;quot;{{ user.name }}&amp;quot;
-      loop: &#39;{{ USERS }}&#39;
-      loop_control:
-        loop_var: user
-    - name: Updating the /etc/hosts.allow file
-      lineinfile:
-        path: /etc/hosts.allow
-        line: &#39;sshd: XXX.XXX.XXX.*&#39;
-      become: yes
-    - name: Updating the /etc/hosts.deny file
-      lineinfile:
-        path: /etc/hosts.deny
-        line: &#39;ALL: ALL&#39;
-      become: yes
+tasks:
+- user:
+name: &amp;quot;{{ item.name }}&amp;quot;
+password: &amp;quot;{{ item.password }}&amp;quot;
+shell: /bin/bash
+append: yes
+state: present
+with_items: &amp;quot;{{ USERS }}&amp;quot;
+- name: Install missing dependences in Debian system
+apt: pkg={{ item }} state=present
+with_items:
+- build-essential
+- mpich
+- gcc
+- g++
+- vim
+become: yes
+when: ansible_os_family == &amp;quot;Debian&amp;quot;
+- name: SSH without password
+include_role:
+name: grycap.ssh
+vars:
+ssh_type_of_node: front
+ssh_user: &amp;quot;{{ user.name }}&amp;quot;
+loop: '{{ USERS }}'
+loop_control:
+loop_var: user
+- name: Updating the /etc/hosts.allow file
+lineinfile:
+path: /etc/hosts.allow
+line: 'sshd: XXX.XXX.XXX.*'
+become: yes
+- name: Updating the /etc/hosts.deny file
+lineinfile:
+path: /etc/hosts.deny
+line: 'ALL: ALL'
+become: yes
 @end
 )
 configure wn (
 @begin
 ---
-  - vars:
-     - USERS:
-       - { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
-       - { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
+- vars:
+- USERS:
+- { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
+- { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
 [..]
-    tasks:
-    - user:
-        name: &amp;quot;{{ item.name }}&amp;quot;
-        password: &amp;quot;{{ item.password }}&amp;quot;
-        shell: /bin/bash
-        append: yes
-        state: present
-      with_items: &amp;quot;{{ USERS }}&amp;quot;
-    - name: Install missing dependences in Debian system
-      apt: pkg={{ item }} state=present
-      with_items:
-       - build-essential
-       - mpich
-       - gcc
-       - g++
-       - vim
-      become: yes
-      when: ansible_os_family == &amp;quot;Debian&amp;quot;
-    - name: SSH without password
-      include_role:
-        name: grycap.ssh
-      vars:
-        ssh_type_of_node: wn
-        ssh_user: &amp;quot;{{ user.name }}&amp;quot;
-      loop: &#39;{{ USERS }}&#39;
-      loop_control:
-        loop_var: user
-
-    - name: Updating the /etc/hosts.allow file
-      lineinfile:
-        path: /etc/hosts.allow
-        line: &#39;sshd: XXX.XXX.XXX.*&#39;
-      become: yes
-    - name: Updating the /etc/hosts.deny file
-      lineinfile:
-        path: /etc/hosts.deny
-        line: &#39;ALL: ALL&#39;
-      become: yes
+tasks:
+- user:
+name: &amp;quot;{{ item.name }}&amp;quot;
+password: &amp;quot;{{ item.password }}&amp;quot;
+shell: /bin/bash
+append: yes
+state: present
+with_items: &amp;quot;{{ USERS }}&amp;quot;
+- name: Install missing dependences in Debian system
+apt: pkg={{ item }} state=present
+with_items:
+- build-essential
+- mpich
+- gcc
+- g++
+- vim
+become: yes
+when: ansible_os_family == &amp;quot;Debian&amp;quot;
+- name: SSH without password
+include_role:
+name: grycap.ssh
+vars:
+ssh_type_of_node: wn
+ssh_user: &amp;quot;{{ user.name }}&amp;quot;
+loop: '{{ USERS }}'
+loop_control:
+loop_var: user
+- name: Updating the /etc/hosts.allow file
+lineinfile:
+path: /etc/hosts.allow
+line: 'sshd: XXX.XXX.XXX.*'
+become: yes
+- name: Updating the /etc/hosts.deny file
+lineinfile:
+path: /etc/hosts.deny
+line: 'ALL: ALL'
+become: yes
 @end
 )
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;create-the-cluster&#34;&gt;Create the cluster&lt;/h2&gt;
-&lt;p&gt;Deploy the cluster using ec3 docker image:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;$ docker run -it -v $PWD:/root/ -w /root \
-	   grycap/ec3 launch torque_cluster \
-	   torque nfs ubuntu-1604 refresh cluster_configure \
-	   -a auth.dat
+&lt;/code>&lt;/pre>&lt;h2 id="create-the-cluster">Create the cluster&lt;/h2>
+&lt;p>Deploy the cluster using ec3 docker image:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ docker run -it -v $PWD:/root/ -w /root \
+grycap/ec3 launch torque_cluster \
+torque nfs ubuntu-1604 refresh cluster_configure \
+-a auth.dat
 Creating infrastructure
 Infrastructure successfully created with ID: 529c62ec-343e-11e9-8b1d-300000000002
 Front-end state: launching
@@ -393,260 +352,237 @@ IP: 212.189.145.XXX
 Front-end configured with IP 212.189.145.XXX
 Transferring infrastructure
 Front-end ready!
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To access the cluster, use the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;docker run -ti -v $PWD:/root/ -w /root grycap/ec3 ssh torque_cluster
-
-Warning: Permanently added &#39;212.189.145.140&#39; (ECDSA) to the list of known hosts.
+&lt;/code>&lt;/pre>&lt;p>To access the cluster, use the command:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">docker run -ti -v $PWD:/root/ -w /root grycap/ec3 ssh torque_cluster
+Warning: Permanently added '212.189.145.140' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 3.13.0-164-generic x86_64)
- * Documentation:  https://help.ubuntu.com/
+* Documentation: https://help.ubuntu.com/
 Last login: Tue Feb 19 13:04:45 2019 from servproject.i3m.upv.es
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;configuration-of-the-cluster&#34;&gt;Configuration of the cluster&lt;/h2&gt;
-&lt;h3 id=&#34;enable-password-based-authentication&#34;&gt;Enable Password-based authentication&lt;/h3&gt;
-&lt;p&gt;Change settings in &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.}&#34; data-lang=&#34;{.}&#34;&gt;# Change to no to disable tunnelled clear text passwords
+&lt;/code>&lt;/pre>&lt;h2 id="configuration-of-the-cluster">Configuration of the cluster&lt;/h2>
+&lt;h3 id="enable-password-based-authentication">Enable Password-based authentication&lt;/h3>
+&lt;p>Change settings in &lt;code>/etc/ssh/sshd_config&lt;/code>&lt;/p>
+&lt;pre>&lt;code class="language-{.}" data-lang="{.}"># Change to no to disable tunnelled clear text passwords
 PasswordAuthentication yes
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and restart the ssh daemon:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;sudo service ssh restart
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;configure-the-number-of-processors-of-the-cluster&#34;&gt;Configure the number of processors of the cluster&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;$ cat /var/spool/torque/server_priv/nodes
+&lt;/code>&lt;/pre>&lt;p>and restart the ssh daemon:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">sudo service ssh restart
+&lt;/code>&lt;/pre>&lt;h3 id="configure-the-number-of-processors-of-the-cluster">Configure the number of processors of the cluster&lt;/h3>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ cat /var/spool/torque/server_priv/nodes
 wn1 np=XX
 wn2 np=XX
 [...]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To obtain the number of CPU/cores (np) in Linux, use the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;$ lscpu | grep -i CPU
-CPU op-mode(s):         32-bit, 64-bit
-CPU(s):                 16
-On-line CPU(s) list:    0-15
-CPU family:             6
-Model name:             Intel(R) Xeon(R) CPU E5520  @ 2.27GHz
-CPU MHz:                2266.858
-NUMA node0 CPU(s):      0-3,8-11
-NUMA node1 CPU(s):      4-7,12-15
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;test-the-cluster&#34;&gt;Test the cluster&lt;/h3&gt;
-&lt;p&gt;Create a simple test script:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;$ cat test.sh
+&lt;/code>&lt;/pre>&lt;p>To obtain the number of CPU/cores (np) in Linux, use the command:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ lscpu | grep -i CPU
+CPU op-mode(s): 32-bit, 64-bit
+CPU(s): 16
+On-line CPU(s) list: 0-15
+CPU family: 6
+Model name: Intel(R) Xeon(R) CPU E5520 @ 2.27GHz
+CPU MHz: 2266.858
+NUMA node0 CPU(s): 0-3,8-11
+NUMA node1 CPU(s): 4-7,12-15
+&lt;/code>&lt;/pre>&lt;h3 id="test-the-cluster">Test the cluster&lt;/h3>
+&lt;p>Create a simple test script:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ cat test.sh
 #!/bin/bash
 #PBS -N job
 #PBS -q batch
-
 #cd $PBS_O_WORKDIR/
 hostname -f
 sleep 5
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Submit to the batch queue:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;qsub -l nodes=2 test.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;destroy-the-cluster&#34;&gt;Destroy the cluster&lt;/h2&gt;
-&lt;p&gt;To destroy the running cluster, use the command:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 destroy torque_cluster
+&lt;/code>&lt;/pre>&lt;p>Submit to the batch queue:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">qsub -l nodes=2 test.sh
+&lt;/code>&lt;/pre>&lt;h2 id="destroy-the-cluster">Destroy the cluster&lt;/h2>
+&lt;p>To destroy the running cluster, use the command:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ docker run -it -v $PWD:/root/ -w /root grycap/ec3 destroy torque_cluster
 WARNING: you are going to delete the infrastructure (including frontend and nodes).
 Continue [y/N]? y
 Success deleting the cluster!
-&lt;/code&gt;&lt;/pre&gt;
-      </description>
-    </item>
-    
-    <item>
-      <title>Users: ECAS</title>
-      <link>/users/cloud-compute/ec3/ecas/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/users/cloud-compute/ec3/ecas/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The following guide is intended for researchers who want to use ECAS, a
+&lt;/code>&lt;/pre></description></item><item><title>Users: ECAS</title><link>/users/cloud-compute/ec3/ecas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/ecas/</guid><description>
+&lt;p>The following guide is intended for researchers who want to use ECAS, a
 complete environment enabling data analysis experiments, in the EGI
-cloud.&lt;/p&gt;
-&lt;p&gt;ECAS (ENES Climate Analytics Service) is part of the EOSC-hub service
-catalog and aims to:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;provide server-based computation,&lt;/li&gt;
-&lt;li&gt;avoid data transfer, and&lt;/li&gt;
-&lt;li&gt;improve reusability of data and workflows.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;It relies on &lt;a href=&#34;http://ophidia.cmcc.it/&#34;&gt;Ophidia&lt;/a&gt;, a data analytics
+cloud.&lt;/p>
+&lt;p>ECAS (ENES Climate Analytics Service) is part of the EOSC-hub service
+catalog and aims to:&lt;/p>
+&lt;ol>
+&lt;li>provide server-based computation,&lt;/li>
+&lt;li>avoid data transfer, and&lt;/li>
+&lt;li>improve reusability of data and workflows.&lt;/li>
+&lt;/ol>
+&lt;p>It relies on &lt;a href="http://ophidia.cmcc.it/">Ophidia&lt;/a>, a data analytics
 framework for eScience, which provides declarative, server-side, and
 parallel data analysis, jointly with an internal storage model able to
 efficiently deal with multidimensional data and a hierarchical data
 organization to manage large data volumes (&amp;ldquo;datacubes&amp;rdquo;), and on
 JupyterHub, to give users access to ready-to-use computational
-environments and resources.&lt;/p&gt;
-&lt;p&gt;Thanks to the Elastic Cloud Compute Cluster (EC3) platform, operated by
-the &lt;a href=&#34;http://www.upv.es/index-en.html&#34;&gt;Polytechnic University of Valencia
-(UPV)&lt;/a&gt;, researchers will be able to
+environments and resources.&lt;/p>
+&lt;p>Thanks to the Elastic Cloud Compute Cluster (EC3) platform, operated by
+the &lt;a href="http://www.upv.es/index-en.html">Polytechnic University of Valencia
+(UPV)&lt;/a>, researchers will be able to
 rely on the EGI Cloud Compute service to scale up to larger simulations
 without being worried about the complexity of the underlying
-infrastructure.&lt;/p&gt;
-&lt;p&gt;This guide will show how to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;deploy an ECAS elastic cluster of VMs in order to automatically
+infrastructure.&lt;/p>
+&lt;p>This guide will show how to:&lt;/p>
+&lt;ul>
+&lt;li>deploy an ECAS elastic cluster of VMs in order to automatically
 install and configure the whole ECAS environment services, i.e.
 JupyterHub, PyOphidia, several Python libraries such as numpy,
-matplotlib and Basemap;&lt;/li&gt;
-&lt;li&gt;perform data intensive analysis using the Ophidia HPDA framework;&lt;/li&gt;
-&lt;li&gt;access the ECAS JupyterHub interface to create and share documents
+matplotlib and Basemap;&lt;/li>
+&lt;li>perform data intensive analysis using the Ophidia HPDA framework;&lt;/li>
+&lt;li>access the ECAS JupyterHub interface to create and share documents
 containing live code, equations, visualizations and explanatory
-text.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;deploy-an-ecas-cluster-with-ec3&#34;&gt;Deploy an ECAS cluster with EC3&lt;/h2&gt;
-&lt;p&gt;In the latest release of the EC3 platform, tailored to support the EGI
-&lt;a href=&#34;/users/applications-on-demand/aod/&#34;&gt;Applications on Demand (AoD) service&lt;/a&gt;, a new
+text.&lt;/li>
+&lt;/ul>
+&lt;h2 id="deploy-an-ecas-cluster-with-ec3">Deploy an ECAS cluster with EC3&lt;/h2>
+&lt;p>In the latest release of the EC3 platform, tailored to support the EGI
+&lt;a href="/users/applications-on-demand/aod/">Applications on Demand (AoD) service&lt;/a>, a new
 Ansible receipt is now available for researchers interested to deploy
 ECAS cluster on the EGI Infrastuctrure. Additional details on how to
 configure and deploy an ECAS cluster on EGI resources are provided in
-the next sections.&lt;/p&gt;
-&lt;p&gt;ECAS in now available in the latest release of the EC3 platform
+the next sections.&lt;/p>
+&lt;p>ECAS in now available in the latest release of the EC3 platform
 supporting the EGI Applications on Demand (AoD). The next sections
 provide details on how to configure and deploy an ECAS cluster on EGI
-resources.&lt;/p&gt;
-&lt;h3 id=&#34;configure-and-deploy-the-cluster&#34;&gt;Configure and deploy the cluster&lt;/h3&gt;
-&lt;p&gt;To configure and deploy a Virtual Elastic Cluster using EC3, access
-the &lt;a href=&#34;https://servproject.i3m.upv.es/ec3-ltos/index.php&#34;&gt;EC3 platform front
-page&lt;/a&gt; and click on
-the &lt;strong&gt;&amp;quot;Deploy your cluster&amp;quot;&lt;/strong&gt; link as shown in the figure below:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-front.png&#34; alt=&#34;EC3 front page.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;A wizard will guide you through the cluster configuration process.
-Specifically, the general wizard steps include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;LRMS selection&lt;/strong&gt;: choose &lt;strong&gt;ECAS&lt;/strong&gt; from the list of LRMSs (Local
+resources.&lt;/p>
+&lt;h3 id="configure-and-deploy-the-cluster">Configure and deploy the cluster&lt;/h3>
+&lt;p>To configure and deploy a Virtual Elastic Cluster using EC3, access
+the &lt;a href="https://servproject.i3m.upv.es/ec3-ltos/index.php">EC3 platform front
+page&lt;/a> and click on
+the &lt;strong>&amp;quot;Deploy your cluster&amp;quot;&lt;/strong> link as shown in the figure below:&lt;/p>
+&lt;p>&lt;img src="../ecas-front.png" alt="EC3 front page.">&lt;/p>
+&lt;p>A wizard will guide you through the cluster configuration process.
+Specifically, the general wizard steps include:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>LRMS selection&lt;/strong>: choose &lt;strong>ECAS&lt;/strong> from the list of LRMSs (Local
 Resource Management System) that can be automatically installed and
-configured by EC3.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-lrms.png&#34; alt=&#34;LRMS selection.&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Endpoint&lt;/strong&gt;: the endpoints of the providers where to deploy the
-ECAS elastic cluster. The endpoints serving the &lt;code&gt;vo.access.egi.eu&lt;/code&gt;
-VO are dynamically retrieved from the &lt;a href=&#34;https://appdb.egi.eu/&#34;&gt;EGI Application
-DataBase&lt;/a&gt; using REST APIs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-endpoint.png&#34; alt=&#34;Endpoint selection.&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Operating System&lt;/strong&gt;: choose EGI CentOS7 as cluster OS.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-os.png&#34; alt=&#34;Operating System selection.&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Instance details&lt;/strong&gt;, in terms of CPU and RAM to allocate for the
-front-end and the working nodes.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-instance.png&#34; alt=&#34;Instance details.&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cluster&amp;rsquo;s size and name&lt;/strong&gt;: the name of the cluster and the maximum
+configured by EC3.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-lrms.png" alt="LRMS selection.">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Endpoint&lt;/strong>: the endpoints of the providers where to deploy the
+ECAS elastic cluster. The endpoints serving the &lt;code>vo.access.egi.eu&lt;/code>
+VO are dynamically retrieved from the &lt;a href="https://appdb.egi.eu/">EGI Application
+DataBase&lt;/a> using REST APIs.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-endpoint.png" alt="Endpoint selection.">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Operating System&lt;/strong>: choose EGI CentOS7 as cluster OS.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-os.png" alt="Operating System selection.">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Instance details&lt;/strong>, in terms of CPU and RAM to allocate for the
+front-end and the working nodes.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-instance.png" alt="Instance details.">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Cluster&amp;rsquo;s size and name&lt;/strong>: the name of the cluster and the maximum
 number of nodes of the cluster, without including the front-end.
 This value indicates the maximum number of working nodes that the
 cluster can scale to. Initially, the cluster is created with the
 front-end and only one working node: the other working nodes will be
-powered on on-demand.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-size.png&#34; alt=&#34;Cluster size and name.&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Resume and Launch&lt;/strong&gt;: a summary of the chosen cluster
+powered on on-demand.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-size.png" alt="Cluster size and name.">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Resume and Launch&lt;/strong>: a summary of the chosen cluster
 configuration. To start the deployment process, click the Submit
-button.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-summary.png&#34; alt=&#34;Resume and Launch.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;When the front-end node of the cluster has been successfully deployed,
-you will be notified with the credentials to access via SSH.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-end.png&#34; alt=&#34;ECAS cluster connection details.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The cluster details are available by clicking on the &amp;quot;Manage your
-deployed clusters&amp;quot; link on the front page:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-manage.png&#34; alt=&#34;Manage your clusters.&#34;&gt;&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+button.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="../ecas-summary.png" alt="Resume and Launch.">&lt;/p>
+&lt;p>When the front-end node of the cluster has been successfully deployed,
+you will be notified with the credentials to access via SSH.&lt;/p>
+&lt;p>&lt;img src="../ecas-end.png" alt="ECAS cluster connection details.">&lt;/p>
+&lt;p>The cluster details are available by clicking on the &amp;quot;Manage your
+deployed clusters&amp;quot; link on the front page:&lt;/p>
+&lt;p>&lt;img src="../ecas-manage.png" alt="Manage your clusters.">&lt;/p>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
 The configuration of the cluster may take some time. Please wait for its
 completion before starting to start using the cluster.
-&lt;/div&gt;
-
-&lt;h3 id=&#34;accessing-the-cluster&#34;&gt;Accessing the cluster&lt;/h3&gt;
-&lt;p&gt;To access the front-end of the cluster:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;download the SSH private key provided by the EC3 portal;&lt;/li&gt;
-&lt;li&gt;change its permissions to &lt;code&gt;600&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;access via SSH providing the key as identity file for public key
-authentication.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;[fabrizio@MBP EC3]$ ssh -i key.pem cloudadm@134.158.151.218
+&lt;/div>
+&lt;h3 id="accessing-the-cluster">Accessing the cluster&lt;/h3>
+&lt;p>To access the front-end of the cluster:&lt;/p>
+&lt;ul>
+&lt;li>download the SSH private key provided by the EC3 portal;&lt;/li>
+&lt;li>change its permissions to &lt;code>600&lt;/code>;&lt;/li>
+&lt;li>access via SSH providing the key as identity file for public key
+authentication.&lt;/li>
+&lt;/ul>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">[fabrizio@MBP EC3]$ ssh -i key.pem cloudadm@134.158.151.218
 Last login: Mon Nov 18 11:37:29 2019 from torito.i3m.upv.es
 [cloudadm@oph-server ~]$ sudo su -
 [root@oph-server ~]#
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Both the front-end and the working node are configured by Ansible. This
+&lt;/code>&lt;/pre>&lt;p>Both the front-end and the working node are configured by Ansible. This
 process usually takes some time. You can monitor the status of the
-cluster configuration using the &lt;code&gt;is_cluster_ready&lt;/code&gt; command-line tool:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;[root@oph-server ~]# is_cluster_ready
+cluster configuration using the &lt;code>is_cluster_ready&lt;/code> command-line tool:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">[root@oph-server ~]# is_cluster_ready
 Cluster is still configuring.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The cluster is successfully configured when the command returns the
-following message:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;[root@oph-server ~]# is_cluster_ready
+&lt;/code>&lt;/pre>&lt;p>The cluster is successfully configured when the command returns the
+following message:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">[root@oph-server ~]# is_cluster_ready
 Cluster configured!
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;As SLURM is used as workload manager, it is possible to check the status
+&lt;/code>&lt;/pre>&lt;p>As SLURM is used as workload manager, it is possible to check the status
 of the working nodes by using the sinfo command, which provides
-information about Slurm nodes and partitions.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;[root@oph-server ~]# sinfo
-PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST
-debug*       up   infinite   1  down* oph-io2
-debug*       up   infinite   1   idle oph-io1
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;accessing-the-scientific-eco-system&#34;&gt;Accessing the scientific eco-system&lt;/h3&gt;
-&lt;p&gt;ECAS provides two different ways to get access to its scientific
-eco-system: Ophidia client (&lt;code&gt;oph_term&lt;/code&gt;) and JupyterHub.&lt;/p&gt;
-&lt;h4 id=&#34;perform-some-basic-operations-with-ophidia&#34;&gt;Perform some basic operations with Ophidia&lt;/h4&gt;
-&lt;p&gt;Run the Ophidia terminal as &lt;code&gt;ophuser&lt;/code&gt; user.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-oph_term.png&#34; alt=&#34;Ophidia terminal.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;The default parameters are already defined as environmental variables
-inside the &lt;code&gt;.bashrc&lt;/code&gt; file:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;export OPH_SERVER_HOST=&amp;quot;127.0.0.1&amp;quot;
+information about Slurm nodes and partitions.&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">[root@oph-server ~]# sinfo
+PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
+debug* up infinite 1 down* oph-io2
+debug* up infinite 1 idle oph-io1
+&lt;/code>&lt;/pre>&lt;h3 id="accessing-the-scientific-eco-system">Accessing the scientific eco-system&lt;/h3>
+&lt;p>ECAS provides two different ways to get access to its scientific
+eco-system: Ophidia client (&lt;code>oph_term&lt;/code>) and JupyterHub.&lt;/p>
+&lt;h4 id="perform-some-basic-operations-with-ophidia">Perform some basic operations with Ophidia&lt;/h4>
+&lt;p>Run the Ophidia terminal as &lt;code>ophuser&lt;/code> user.&lt;/p>
+&lt;p>&lt;img src="../ecas-oph_term.png" alt="Ophidia terminal.">&lt;/p>
+&lt;p>The default parameters are already defined as environmental variables
+inside the &lt;code>.bashrc&lt;/code> file:&lt;/p>
+&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">export OPH_SERVER_HOST=&amp;quot;127.0.0.1&amp;quot;
 export OPH_SERVER_PORT=&amp;quot;11732&amp;quot;
 export OPH_PASSWD=&amp;quot;abcd&amp;quot;
 export OPH_USER=&amp;quot;oph-test&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Create an empty container and a new datacube with random data and
-dimensions.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-container-1.png&#34; alt=&#34;Create container (1).&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-container-2.png&#34; alt=&#34;Create container (2).&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Now, you can submit your first operation of data transformation: let&amp;rsquo;s
+&lt;/code>&lt;/pre>&lt;p>Create an empty container and a new datacube with random data and
+dimensions.&lt;/p>
+&lt;p>&lt;img src="../ecas-container-1.png" alt="Create container (1).">&lt;/p>
+&lt;p>&lt;img src="../ecas-container-2.png" alt="Create container (2).">&lt;/p>
+&lt;p>Now, you can submit your first operation of data transformation: let&amp;rsquo;s
 reduce the whole datacube in a single value for grid point using the
-average along the time:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-reduce.png&#34; alt=&#34;Reduce datacube.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s have a look at the environment by listing the datacubes and
-containers in the session:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-list.png&#34; alt=&#34;List objects in session.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;By default, the Ophidia terminal will use the last output datacube PID.
-So, you can use the &lt;code&gt;oph_explorecube&lt;/code&gt; operator to visualize the first
-100 values.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-explore.png&#34; alt=&#34;Explorecube operator.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;For further details about the Ophidia operators, please refer to the
-official &lt;a href=&#34;http://ophidia.cmcc.it/&#34;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id=&#34;accessing-the-jupyter-interface&#34;&gt;Accessing the Jupyter interface&lt;/h4&gt;
-&lt;p&gt;To access the Jupyter interface, open the browser at
-&lt;code&gt;https://&amp;lt;YOUR_CLUSTER_IP&amp;gt;:443/jupyter&lt;/code&gt; and log in to the system using
-the username and password specified in the &lt;code&gt;jupyterhub_config.pyp&lt;/code&gt;
-configuration file (see the &lt;code&gt;c.Authenticator.whitelist&lt;/code&gt; and
-&lt;code&gt;c.DummyAuthenticator.password&lt;/code&gt; lines) located at the &lt;code&gt;/root&lt;/code&gt; folder.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-jupyterhub.png&#34; alt=&#34;JupyterHub login.&#34;&gt;&lt;/p&gt;
-&lt;p&gt;From JupyterHub in ECAS you can do several things such as:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;create and run a Jupyter Notebook exploiting PyOphidia and Python
+average along the time:&lt;/p>
+&lt;p>&lt;img src="../ecas-reduce.png" alt="Reduce datacube.">&lt;/p>
+&lt;p>Let&amp;rsquo;s have a look at the environment by listing the datacubes and
+containers in the session:&lt;/p>
+&lt;p>&lt;img src="../ecas-list.png" alt="List objects in session.">&lt;/p>
+&lt;p>By default, the Ophidia terminal will use the last output datacube PID.
+So, you can use the &lt;code>oph_explorecube&lt;/code> operator to visualize the first
+100 values.&lt;/p>
+&lt;p>&lt;img src="../ecas-explore.png" alt="Explorecube operator.">&lt;/p>
+&lt;p>For further details about the Ophidia operators, please refer to the
+official &lt;a href="http://ophidia.cmcc.it/">documentation&lt;/a>.&lt;/p>
+&lt;h4 id="accessing-the-jupyter-interface">Accessing the Jupyter interface&lt;/h4>
+&lt;p>To access the Jupyter interface, open the browser at
+&lt;code>https://&amp;lt;YOUR_CLUSTER_IP&amp;gt;:443/jupyter&lt;/code> and log in to the system using
+the username and password specified in the &lt;code>jupyterhub_config.pyp&lt;/code>
+configuration file (see the &lt;code>c.Authenticator.whitelist&lt;/code> and
+&lt;code>c.DummyAuthenticator.password&lt;/code> lines) located at the &lt;code>/root&lt;/code> folder.&lt;/p>
+&lt;p>&lt;img src="../ecas-jupyterhub.png" alt="JupyterHub login.">&lt;/p>
+&lt;p>From JupyterHub in ECAS you can do several things such as:&lt;/p>
+&lt;ul>
+&lt;li>create and run a Jupyter Notebook exploiting PyOphidia and Python
 libraries for visualization and plotting (e.g. matplotlib, basemap,
-NumPy);&lt;/li&gt;
-&lt;li&gt;browse the directories, download and update the files in the home
-folder;&lt;/li&gt;
-&lt;li&gt;execute operators and workflows directly from the Ophidia Terminal.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;To get started with the ECAS environment capabilities, open the
-&lt;code&gt;ECAS_Basics.ipynb&lt;/code&gt; notebook available under the &lt;code&gt;notebooks/&lt;/code&gt; folder in
-the home directory.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;../ecas-jupyter.png&#34; alt=&#34;Jupyter.&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://ecaslab.cmcc.it/web/home.html&#34;&gt;https://ecaslab.cmcc.it/web/home.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://ecaslab.dkrz.de/home.html&#34;&gt;https://ecaslab.dkrz.de/home.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://ophidia.cmcc.it/&#34;&gt;http://ophidia.cmcc.it/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/ECAS-Lab&#34;&gt;https://github.com/ECAS-Lab&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/OphidiaBigData/ansible-role-ophidia-cluster&#34;&gt;https://github.com/OphidiaBigData/ansible-role-ophidia-cluster&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.grycap.upv.es/ec3&#34;&gt;http://www.grycap.upv.es/ec3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://www.github.com/grycap/ec3&#34;&gt;http://www.github.com/grycap/ec3&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-      </description>
-    </item>
-    
-  </channel>
-</rss>
+NumPy);&lt;/li>
+&lt;li>browse the directories, download and update the files in the home
+folder;&lt;/li>
+&lt;li>execute operators and workflows directly from the Ophidia Terminal.&lt;/li>
+&lt;/ul>
+&lt;p>To get started with the ECAS environment capabilities, open the
+&lt;code>ECAS_Basics.ipynb&lt;/code> notebook available under the &lt;code>notebooks/&lt;/code> folder in
+the home directory.&lt;/p>
+&lt;p>&lt;img src="../ecas-jupyter.png" alt="Jupyter.">&lt;/p>
+&lt;h2 id="references">References&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://ecaslab.cmcc.it/web/home.html">https://ecaslab.cmcc.it/web/home.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ecaslab.dkrz.de/home.html">https://ecaslab.dkrz.de/home.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://ophidia.cmcc.it/">http://ophidia.cmcc.it/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ECAS-Lab">https://github.com/ECAS-Lab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OphidiaBigData/ansible-role-ophidia-cluster">https://github.com/OphidiaBigData/ansible-role-ophidia-cluster&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.grycap.upv.es/ec3">http://www.grycap.upv.es/ec3&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.github.com/grycap/ec3">http://www.github.com/grycap/ec3&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
