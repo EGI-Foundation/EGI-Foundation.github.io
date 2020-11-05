@@ -1,0 +1,860 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EGI Docs – Check-in</title>
+    <link>/users/check-in/</link>
+    <description>Recent content in Check-in on EGI Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/users/check-in/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Users: Sign up for an EGI Account</title>
+      <link>/users/check-in/signup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/check-in/signup/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;sign-up&#34;&gt;Sign up&lt;/h2&gt;
+&lt;p&gt;You need to sign up for an account for accessing the EGI services. As part of
+this process you will be assigned a personal unique &lt;strong&gt;EGI ID&lt;/strong&gt; which will be
+then used across all EGI tools and services. Follow the instructions below
+to get started:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Go to &lt;a href=&#34;https://aai.egi.eu/signup&#34;&gt;https://aai.egi.eu/signup&lt;/a&gt;. This will show you the identity provider
+discovery page: browse through the list of Identity Providers to find your
+Home Organisation, &lt;em&gt;or, alternatively,&lt;/em&gt; type the name of your Home
+Organisation in the search box. Note that the names are localised based on
+the selected language.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-idp-discovery.png&#34; alt=&#34;Check-in IdP discovery&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Enter your login credentials to authenticate yourself with your Home
+Organisation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After successful authentication, you may be prompted by your Home
+Organisation to consent to the release of personal information to the
+&lt;strong&gt;EGI AAI Service Provider Proxy&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After successful authentication, you will be redirected to the EGI account
+registration form. On the introductory page, click &lt;strong&gt;Begin&lt;/strong&gt; to start the
+registration process.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-sign-up-intro.png&#34; alt=&#34;Check-in sign up intro&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;EGI requires some basic information from you, depending on the attributes
+released by your Identity Provider, you may need to provide the values
+of the missing attributes.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-sign-up-attributes.png&#34; alt=&#34;Check-in sign up attributes&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the registration form, click &lt;strong&gt;Review Terms and Conditions&lt;/strong&gt; (&lt;a href=&#34;https://documents.egi.eu/document/2623&#34;&gt;Acceptable
+Use Policy and Conditions of Use - EGI AUP&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you agree to the Terms of Use, select the &lt;strong&gt;I Agree&lt;/strong&gt; option.
+&lt;em&gt;Important: You will not be able to agree to the terms until you review
+them.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-tou-agreement.png&#34; alt=&#34;Check-in ToU agreement&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, click &lt;strong&gt;Submit&lt;/strong&gt; to submit your request. &lt;em&gt;Important: You will
+not be able to submit your request until you agree to the terms.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After submitting your request, Check-in will send you an email with a
+verification link. After you click that link, you&amp;rsquo;ll be taken to the request
+confirmation page. &lt;em&gt;Important: If you do not find the email in your Inbox,
+please check your Spam or Junk folder for an email from &amp;ldquo;EGI AAI
+Notifications&amp;rdquo;. If you do find the email in these folders, mark the email
+as &amp;ldquo;safe&amp;rdquo; or &amp;ldquo;not spam&amp;rdquo; to ensure that you receive any future notifications
+about your EGI ID.&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After reviewing your request, click &lt;strong&gt;Confirm&lt;/strong&gt; and re-authenticate
+yourself using the Identity Provider you selected before.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In the case of the &lt;strong&gt;Sign Up&lt;/strong&gt; registration, you need to wait for an
+EGI User Sponsor to approve your request to join the EGI User Community.
+Upon approval, EGI AAI will send you a notification email.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Note: After your registration has been completed, you can manage your profile
+through the &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;EGI Account Registry portal&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;viewing-user-profile-information&#34;&gt;Viewing user profile information&lt;/h2&gt;
+&lt;p&gt;The profile includes all the information related to the user. This information
+can be categorised as follows:&lt;/p&gt;
+&lt;h3 id=&#34;basic-profile&#34;&gt;Basic profile&lt;/h3&gt;
+&lt;p&gt;Includes the basic information about your profile:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Name&lt;/li&gt;
+&lt;li&gt;Identifiers&lt;/li&gt;
+&lt;li&gt;Email addresses&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-profile-basic.png&#34; alt=&#34;User profile&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;vogroup-membership-and-roles&#34;&gt;VO/Group membership and roles&lt;/h3&gt;
+&lt;p&gt;Includes information about the Virtual Organisations and groups the user if
+member of and the roles assigned to the user within those Virtual Organisation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-profile-vos.png&#34; alt=&#34;VO/Group membership&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;linked-identities&#34;&gt;Linked identities&lt;/h3&gt;
+&lt;p&gt;Information about identites linked to your account. Check the &lt;a href=&#34;../check-in/linking&#34;&gt;guide for linking
+accounts&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-profile-linked.png&#34; alt=&#34;Linked identities&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Users: Linking identities</title>
+      <link>/users/check-in/linking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/check-in/linking/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Identity linking allows you to access EGI resources with your existing personal
+EGI ID, using any of the login credentials you have linked to your account.
+You can use any of your organisational or social login credentials for this
+purpose. To link a new organisational or social identity to your EGI account:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Enter the following URL in a browser: &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;https://aai.egi.eu/registry&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Login&lt;/strong&gt; and authenticate using any of the login credentials &lt;em&gt;already&lt;/em&gt;
+linked to your EGI account&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to &lt;strong&gt;My EGI User Community Account&lt;/strong&gt; page in one of the following
+ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hover over your display name next to the gear icon on the top right corner
+of the page; &lt;em&gt;or, alternatively,&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;select &lt;strong&gt;EGI User Community&lt;/strong&gt; from the list of available Collaborations
+and then click &lt;strong&gt;My EGI User Community Account&lt;/strong&gt; from the &lt;strong&gt;People&lt;/strong&gt; menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-my-account.png&#34; alt=&#34;Check-in my account&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under the &lt;strong&gt;Organisational Identities&lt;/strong&gt; section of your profile page,
+click &lt;strong&gt;Link New Identity&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-link-new.png&#34; alt=&#34;Link new identity&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the introductory page for Identity Linking, click &lt;strong&gt;Begin&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-link-intro.png&#34; alt=&#34;Link new identity intro&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;You will need to sign in using the login credentials from the
+institutional/social identity provider you want to link to your account.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+It is very important to escape the identity provider selection,
+cached in the discovery page, before picking the new one.
+&lt;/div&gt;
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After successful authentication, the new Identity Provider will be available
+under the Organizational Identities tab and you&amp;rsquo;ll be able to access EGI
+resources with your existing personal EGI ID using the login credentials
+of the identity provider you selected in &lt;strong&gt;Step 6&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-link-end.png&#34; alt=&#34;Link new identity end&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;linking-your-certificate-to-your-egi-account&#34;&gt;Linking your certificate to your EGI Account&lt;/h2&gt;
+&lt;p&gt;Certificate linking allows you to add the subject DN of your certificate to
+your existing personal EGI ID. For this you need to import your certificate to
+your browser.&lt;/p&gt;
+&lt;p&gt;To link a subject DN to your EGI account:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Enter the following URL in a browser: &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;https://aai.egi.eu/registry&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Login&lt;/strong&gt; and authenticate using any of the login credentials &lt;em&gt;already&lt;/em&gt;
+linked to your EGI account&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to &lt;strong&gt;My EGI User Community Account&lt;/strong&gt; page in one of the following
+ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;hover over your display name next to the gear icon on the top right corner
+of the page; &lt;em&gt;or, alternatively,&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;select &lt;strong&gt;EGI User Community&lt;/strong&gt; from the list of available Collaborations
+and then click &lt;strong&gt;My EGI User Community Account&lt;/strong&gt; from the &lt;strong&gt;People&lt;/strong&gt; menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-my-account.png&#34; alt=&#34;Check-in my account&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under the &lt;strong&gt;Organisational Identities&lt;/strong&gt; section of your profile page,
+click &lt;strong&gt;Link New Identity&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-link-new.png&#34; alt=&#34;Link new identity&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the introductory page for Identity Linking, click &lt;strong&gt;Begin&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-link-intro.png&#34; alt=&#34;Link new identity intro&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Continuously, you will need to sign in using the IGTF Certificate Proxy.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+It is very important to escape the identity provider selection,
+cached in the discovery page, before picking the new one.
+&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&#34;./check-in-discovery-igft.png&#34; alt=&#34;Check-in IdP discovery IGTF&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then select the certificate you want to link to your account from the
+popup window.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-select-certificate.png&#34; alt=&#34;Select certificate&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;After successful authentication you will be redirected back to your EGI
+Account. Also, you&amp;rsquo;ll be able to access EGI resources with your existing
+personal EGI ID using &lt;strong&gt;IGTF Certificate Proxy&lt;/strong&gt; and your certificate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To verify that the subject DN is added to your EGI account scroll down to
+&lt;strong&gt;Organisational Identities&lt;/strong&gt; and click on &lt;strong&gt;view&lt;/strong&gt; button in the row
+where the source is &lt;code&gt;https://edugain-proxy.igtf.net/simplesaml/saml2/idp/metadata.php&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-list-organisational-ids.png&#34; alt=&#34;List organisational identities&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then scroll down to &lt;em&gt;Certificates&lt;/em&gt; and you should see the subject DN of your
+certificate.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-certificates-preview.png&#34; alt=&#34;Certificates preview&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Users: Virtual Organisations</title>
+      <link>/users/check-in/vos/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/check-in/vos/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This page contains information about using Check-in
+for managing your Virtual Organisation (VO).&lt;/p&gt;
+&lt;h2 id=&#34;vo-management&#34;&gt;VO management&lt;/h2&gt;
+&lt;p&gt;VOs in Check-in are represented as Collaborative Organisation Units
+(COUs). A COU is more than just a group. It is the concept of groups
+combined with membership management and advanced enrolment workflows.
+COUs can also be organised in a hierarchical structure for creating
+groups or subgroups within a VO.&lt;/p&gt;
+&lt;p&gt;It is assumed that VO managers and members have already registered their
+EGI Check-in account (A step-by-step guide is provided in this &lt;a href=&#34;../signup&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;registering-your-vo&#34;&gt;Registering your VO&lt;/h3&gt;
+&lt;p&gt;Any person who can authenticate to the &lt;a href=&#34;https://operations-portal.egi.eu/&#34;&gt;Operations
+Portal&lt;/a&gt; using their EGI Check-in
+account can register a new VO.&lt;/p&gt;
+&lt;p&gt;The person initiating the registration is called the &lt;strong&gt;VO manager&lt;/strong&gt;.
+After the VO is set up and operational, the VO manager is the person who
+is primarily responsible for the operation of the VO and for providing
+sufficient information about VO activities for EGI and for VO members
+(to both people and sites).&lt;/p&gt;
+&lt;p&gt;A step-by-step guide for the VO registration process is provided in the
+following link:
+&lt;a href=&#34;https://wiki.egi.eu/wiki/PROC14_VO_Registration#VO_registration&#34;&gt;https://wiki.egi.eu/wiki/PROC14_VO_Registration#VO_registration&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;viewing-vo-members&#34;&gt;Viewing VO members&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;Check-in registry&lt;/a&gt; using
+any of the login credentials already linked to your EGI account.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To view the existing members, expand the &lt;strong&gt;People&lt;/strong&gt; drop down menu and
+click on &lt;strong&gt;My &lt;VO-NAME&gt; Population&lt;/strong&gt; (for example, &lt;strong&gt;My vo.example.org
+Population&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-my-vo-population.png&#34; alt=&#34;My VO population menu&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then you are able to see all the VO members.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-my-vo-population-result.png&#34; alt=&#34;My VO population&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;accepting-new-vo-members&#34;&gt;Accepting new VO members&lt;/h3&gt;
+&lt;p&gt;Users can request membership in your VO by following the VO enrollment
+URL. The enrollment URL has the following form:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;https://aai.egi.eu/registry/co_petitions/start/coef:##&lt;/code&gt; where &lt;code&gt;##&lt;/code&gt; is the
+unique numeric identifier for the enrollment flow of your VO.&lt;/p&gt;
+&lt;p&gt;Once a user submits a VO membership petition, all VO managers are
+notified with an email containing a link to the petition. Any of the VO
+managers can then review the petition and either &lt;strong&gt;approve&lt;/strong&gt; or &lt;strong&gt;deny&lt;/strong&gt;
+the request.&lt;/p&gt;
+&lt;p&gt;The VO enrollment URL can be found through the EGI Check-in Registry:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;Check-in registry&lt;/a&gt; using
+any of the login credentials already linked to your EGI account.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Expand the &lt;strong&gt;People&lt;/strong&gt; drop down menu and click &lt;strong&gt;Enroll&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-people-enroll.png&#34; alt=&#34;COmanage-people-enroll&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Copy the &lt;strong&gt;Begin&lt;/strong&gt; link of the Enrollment flow of the VO you want the
+user to join and send it to the user&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-join-example.png&#34; alt=&#34;Join example&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once the user submits the VO membership request, the &lt;strong&gt;Role Attributes&lt;/strong&gt;
+section of their profile page will include the new VO membership role in
+&lt;strong&gt;Pending Approval&lt;/strong&gt; status&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-pending-approval.png&#34; alt=&#34;Pending Approval&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once the VO manager accepts the new member, the &lt;strong&gt;Role Attributes&lt;/strong&gt; section
+of the user&amp;rsquo;s profile page will include the VO membership role in &lt;strong&gt;Active&lt;/strong&gt;
+status&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-role-active.png&#34; alt=&#34;Member role active&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;managing-vo-groups&#34;&gt;Managing VO groups&lt;/h3&gt;
+&lt;p&gt;VO groups can only be created by Check-in platform administrators.
+Please contact &lt;a href=&#34;mailto:checkin-support@mailman.egi.eu&#34;&gt;Checkin Support&lt;/a&gt;
+indicating the following information for every (sub)group that you need
+to add/remove to/from your VO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;VO name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Group name&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Group description&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Optional, &lt;strong&gt;Group manager(s)&lt;/strong&gt;, i.e. the Check-in identifiers (in
+the form of &lt;code&gt;&amp;quot;xxxxxxx@egi.eu&amp;quot;&lt;/code&gt;) of one or more users responsible for
+managing the VO group members. Group managers can also appoint other
+users as (sub)group managers. The manager(s) of the VO (or any
+parent group) are implicitly managers of the group. You can provide
+additional Check-in user identifiers to extend the list of group
+managers.&lt;/li&gt;
+&lt;li&gt;Optional, &lt;strong&gt;Parent VO group name&lt;/strong&gt; (in the case of a hierarchical
+group, e.g.  &lt;code&gt;&amp;lt;VO&amp;gt;&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;&amp;lt;PARENT_GROUP&amp;gt;&lt;/code&gt; &amp;ndash;&amp;gt; &lt;code&gt;&amp;lt;GROUP&amp;gt;&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Known limitation:&lt;/strong&gt; Group names must be unique so the names you
+suggest may need to be adjusted by the Check-in administrators to
+guarantee their uniqueness.&lt;/p&gt;
+&lt;h4 id=&#34;adding-members-to-vo-groups&#34;&gt;Adding members to VO groups&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;Check-in registry&lt;/a&gt; using
+any of the login credentials already linked to your EGI account.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Then expand the &lt;strong&gt;People&lt;/strong&gt; drop down menu and click &lt;strong&gt;My &lt;code&gt;&amp;lt;VO-NAME&amp;gt;&lt;/code&gt;
+Population&lt;/strong&gt; (for example, &lt;strong&gt;My vo.example.org Population&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-my-vo-population.png&#34; alt=&#34;My VO population menu&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Find the user you want to add to the VO Group and click &lt;strong&gt;Edit&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-vo-population-edit.png&#34; alt=&#34;Edit VO Population&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Add&lt;/strong&gt; at the &lt;strong&gt;Role Attributes&lt;/strong&gt; section of the user profile&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-vo-population-add.png&#34; alt=&#34;Add role&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fill in the fields in the form and click &lt;strong&gt;Add&lt;/strong&gt;. The user now is a member
+of the new VO group. For more information about Affiliation and Role fields
+you can see below at section &lt;strong&gt;Managing Affiliation and Role of VO Member&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-vo-population-add-group.png&#34; alt=&#34;Add role in group&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;removing-members&#34;&gt;Removing members&lt;/h3&gt;
+&lt;p&gt;From the VO members list (see &lt;a href=&#34;#viewing-vo-members&#34;&gt;Viewing VO members&lt;/a&gt; above):&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Click &lt;strong&gt;Edit&lt;/strong&gt; on the person that is going to be removed.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-vo-population-remove.png&#34; alt=&#34;VO population to edit&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Under &lt;strong&gt;Role Attributes&lt;/strong&gt; click &lt;strong&gt;Delete&lt;/strong&gt; on the right of the COU entry of
+interest (for example, vo.example.com). On success the selected row will be
+removed. In this example we removed the &lt;strong&gt;vo.geoss.eu&lt;/strong&gt; that we previously
+added.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-vo-population-removed.png&#34; alt=&#34;VO population removed user&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;managing-affiliation-and-role-of-vo-member&#34;&gt;Managing Affiliation and Role of VO Member&lt;/h3&gt;
+&lt;p&gt;User&amp;rsquo;s &lt;strong&gt;Affiliation&lt;/strong&gt; to a VO, as defined in
+&lt;a href=&#34;https://www.internet2.edu/media/medialibrary/2013/09/04/internet2-mace-dir-eduperson-201203.html#eduPersonAffiliation&#34;&gt;RFC4512&lt;/a&gt;,
+has eight permissible values. These are faculty, student, staff, alum,
+member, affiliate, employee, library-walk-in. EGI Check-in assigns to
+all user&amp;rsquo;s the affiliation Member by default, during the VO(COU)
+enrollment process. This value is immutable for the user but editable
+for the VO administrator. As a result, if there is a change of status
+the administrator can always step in and change it appropriately.
+Additionally, the user&amp;rsquo;s &lt;strong&gt;Role&lt;/strong&gt; in a VO is the &lt;strong&gt;EGI User Community
+Title&lt;/strong&gt; column, in Co Person Role&amp;rsquo;s View. This column can be either a
+custom text value; or a value chosen from a drop down list. The drop
+down list administration is an EGI Check-in CO administrator task and
+can not be managed by any VO admin.&lt;/p&gt;
+&lt;h4 id=&#34;update-users-vo-affiliation&#34;&gt;Update User&amp;rsquo;s VO affiliation&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to Co Person Role view
+&lt;img src=&#34;./check-in-co-person-role-path.png&#34; alt=&#34;CO person role view&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose Affiliation from drop down list
+&lt;img src=&#34;./check-in-vo-affiliation.png&#34; alt=&#34;VO affiliation&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;update-users-vo-role&#34;&gt;Update User&amp;rsquo;s VO Role&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to Co Person Role view
+&lt;img src=&#34;./check-in-co-person-role-path.png&#34; alt=&#34;CO person role view&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Choose Role from drop down list, if available, or add custom text if no list is present.
+&lt;img src=&#34;./check-in-role-title.png&#34; alt=&#34;Role title&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Subsequently, EGI Check-in uses the CO Person&amp;rsquo;s group membership and
+role information in order to construct the eduPersonEntitlement values,
+in short entitlements. These URN-formatted attributes can be used for
+representing group membership, as well as to indicate rights to
+resources. According to the
+&lt;a href=&#34;https://aarc-community.org/guidelines/aarc-g002&#34;&gt;AARC-G002 specification&lt;/a&gt;,
+a user that is a member of the VO vo.example.org, and has the role supervisor,
+obtains the following entitlements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;urn:mace:egi.eu:group:vo.example.org:role=member#aai.egi.eu&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;urn:mace:egi.eu:group:vo.example.org:role=supervisor#aai.egi.eu&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;managing-cou-admin-members&#34;&gt;Managing COU Admin members&lt;/h3&gt;
+&lt;p&gt;COU Admin Groups are used to determine COU Administrators. Admin Groups
+are automatically created when a COU is created. The default name for
+COU admin groups is&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;CO:COU:&amp;lt;COU_Name&amp;gt;:admins
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;For example &lt;code&gt;CO:COU:vo.example.org:admins&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A CO Person can be a member, an owner, both, or neither.
+Specifically:
+&lt;ul&gt;
+&lt;li&gt;A COU admins group member can manage COU members:&lt;/li&gt;
+&lt;li&gt;Approve or decline membership petitions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Manage members&amp;rsquo; roles
+&lt;ul&gt;
+&lt;li&gt;A COU admins group owner has permission to add and remove
+members to and from the group, i.e. manage the list of CO
+Persons who can manage the COU members&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A COU admins group owner can manage the admins group member as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Login to &lt;a href=&#34;https://aai.egi.eu/registry&#34;&gt;Check-in registry&lt;/a&gt; using
+any of the login credentials already linked to your EGI account.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;To view the available groups expand the &lt;strong&gt;Groups&lt;/strong&gt; drop down list and
+click &lt;strong&gt;All Groups&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-groups-drop-down.png&#34; alt=&#34;Groups drop down&#34;&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Expand the &lt;strong&gt;Filter&lt;/strong&gt; section and find the COU admin group you are
+interested in. For the case of the service-integration COU with type the
+string service-integration in the text box with the placeholder Name. Then
+we click on Filter button&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-groups-expand-filter.png&#34; alt=&#34;Expand groups&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Locate &lt;strong&gt;Admins&lt;/strong&gt; group click on &lt;strong&gt;Edit&lt;/strong&gt; action&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-groups-actions.png&#34; alt=&#34;Groups actions&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;assign-cou-member-admin-role&#34;&gt;Assign COU member admin role&lt;/h4&gt;
+&lt;p&gt;From the steps defined &lt;a href=&#34;#managing-cou-admin-members&#34;&gt;above&lt;/a&gt;:&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Follow Manage Group Memberships link&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-manage-group-link.png&#34; alt=&#34;Manage Group Memberships link&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Filter&lt;/strong&gt; out the CO Person you need to apply for the admin role.
+Use &lt;strong&gt;Given, Family Name, Email, Identifier&lt;/strong&gt; or a combination of the
+former.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-co-people-filter.png&#34; alt=&#34;Check-in CO people filter&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;remove-cou-admin-role&#34;&gt;Remove COU admin role&lt;/h4&gt;
+&lt;p&gt;From the steps defined &lt;a href=&#34;#managing-cou-admin-members&#34;&gt;above&lt;/a&gt;:&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;Under Group Members tab, click on Delete action for the CO Person that needs
+to be removed from Admins group&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./check-in-group-members-tab.png&#34; alt=&#34;Group members tab&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;vo-membership-api&#34;&gt;VO membership API&lt;/h2&gt;
+&lt;p&gt;Check-in provides a REST API that allows clients to manage membership
+information only for the VOs they are authoritative for.&lt;/p&gt;
+&lt;p&gt;Features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Members of the VO are identified via their EGI Check-in ePUID&lt;/li&gt;
+&lt;li&gt;Membership can be limited to a specified period&lt;/li&gt;
+&lt;li&gt;Different membership status values are supported, namely &lt;code&gt;Active&lt;/code&gt;,
+&lt;code&gt;Expired&lt;/code&gt;, &lt;code&gt;Deleted&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Check-in automatically changes the membership status from &lt;code&gt;Active&lt;/code&gt;
+to &lt;code&gt;Expired&lt;/code&gt; beyond the validity period&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;authentication&#34;&gt;Authentication&lt;/h3&gt;
+&lt;p&gt;The REST client is authenticated via username/password credentials
+transmitted over HTTPS using the Basic Authentication scheme. More
+sophisticated authentication mechanisms, such as OpenID Connect/OAuth
+2.0 access tokens, may be supported in the future.&lt;/p&gt;
+&lt;h3 id=&#34;methods&#34;&gt;Methods&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Adding a user to a VO requires specifying the user&amp;rsquo;s EGI Check-in
+ePUID, the name of the VO (e.g. &lt;code&gt;vo.access.egi.eu&lt;/code&gt; in the case of LToS),
+the status (&lt;code&gt;Active&lt;/code&gt;) and the valid from/through dates. All these
+parameters are mandatory. Here is an example using curl (see example
+&lt;code&gt;add.json&lt;/code&gt; file below):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -vX POST https://aai.egi.eu/api/v1/VoMembers &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --user &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;example-client&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;veryverysecret&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --data @add.json &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --header &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;ad.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;RequestType&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;VoMembers&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;VoMembers&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;
+   &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;1.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;VoId&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vo.access.egi.eu&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Person&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Type&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;CO&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;01234567890123456789@egi.eu&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;Status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Active&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ValidFrom&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2017-05-21&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ValidThrough&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2017-06-21&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Retrieving the VO membership information for a given EGI Check-in
+ePUID:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;$ curl -vX GET https://aai.egi.eu/api/v1/VoMembers/01234567890123456789@egi.eu &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;       --user &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;example-client&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;veryverysecret&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;85&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;epuid&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;01234567890123456789@egi.eu&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;vo_id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;vo.access.egi.eu&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;valid_from&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2017-05-20T22:00:00.000Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;valid_through&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2017-06-21T22:00:00.000Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Active&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Beyond the &lt;code&gt;valid_through&lt;/code&gt; date, the status will be automatically changed
+to &lt;code&gt;Expired&lt;/code&gt;. So, when querying for VO membership information, it&amp;rsquo;s
+important to check that the status is actually set to &lt;code&gt;Active&lt;/code&gt; for each
+of the identified VOs (see the &lt;code&gt;vo_id&lt;/code&gt; attribute)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Updating existing VO membership record:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;curl -vX PUT https://aai.egi.eu/api/v1/VoMembers &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --user &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;example-client&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;veryverysecret&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --data @update.json &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     --header &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Content-Type: application/json&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The request body is the same as the one used for adding new members but
+update requires using &lt;code&gt;PUT&lt;/code&gt; instead of &lt;code&gt;POST&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Removing VO member:&lt;/p&gt;
+&lt;p&gt;Same as the update but requires setting the membership status to
+&lt;code&gt;Deleted&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Users: VOMS</title>
+      <link>/users/check-in/voms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/check-in/voms/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
+&lt;p&gt;Some EGI services authentication is based on &lt;a href=&#34;https://tools.ietf.org/html/rfc5280&#34;&gt;X.509&lt;/a&gt;
+certificates. The certificates are issued by Certification Authorities (CAs)
+part of the &lt;a href=&#34;https://www.eugridpma.org/&#34;&gt;EUGridPMA&lt;/a&gt; federation which is also
+part of &lt;a href=&#34;https://www.igtf.net/&#34;&gt;IGTF&lt;/a&gt; (International Global Trust Federation).&lt;/p&gt;
+&lt;p&gt;The role of a Certification Authoritie (CA) is to guarantee that users are who
+they claim to be and are entitled to own their certificate. It is up to the
+users to discover which CA they should contact. In general, CAs are organised
+geographically and by research institutes. Each CA has its own procedure to
+release certificates.&lt;/p&gt;
+&lt;p&gt;EGI sites, endpoints and tools accept certificates part of the
+&lt;a href=&#34;https://www.eugridpma.org/&#34;&gt;EUGridPMA&lt;/a&gt; distribution. If your community VO is
+enabled on that site, your certificate will be accepted by that site since all
+certificates are recognized at site level.&lt;/p&gt;
+&lt;p&gt;Usually, a certificate can be installed by command line tools, but they can
+also be stored in the web browser to access EGI web tools and services.&lt;/p&gt;
+&lt;h3 id=&#34;get-a-certificate&#34;&gt;Get a Certificate&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&#34;http://www.eugridpma.org/members/worldmap/&#34;&gt;list of EGI recognised CAs&lt;/a&gt;
+provides a clickable map to find your nearby CA.  Several of these offer the
+option to get an &amp;lsquo;eScience Personal&amp;rsquo; certificate online from the Terena
+Certificate Service CA. &lt;a href=&#34;https://www.terena.org/activities/tcs/participants.html&#34;&gt;Check the countries where this is
+available&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If eScience Personal certificate is not available in your country, then
+request a certificate from a regular &lt;a href=&#34;https://www.igtf.net/pmamap&#34;&gt;IGTF CA&lt;/a&gt;.
+The request is normally generated using either a web-based interface or console
+commands. Details of which type of request a particular CA accepts can be
+found on each CA&amp;rsquo;s website.&lt;/p&gt;
+&lt;p&gt;For a web-based certificate request, a form must usually be filled in with
+information such as the name of the user, home institute, etc. After submission,
+a pair of private and public keys are generated, together with a request for
+the certificate containing the public key and the user data. The request is
+then sent to the CA, while the private key stays in the browser, hence the
+same browser must be used to retrieve the certificate once it is issued.&lt;/p&gt;
+&lt;p&gt;Users must usually install the CA root certificate in their browser first.
+This is because the CA has to sign the user certificate using its private key,
+and the user&amp;rsquo;s browser must be able to validate the signature.&lt;/p&gt;
+&lt;p&gt;For some CAs, the certificate requests are generated using a command line
+interface. The details of the exact command and the requirements of each CA
+will vary and can be found on the CA&amp;rsquo;s website.&lt;/p&gt;
+&lt;p&gt;Once received the request, the CA will have to confirm your authenticity through
+your certificate. This usually involves a physical meeting or a phone call with
+a Registration Authority (RA). A RA is delegated by the CA to verify the
+legitimacy of a request, and approve it if it is valid. The RA is usually
+someone at your home institute, and will generally need some kind of ID to
+prove your identity.&lt;/p&gt;
+&lt;h3 id=&#34;install-a-certificate&#34;&gt;Install a Certificate&lt;/h3&gt;
+&lt;p&gt;After approval, the certificate is generated and delivered to you.
+This can be done via e-mail, or by giving instructions to you to download it
+from a web page.&lt;/p&gt;
+&lt;h4 id=&#34;browser-installation&#34;&gt;Browser installation&lt;/h4&gt;
+&lt;p&gt;Install the certificate in your browser. If you don’t know how to upload your
+certificate in your browser have a look at the &lt;a href=&#34;https://ca.cern.ch/ca/Help/&#34;&gt;examples&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;host-installation&#34;&gt;Host installation&lt;/h4&gt;
+&lt;p&gt;To use EGI services with your certificate, you must first save your certificate
+to disk.&lt;/p&gt;
+&lt;p&gt;The received certificate will usually be in one of two formats:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Privacy Enhanced Mail Security Certificate (PEM)&lt;/em&gt; with extension &lt;code&gt;.pem&lt;/code&gt; or&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Personal Information Exchange File (PKCS12)&lt;/em&gt; with extensions &lt;code&gt;.p12&lt;/code&gt; or &lt;code&gt;.pfx&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The latter is the most common for certificates exported from a browser
+(e.g. Internet Explorer, Mozilla and Firefox), but the &lt;code&gt;PEM&lt;/code&gt; format is
+currently needed on EGI user interface. The certificates can be converted from
+one format to the other using the &lt;code&gt;openssl&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;If the certificate is in &lt;code&gt;PKCS12&lt;/code&gt; format, then it can be converted to &lt;code&gt;PEM&lt;/code&gt;
+using &lt;code&gt;pkcs12&lt;/code&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;First you will need to create the private key, use &lt;code&gt;-nocerts&lt;/code&gt;. Open your
+terminal, enter the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ openssl pkcs12 -nocerts -in my_cert.p12 -out userkey.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;where:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;File Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;my_cert.p12&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the input PKCS12 format file;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;userkey.pem&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the output private key file;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;usercert.pem&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;is the output PEM certificate file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;When prompted to &lt;code&gt;“Enter Import Password”&lt;/code&gt;, simply press enter since no
+password should have been given when exporting from keychain.
+When prompted to &lt;code&gt;“Enter PEM pass phrase”&lt;/code&gt;, enter the pass phrase of your
+choice, e.g. &lt;code&gt;1234&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Now you can create the certificate, use &lt;code&gt;-clcerts&lt;/code&gt;,  (use &lt;code&gt;-nokeys&lt;/code&gt; hereu
+will not output private key), and the command is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;$ openssl pkcs12 -clcerts -nokeys -in my_cert.p12 -out usercert.pem
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When prompted to &lt;code&gt;“Enter Import Password”&lt;/code&gt;, simply press enter since no
+password should have been given when exporting from keychain.&lt;/p&gt;
+&lt;p&gt;For further information on the options of the pkcs12 command, consult
+&lt;code&gt;man pkcs12&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It is strongly recommended that the names of all these files are kept as shown.
+Once in PEM format, the two files, &lt;code&gt;userkey.pem&lt;/code&gt; and &lt;code&gt;usercert.pem&lt;/code&gt;, should be
+copied to a &lt;em&gt;User Interface (UI)&lt;/em&gt;. For example, the ‘standard’ location for
+Mac would be &lt;code&gt;.globus&lt;/code&gt; directory in your &lt;code&gt;$HOME&lt;/code&gt;. I.e. &lt;code&gt;$HOME/.globus/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;renewing-the-certificate&#34;&gt;Renewing the Certificate&lt;/h3&gt;
+&lt;p&gt;CAs issue certificates with a limited duration (usually one year); this implies
+the need to renew them periodically. The renewal procedure usually requires
+that the certificate holder sends a request for renewal signed with the old
+certificate and/or that the request is confirmed by a phone call; the details
+depend on the policy of the CA. The certificate usually needs to be renewed
+before the old certificate expires; CAs may send an email to remind users that
+renewal is necessary, but users should try to be aware of the renewal date,
+and take appropriate action if they are away for extended periods of time.&lt;/p&gt;
+&lt;h3 id=&#34;taking-care-of-private-keys&#34;&gt;Taking Care of Private Keys&lt;/h3&gt;
+&lt;p&gt;A private key is the essence of your identity. Anyone who steals it can
+impersonate the owner and if it is lost, it is no longer possible to do
+anything. Certificates are issued personally to individuals, and must never be
+shared with other users. To user EGI services, users must agree to an
+Acceptable Use Policy, which among other things requires them to keep their
+private key secure.&lt;/p&gt;
+&lt;p&gt;On a UNIX UI, the certificate and private key are stored in two files.
+Typically they are in a directory called &lt;code&gt;$HOME/.globus&lt;/code&gt; and are named
+&lt;code&gt;usercert.pem&lt;/code&gt; and &lt;code&gt;userkey.pem&lt;/code&gt;, and it is strongly recommended that they are
+not changed. The certificate is public and world-readable, but the key must
+only be readable by the owner. The key should be stored on a disk local to the
+user&amp;rsquo;s UI rather than, for example, an NFS-mounted disk. If a certificate has
+been exported from a browser, a PKCS12-format file (&lt;code&gt;.p12&lt;/code&gt; or &lt;code&gt;.pfx&lt;/code&gt;), which
+contains the private key, will have been locally stored and this file must be
+either encrypted, hidden or have its access rights restricted to only the owner.&lt;/p&gt;
+&lt;p&gt;If a private key is stored under the Andrew File System (AFS), access is
+controlled by the AFS Access Control Lists (ACL) rather than the normal file
+permissions, so users must ensure that the key is not in a publicly-readable
+area.&lt;/p&gt;
+&lt;p&gt;Web browsers also store private keys internally, and these also need to be
+protected. The details vary depending on the browser, but password protection
+should be used if available; this may not be the default (it is not with
+Internet Explorer). The most secure mode is one in which every use of the
+private key needs the password to be entered, but this can cause problems as
+some web sites ask for the certificate many times. Reaching a compromise
+between security and convenience is vital here, so that neither come too short.&lt;/p&gt;
+&lt;p&gt;It is important not to lose the private key, as this implies loss of all
+access to the services, and registration will have to be started again from
+scratch. Having several securely protected copies in different places is
+strongly advised, so the certificate can be used from a web browser and
+several UI machines.&lt;/p&gt;
+&lt;p&gt;A private key stored on a UI must be encrypted, meaning that a passphrase must
+be typed whenever it is used. A key must never be stored without a passphrase.
+The passphrase should follow similar rules to any computer password. Users
+should be aware of the usual risks, like people watching them type or
+transmitting the passphrase over an insecure link.&lt;/p&gt;
+&lt;h2 id=&#34;authorisation&#34;&gt;Authorisation&lt;/h2&gt;
+&lt;p&gt;The sites authorise the access to their resources to a VO according to
+their own access policies, resource location, how many resources is the VO
+allowed to use. There are finer authorization policies, including groups,
+roles, in this way, the users can be structured in a VO. So, it is not a 0/1
+authorization policy.&lt;/p&gt;
+&lt;p&gt;The community has full control of the access to the VO according to community
+authorization policies. The VO membership, groups and roles are managed by
+VO managers (Privileged VO members) independently by using the Virtual
+Organization Membership Service (VOMS).&lt;/p&gt;
+&lt;h3 id=&#34;voms&#34;&gt;VOMS&lt;/h3&gt;
+&lt;p&gt;The Virtual Organization Membership Service (VOMS) is an attribute authority
+which serves as central repository for VO user authorization information,
+providing support for sorting users into group hierarchies, keeping track ofu
+their roles and other attributes in order to issue trusted attribute
+certificates and SAML assertions used in the Grid environment for authorization
+purposes. VOMS is composed of two main components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the VOMS core service, which issues attribute certificates to authenticated clients&lt;/li&gt;
+&lt;li&gt;the VOMS Admin service, which is used by VO manager to administer VOs and manage user membership details.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;How does it work? Usually, users submit tasks/jobs to the infrastructure that
+are attached with their own credential, and the credential is attached with a
+proxy certificate that is a short-term credential signed with the user
+certificate and is extended with the VO attributes. In general speaking, a user
+credential is just an ID, and a proxy contains the VO details, so a resource
+site by receiving the proxy can recognize that the user is part of such a VO
+with such a role from such a group. A user can be part of multiple VO, thus can
+generate multiple proxies.&lt;/p&gt;
+&lt;h3 id=&#34;register-to-a-vo&#34;&gt;Register to a VO&lt;/h3&gt;
+&lt;p&gt;Visit &lt;a href=&#34;https://operations-portal.egi.eu&#34;&gt;Operation Portal&lt;/a&gt; to search for
+existing VOs&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;If there are any community VOs matching your requirements (with
+&lt;em&gt;Registry System&lt;/em&gt; is &lt;em&gt;VOMS&lt;/em&gt;), then click &lt;em&gt;Action&lt;/em&gt;-&amp;gt; &lt;em&gt;Details&lt;/em&gt; to look at
+the VO information. In the &lt;em&gt;VO Id Card&lt;/em&gt; page, click the link for
+&lt;em&gt;Enrollment Url&lt;/em&gt;, it will take you to the VO VOMS page.
+&lt;strong&gt;You should have already discussed with the EGI support team, they would
+help you to contact the VO managers and get approval for your access.&lt;/strong&gt;
+&lt;img src=&#34;vo_registration.png&#34; alt=&#34;Register to a VO&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If there are no relevant VOs, you can send a request &lt;a href=&#34;ttps://operations-portal.egi.eu/vo/registration&#34;&gt;to register a
+new VO&lt;/a&gt;. (Note, for EGI
+services, you should request for &lt;code&gt;VOMS configuration&lt;/code&gt;, once VO is
+configured, you will be notified about your VO VOMS link). More information
+can be found at &lt;a href=&#34;https://wiki.egi.eu/wiki/PROC14_VO_Registration&#34;&gt;Guideline for VO registration&lt;/a&gt;.
+&lt;strong&gt;Again, this is usually guided by the EGI support team. You should already
+have a meeting with them to discuss your requirements. They will help you to
+get resources from EGI providers, and sign &lt;a href=&#34;https://wiki.egi.eu/wiki/EGI_OLA_SLA_framework#Service_Level_Agreemens&#34;&gt;SLA&lt;/a&gt; with you.&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Request your VO membership at VO VOMS page. You will have to enter required
+information and then wait for approval.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;register_enmr_vo.png&#34; alt=&#34;Register to enmr.eu vo&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;creating-a-proxy&#34;&gt;Creating a proxy&lt;/h2&gt;
+&lt;h3 id=&#34;voms-configuration&#34;&gt;VOMS configuration&lt;/h3&gt;
+&lt;p&gt;Every VO needs two different pieces of information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the &lt;code&gt;vomses&lt;/code&gt; configuration files, where the details of the VO are
+stored (e.g. name, server, ports). These are stored by default at
+&lt;code&gt;/etc/vomses&lt;/code&gt; and are normally named following this convention:
+&lt;code&gt;&amp;lt;vo name&amp;gt;.&amp;lt;server name&amp;gt;&lt;/code&gt; (e.g. for fedcloud.egi.eu VO, you would
+have &lt;code&gt;fedcloud.egi.eu.voms1.grid.cesnet.cz&lt;/code&gt; and
+&lt;code&gt;fedcloud.egi.eu.voms2.grid.cesnet.cz&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;the &lt;code&gt;.lsc&lt;/code&gt; files that describe the trust chain of the VOMS server.
+These are stored at &lt;code&gt;/etc/grid-security/vomsdir/&amp;lt;vo name&amp;gt;&lt;/code&gt; and there
+should be one file for each of the VOMS server of the VO.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can check specific configuration for your VO at the &lt;a href=&#34;https://operations-portal.egi.eu/vo&#34;&gt;Operations
+portal&lt;/a&gt;. Normally each VOMS server
+has a &lt;em&gt;Configuration Info&lt;/em&gt; link where the exact information to include
+in the &lt;code&gt;vomses&lt;/code&gt; and &lt;code&gt;.lsc&lt;/code&gt; files is shown.&lt;/p&gt;
+&lt;h3 id=&#34;proxy-creation&#34;&gt;Proxy creation&lt;/h3&gt;
+&lt;p&gt;Once you have the VO information configured (&lt;code&gt;vomses&lt;/code&gt; and &lt;code&gt;.lsc&lt;/code&gt;) and
+your certificate available in your &lt;code&gt;$HOME/.globus&lt;/code&gt; directory you can
+create a VOMS proxy to be used with clients with:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;voms-proxy-init --voms &amp;lt;name of the vo&amp;gt; --rfc
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;See for example, using &lt;code&gt;fedcloud.egi.eu&lt;/code&gt; VO:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-{.console}&#34; data-lang=&#34;{.console}&#34;&gt;voms-proxy-init --voms fedcloud.egi.eu --rfc
+Enter GRID pass phrase:
+Your identity: /DC=org/DC=terena/DC=tcs/C=NL/O=EGI/OU=UCST/CN=Enol Fernandez
+Creating temporary proxy ......................................................... Done
+Contacting  voms1.grid.cesnet.cz:15002 [/DC=cz/DC=cesnet-ca/O=CESNET/CN=voms1.grid.cesnet.cz] &amp;quot;fedcloud.egi.eu&amp;quot; Done
+Creating proxy ................................................................... Done
+
+Your proxy is valid until Mon Feb  4 23:37:21 2019
+&lt;/code&gt;&lt;/pre&gt;
+      </description>
+    </item>
+    
+  </channel>
+</rss>

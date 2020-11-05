@@ -1,0 +1,84 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EGI Docs – DataHub</title>
+    <link>/providers/datahub/</link>
+    <description>Recent content in DataHub on EGI Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/providers/datahub/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Providers: DataHub OneProvider</title>
+      <link>/providers/datahub/oneprovider/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/providers/datahub/oneprovider/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This documentation covers how to install and configure a OneData OneProvider in order to join
+a new or existing DataHub space.
+In particular 2 types of installations are available, depending if the provider wants to support the
+space with an an empty storage or if existing data are willing to be exposed via the OneProvider.&lt;/p&gt;
+&lt;h2 id=&#34;requirements-for-production-installation&#34;&gt;Requirements for production installation&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Oneprovider
+&lt;ul&gt;
+&lt;li&gt;RAM: 32GB&lt;/li&gt;
+&lt;li&gt;CPU: 8 vCPU&lt;/li&gt;
+&lt;li&gt;Disk: 50GB SSD&lt;/li&gt;
+&lt;li&gt;To be adjusted for the dataset and usage scenario&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;For high IOPS
+&lt;ul&gt;
+&lt;li&gt;High performance backend storage (CEPH)&lt;/li&gt;
+&lt;li&gt;Low latency network&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation-and-attach-empty-storage-to-the-egi-datahub&#34;&gt;Installation and attach empty storage to the EGI DataHub&lt;/h2&gt;
+&lt;p&gt;The installation of a new OneProvider is performed using the an installation script used &lt;code&gt;onedatify&lt;/code&gt; which
+will setup the components using Docker and Docker-compose&lt;/p&gt;
+&lt;p&gt;The simple installation script can be generated from the EGI DataHub web interface.&lt;/p&gt;
+&lt;p&gt;First you need to login to the EGI DataHub and from the Data menu you either select an existing space
+or create a new one.&lt;/p&gt;
+&lt;p&gt;You can then select on the space menu the Providers section and click on the Add Support button on the top
+right corner&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;add-support-oneprovider.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You should then select on the page the tab: &lt;code&gt;Deploy your own provider&lt;/code&gt; and there you will have just to copy
+the command having already the correct parameters for the OneZone to use (datahub.egi.eu) and the
+space to join.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedatify-oneprovider.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-the-command-on-the-host&#34;&gt;Run the command on the host&lt;/h3&gt;
+&lt;p&gt;Paste the copied command in the terminal on the OneProvider machine (as superuser).&lt;/p&gt;
+&lt;p&gt;If necessary, the Onedatify script will ask for permission to install all necessary dependencies including Docker and Docker Compose.&lt;/p&gt;
+&lt;p&gt;After the dependency installation is complete, the script will ask several questions and suggest default setting for each one:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedatify_step_1.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The progress can be monitored on a separate terminal using the following command:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;onedatify logs&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;After the deployment is complete, the following message will be shown, with connection details for administration panel for the Oneprovider instance:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedatify_step_5.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The WebUI Admin portal at port 9443 can be used to administer the OneProvider installation.&lt;/p&gt;
+&lt;h2 id=&#34;installation-and-expose-existing-data-to-the-egi-datahub&#34;&gt;Installation and expose existing data to the EGI DataHub&lt;/h2&gt;
+&lt;p&gt;The installation of a new OneProvider to expose existing data sets to an EGI DataHub space is similar to the installation with an empty storage.&lt;/p&gt;
+&lt;p&gt;When adding support to an existing or new space you should select from the EGI DataHub GUI the tab : &lt;code&gt;Expose Existing dat set&lt;/code&gt; and there you will have just to copy the command having already the correct parameters for the OneZone to use (datahub.egi.eu) and the space to join.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedatify-oneprovider-expose.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;run-the-command-on-the-host-1&#34;&gt;Run the command on the host&lt;/h3&gt;
+&lt;p&gt;Paste the copied command in the terminal on the OneProvider machine (as superuser) and follow the instructions as for the case of an empty storage.&lt;/p&gt;
+&lt;p&gt;The only difference is that at the end of the installation and configuration process the existing files will be automatically imported to the OneProvider.&lt;/p&gt;
+&lt;p&gt;You can monitor the import activity from the WebUI Admin panel at port 9443&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedatify_step_6.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;onedata-logo.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

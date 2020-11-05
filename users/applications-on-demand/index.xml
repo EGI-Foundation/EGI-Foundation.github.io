@@ -1,0 +1,383 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EGI Docs – Applications on Demand (AoD)</title>
+    <link>/users/applications-on-demand/</link>
+    <description>Recent content in Applications on Demand (AoD) on EGI Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/users/applications-on-demand/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Users: Applications on Demand (AoD)</title>
+      <link>/users/applications-on-demand/aod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/applications-on-demand/aod/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The &lt;a href=&#34;https://www.egi.eu/services/applications-on-demand/&#34;&gt;EGI Applications on Demand (AoD)
+service&lt;/a&gt; is EGI&amp;rsquo;s
+response to the requirements of researchers who are interested in using
+applications in a on-demand fashion together with the compute and
+storage environment needed to compute and store data.&lt;/p&gt;
+&lt;p&gt;You can order and access the service through the &lt;a href=&#34;https://marketplace.egi.eu&#34;&gt;EGI
+Marketplace&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;service-description&#34;&gt;Service Description&lt;/h2&gt;
+&lt;p&gt;The service combines compute and storage cloud with Application-development
+and hosting frameworks to run custom scientific applications, and/or
+to turn those into applications into online data analysis services that
+can be accessed by scientists worldwide.&lt;/p&gt;
+&lt;p&gt;The portfolio of applications is currently composed by a readily
+available set of applications relevant to different scientific and
+research areas. This portfolio is open to be extended thanks to the
+contributions of users of the service. If you are interested in this,
+please get in touch with us: support (at) egi.eu&lt;/p&gt;
+&lt;h3 id=&#34;intended-user-groups&#34;&gt;Intended user groups&lt;/h3&gt;
+&lt;p&gt;The main target groups of this service are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application developers who want to make their applications and tools
+accessible in a scalable way for researchers internationally.&lt;/li&gt;
+&lt;li&gt;Algorithm developers (researchers) who want to run their own codes
+at scale in a compute cloud.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The main target groups of the applications that are already hosted in this
+service are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Researchers and innovators who want to run a specific scientific
+application that is already available in the platform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;scientific-applications&#34;&gt;Scientific applications&lt;/h3&gt;
+&lt;p&gt;The scientific applications that are already available in this service are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.egi.eu/applications-on-demand/68-chipster.html&#34;&gt;Chipster&lt;/a&gt;
+a user-friendly analysis software for high-throughput data. It contains over 300
+analysis tools for next generation sequencing (NGS), microarray, proteomics and
+sequence data. The application is available through the Science Software on Demand
+Service (SSoD). Instructions to run the application are available &lt;a href=&#34;https://docs.egi.eu/users/applications-on-demand/chipster/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.egi.eu/applications-on-demand/58-namd.html&#34;&gt;NAMD&lt;/a&gt;
+a parallel molecular dynamics code designed for high-performance simulation of
+large bio-molecular systems. The application is available through the EC3 portal.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://marketplace.egi.eu/applications-on-demand/84-ecas.html&#34;&gt;ECAS&lt;/a&gt;
+a complete environment enabling data analysis experiments from the ENES Climate
+Analytics Service.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The service includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cloud compute and storage &lt;a href=&#34;https://documents.egi.eu/public/ShowDocument?docid=2773&#34;&gt;resources&lt;/a&gt;
+to host and scale up scientific applications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Cloud access and application-hosting frameworks
+(to run and to operate your own scientific application in the cloud environment):
+that offer integrated development environments to port custom
+applications with cloud resources.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://dashboard.appdb.egi.eu/vmops&#34;&gt;VMOps dashboard&lt;/a&gt;:
+a graphical environment for the management of Virtual Machines (VM) in the
+federated network of clouds that enable the Applications on Demand service.
+User documentation is available &lt;a href=&#34;https://wiki.appdb.egi.eu/main:faq:what_is_the_vmops_dashboard&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://servproject.i3m.upv.es/ec3-ltos/index.php&#34;&gt;Elastic Cloud Compute Cluster (EC3)&lt;/a&gt;:
+a portal that allows the creation of elastic virtual clusters in the cloud. Those clusters can then
+host your scientific application either directly, or via Apache Mesos, Chronos, Kubernetes, Marathon,
+&lt;a href=&#34;https://github.com/grycap/oscar&#34;&gt;OSCAR&lt;/a&gt; or SLURM.
+Instructions for application developers are available
+&lt;a href=&#34;https://wiki.egi.eu/wiki/Applications_on_Demand_Service_-_information_for_developers#How_to_integrate_a_new_application_in_EC3&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://fgsg.ct.infn.it/egissod/web/ssod&#34;&gt;Science Software on Demand (SSoD)&lt;/a&gt;:
+a programmable interface of a RESTful API Server to provide an easy access PaaS layer by leveraging
+recent Web technologies. Instructions for application developers are available
+&lt;a href=&#34;https://wiki.egi.eu/wiki/Applications_on_Demand_Service_-_information_for_developers#How_to_integrate_a_new_application_in_the_FutureGateway_Science_Gateway&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;requirements-and-user-registration&#34;&gt;Requirements and user registration&lt;/h2&gt;
+&lt;p&gt;The service is open for any scientific software developer who needs a
+scalable and user-friendly application execution and hosting environment
+to offer data/compute intensive scientific applications online.&lt;/p&gt;
+&lt;p&gt;Access &lt;strong&gt;requires&lt;/strong&gt; acceptance of &lt;a href=&#34;https://documents.egi.eu/public/ShowDocument?docid=2635&#34;&gt;Acceptable Use Policy (AUP) and
+Conditions of the &#39;EGI Applications on Demand
+Service&#39;&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Acknowledgment&lt;/h4&gt;
+&lt;p&gt;Users of the service are asked to provide appropriate acknowledgement of
+the use in scientific publications. The following acknowledgement text
+can be used for this purpose:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This work used the EGI Applications on Demand service, which is
+co-funded by the EOSC-hub project (grant number 777536). The HNSciCloud
+project (grant number 687614) is also sponsoring the service, allowing
+users to access the HNSciCloud services pilot for limited scale usage
+using the voucher schemes provided by the Exoscale contractor.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;When requesting access to AoD users are guided through a lightweight
+registration process. Members of the EGI support team will perform a
+lightweight vetting process to validate the users&#39; requests before
+granting the access to the resources.&lt;/p&gt;
+&lt;h3 id=&#34;service-grant&#34;&gt;Service grant&lt;/h3&gt;
+&lt;p&gt;Once granted access, each user will have a grant with a pre-defined
+quota of resources, which can be used to run the application of choice.
+This grant includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;up to 4 CPU cores,&lt;/li&gt;
+&lt;li&gt;8 GB of RAM,&lt;/li&gt;
+&lt;li&gt;100GB of block storage.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The grant to run applications is initially valid for 6 months and can be
+extended/renewed upon request.&lt;/p&gt;
+&lt;h3 id=&#34;how-can-you-access-the-service&#34;&gt;How can you access the service?&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Login to the &lt;a href=&#34;https://marketplace.egi.eu&#34;&gt;EGI Marketplace&lt;/a&gt; with the
+EGI AAI Check-In service.&lt;/li&gt;
+&lt;li&gt;Setup a profile, including details about your affiliation and role
+within a research institute/project/team.&lt;/li&gt;
+&lt;li&gt;Navigate the marketplace top-menu and click on the category:
+&lt;strong&gt;Applications&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Click on the &lt;strong&gt;Applications on Demand&lt;/strong&gt; service and submit an order
+for one of the available applications.&lt;/li&gt;
+&lt;li&gt;When the request is approved, run the requested application(s) as
+described below.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Please check the &lt;a href=&#34;https://wiki.egi.eu/wiki/HowToAccessTheEGIMarketPlace&#34;&gt;EGI Marketplace
+guide&lt;/a&gt; for
+further details.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;p&gt;Main scientific paper describing the service and status:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/3132&#34;&gt;EGI Applications On Demand Service - Catering for the computational
+needs of the long tail of
+science&lt;/a&gt; (May 2017).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ceur-ws.org/Vol-2363/paper9.pdf&#34;&gt;IWSG2017 Proceeding&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Presentations about the service:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://iwsg2017.psnc.pl/programme/&#34;&gt;Slideset about the Applications on Demand (AoD) service introduced at IWSG 2017&lt;/a&gt; (June 2017).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.egi.eu/blog/webinar-egi-applications-on-demand-service/&#34;&gt;Webinar to introduce the Applicatios on Demand
+(AoD)&lt;/a&gt;
+service to NGIs/USTs representatives, RI architects, resource
+providers and researchers (June 2017).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://indico.egi.eu/indico/event/2875/session/35/contribution/89&#34;&gt;Slideset about the status report of the platform at the EGI
+Conference
+2016&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://digitalinfrastructures.eu/content/serving-long-tail&#34;&gt;Slideset about the status report of the EGI platform at the DI4R
+Conference
+2016&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://indico.egi.eu/indico/contributionDisplay.py?contribId=83&amp;amp;confId=2544&#34;&gt;Overview of the EGI Infrastructure for serving the long
+tail&lt;/a&gt;
+(EGI Community Forum, November 2015).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://indico.egi.eu/indico/contributionDisplay.py?contribId=124&amp;amp;confId=2544&#34;&gt;Poster and animated
+slides&lt;/a&gt;
+from Demo at EGI Community Forum, November 2015 (Winner of best demo
+prize).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/2363&#34;&gt;Slideset about the authentication and authorization model
+adopted&lt;/a&gt; (from Nov. 2015).&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://documents.egi.eu/document/2358&#34;&gt;Slideset about the concept of the EGI long-tail of science
+platform&lt;/a&gt; (from Nov. 2014).&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Users: Chipster</title>
+      <link>/users/applications-on-demand/chipster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/applications-on-demand/chipster/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;a href=&#34;http://chipster.csc.fi/&#34;&gt;Chipster&lt;/a&gt; is a user-friendly software for
+analysing high-throughput data such as NGS and microarrays and provided
+as part of EGI&#39;s AoD service.&lt;/p&gt;
+&lt;p&gt;The software contains over 400 analysis tools and a large collection of
+reference genomes.&lt;/p&gt;
+&lt;p&gt;Users can save and share automatic analysis workflows, and visualize
+data interactively using for example the built-in genome browser.&lt;/p&gt;
+&lt;h2 id=&#34;egi-chipster&#34;&gt;EGI Chipster&lt;/h2&gt;
+&lt;p&gt;The Chipster testbed configured at &lt;a href=&#34;https://www.cesga.es/&#34;&gt;CESGA&lt;/a&gt;
+offers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;8 vCPU cores,&lt;/li&gt;
+&lt;li&gt;32GB of RAM,&lt;/li&gt;
+&lt;li&gt;1TB of block storage in /data,&lt;/li&gt;
+&lt;li&gt;Software and tools are in available under the &lt;code&gt;/cvmfs/tools_*&lt;/code&gt;
+partition,&lt;/li&gt;
+&lt;li&gt;Chipster (v3.16.3).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For accessing this testbed you need to be a member of the &lt;a href=&#34;https://www.egi.eu/services/applications-on-demand/&#34;&gt;Applications
+on Demand&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;createreview-a-temporary-account&#34;&gt;Create/Review a temporary account&lt;/h2&gt;
+&lt;p&gt;You need to create a temporary account to access the Chipster server, by
+default this account is valid for &lt;strong&gt;one month&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Go to &lt;a href=&#34;https://fgsg.egi.eu/egissod/web/ssod/chipster-accounts&#34;&gt;Chipster entry in Science Software on Demand
+Portal&lt;/a&gt; and:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Click on the &lt;em&gt;&amp;quot;Show form&amp;quot;&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;If the account has expired, the Science Gateway will automatically
+generate a new password for you.
+&lt;ul&gt;
+&lt;li&gt;To activate the new account, click on the &lt;em&gt;&amp;quot;Execute&amp;quot;&lt;/em&gt; button
+to trigger the creation/update of the temporary account in the
+Chipster testbed. This operation may takes a few minutes.&lt;/li&gt;
+&lt;li&gt;You can monitor the account creation by clicking in the
+&lt;em&gt;&amp;quot;Show&amp;quot;&lt;/em&gt; button.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Once your account is available, the web interface will show a link
+to access the &lt;a href=&#34;http://chipster.aod.fedcloud.eu:8081/chipster.jnlp&#34;&gt;Chipster
+server&lt;/a&gt; with the
+new credentials.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../chipster.png&#34; alt=&#34;Chipster in Science Software on Demand&#34;&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Acknowledgment&lt;/h4&gt;
+&lt;p&gt;Please provide appropriate acknowledgement of the use in scientific
+publications. You can use this The following acknowledgement text this
+purpose:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This work used the EGI Applications on Demand service, which is
+co-funded by the EOSC-hub project (grant number 777536)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Users: Exoscale vouchers</title>
+      <link>/users/applications-on-demand/exoscale/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/users/applications-on-demand/exoscale/</guid>
+      <description>
+        
+        
+        &lt;p&gt;In this section we describe how users can easily discover the &lt;a href=&#34;https://www.egi.eu/services/applications-on-demand/&#34;&gt;EGI
+Applications on Demand
+(AoD)&lt;/a&gt; service
+published in the &lt;a href=&#34;https://marketplace.eosc-portal.eu/&#34;&gt;EOSC portal
+Marketplace&lt;/a&gt; and submit a
+service-order request to deploy an elastic virtual cluster on the
+HNSciCloud pilot services. The virtual cluster will be deployed and
+configured with the requested software packages using the &lt;a href=&#34;https://servproject.i3m.upv.es/ec3-ltos/&#34;&gt;Elastic Cloud
+Compute Cluster (EC3)&lt;/a&gt; portal.&lt;/p&gt;
+&lt;h2 id=&#34;submit-a-service-order-request-through-the-eosc-portal-marketplace&#34;&gt;Submit a service-order request through the EOSC Portal Marketplace&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://marketplace.eosc-portal.eu/&#34;&gt;EOSC Portal Marketplace&lt;/a&gt; is a
+single entry point where users can navigate the EOSC service catalogue,
+discover a service of interest, get information about it, and place an
+order in a few clicks by specifying the service requested along with the
+quantity, quality and duration.&lt;/p&gt;
+&lt;p&gt;All the available services of the EOSC Marketplace are grouped in 8 main
+categories and no authentication is required to browse and discover the
+list of services published in the marketplace.&lt;/p&gt;
+&lt;p&gt;Exoscale vouchers can be used when selecting he Elastic Cloud Compute
+Cluster (EC3) platform from the list of available services by submitting
+a service-order request.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ec3-eosc-marketplace.png&#34; alt=&#34;The Elastic Cloud Compute Cluster (EC3) in the EOSC Portal Marketplace.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Placing orders in the EOSC Marketplace requires the user to
+authenticate. There are two login options: use your personal academic
+credentials or use EGI Check-in service. The first time you login into
+the marketplace requires some extra information to be provided to
+configure the marketplace account.&lt;/p&gt;
+&lt;p&gt;Two different service options are available for EC3:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ec3-service-options.png&#34; alt=&#34;The Elastic Cloud Compute Cluster (EC3) service options.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To deploy the virtual cluster on the HNSciCloud pilot services, select
+the voucher option and click on &lt;em&gt;Next&lt;/em&gt; and provide additional
+information for profiling the order (e.g. the motivation for requesting
+the service).&lt;/p&gt;
+&lt;p&gt;Users with an existing Exoscale voucher to redeem can provide the
+voucherID during the submission request. Otherwise, a valid voucherID
+will be provided once the order if processed and accepted.&lt;/p&gt;
+&lt;p&gt;Once the service order is submitted, the marketplace will send a
+notification via email. Users can at any time the status of their orders
+through the user dashboard. This dashboard shows the history of service
+order(s) submitted.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ec3-order-request.png&#34; alt=&#34;Details of a service order request.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The service order request will be processed within 3 working days&lt;/strong&gt;.
+The user will be notified of the outcome of the evaluation via email.&lt;/p&gt;
+&lt;h2 id=&#34;voucher-redemption&#34;&gt;Voucher redemption&lt;/h2&gt;
+&lt;p&gt;In case the service order is accepted:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The user will be notified by the Marketplace with the instructions
+to redeem the voucher (in case it was not provided), generate a
+client and secret keys and access the Elastic Cloud Compute Cluster
+(EC3) portal.&lt;/li&gt;
+&lt;li&gt;To redeem an Exoscale voucher, open the provided voucher link
+included in the email sent by the Marketplace within a web browser.&lt;/li&gt;
+&lt;li&gt;A typical link looks
+like:&lt;a href=&#34;https://portal.exoscale.com/register?coupon=XXXXXXX&#34;&gt;https://portal.exoscale.com/register?coupon=XXXXXXX&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Enter the email address and password you wish to use. Accept the
+terms and hit sign up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../exoscale-account-setup.png&#34; alt=&#34;Accept the privacy license agreement and sign up.&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A validation email is sent. Check out your mailbox and click on the
+verification link.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;../exoscale-activation.png&#34; alt=&#34;Activate the voucher clicking on the verification link.&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Choose &amp;ldquo;for team projects&amp;rdquo; and fill your details. Choose your
+&amp;ldquo;Company or team name&amp;rdquo; and submit the form.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;access-to-the-exoscale-dashboard&#34;&gt;Access to the Exoscale dashboard&lt;/h2&gt;
+&lt;p&gt;Access the &lt;a href=&#34;https://portal.exoscale.com/&#34;&gt;Exoscale dashboard&lt;/a&gt; and check
+the tenant settings (click in the User profile on the left)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../exoscale-credentials.png&#34; alt=&#34;Generate API and Secret Keys to access the Exoscale resources.&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;check-the-voucher-credit&#34;&gt;Check the voucher credit&lt;/h2&gt;
+&lt;p&gt;Access the &lt;a href=&#34;https://portal.exoscale.com/&#34;&gt;Exoscale dashboard&lt;/a&gt;. The
+voucher credit is shown in the top-right of the dashboard. In case
+voucher credit is going to expire, a notification email will be sent by
+the dashboard.&lt;/p&gt;
+&lt;h2 id=&#34;deploy-a-virtual-cluster-on-the-exoscale-commercial-resources&#34;&gt;Deploy a virtual cluster on the Exoscale commercial resources&lt;/h2&gt;
+&lt;p&gt;Through a &amp;ldquo;job wizard&amp;rdquo; interface (see Figures below) the user can login
+to the Elastic Cloud Compute Cluster (EC3) portal and configure the
+virtual cluster with the related tools and applications to be deployed
+on top of Infrastructure as a Service (IaaS). The cluster is composed by
+a front node, where a batch job scheduler is running, and a number of
+compute nodes. These compute nodes will be dynamically deployed and
+provisioned to fit increasing load, and un-deployed when they are in
+idle status. The installation and configuration of the cluster is
+performed by means of the execution of Ansible receipts.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ec3-deployment.png&#34; alt=&#34;Deployment of virtual clusters on Exoscale.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ec3-wizard.png&#34; alt=&#34;The EC3 job wizard to configuration the virtual cluster.&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;acknowledgement-and-report-feedback&#34;&gt;Acknowledgement and report feedback&lt;/h2&gt;
+&lt;p&gt;The user &lt;strong&gt;MUST&lt;/strong&gt; acknowledge the EOSC-hub and the HNSciCloud projects
+in the scientific publications/presentations benefiting from the
+service. The following acknowledgement statement can be used for this
+purpose:&lt;/p&gt;
+&lt;p&gt;&amp;quot;This work used the EGI Applications on Demand service, which is
+co-funded by the EOSC-hub project (grant number 777536). The HNSciCloud
+project (grant number 687614) is also sponsoring the service, allowing
+users to access the HNSciCloud services pilot for limited scale usage
+using the voucher scheme provided by Exoscale.&amp;quot;&lt;/p&gt;
+&lt;h2 id=&#34;report-feedback&#34;&gt;Report feedback&lt;/h2&gt;
+&lt;p&gt;To report feedback on the Exoscale vouchers, please fill in the
+following web form: &lt;a href=&#34;https://forms.gle/cVT7JRd4TFxZiYmQ8&#34;&gt;https://forms.gle/cVT7JRd4TFxZiYmQ8&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
