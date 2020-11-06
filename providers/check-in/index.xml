@@ -543,69 +543,8 @@ EGI user ID (&lt;code>eduPersonUniqueId&lt;/code>); this is always scoped &lt;co
 &lt;li>Email address (&lt;code>mail&lt;/code>)&lt;/li>
 &lt;li>Display name (&lt;code>displayName&lt;/code>) OR (&lt;code>givenName&lt;/code> AND &lt;code>sn&lt;/code>)&lt;/li>
 &lt;/ul>
-&lt;p>A more extensive list of all the attributes that may be made available
-to Service Providers is included in the following table:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Attribute friendly name&lt;/th>
-&lt;th>Attribute OID&lt;/th>
-&lt;th>Example value&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>&lt;code>eduPersonUniqueId&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.13&lt;/code>&lt;/td>
-&lt;td>&lt;code>ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>mail&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:0.9.2342.19200300.100.1.3&lt;/code>&lt;/td>
-&lt;td>&lt;code>john.doe@example.org&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>displayName&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:2.16.840.1.113730.3.1.241&lt;/code>&lt;/td>
-&lt;td>&lt;code>John Doe&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>givenName&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:2.5.4.42&lt;/code>&lt;/td>
-&lt;td>&lt;code>John&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>sn&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:2.5.4.4&lt;/code>&lt;/td>
-&lt;td>&lt;code>Doe&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>eduPersonAssurance&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.11&lt;/code>&lt;/td>
-&lt;td>&lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>distinguishedName&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:2.5.4.49&lt;/code>&lt;/td>
-&lt;td>&lt;code>/C=NL/O=Example.org/CN=John Doe&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>eduPersonScopedAffiliation&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.9&lt;/code>&lt;/td>
-&lt;td>&lt;code>faculty@example.org&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>&lt;br/>&lt;code>urn:mace:egi.eu:aai.egi.eu:meber@vo.test.egi.eu&lt;/code> (WARNING this format will be deprecated)&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;code>voPersonVerifiedEmail&lt;/code>&lt;/td>
-&lt;td>&lt;code>urn:oid:1.3.6.1.4.1.25178.4.1.14&lt;/code>&lt;/td>
-&lt;td>&lt;code>john.doe@example.org&lt;/code>&lt;br/>&lt;code>j.doe@mail.com&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;p>A more extensive list of all the attributes that may be made available to
+Service Providers is included in the &lt;a href="#user-attributes">User Attribute&lt;/a> section.&lt;/p>
 &lt;h3 id="attribute-based-authorisation">Attribute-based authorisation&lt;/h3>
 &lt;p>EGI Check-in provides information about the authenticated user that may
 be used by Service Providers in order to control user access to
@@ -703,91 +642,42 @@ represented by a JSON object that contains a collection of name and
 value pairs for the Claims.&lt;/p>
 &lt;p>The following scope values can be used to request Claims from the EGI
 Check-in UserInfo Endpoint:&lt;/p>
-&lt;h4 id="openid-scope-claims">&lt;code>openid&lt;/code> scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>sub&lt;/code>&lt;/dt>
-&lt;dd>An identifier for the user, unique among all EGI accounts and never reused.
-Use &lt;code>sub&lt;/code> within your application as the unique-identifier key for the user.&lt;/dd>
-&lt;dd>Example: &lt;code>ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/code>&lt;/dd>
-&lt;/dl>
-&lt;h4 id="profile-scope-claims">&lt;code>profile&lt;/code> scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>name&lt;/code>&lt;/dt>
-&lt;dd>The user&amp;rsquo;s full name, in a displayable form (in the future this will be
-provided only if your scope included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>John Doe&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>given_name&lt;/code>&lt;/dt>
-&lt;dd>The user&amp;rsquo;s first name (in the future this will be provided only if your
-scope included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>John&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>family_name&lt;/code>&lt;/dt>
-&lt;dd>The user&amp;rsquo;s last name (in the future this will be provided only if your scope
-included the string &lt;code>&amp;quot;profile&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>Doe&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>preferred_username&lt;/code>&lt;/dt>
-&lt;dd>The username by which the user wishes to be referred to. The RP MUST NOT
-rely upon this value being unique.&lt;/dd>
-&lt;dd>Example: &lt;code>jdoe&lt;/code>&lt;/dd>
-&lt;/dl>
-&lt;h4 id="email-scope-claims">&lt;code>email&lt;/code> scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>email&lt;/code>&lt;/dt>
-&lt;dd>The user&amp;rsquo;s email address. This may not be unique and is not suitable for use
-as a primary key (in the future this will be provided only if your scope
-included the string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>john.doe@example.org&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>email_verified&lt;/code>&lt;/dt>
-&lt;dd>True if the user&amp;rsquo;s email address has been verified; otherwise false (in the
-future this will be provided only if your scope included the
-string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>true&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>voperson_verified_email&lt;/code>&lt;/dt>
-&lt;dd>&lt;strong>(multivalued)&lt;/strong> A list of user&amp;rsquo;s email addresses that have been verified (in
-the future this will be provided only if your scope included the
-string &lt;code>&amp;quot;email&amp;quot;&lt;/code>).&lt;/dd>
-&lt;dd>Example: &lt;code>john.doe@example.org&lt;/code> &lt;code>j.doe@mail.com&lt;/code>&lt;/dd>
-&lt;/dl>
-&lt;h4 id="refeds_edu-deprecated-scope-claims">&lt;code>refeds_edu&lt;/code> (deprecated) scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>acr&lt;/code>&lt;/dt>
-&lt;dd>The Authentication Context Class Reference that identifies the Level of
-Assurance (LoA) that the authentication performed satisfied.&lt;/dd>
-&lt;dd>Example: &lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>eduperson_assurance&lt;/code>&lt;/dt>
-&lt;dd>The Level of Assurance (LoA) that the authentication performed satisfied.&lt;/dd>
-&lt;dd>Example: &lt;code>https://aai.egi.eu/LoA#Substantial&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/dt>
-&lt;dt>&lt;code>edu_person_scoped_affiliations&lt;/code> (deprecated)&lt;/dt>
-&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s affiliation within a particular security domain
-(scope).&lt;/dd>
-&lt;dd>Example: &lt;code>member@example.org&lt;/code>&lt;/dd>
-&lt;dt>&lt;code>eduperson_entitlement&lt;/code>&lt;/dt>
-&lt;dt>&lt;code>edu_person_entitlements&lt;/code> (deprecated)&lt;/dt>
-&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s entitlements expressed as group/VO
-membership/role information.&lt;/dd>
-&lt;dd>Example: &lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>
-&lt;code>urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code> (WARNING this format
-will be deprecated)&lt;/dd>
-&lt;/dl>
-&lt;h4 id="eduperson_scoped_affiliation-scope-claims">&lt;code>eduperson_scoped_affiliation&lt;/code> scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/dt>
-&lt;dt>&lt;code>edu_person_scoped_affiliations&lt;/code> (deprecated)&lt;/dt>
-&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s affiliation within a particular security
-domain (scope).&lt;/dd>
-&lt;dd>Example: &lt;code>member@example.org&lt;/code>&lt;/dd>
-&lt;/dl>
-&lt;h4 id="eduperson_entitlement-scope-claims">&lt;code>eduperson_entitlement&lt;/code> scope claims&lt;/h4>
-&lt;dl>
-&lt;dt>&lt;code>eduperson_entitlement&lt;/code>&lt;/dt>
-&lt;dt>&lt;code>edu_person_entitlements&lt;/code> (deprecated)&lt;/dt>
-&lt;dd>&lt;strong>(multivalued)&lt;/strong> The user&amp;rsquo;s entitlements expressed as group/VO
-membership/role information.&lt;/dd>
-&lt;dd>Example:
-&lt;code>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/code>
-&lt;code>urn:mace:egi.eu:aai.egi.eu:member@vo.test.egi.eu&lt;/code> (WARNING this format will
-be deprecated)&lt;/dd>
-&lt;/dl>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Scope&lt;/th>
+&lt;th>Claims&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>openid&lt;/code>&lt;/td>
+&lt;td>&lt;code>sub&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>profile&lt;/code>&lt;/td>
+&lt;td>&lt;ul>&lt;li>&lt;code>name&lt;/code>&lt;/li>&lt;li>&lt;code>given_name&lt;/code>&lt;/li>&lt;li>&lt;code>family_name&lt;/code>&lt;/li>&lt;li>&lt;code>preferred_username&lt;/code>&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>email&lt;/code>&lt;/td>
+&lt;td>&lt;ul>&lt;li>&lt;code>email&lt;/code>&lt;/li>&lt;li>&lt;code>email_verified&lt;/code>&lt;/li>&lt;li>&lt;code>voperson_verified_email&lt;/code>&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>refeds_edu&lt;/code>&lt;/td>
+&lt;td>&lt;ul>&lt;li>&lt;code>acr&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_assurance&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_entitlement&lt;/code>&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
+&lt;td>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>A more extensive list of all the attributes that may be made available to
+Service Providers is included in the &lt;a href="#user-attributes">User Attribute&lt;/a> section.&lt;/p>
 &lt;h3 id="grant-types">Grant Types&lt;/h3>
 &lt;p>Check-in supports the following OpenID Connect/OAuth2 grant types:&lt;/p>
 &lt;ul>
@@ -1300,6 +1190,658 @@ retrieval&lt;/a>.
 Alternatively VO portals could implement such functionality themselves
 by using the API described at the &lt;a href="https://wiki.nikhef.nl/grid/Master_Portal_sshkey_endpoint">Master Portal sshkey endpoint
 description&lt;/a>.&lt;/p>
+&lt;h2 id="user-attributes">User attributes&lt;/h2>
+&lt;p>This section defines the attributes that can be made available to services
+connected to Check-in.&lt;/p>
+&lt;h3 id="1-egi-id">1. EGI ID&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">EGI ID&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">An identifier for the user, unique among all EGI accounts and never reused&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>1.3.6.1.4.1.5923.1.1.1.13&lt;/code> (eduPersonUniqueId)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>openid&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>sub &lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>ID token&lt;/li>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in assigns this attribute on user registration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">No&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">No&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>ef72285491ffe53c39b75bdcef46689f5d26ddfa00312365cc4fb5ce97e9ca87@egi.eu&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">Use &lt;strong>EGI ID&lt;/strong> within your application as the unique-identifier key for the user&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="2-display-name">2. Display Name&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Display Name&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s full name, in a displayable form&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:2.16.840.1.113730.3.1.241&lt;/code> (displayName)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>profile&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">Userinfo endpoint&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Provided by user&amp;rsquo;s Identity Provider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>John Doe&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="3-given-name">3. Given Name&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Given Name&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s first name&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:2.5.4.42&lt;/code> (givenName)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>profile&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>given_name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">Userinfo endpoint&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Provided by user&amp;rsquo;s Identity Provider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>John&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="4-family-name">4. Family Name&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Family Name&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s last name&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:2.5.4.4&lt;/code> (sn)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>profile&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>family_name&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">Userinfo endpoint&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Provided by user&amp;rsquo;s Identity Provider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>Doe&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="5-username">5. Username&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Username&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The username by which the user wishes to be referred to&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:0.9.2342.19200300.100.1.1&lt;/code> (uid)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>profile&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>preferred_username&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>ID token&lt;/li>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in assigns this attribute on user registration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">No&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>jdoe&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">The Service Provider &lt;strong>MUST NOT&lt;/strong> rely upon this value being unique&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="6-email-address">6. Email Address&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Email Address&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s email address&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:0.9.2342.19200300.100.1.3&lt;/code> (mail)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Provided by user&amp;rsquo;s Identity Provider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>john.doe@example.org&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">This &lt;strong>MAY NOT&lt;/strong> be unique and is &lt;strong>NOT&lt;/strong> suitable for use as a primary key&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="7-verified-email-flag">7. Verified email flag&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Verified email flag&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">True if the user&amp;rsquo;s email address has been verified; otherwise false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">See &lt;a href="#8-verified-email-list">Verified email list&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>email_verified&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in assigns this attribute on user registration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Single-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>true&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">This claim is available only in OpenID Connect&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Experimental&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="8-verified-email-list">8. Verified email list&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Verified email list&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">A list of user&amp;rsquo;s email addresses that have been verified&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.25178.4.1.14&lt;/code> (voPersonVerifiedEmail)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>voperson_verified_email&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in or the user&amp;rsquo;s Identity Provider&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>john.doe@example.org&lt;/em> &lt;br> &lt;em>jdoe@example.com&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Experimental&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="9-affiliation">9. Affiliation&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Affiliation&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s affiliation within a particular security domain (scope)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.9&lt;/code> (eduPersonScopedAffiliation)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in assigns this attribute on user registration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>member@example.org&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">Service Providers are encouraged to validate the scope of this attribute&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="10-entitlements">10. Entitlements&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Entitlements&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s entitlements expressed as group/VO membership/role information&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code> (eduPersonEntitlement)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Group memberships are managed by group administrators&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="11-assurance">11. Assurance&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Assurance&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">Assurance of the identity of the user&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.11&lt;/code> (eduPersonAssurance)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_assurance&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_assurance&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Check-in assigns this attribute on user registration&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">_&lt;a href="https://aai.egi.eu/LoA#Low_">https://aai.egi.eu/LoA#Low_&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
 &lt;h2 id="user-authorisation">User authorisation&lt;/h2>
 &lt;p>The following information about the authenticated user can be provided
 by EGI Check-in in order to control user access to resources:&lt;/p>
