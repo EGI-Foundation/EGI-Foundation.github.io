@@ -1378,28 +1378,111 @@ with EGI Check-in but do not need to deploy and configure the different
 tools (accounting, discovery, VMI management, etc.) locally but delegate
 this to a central EGI team.&lt;/p></description></item><item><title>Users: FAQ</title><link>/users/cloud-compute/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/faq/</guid><description>
 &lt;h2 id="basics">Basics&lt;/h2>
-&lt;h3 id="how-can-i-get-access-to-the-egieu-federated-cloud">How can I get access to the EGI.eu Federated Cloud?&lt;/h3>
-&lt;p>There is a VO available for 6 months piloting activities that any
-researcher in Europe can join. Just place an order into the &lt;a href="https://marketplace.egi.eu/31-cloud-compute">EGI
-Marketplace&lt;/a>.&lt;/p>
+&lt;h3 id="how-can-i-get-access-to-the-cloud-compute-service">How can I get access to the cloud compute service?&lt;/h3>
+&lt;p>There is a VO available for 6 months piloting activities that any researcher in
+Europe can join. Just place an order into the
+&lt;a href="https://marketplace.egi.eu/31-cloud-compute">EGI Marketplace&lt;/a>.&lt;/p>
 &lt;h3 id="how-can-i-get-an-oauth20-token">How can I get an OAuth2.0 token?&lt;/h3>
 &lt;p>Authentication via CLI or API requires a valid Check-in token. The
-FedCloud Check-in client allows you to get one as needed. Check the
-&lt;code>auth&lt;/code>{.interpreted-text role=&amp;quot;doc&amp;rdquo;} guide for more information.&lt;/p>
+&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a> allows you to get one as
+needed. Check the &lt;a href="../auth">Authentication and Authorisation&lt;/a> guide for more
+information.&lt;/p>
 &lt;h3 id="is-occi-still-supported">Is OCCI still supported?&lt;/h3>
-&lt;p>OCCI is now deprecated as API for the EGI Cloud providers using
-OpenStack. If you still rely on OCCI for your access, please contact us
-at &lt;code>support _at_ egi.eu&lt;/code> for support on the migration. OpenNebula sites
-still use OCCI as main API, but its direct use is not recommended as the
-support will be deprecated. Instead use an Orchestrator like IM for
-interacting with those sites.&lt;/p>
+&lt;p>OCCI is now deprecated as API for the EGI Cloud providers using OpenStack. Some
+providers still support OCCI (a list of active endpoints can be queried at
+&lt;a href="https://goc.egi.eu/portal/index.php?Page_Type=Services&amp;amp;serviceType=eu.egi.cloud.vm-management.occi&amp;amp;selectItemserviceType=eu.egi.cloud.vm-management.occi&amp;amp;ngi=&amp;amp;searchTerm=&amp;amp;production=TRUE&amp;amp;monitored=&amp;amp;certStatus=Certified&amp;amp;mscope%5B%5D=FedCloud&amp;amp;selectItemmscope%5B%5D=FedCloud&amp;amp;scopeMatch=all&amp;amp;servKeyNames=&amp;amp;servKeyValue=">GOCDB&lt;/a>)
+but it should note be used for any new developments.&lt;/p>
+&lt;p>Migration from rOCCI CLI to OpenStack CLI is quite straightforward, we summarize
+the main commands in rOCCI and OpenStack equivalent in the table below:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Action&lt;/th>
+&lt;th>rOCCI&lt;/th>
+&lt;th>OpenStack&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>List images&lt;/td>
+&lt;td>&lt;code>occi -a list -r os_tpl&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack image list&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Describe images&lt;/td>
+&lt;td>&lt;code>occi -a describe -r &amp;lt;image_id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack image show &amp;lt;image_id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>List flavors&lt;/td>
+&lt;td>&lt;code>occi -a list -r resorce_tpl&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack flavor list&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Describe flavors&lt;/td>
+&lt;td>&lt;code>occi -a describe -r &amp;lt;template_id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack flavor show &amp;lt;image_id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Create VM&lt;/td>
+&lt;td>&lt;code>occi -a create -r compute -t occi.core.title=&amp;quot;MyFirstVM&amp;quot; -M &amp;lt;flavor id&amp;gt; -M &amp;lt;image id&amp;gt; -T user_data=&amp;quot;file://&amp;lt;file&amp;gt;&amp;quot;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server create --flavor &amp;lt;flavor&amp;gt; --image &amp;lt;image&amp;gt; --user-data &amp;lt;file&amp;gt; MyFirstVM&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Describe VM&lt;/td>
+&lt;td>&lt;code>occi -a describe -r &amp;lt;vm id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server show &amp;lt;vm id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Delete VM&lt;/td>
+&lt;td>&lt;code>occi -a delete -r &amp;lt;vm id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server delete &amp;lt;vm id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Create volume&lt;/td>
+&lt;td>&lt;code>occi -a create -r storage -t occi.storage.size='num(&amp;lt;site in GB&amp;gt;)' -t occi.core.title=&amp;lt;storage_resource_name&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack volume create --size &amp;lt;size in GB&amp;gt; &amp;lt;storage resource name&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>List volume&lt;/td>
+&lt;td>&lt;code>occi -a list -r storage&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack volume list&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Attach volume&lt;/td>
+&lt;td>&lt;code>occi -a link -r &amp;lt;vm_id&amp;gt; -j &amp;lt;storage_resource_id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server add volume &amp;lt;vm id&amp;gt; &amp;lt;volume id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Dettach volume&lt;/td>
+&lt;td>&lt;code>occi -a unlink -r &amp;lt;storage_link_id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server remove volume &amp;lt;vm id&amp;gt; &amp;lt;volume id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Delete volume&lt;/td>
+&lt;td>&lt;code>occi -a delete -r &amp;lt;volume id&amp;gt;&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack volume delete &amp;lt;volume id&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Attach public IP&lt;/td>
+&lt;td>&lt;code>occi -a link -r &amp;lt;vm id&amp;gt; --link /network/public&lt;/code>&lt;/td>
+&lt;td>&lt;code>openstack server add floating ip &amp;lt;vm id&amp;gt; &amp;lt;ip&amp;gt;&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length -->
+&lt;p>If you still rely on OCCI for your access, please contact us at
+&lt;code>support _at_ egi.eu&lt;/code> for support on the migration. OpenNebula sites still use
+OCCI as main API, but its direct use is not recommended as the support will be
+deprecated. Instead use an Orchestrator like IM for interacting with those
+sites.&lt;/p>
 &lt;h2 id="discovery">Discovery&lt;/h2>
 &lt;h3 id="how-can-i-get-the-list-of-the-egi-cloud-providers">How can I get the list of the EGI Cloud providers?&lt;/h3>
-&lt;p>The list of certified providers is available in
-&lt;a href="https://goc.egi.eu">GOCDB&lt;/a>. The &lt;code>egicli endpoint list&lt;/code> command can help
-you to get that list:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ egicli endpoint list
-Site type URL
+&lt;p>The list of certified providers is available in &lt;a href="https://goc.egi.eu">GOCDB&lt;/a>. The
+&lt;code>egicli endpoint list&lt;/code> command can help you to get that list:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint list
+Site &lt;span style="color:#204a87">type&lt;/span> URL
 ------------------ ------------------ ------------------------------------------------
 IFCA-LCG2 org.openstack.nova https://api.cloud.ifca.es:5000/v3/
 IN2P3-IRES org.openstack.nova https://sbgcloud.in2p3.fr:5000/v3
@@ -1417,110 +1500,111 @@ CESNET-MCC org.openstack.nova https://identity.cloud.muni.cz/v3
 INFN-CATANIA-STACK org.openstack.nova https://stack-server.ct.infn.it:35357/v3
 CESGA org.openstack.nova https://fedcloud-osservices.egi.cesga.es:5000/v3
 100IT org.openstack.nova https://cloud-egi.100percentit.com:5000/v3/
-&lt;/code>&lt;/pre>&lt;p>The providers also generate dynamic information about their
-characteristics via the Argo Messaging System which is easily browsable
-from AppDB.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The providers also generate dynamic information about their characteristics via
+the Argo Messaging System which is easily browsable from AppDB.&lt;/p>
 &lt;h3 id="how-can-i-choose-which-site-to-use">How can I choose which site to use?&lt;/h3>
-&lt;p>Sites offer their resources to users through Virtual Organisations (VO).
-First, you need to join a Virtual Organisation that matches your
-research interests, see &lt;code>authorisation&lt;/code>{.interpreted-text role=&amp;quot;ref&amp;rdquo;}
-section on how VOs work. AppDB shows the supported VOs and for each VO
-you can browse the resource providers that support it.&lt;/p>
+&lt;p>Sites offer their resources to users through Virtual Organisations (VO). First,
+you need to join a Virtual Organisation that matches your research interests,
+see &lt;a href="../auth">authorisation section&lt;/a> on how VOs work. AppDB shows the supported
+VOs and for each VO you can browse the resource providers that support it.&lt;/p>
 &lt;h3 id="how-can-i-get-information-about-the-available-vm-images">How can I get information about the available VM images?&lt;/h3>
-&lt;p>The &lt;a href="https://appdb.egi.eu">Application Database&lt;/a> contains information
-about the VM images available in the EGI Cloud. Within the AppDB Cloud
-Marketplace, you can look for a VM and get all the information about
-which VO the VM is associated, the sites where the VM is available and
-the endpoints and identifiers to use it in practice.&lt;/p>
+&lt;p>The &lt;a href="https://appdb.egi.eu">Application Database&lt;/a> contains information about the
+VM images available in the EGI Cloud. Within the AppDB Cloud Marketplace, you
+can look for a VM and get all the information about which VO the VM is
+associated, the sites where the VM is available and the endpoints and
+identifiers to use it in practice.&lt;/p>
 &lt;h2 id="managing-vms">Managing VMs&lt;/h2>
 &lt;h3 id="the-disk-on-my-vm-is-full-how-can-i-get-more-space">The disk on my VM is full, how can I get more space?&lt;/h3>
-&lt;p>There are several ways to increase the disk space available at the VM.
-The fastest and easiest one is to use block storage, creating a new
-storage disk device and attaching it to the VM. Check the
-&lt;code>storage&lt;/code>{.interpreted-text role=&amp;quot;doc&amp;rdquo;} guide for more information.&lt;/p>
+&lt;p>There are several ways to increase the disk space available at the VM. The
+fastest and easiest one is to use block storage, creating a new storage disk
+device and attaching it to the VM. Check the &lt;a href="../storage">storage guide&lt;/a> for
+more information.&lt;/p>
 &lt;h3 id="how-can-i-keep-my-data-after-the-vm-is-stopped">How can I keep my data after the VM is stopped?&lt;/h3>
-&lt;p>After a VM has been stopped and unless backed up in a block storage
-volume, all data in the VM is destroyed and cannot be recovered. To
-ensure your data will be available after the VM is deleted, you need to
-use some form of persistent storage.&lt;/p>
+&lt;p>After a VM has been stopped and unless backed up in a block storage volume, all
+data in the VM is destroyed and cannot be recovered. To ensure your data will be
+available after the VM is deleted, you need to use some form of persistent
+storage.&lt;/p>
 &lt;h3 id="how-can-i-assign-a-public-ip-to-my-vm">How can I assign a public IP to my VM?&lt;/h3>
-&lt;p>Some providers do not automatically assign a public IP address to a VM
-during the creation phase. In this case, you can attach a public IP by
-first allocating a new public IP and then assigning it to the VM.&lt;/p>
+&lt;p>Some providers do not automatically assign a public IP address to a VM during
+the creation phase. In this case, you can attach a public IP by first allocating
+a new public IP and then assigning it to the VM.&lt;/p>
 &lt;h3 id="how-can-i-assign-a-dns-name-to-my-vm">How can I assign a DNS name to my VM?&lt;/h3>
-&lt;p>If you need a domain name for your VMs, we offer a Dynamic DNS service
-that allows any EGI user to create names for VMs under the
-&lt;em>fedcloud.eu&lt;/em> domain.&lt;/p>
-&lt;p>Just go to &lt;a href="https://nsupdate.fedcloud.eu">EGI Cloud nsupdate&lt;/a> and login
-with your Check-in account. Once in, you can click on &amp;quot;Add host&amp;quot; to
-register a new hostname in an available domain.&lt;/p>
+&lt;p>If you need a domain name for your VMs, we offer a Dynamic DNS service that
+allows any EGI user to create names for VMs under the &lt;em>fedcloud.eu&lt;/em> domain.&lt;/p>
+&lt;p>Just go to &lt;a href="https://nsupdate.fedcloud.eu">EGI Cloud nsupdate&lt;/a> and login with
+your Check-in account. Once in, you can click on &amp;quot;Add host&amp;quot; to register a new
+hostname in an available domain.&lt;/p>
 &lt;h3 id="what-is-contextualisation">What is contextualisation?&lt;/h3>
-&lt;p>The contextualisation of is the process of installing, configuring and
-preparing software upon boot time on a pre-defined virtual machine
-image. This way, the pre-defined images can be stored as generic and
-small as possible, since customisations will take place on boot time.&lt;/p>
+&lt;p>Contextualisation is the process of installing, configuring and preparing
+software upon boot time on a pre-defined virtual machine image. This way, the
+pre-defined images can be stored as generic and small as possible, since
+customisations will take place on boot time.&lt;/p>
 &lt;p>Contextualisation is particularly useful for:&lt;/p>
 &lt;ul>
 &lt;li>Configuration not known until instantiation (e.g. data location).&lt;/li>
 &lt;li>Private Information (e.g. host certs)&lt;/li>
 &lt;li>Software that changes frequently or under development.&lt;/li>
 &lt;/ul>
-&lt;p>The contextualisation requires passing some data to the VMs on
-instantiation (the context) and handling that context in the VM.&lt;/p>
+&lt;p>Contextualisation requires passing some data to the VMs on instantiation (the
+context) and handling that context in the VM.&lt;/p>
 &lt;h3 id="how-can-i-inject-my-public-ssh-key-into-the-machine">How can I inject my public SSH key into the machine?&lt;/h3>
-&lt;p>The best way to login into the virtual server is to use SSH keys. If you
-don't have one, you need to generate it with the &lt;code>ssh-keygen&lt;/code> command:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">ssh-keygen -f fedcloud
-&lt;/code>&lt;/pre>&lt;p>This will generate two files:&lt;/p>
+&lt;p>The best way to login into the virtual server is to use SSH keys. If you don't
+have one, you need to generate it with the &lt;code>ssh-keygen&lt;/code> command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh-keygen -f fedcloud
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>This will generate two files:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>fedcloud&lt;/code>, the private key. This file should never be shared&lt;/li>
 &lt;li>&lt;code>fedcloud.pub&lt;/code>, the public key. That will be sent to your VM.&lt;/li>
 &lt;/ul>
-&lt;p>To inject the public SSH key into the VM you can use the
-&lt;code>key-name&lt;/code> option when creating the VM in OpenStack. Check
-&lt;a href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/keypair.html">keypair
-management&lt;/a>
-option in OpenStack documentation. This key will be available for the
-default configured user of the VM (e.g. &lt;code>ubuntu&lt;/code> for Ubuntu, &lt;code>centos&lt;/code>
-for CentOS).&lt;/p>
+&lt;p>To inject the public SSH key into the VM you can use the &lt;code>key-name&lt;/code> option when
+creating the VM in OpenStack. Check
+&lt;a href="https://docs.openstack.org/python-openstackclient/pike/cli/command-objects/keypair.html">keypair management&lt;/a>
+option in OpenStack documentation. This key will be available for the default
+configured user of the VM (e.g. &lt;code>ubuntu&lt;/code> for Ubuntu, &lt;code>centos&lt;/code> for CentOS).&lt;/p>
 &lt;p>You can also create users with keys with a contextualisation file:&lt;/p>
-&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">#cloud-config
-users:
-- name: cloudadm
-sudo: ALL=(ALL) NOPASSWD:ALL
-lock-passwd: true
-ssh-import-id: cloudadm
-ssh-authorized-keys:
-- &amp;lt;paste here the contents of your SSH key pub file&amp;gt;
-&lt;/code>&lt;/pre>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#8f5902;font-style:italic">#cloud-config&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">users&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">name&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloudadm&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">sudo&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>ALL=(ALL)&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NOPASSWD&lt;span style="color:#000;font-weight:bold">:&lt;/span>ALL&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">lock-passwd&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ssh-import-id&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>cloudadm&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">ssh-authorized-keys&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &amp;lt;paste&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>here&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>the&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>contents&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>of&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>your&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>SSH&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>key&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>pub&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>file&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
-YAML format requires that the spaces at the beginning of each line is
-respected in order to be correctly parsed by &lt;code>cloud-init&lt;/code>.
+YAML format requires that the
+spaces at the beginning of each line is respected in order to be correctly
+parsed by &lt;code>cloud-init&lt;/code>.
 &lt;/div>
 &lt;h3 id="how-can-i-use-a-contextualisation-file">How can I use a contextualisation file?&lt;/h3>
-&lt;p>If you have a contextualisation file, you can use it with the
-&lt;code>--user-data&lt;/code> option to &lt;code>server create&lt;/code> in OpenStack.&lt;/p>
-&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">$ openstack server create --flavor &amp;lt;your-flavor&amp;gt; --image &amp;lt;your image&amp;gt; \
---user-data &amp;lt;your contextualisation file&amp;gt; \
-&amp;lt;server name&amp;gt;
-&lt;/code>&lt;/pre>
+&lt;p>If you have a contextualisation file, you can use it with the &lt;code>--user-data&lt;/code>
+option to &lt;code>server create&lt;/code> in OpenStack.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack server create --flavor &amp;lt;your-flavor&amp;gt; --image &amp;lt;your image&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --user-data &amp;lt;your contextualisation file&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;server name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
-We recommend using &lt;code>cloud-init&lt;/code> for contextualisation. EGI images in
-AppDB do support &lt;code>cloud-init&lt;/code>. Check the
-&lt;a href="https://cloudinit.readthedocs.io/">documentation&lt;/a> for more
-information.
+We recommend using &lt;code>cloud-init&lt;/code> for
+contextualisation. EGI images in AppDB do support &lt;code>cloud-init&lt;/code>. Check the
+&lt;a href="https://cloudinit.readthedocs.io/">documentation&lt;/a> for more information.
 &lt;/div>
 &lt;h3 id="how-can-i-pass-secrets-to-my-vms">How can I pass secrets to my VMs?&lt;/h3>
-&lt;p>EGI Cloud endpoints use https so information passed to contextualise the
-VMs can be assumed to be safe and only readable within your VM. However,
-take into account that anyone with access to the VM may be able to
-access also the contextualisation information.&lt;/p>
+&lt;p>EGI Cloud endpoints use &lt;strong>HTTPS&lt;/strong> so information passed to contextualise the VMs
+can be assumed to be safe and only readable within your VM. However, take into
+account that anyone with access to the VM may be able to access also the
+contextualisation information.&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+Take into account that anyone with access to the VM may be able to access also
+the contextualisation information, so ensure that no sensitive data like clear
+text passwords is used during contextualisation.
+&lt;/div>
 &lt;h3 id="how-can-i-use-ansible">How can I use ansible?&lt;/h3>
-&lt;p>Ansible relies on ssh for accessing the servers it will configure. VMs
-at EGI Cloud can be also accessed via ssh, just make sure you inject the
-correct public keys in the VMs to be able to access.&lt;/p>
-&lt;p>If you don't have public IPs for all the VMs to be managed, you can
-also use one as a gateway as described in the &lt;a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-configure-a-jump-host-to-access-servers-that-i-have-no-direct-access-to">Ansible
-FAQ&lt;/a>.&lt;/p></description></item></channel></rss>
+&lt;p>Ansible relies on ssh for accessing the servers it will configure. VMs at EGI
+Cloud can be also accessed via ssh, just make sure you inject the correct public
+keys in the VMs to be able to access.&lt;/p>
+&lt;p>If you don't have public IPs for all the VMs to be managed, you can also use
+one as a gateway as described in the
+&lt;a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-configure-a-jump-host-to-access-servers-that-i-have-no-direct-access-to">Ansible FAQ&lt;/a>.&lt;/p></description></item></channel></rss>
