@@ -1,76 +1,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Cloud Compute</title><link>/users/cloud-compute/</link><description>Recent content in Cloud Compute on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/cloud-compute/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Authentication and Authorisation</title><link>/users/cloud-compute/auth/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/auth/</guid><description>
 &lt;h2 id="oidc-auth-using-check-in">Authentication&lt;/h2>
-&lt;p>&lt;a href="http://openid.net/connect/">OpenID Connect&lt;/a> is the main authentication
-protocol used on the EGI Cloud. It replaces the legacy VOMS-based
-authentication for all OpenStack providers.&lt;/p>
-&lt;p>Authentication to web based services (like the AppDB) will redirect you
-to the EGI Check-in authentication page. Just select your institution or
-social login and follow the regular authentication process.&lt;/p>
-&lt;p>Access to APIs or via Command Line Interfaces (CLI) requires the use of
-OAuth2.0 tokens and interaction with the OpenStack Keystone
-&lt;a href="https://developer.openstack.org/api-ref/identity/v3-ext/index.html#os-federation-api">OS-FEDERATION
-API&lt;/a>.
+&lt;p>&lt;a href="http://openid.net/connect/">OpenID Connect&lt;/a> is the main authentication protocol
+used on the EGI Cloud. It replaces the legacy VOMS-based authentication for all
+OpenStack providers.&lt;/p>
+&lt;p>Authentication to web based services (like the AppDB) will redirect you to the
+EGI Check-in authentication page. Just select your institution or social login
+and follow the regular authentication process.&lt;/p>
+&lt;p>Access to APIs or via Command Line Interfaces (CLI) requires the use of OAuth2.0
+tokens and interaction with the OpenStack Keystone
+&lt;a href="https://developer.openstack.org/api-ref/identity/v3-ext/index.html#os-federation-api">OS-FEDERATION API&lt;/a>.
 The process for authentication is as follows:&lt;/p>
 &lt;ol>
-&lt;li>Obtain a valid OAuth2.0 access token from Check-in. Access tokens
-are short-lived credentials that can be obtained by recognised
-Check-in clients once a user has been authenticated.&lt;/li>
-&lt;li>Interchange the Check-in access token for a valid unscoped Keystone
-token.&lt;/li>
+&lt;li>Obtain a valid OAuth2.0 access token from Check-in. Access tokens are
+short-lived credentials that can be obtained by recognised Check-in clients
+once a user has been authenticated.&lt;/li>
+&lt;li>Interchange the Check-in access token for a valid unscoped Keystone token.&lt;/li>
 &lt;li>Discover available projects from Keystone using the unscoped token.&lt;/li>
-&lt;li>Use the unscoped Keystone token to get a scoped token for a valid
-project. Scoped tokens will allow the user to perform operations on
-the provider.&lt;/li>
+&lt;li>Use the unscoped Keystone token to get a scoped token for a valid project.
+Scoped tokens will allow the user to perform operations on the provider.&lt;/li>
 &lt;/ol>
 &lt;h2 id="authorisation">Authorisation&lt;/h2>
-&lt;p>Cloud Compute service is accessed through &lt;strong>Virtual Organisations
-(VOs)&lt;/strong>. Users that are members of a VO will have access to the providers
-supporting that VO: they will be able to manage VMs, block storage and
-object storage available to the VO. Resources (VMs and storage) are
-shared across all members of the VO, please do not interfere with the
-VMs of other users if you are not entitled to do so (specially do not
-delete them).&lt;/p>
+&lt;p>Cloud Compute service is accessed through &lt;strong>Virtual Organisations (VOs)&lt;/strong>. Users
+that are members of a VO will have access to the providers supporting that VO:
+they will be able to manage VMs, block storage and object storage available to
+the VO. Resources (VMs and storage) are shared across all members of the VO,
+please do not interfere with the VMs of other users if you are not entitled to
+do so (specially do not delete them).&lt;/p>
 &lt;p>Some users roles have special consideration in VOs:&lt;/p>
 &lt;ul>
-&lt;li>Users with VO Manager, VO Deputy or VO Expert Role have extra
-privileges in the AppDB for managing the Virtual Appliances to be
-available at every provider. Check the &lt;a href="../vmi/">Virtual Machine Image
-Management documentation&lt;/a> for more information.&lt;/li>
+&lt;li>Users with VO Manager, VO Deputy or VO Expert Role have extra privileges in
+the AppDB for managing the Virtual Appliances to be available at every
+provider. Check the &lt;a href="../vmi/">Virtual Machine Image Management documentation&lt;/a>
+for more information.&lt;/li>
 &lt;/ul>
 &lt;h3 id="pilot-vo">Pilot VO&lt;/h3>
-&lt;p>The &lt;a href="https://operations-portal.egi.eu/vo/view/voname/vo.access.egi.eu">vo.access.egi.eu Virtual
-Organisation&lt;/a>
-serves as a test ground for users to try the Cloud Compute service and
-to prototype and validate applications. It can be used for up to 6 month
-by any new user.&lt;/p>
+&lt;p>The
+&lt;a href="https://operations-portal.egi.eu/vo/view/voname/vo.access.egi.eu">vo.access.egi.eu Virtual Organisation&lt;/a>
+serves as a test ground for users to try the Cloud Compute service and to
+prototype and validate applications. It can be used for up to 6 month by any new
+user.&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
 &lt;ul>
-&lt;li>After the 6-month long membership in the vo.access.egi.eu VO, you
-will need to move to a production VO, or establish a new VO.&lt;/li>
-&lt;li>The resources are not guaranteed and may be removed without notice
-by providers. &lt;strong>Back-up frequently to avoid losing your work!&lt;/strong>&lt;/li>
+&lt;li>After the 6-month long membership in the vo.access.egi.eu VO, you will need to
+move to a production VO, or establish a new VO.&lt;/li>
+&lt;li>The resources are not guaranteed and may be removed without notice by
+providers. &lt;strong>Back-up frequently to avoid losing your work!&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;/div>
-&lt;p>For joining this VO, just place an order in the &lt;a href="https://marketplace.egi.eu/31-cloud-compute">EGI
-Marketplace&lt;/a> and once
-approved you will be able to interact with the infrastructure.&lt;/p>
+&lt;p>For joining this VO, just place an order in the
+&lt;a href="https://marketplace.egi.eu/31-cloud-compute">EGI Marketplace&lt;/a> and once approved
+you will be able to interact with the infrastructure.&lt;/p>
 &lt;h3 id="other-vos">Other VOs&lt;/h3>
-&lt;p>Pre-existing VOs of EGI can be also used on IaaS cloud providers.
-Consult with your VO manager or browse the existing VOs at the &lt;a href="https://operations-portal.egi.eu/vo/">EGI
-Operations Portal&lt;/a>.&lt;/p>
+&lt;p>Pre-existing VOs of EGI can be also used on IaaS cloud providers. Consult with
+your VO manager or browse the existing VOs at the
+&lt;a href="https://operations-portal.egi.eu/vo/">EGI Operations Portal&lt;/a>.&lt;/p>
 &lt;h2 id="check-in-and-access-tokens">Check-in and access tokens&lt;/h2>
-&lt;p>Access tokens can be obtained via several mechanisms, usually involving
-the use of a web server and a browser. Command line clients/APIs without
-access to a browser or interactive prompt for user authentication can
-use refresh tokens. A refresh token is a special token that is used to
-generate additional access tokens. This allows you to have short-lived
-access tokens without having to collect credentials every single time
-one expires. You can request this token alongside the access and/or ID
-tokens as part of a user&amp;rsquo;s initial authentication flow.&lt;/p>
-&lt;p>In the case of EGI Check-in, we have created a special client meant to
-obtain your personal refresh token and client credentials that will
-allow the obtention of access tokens as needed. You can access the
+&lt;p>Access tokens can be obtained via several mechanisms, usually involving the use
+of a web server and a browser. Command line clients/APIs without access to a
+browser or interactive prompt for user authentication can use refresh tokens. A
+refresh token is a special token that is used to generate additional access
+tokens. This allows you to have short-lived access tokens without having to
+collect credentials every single time one expires. You can request this token
+alongside the access and/or ID tokens as part of a user&amp;rsquo;s initial authentication
+flow.&lt;/p>
+&lt;p>In the case of EGI Check-in, we have created a special client meant to obtain
+your personal refresh token and client credentials that will allow the obtention
+of access tokens as needed. You can access the
 &lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a> and click on
 'Authorise' to log in with your Check-in credentials to obtain:&lt;/p>
 &lt;ul>
@@ -80,235 +76,219 @@ allow the obtention of access tokens as needed. You can access the
 &lt;/ul>
 &lt;p>Note them down so you can use them for the next steps.&lt;/p>
 &lt;h3 id="discovering-projects-in-keystone">Discovering projects in Keystone&lt;/h3>
-&lt;p>The &lt;em>access token&lt;/em> will provide you access to a cloud provider, but you
-may have access to several different projects within that provider (a
-project can be considered equivalent to a VO allocation). In order to
-discover which projects are available you can do that using the Keystone
-API.&lt;/p>
-&lt;p>You can use the &lt;a href="https://github.com/EGI-Foundation/egicli">&lt;code>egicli&lt;/code>&lt;/a>
-to simplify the discovery of projects. First, define these variables in
-your environment:&lt;/p>
+&lt;p>The &lt;em>access token&lt;/em> will provide you access to a cloud provider, but you may have
+access to several different projects within that provider (a project can be
+considered equivalent to a VO allocation). In order to discover which projects
+are available you can do that using the Keystone API.&lt;/p>
+&lt;p>You can use the &lt;a href="https://github.com/EGI-Foundation/egicli">&lt;code>egicli&lt;/code>&lt;/a> to simplify
+the discovery of projects. First, define these variables in your environment:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>CHECKIN_CLIENT_ID&lt;/code>: Your Check-in client id (get it from &lt;a href="https://aai.egi.eu/fedcloud">FedCloud
-Check-in client&lt;/a>)&lt;/li>
+&lt;li>&lt;code>CHECKIN_CLIENT_ID&lt;/code>: Your Check-in client id (get it from
+&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
 &lt;li>&lt;code>CHECKIN_CLIENT_SECRET&lt;/code>: Your Check-in client secret (get it from
 &lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
 &lt;li>&lt;code>CHECKIN_REFRESH_TOKEN&lt;/code>: Your Check-in refresh token (get it from
 &lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>EGI_SITE&lt;/code>: Name of the site (get it from
-&lt;a href="https://appdb.egi.eu">AppDB&lt;/a>, or list it with the
-&lt;code>egicli endpoint list&lt;/code> command)&lt;/li>
+&lt;li>&lt;code>EGI_SITE&lt;/code>: Name of the site (get it from &lt;a href="https://appdb.egi.eu">AppDB&lt;/a>, or
+list it with the &lt;code>egicli endpoint list&lt;/code> command)&lt;/li>
 &lt;/ul>
 &lt;p>And use them to get the list of projects:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># Export OIDC env
-export CHECKIN_CLIENT_ID=&amp;lt;CLIENT_ID&amp;gt;
-export CHECKIN_CLIENT_SECRET=&amp;lt;CLIENT_SECRET&amp;gt;
-export CHECKIN_REFRESH_TOKEN=&amp;lt;REFRESH_TOKEN&amp;gt;
-# Retrieve list of projects from site
-export EGI_SITE=&amp;lt;NAME_OF_THE_SITE&amp;gt;
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Retrieve list of projects from site&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
 egicli endpoint projects
-&lt;/code>&lt;/pre>&lt;h3 id="using-the-openstack-api">Using the OpenStack API&lt;/h3>
-&lt;p>Once you know which project to use, you can use your regular openstack
-cli commands for performing actual operations in the provider:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># Export OIDC env
-export CHECKIN_CLIENT_ID=&amp;lt;CLIENT_ID&amp;gt;
-export CHECKIN_CLIENT_SECRET=&amp;lt;CLIENT_SECRET&amp;gt;
-export CHECKIN_REFRESH_TOKEN=&amp;lt;REFRESH_TOKEN&amp;gt;
-# EGI site
-export EGI_SITE=&amp;lt;NAME_OF_THE_SITE&amp;gt;
-export OS_PROJECT_ID=&amp;lt;PROJECT_ID&amp;gt;
-# get environment variables for openstack
-eval &amp;quot;$(egicli endpoint env)&amp;quot;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="using-the-openstack-api">Using the OpenStack API&lt;/h3>
+&lt;p>Once you know which project to use, you can use your regular openstack cli
+commands for performing actual operations in the provider:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># EGI site&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># get environment variables for openstack&lt;/span>
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
 openstack image list
-&lt;/code>&lt;/pre>&lt;p>For 3rd party tools that can use token based authentication in
-OpenStack, use the following command (after setting the environment as
-shown above):&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># Export OIDC env
-export CHECKIN_CLIENT_ID=&amp;lt;CLIENT_ID&amp;gt;
-export CHECKIN_CLIENT_SECRET=&amp;lt;CLIENT_SECRET&amp;gt;
-export CHECKIN_REFRESH_TOKEN=&amp;lt;REFRESH_TOKEN&amp;gt;
-# EGI site
-export EGI_SITE=&amp;lt;NAME_OF_THE_SITE&amp;gt;
-eval &amp;quot;$(egicli endpoint token)&amp;quot;
-&lt;/code>&lt;/pre>&lt;h2 id="legacy-x509-aai">Legacy X.509 AAI&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>For 3rd party tools that can use token based authentication in OpenStack, use
+the following command (after setting the environment as shown above):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># EGI site&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint token&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="legacy-x509-aai">Legacy X.509 AAI&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
-OpenID Connect is the preferred federated identity technology on EGI
-Cloud. Use of X.509 certificates should be limited to legacy
-applications.
+OpenID Connect is the preferred federated identity technology on EGI Cloud. Use
+of X.509 certificates should be limited to legacy applications.
 &lt;/div>
 &lt;p>&lt;a href="https://italiangrid.github.io/voms/index.html">VOMS&lt;/a> uses X.509 proxies
 extended with VO information for authentication and authorisation on the
-providers. You can learn about X.509 certificates and VOMS in the &lt;a href="../../check-in/vom">Check-in
-documentation&lt;/a>.&lt;/p>
+providers. You can learn about X.509 certificates and VOMS in the
+&lt;a href="../../check-in/voms">Check-in documentation&lt;/a>.&lt;/p>
 &lt;h3 id="voms-configuration">VOMS configuration&lt;/h3>
-&lt;p>Valid configuration for &lt;code>fedcloud.egi.eu&lt;/code> is available on the &lt;a href="https://appdb.egi.eu/store/vappliance/egi.fedcloud.clients">FedCloud
-client VM&lt;/a>
-as generated by the &lt;a href="https://raw.githubusercontent.com/EGI-FCTF/fedcloud-userinterface/master/fedcloud-ui.sh">fedcloud-ui installation
-script&lt;/a>.&lt;/p>
+&lt;p>Valid configuration for &lt;code>fedcloud.egi.eu&lt;/code> is available on the
+&lt;a href="https://appdb.egi.eu/store/vappliance/egi.fedcloud.clients">FedCloud client VM&lt;/a>
+as generated by the
+&lt;a href="https://raw.githubusercontent.com/EGI-FCTF/fedcloud-userinterface/master/fedcloud-ui.sh">fedcloud-ui installation script&lt;/a>.&lt;/p>
 &lt;p>VOMS client expects your certificate and private key to be available at
-&lt;code>$HOME/.globus/usercert.pem&lt;/code> and &lt;code>$HOME/.globus/userkey.pem&lt;/code>
-respectively.&lt;/p>
+&lt;code>$HOME/.globus/usercert.pem&lt;/code> and &lt;code>$HOME/.globus/userkey.pem&lt;/code> respectively.&lt;/p>
 &lt;h3 id="access-the-providers">Access the providers&lt;/h3>
-&lt;p>VOMS authentication differs from one provider to another depending on
-the technology used. There are 3 different cases handled automatically
-by the &lt;code>rOCCI-cli&lt;/code>. For accessing native OpenStack sites there are two
-different plugins available for Keystone that are installed with a
-single library:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">pip install openstack-voms-auth-type
-&lt;/code>&lt;/pre>&lt;p>For Keystone-VOMS based installations (Keystone URL ending on &lt;code>/v2.0&lt;/code>),
-just define the location of your proxy and &lt;code>v2voms&lt;/code> as authorisation
-plugin:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack --os-auth-url https://&amp;lt;keystone-url&amp;gt;/v2.0 \
---os-auth-type v2voms --os-x509-user-proxy /tmp/x509up_u1000 \
-token issue
+&lt;p>VOMS authentication differs from one provider to another depending on the
+technology used. There are 3 different cases handled automatically by the
+&lt;code>rOCCI-cli&lt;/code>. For accessing native OpenStack sites there are two different
+plugins available for Keystone that are installed with a single library:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">pip install openstack-voms-auth-type
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>For Keystone-VOMS based installations (Keystone URL ending on &lt;code>/v2.0&lt;/code>), just
+define the location of your proxy and &lt;code>v2voms&lt;/code> as authorisation plugin:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack --os-auth-url https://&amp;lt;keystone-url&amp;gt;/v2.0 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-auth-type v2voms --os-x509-user-proxy /tmp/x509up_u1000 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> token issue
 +---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Field | Value |
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> Field &lt;span style="color:#000;font-weight:bold">|&lt;/span> Value &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| expires | 2019-02-04T12:41:25+0000 |
-| id | gAAAAABcWCTlMoz6Jx9IHF5hj-ZOn-CI17CfX81FTn7yy0ZJ54jkza7QNoQTRU5-KRJkphmes55bcoSaaBRnE3g2clFgY-MR2GVUJZRkCmj9TXsLZ-hVBWXQNENiX9XxUwnavj7KqDn4b9B1K22ijTrjdDVkcdpvMw |
-| user_id | 9310054c2b6f4fd28789ee08c2351221 |
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> expires &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2019-02-04T12:41:25+0000 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> id &lt;span style="color:#000;font-weight:bold">|&lt;/span> gAAAAABcWCTlMoz6Jx9IHF5hj-ZOn-CI17CfX81FTn7yy0ZJ54jkza7QNoQTRU5-KRJkphmes55bcoSaaBRnE3g2clFgY-MR2GVUJZRkCmj9TXsLZ-hVBWXQNENiX9XxUwnavj7KqDn4b9B1K22ijTrjdDVkcdpvMw &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> user_id &lt;span style="color:#000;font-weight:bold">|&lt;/span> 9310054c2b6f4fd28789ee08c2351221 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-&lt;/code>&lt;/pre>&lt;p>For those Keystone installations supporting only &lt;code>v3&lt;/code>, specify &lt;code>v3voms&lt;/code>
-as authorisation plugin, &lt;code>egi.eu&lt;/code> as identity provider, &lt;code>mapped&lt;/code> as
-protocol, and the location of your proxy:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack --os-auth-url https://&amp;lt;keystone url&amp;gt;/v3 \
---os-auth-type v3voms --os-x509-user-proxy /tmp/x509up_u1000 \
---os-identity-provider egi.eu --os-protocol mapped \
-token issue
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>For those Keystone installations supporting only &lt;code>v3&lt;/code>, specify &lt;code>v3voms&lt;/code> as
+authorisation plugin, &lt;code>egi.eu&lt;/code> as identity provider, &lt;code>mapped&lt;/code> as protocol, and
+the location of your proxy:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack --os-auth-url https://&amp;lt;keystone url&amp;gt;/v3 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-auth-type v3voms --os-x509-user-proxy /tmp/x509up_u1000 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-identity-provider egi.eu --os-protocol mapped &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> token issue
 +---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Field | Value |
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> Field &lt;span style="color:#000;font-weight:bold">|&lt;/span> Value &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| expires | 2019-02-04T12:45:32+0000 |
-| id | gAAAAABcWCXcXGUDpHUYnI1IDLW3MnEpDzivw_OPaau8DQDYxA7gK9XsmOqZh1pL5Uqqs8aM-tHowdJQnJURww2-UhmQVqk5PxbjdnvLeqtXPYURCLaSsbmhkQg6kB311c_ZA1jfgdT-pG6fZz3toeH66SEFX-H0bThSUy0KFLhcZVkrZIbYgTsAOIzFkTfLjOgTw_tNChS8 |
-| user_id | 50fa8516b2554daeae652619ba9ebf96 |
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> expires &lt;span style="color:#000;font-weight:bold">|&lt;/span> 2019-02-04T12:45:32+0000 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> id &lt;span style="color:#000;font-weight:bold">|&lt;/span> gAAAAABcWCXcXGUDpHUYnI1IDLW3MnEpDzivw_OPaau8DQDYxA7gK9XsmOqZh1pL5Uqqs8aM-tHowdJQnJURww2-UhmQVqk5PxbjdnvLeqtXPYURCLaSsbmhkQg6kB311c_ZA1jfgdT-pG6fZz3toeH66SEFX-H0bThSUy0KFLhcZVkrZIbYgTsAOIzFkTfLjOgTw_tNChS8 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> user_id &lt;span style="color:#000;font-weight:bold">|&lt;/span> 50fa8516b2554daeae652619ba9ebf96 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+----------------------------------------------------------------------------------------------------------------------------------------
-&lt;/code>&lt;/pre></description></item><item><title>Users: Virtual Machine Image Management</title><link>/users/cloud-compute/vmi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/vmi/</guid><description>
-&lt;p>Users of the EGI Cloud create Virtual Machines (VMs) on the providers.
-Those VMs are started from images: templates for the root volume of the
-running instances, i.e. operating system and applications available
-initially on a VM. The AppDB collects the Virtual Machine Images
-available on the service as Virtual Appliances (VA).&lt;/p>
-&lt;p>Any user can register new Virtual Appliances at the AppDB, these are
-then managed by special VO members that curate which appliances are
-available to their VO.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length --></description></item><item><title>Users: Virtual Machine Image Management</title><link>/users/cloud-compute/vmi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/vmi/</guid><description>
+&lt;p>Users of the EGI Cloud create Virtual Machines (VMs) on the providers. Those VMs
+are started from images: templates for the root volume of the running instances,
+i.e. operating system and applications available initially on a VM. The AppDB
+collects the Virtual Machine Images available on the service as Virtual
+Appliances (VA).&lt;/p>
+&lt;p>Any user can register new Virtual Appliances at the AppDB, these are then
+managed by special VO members that curate which appliances are available to
+their VO.&lt;/p>
 &lt;h2 id="appdb-cloud-marketplace">AppDB Cloud Marketplace&lt;/h2>
 &lt;p>&lt;img src="appdb_cloud.png" alt="AppDB Cloud Marketplace">&lt;/p>
-&lt;p>The &lt;a href="https://appdb.egi.eu">AppDB&lt;/a> is a browsable catalogue of Virtual
-Appliances that users can start at the providers. You can find below a
-set of reference guides for the catalogue:&lt;/p>
+&lt;p>The &lt;a href="https://appdb.egi.eu">AppDB&lt;/a> is a browsable catalogue of Virtual Appliances
+that users can start at the providers. You can find below a set of reference
+guides for the catalogue:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://wiki.appdb.egi.eu/main:faq:how_to_register_a_virtual_appliance">How to register a
-VA?&lt;/a>:
-any registered user can register VAs in AppDB for anyone to download
-or for making them available at the EGI Cloud providers once a VO
-adds it to the &lt;em>VO-wide image list&lt;/em>.&lt;/li>
-&lt;li>Once registered, VAs can be managed as described in the &lt;a href="https://wiki.appdb.egi.eu/main:guides:guide_for_managing_virtual_appliance_versions_using_the_portal">VA
-management
-guide&lt;/a>.&lt;/li>
-&lt;li>VO managers select VAs to be available at the providers following
-the &lt;a href="https://wiki.appdb.egi.eu/main:guides:manage_vo-wide_image_lists">VO-wide image list
-management&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://wiki.appdb.egi.eu/main:faq:how_to_register_a_virtual_appliance">How to register a VA?&lt;/a>:
+any registered user can register VAs in AppDB for anyone to download or for
+making them available at the EGI Cloud providers once a VO adds it to the
+&lt;em>VO-wide image list&lt;/em>.&lt;/li>
+&lt;li>Once registered, VAs can be managed as described in the
+&lt;a href="https://wiki.appdb.egi.eu/main:guides:guide_for_managing_virtual_appliance_versions_using_the_portal">VA management guide&lt;/a>.&lt;/li>
+&lt;li>VO managers select VAs to be available at the providers following the
+&lt;a href="https://wiki.appdb.egi.eu/main:guides:manage_vo-wide_image_lists">VO-wide image list management&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Check the full list of &lt;a href="https://wiki.appdb.egi.eu/main:guides#cloud_marketplace">Cloud marketplace
-guides&lt;/a> and
-&lt;a href="https://wiki.appdb.egi.eu/main:faq#cloud_marketplace">Cloud marketplace
-FAQ&lt;/a> for more
-information about the AppDB features.&lt;/p>
+&lt;p>Check the full list of
+&lt;a href="https://wiki.appdb.egi.eu/main:guides#cloud_marketplace">Cloud marketplace guides&lt;/a>
+and
+&lt;a href="https://wiki.appdb.egi.eu/main:faq#cloud_marketplace">Cloud marketplace FAQ&lt;/a>
+for more information about the AppDB features.&lt;/p>
 &lt;h2 id="custom-images">Custom images&lt;/h2>
-&lt;p>Packaging your application in a custom VM image is a suggested solution
-in one of the following cases:&lt;/p>
+&lt;p>Packaging your application in a custom VM image is a suggested solution in one
+of the following cases:&lt;/p>
 &lt;ul>
 &lt;li>your particular OS flavor is not available at AppDB;&lt;/li>
-&lt;li>installation of your application is very complex and time-consuming
-for being performed during contextualization; or&lt;/li>
-&lt;li>you want to reduce the number of 'moving-parts' of your software
-stack and follow an &lt;em>immutable infrastructure&lt;/em> approach for
-deploying your application.&lt;/li>
+&lt;li>installation of your application is very complex and time-consuming for being
+performed during contextualization; or&lt;/li>
+&lt;li>you want to reduce the number of 'moving-parts' of your software stack and
+follow an &lt;em>immutable infrastructure&lt;/em> approach for deploying your application.&lt;/li>
 &lt;/ul>
-&lt;p>Custom VM images can be crafted in different ways. The two main
-possibilities are:&lt;/p>
+&lt;p>Custom VM images can be crafted in different ways. The two main possibilities
+are:&lt;/p>
 &lt;ul>
-&lt;li>start from scratch, creating a virtual machine, installing an OS and
-the software on top of it, then taking the virtual machine OS disk
-as custom image; or&lt;/li>
-&lt;li>dump an existing disk from a running VM or physical server and
-modify it, if needed, to run on a virtualisation platform.&lt;/li>
+&lt;li>start from scratch, creating a virtual machine, installing an OS and the
+software on top of it, then taking the virtual machine OS disk as custom
+image; or&lt;/li>
+&lt;li>dump an existing disk from a running VM or physical server and modify it, if
+needed, to run on a virtualisation platform.&lt;/li>
 &lt;/ul>
-&lt;p>In this guide we will focus on the first option, because it tends to
-produce cleaner images and reduces the risks of hardware conflicts.
-Snapshotting may be also restricted by the cloud providers or by
-security policies.&lt;/p>
+&lt;p>In this guide we will focus on the first option, because it tends to produce
+cleaner images and reduces the risks of hardware conflicts. Snapshotting may be
+also restricted by the cloud providers or by security policies.&lt;/p>
 &lt;p>Advantages:&lt;/p>
 &lt;ul>
-&lt;li>Possibility to build the virtual disk directly from a legacy
-machine, dumping the contents of the disk.&lt;/li>
-&lt;li>Possibility to speed-up the deployment for applications with complex
-and big installation packages. This because you do not need to
-install the application at startup, but the application is already
-included in the machine.&lt;/li>
+&lt;li>Possibility to build the virtual disk directly from a legacy machine, dumping
+the contents of the disk.&lt;/li>
+&lt;li>Possibility to speed-up the deployment for applications with complex and big
+installation packages. This because you do not need to install the application
+at startup, but the application is already included in the machine.&lt;/li>
 &lt;/ul>
 &lt;p>Disadvantages:&lt;/p>
 &lt;ul>
 &lt;li>Building a virtual disk directly from a legacy machine poses a set of
-compatibility issues with hardware drivers, which usually differs
-from a virtual and physical environment and even between different
-virtual environments.&lt;/li>
-&lt;li>You need to keep your machine updated. Outdated VM disk images may
-take a long time to startup due to the need to download and install
-the latest OS updates.&lt;/li>
-&lt;li>If you are using special drivers or you are not packaging correctly
-the disk, your custom VM image may not run (or run slowly) on
-different cloud providers based on different virtualisation
-technologies.&lt;/li>
-&lt;li>VM images on public clouds are sometimes public, thus be
-aware of installing proprietary software on custom images, since
-other users may be able to run the image or download it.&lt;/li>
-&lt;li>In general, the effort to implement this solution is higher than the
-basic contextualization.&lt;/li>
+compatibility issues with hardware drivers, which usually differs from a
+virtual and physical environment and even between different virtual
+environments.&lt;/li>
+&lt;li>You need to keep your machine updated. Outdated VM disk images may take a long
+time to startup due to the need to download and install the latest OS updates.&lt;/li>
+&lt;li>If you are using special drivers or you are not packaging correctly the disk,
+your custom VM image may not run (or run slowly) on different cloud providers
+based on different virtualisation technologies.&lt;/li>
+&lt;li>VM images on public clouds are sometimes public, thus be aware of installing
+proprietary software on custom images, since other users may be able to run
+the image or download it.&lt;/li>
+&lt;li>In general, the effort to implement this solution is higher than the basic
+contextualization.&lt;/li>
 &lt;/ul>
 &lt;h3 id="image-size-and-layout">Image size and layout&lt;/h3>
-&lt;p>The larger the VM image, the longer it will take to be distributed to
-the providers and the longer it will take to be started on the
-infrastructure. As a general rule, always try to make images as smaller
-as possible following these guidelines:&lt;/p>
+&lt;p>The larger the VM image, the longer it will take to be distributed to the
+providers and the longer it will take to be started on the infrastructure. As a
+general rule, always try to make images as smaller as possible following these
+guidelines:&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;strong>DO NOT&lt;/strong> include (big) data in your image. There are other
-mechanisms for accessing data from your VM (block/object storage,
+&lt;p>&lt;strong>DO NOT&lt;/strong> include (big) data in your image. There are other mechanisms for
+accessing data from your VM (block/object storage,
 &lt;a href="https://www.gridpp.ac.uk/wiki/RALnonLHCCVMFS">CVMFS&lt;/a>)&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO NOT&lt;/strong> include (big) empty space or swap in your image. Extra
-space for your computation or swap can be added with block storage
-once the VM is booted or using VM flavors that have extra disk
-allocated for your VM.&lt;/p>
+&lt;p>&lt;strong>DO NOT&lt;/strong> include (big) empty space or swap in your image. Extra space for
+your computation or swap can be added with block storage once the VM is booted
+or using VM flavors that have extra disk allocated for your VM.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO NOT&lt;/strong> install un-needed software. Tools like GUI are of no-use
-in most cases since you will have no access to the graphical console
-of the VM.&lt;/p>
+&lt;p>&lt;strong>DO NOT&lt;/strong> install un-needed software. Tools like GUI are of no-use in most
+cases since you will have no access to the graphical console of the VM.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO&lt;/strong> adjust the size of the images as much as possible. As stated
-above, empty space can be allocated on runtime easily.&lt;/p>
+&lt;p>&lt;strong>DO&lt;/strong> adjust the size of the images as much as possible. As stated above,
+empty space can be allocated on runtime easily.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO&lt;/strong> use compressed image formats, like qcow2 or vmdk (used in
-OVA) to minimize the size of the image. Preferred format for images
-in EGI is OVA as it's standardised.&lt;/p>
+&lt;p>&lt;strong>DO&lt;/strong> use compressed image formats, like qcow2 or vmdk (used in OVA) to
+minimize the size of the image. Preferred format for images in EGI is OVA as
+it's standardised.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO&lt;/strong> fill with &lt;code>0&lt;/code> the empty disk space of your image so when
-compressed it can be significantly reduced, e.g. using:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">dd if=/dev/zero of=/bigemptyfile bs=4096k
+&lt;p>&lt;strong>DO&lt;/strong> fill with &lt;code>0&lt;/code> the empty disk space of your image so when compressed it
+can be significantly reduced, e.g. using:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">dd &lt;span style="color:#204a87;font-weight:bold">if&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/dev/zero &lt;span style="color:#000">of&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/bigemptyfile &lt;span style="color:#000">bs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>4096k
 rm -rf /bigemptyfile
-&lt;/code>&lt;/pre>&lt;/li>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>&lt;strong>DO&lt;/strong> use a single partition (no /boot, no swap) for the disk
-layout and avoid LVM. This will allow the cloud provider to easily
-resize your partition when instantiated and to modify files in it if
-needed.&lt;/p>
+&lt;p>&lt;strong>DO&lt;/strong> use a single partition (no /boot, no swap) for the disk layout and
+avoid LVM. This will allow the cloud provider to easily resize your partition
+when instantiated and to modify files in it if needed.&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="contextualization-and-credentials">Contextualization and credentials&lt;/h3>
@@ -316,88 +296,82 @@ needed.&lt;/p>
 &lt;h4 class="alert-heading">Danger&lt;/h4>
 &lt;strong>Do NOT include any credentials on your images&lt;/strong>.
 &lt;/div>
-&lt;p>You should never include any kind of credentials on your images, instead
-you should use contextualization.
-&lt;a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init&lt;/a> is a tool that
-will simplify the contextualization process for you. This is widely
-available as packages in major OS distributions and is supported by all
-the providers of the EGI Cloud and most of the commercial providers.&lt;/p>
-&lt;p>&lt;a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init&lt;/a>
-documentation contains detailed examples on how to create users, run
-scripts, install packages and several other actions supported by the
-tool.&lt;/p>
-&lt;p>For complex setups, especially when applications involve multiple VMs it
-may be useful to use cloud-init to bootstrap some &lt;a href="https://en.wikipedia.org/wiki/Comparison_of_open-source_configuration_management_software">Configuration
-Management
-Software&lt;/a>
+&lt;p>You should never include any kind of credentials on your images, instead you
+should use contextualization.
+&lt;a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init&lt;/a> is a tool that will
+simplify the contextualization process for you. This is widely available as
+packages in major OS distributions and is supported by all the providers of the
+EGI Cloud and most of the commercial providers.&lt;/p>
+&lt;p>&lt;a href="https://cloudinit.readthedocs.io/en/latest/">cloud-init&lt;/a> documentation contains
+detailed examples on how to create users, run scripts, install packages and
+several other actions supported by the tool.&lt;/p>
+&lt;p>For complex setups, especially when applications involve multiple VMs it may be
+useful to use cloud-init to bootstrap some
+&lt;a href="https://en.wikipedia.org/wiki/Comparison_of_open-source_configuration_management_software">Configuration Management Software&lt;/a>
 that will manage the configuration of the VMs during runtime.&lt;/p>
 &lt;h3 id="security">Security&lt;/h3>
 &lt;ul>
 &lt;li>&lt;strong>Always remove all default passwords and accounts from your VM.&lt;/strong>&lt;/li>
 &lt;li>Disable all services unless necessary for the intended tasks.&lt;/li>
-&lt;li>Make sure the firewall configuration (iptables for Linux, also on
-IPv6) is minimally open.&lt;/li>
+&lt;li>Make sure the firewall configuration (iptables for Linux, also on IPv6) is
+minimally open.&lt;/li>
 &lt;li>Put no shared credentials (passwords) in any image.&lt;/li>
 &lt;/ul>
-&lt;p>You should also follow the best practice guides for each service that's
-exposed to the outside world. See for example guides for:&lt;/p>
+&lt;p>You should also follow the best practice guides for each service that's exposed
+to the outside world. See for example guides for:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="http://wiki.centos.org/HowTos/Network/SecuringSSH">ssh&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.owasp.org/index.php/Securing_tomcat">tomcat&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>See also &lt;a href="https://aws.amazon.com/whitepapers/aws-security-best-practices/">AWS security Best
-Practices&lt;/a>&lt;/p>
+&lt;p>See also
+&lt;a href="https://aws.amazon.com/whitepapers/aws-security-best-practices/">AWS security Best Practices&lt;/a>&lt;/p>
 &lt;h3 id="tools">Tools&lt;/h3>
-&lt;p>Whenever possible, automate the process of creating your images. This
-will allow you to:&lt;/p>
+&lt;p>Whenever possible, automate the process of creating your images. This will allow
+you to:&lt;/p>
 &lt;ul>
 &lt;li>get reproducible results&lt;/li>
 &lt;li>avoid tedious manual installation steps&lt;/li>
 &lt;li>quickly produce updated versions of your images.&lt;/li>
 &lt;/ul>
-&lt;p>EGI uses &lt;a href="https://packer.io">packer&lt;/a> as a tool for automating the
-creation of our base images. This tool can use
-&lt;a href="https://www.virtualbox.org/">VirtualBox&lt;/a> as a hypervisor for the creation
-of the images and guarantees identical results under different platforms
-and providers.&lt;/p>
-&lt;p>Check the &lt;a href="https://github.com/EGI-Foundation/fedcloud-vmi-templates">fedcloud-vmi-templates github
-repo&lt;/a> with all
-the packer recipes used to build our images and re-use them as needed
+&lt;p>EGI uses &lt;a href="https://packer.io">packer&lt;/a> as a tool for automating the creation of
+our base images. This tool can use &lt;a href="https://www.virtualbox.org/">VirtualBox&lt;/a> as
+a hypervisor for the creation of the images and guarantees identical results
+under different platforms and providers.&lt;/p>
+&lt;p>Check the
+&lt;a href="https://github.com/EGI-Foundation/fedcloud-vmi-templates">fedcloud-vmi-templates github repo&lt;/a>
+with all the packer recipes used to build our images and re-use them as needed
 for your images.&lt;/p></description></item><item><title>Users: VMOps Dashboard</title><link>/users/cloud-compute/vmops/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/vmops/</guid><description>
-&lt;p>The &lt;a href="https://appdb.egi.eu/">EGI Application Database (AppDB)&lt;/a> includes a
-web GUI for management of Virtual Machines (VMs) on the federated
-infrastructure.&lt;/p>
-&lt;p>This GUI is available for a set of &lt;a href="https://wiki.appdb.egi.eu/main:faq:which_vos_are_supported_by_the_vmops_dashboard">selected
-VOs&lt;/a>.
-If your VO is not listed and you are interested in getting support,
-please &lt;a href="https://ggus.eu">open a ticket&lt;/a> or contact us at
-&lt;code>support _at_ egi.eu&lt;/code>.&lt;/p>
+&lt;p>The &lt;a href="https://appdb.egi.eu/">EGI Application Database (AppDB)&lt;/a> includes a web GUI
+for management of Virtual Machines (VMs) on the federated infrastructure.&lt;/p>
+&lt;p>This GUI is available for a set of
+&lt;a href="https://wiki.appdb.egi.eu/main:faq:which_vos_are_supported_by_the_vmops_dashboard">selected VOs&lt;/a>.
+If your VO is not listed and you are interested in getting support, please
+&lt;a href="https://ggus.eu">open a ticket&lt;/a> or contact us at &lt;code>support _at_ egi.eu&lt;/code>.&lt;/p>
 &lt;h2 id="main-user-features">Main user features&lt;/h2>
 &lt;ul>
-&lt;li>User identification with Check-in, with customised view of the VAs
-and resource providers based on the VO membership of the user.&lt;/li>
-&lt;li>Management of VMs in &lt;em>topologies&lt;/em>, containing one or more instances
-of a given VA.&lt;/li>
+&lt;li>User identification with Check-in, with customised view of the VAs and
+resource providers based on the VO membership of the user.&lt;/li>
+&lt;li>Management of VMs in &lt;em>topologies&lt;/em>, containing one or more instances of a given
+VA.&lt;/li>
 &lt;li>Attachment of additional block storage to the VM instances.&lt;/li>
-&lt;li>Start/Stop VMs without destroying the VM (for all VMs of a topology
-or for individual instances within a topology)&lt;/li>
+&lt;li>Start/Stop VMs without destroying the VM (for all VMs of a topology or for
+individual instances within a topology)&lt;/li>
 &lt;li>Single control of topologies across the whole federation.&lt;/li>
 &lt;/ul>
 &lt;h2 id="quick-start">Quick start&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>Log into the &lt;a href="https://dashboard.appdb.egi.eu/vmops">VMOps dashboard&lt;/a>
-using EGI Check-in.&lt;/p>
+&lt;p>Log into the &lt;a href="https://dashboard.appdb.egi.eu/vmops">VMOps dashboard&lt;/a> using
+EGI Check-in.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Click on &amp;quot;Create a new VM Topology&amp;quot; to start the topology builder,
-this will guide you through a set of steps:&lt;/p>
+&lt;p>Click on &amp;quot;Create a new VM Topology&amp;quot; to start the topology builder, this
+will guide you through a set of steps:&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Select the Virtual Appliance you want to start, these are the
-same shown in the &lt;a href="https://appdb.egi.eu/browse/cloud">AppDB Cloud
-Marketplace&lt;/a>, you can use the
-search field to find your VA;&lt;/p>
+&lt;p>Select the Virtual Appliance you want to start, these are the same shown
+in the &lt;a href="https://appdb.egi.eu/browse/cloud">AppDB Cloud Marketplace&lt;/a>, you
+can use the search field to find your VA;&lt;/p>
 &lt;p>&lt;img src="vmops_va_select.png" alt="Select the VA">&lt;/p>
 &lt;/li>
 &lt;li>
@@ -406,10 +380,11 @@ search field to find your VA;&lt;/p>
 &lt;li>
 &lt;p>select the provider where to instantiate the VA; and finally&lt;/p>
 &lt;/li>
+&lt;li>
+&lt;p>select the template (VM instance type) of the instance that will
+determine the number of cores, memory and disk space used in your VM.&lt;/p>
+&lt;/li>
 &lt;/ol>
-&lt;p>1.  select the template (VM instance type) of the instance that will
-determine the number of cores, memory and disk space used in
-your VM.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Now you will be presented with a summary page where you can further
@@ -422,8 +397,8 @@ customise your VM by:&lt;/p>
 &lt;p>Adding block storage devices to the VMs&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Define contextualisation parameters (e.g. add new users, execute
-some script)&lt;/p>
+&lt;p>Define contextualisation parameters (e.g. add new users, execute some
+script)&lt;/p>
 &lt;p>&lt;img src="vmops_settings.png" alt="Topology settings">&lt;/p>
 &lt;/li>
 &lt;/ul>
@@ -433,19 +408,17 @@ some script)&lt;/p>
 infrastructure.&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>The topology you just created will appear on your &amp;quot;Topologies&amp;quot; with
-all the details about it, clicking on a VM of a topology will give you
-details about its status and IP. VMOps will create a default &lt;code>cloudadm&lt;/code>
-user for you and create ssh-key pair for login (you can create as many
-users as needed with the contextualisation options of the wizard
-described above).&lt;/p>
+&lt;p>The topology you just created will appear on your &amp;quot;Topologies&amp;quot; with all the
+details about it, clicking on a VM of a topology will give you details about its
+status and IP. VMOps will create a default &lt;code>cloudadm&lt;/code> user for you and create
+ssh-key pair for login (you can create as many users as needed with the
+contextualisation options of the wizard described above).&lt;/p>
 &lt;p>&lt;img src="vmops_vm.png" alt="VM details">&lt;/p></description></item><item><title>Users: Using OpenStack providers</title><link>/users/cloud-compute/openstack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/openstack/</guid><description>
-&lt;p>&lt;a href="https://openstack.org">OpenStack&lt;/a> providers of the EGI Cloud Compute
-service offer native OpenStack features via native APIs integrated with
-EGI Check-in accounts.&lt;/p>
-&lt;p>The extensive &lt;a href="https://docs.openstack.org/user/">OpenStack user
-documentation&lt;/a> includes details on
-every OpenStack project, most providers offer access to:&lt;/p>
+&lt;p>&lt;a href="https://openstack.org">OpenStack&lt;/a> providers of the EGI Cloud Compute service
+offer native OpenStack features via native APIs integrated with EGI Check-in
+accounts.&lt;/p>
+&lt;p>The extensive &lt;a href="https://docs.openstack.org/user/">OpenStack user documentation&lt;/a>
+includes details on every OpenStack project, most providers offer access to:&lt;/p>
 &lt;ul>
 &lt;li>keystone, for identity&lt;/li>
 &lt;li>nova, for VM management&lt;/li>
@@ -455,191 +428,164 @@ every OpenStack project, most providers offer access to:&lt;/p>
 &lt;li>horizon, as a web dashboard&lt;/li>
 &lt;/ul>
 &lt;p>Web-dashboard of the integrated providers can be accessed using your EGI
-Check-in credentials directly: select &lt;em>OpenID Connect&lt;/em> or &lt;em>EGI Check-in&lt;/em>
-in the &lt;strong>Authenticate using&lt;/strong> drop-down menu of the login screen. You
-can explore &lt;a href="https://docs.openstack.org/horizon/rocky/user/">Horizon dashboard
-documentation&lt;/a> for more
-information on how to manage your resources from the browser. The rest
+Check-in credentials directly: select &lt;em>OpenID Connect&lt;/em> or &lt;em>EGI Check-in&lt;/em> in the
+&lt;strong>Authenticate using&lt;/strong> drop-down menu of the login screen. You can explore
+&lt;a href="https://docs.openstack.org/horizon/rocky/user/">Horizon dashboard documentation&lt;/a>
+for more information on how to manage your resources from the browser. The rest
 of this guide will focus on CLI/API access.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;p>TBC&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">pip install requests
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">pip install requests
 pip install openstackclient
-&lt;/code>&lt;/pre>&lt;ul>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>&lt;code>jq&lt;/code> to easily manage JSON output&lt;/li>
 &lt;/ul>
 &lt;p>Add IGTF CA to python's CA store:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">cat /etc/grid-security/certificates/*.pem &amp;gt;&amp;gt; $(python -m requests.certs)
-&lt;/code>&lt;/pre>&lt;h2 id="authentication">Authentication&lt;/h2>
-&lt;p>Check the documentation at &lt;code>oidc-auth-using-check-in&lt;/code>{.interpreted-text
-role=&amp;quot;ref&amp;rdquo;} on how to get the right credentials for accessing the
-providers.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cat /etc/grid-security/certificates/*.pem &amp;gt;&amp;gt; &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>python -m requests.certs&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="authentication">Authentication&lt;/h2>
+&lt;p>Check the documentation at the
+&lt;a href="../auth/">authentication and authorisation section&lt;/a>on how to get the right
+credentials for accessing the providers.&lt;/p>
 &lt;h3 id="openstack-token-for-other-clients">OpenStack token for other clients&lt;/h3>
-&lt;p>Most OpenStack clients allow authentication with tokens, so you can
-easily use them with EGI Cloud providers just doing a first step for
-obtaining the token. With the OpenStack client you can use the following
-command to set the OS_TOKEN variable with the needed token:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ OS_TOKEN=$(openstack --os-auth-type v3oidcaccesstoken \
---os-protocol openid --os-identity-provider egi.eu \
---os-auth-url &amp;lt;keystone url&amp;gt; \
---os-access-token &amp;lt;your access token&amp;gt; \
---os-project-id &amp;lt;your project id&amp;gt; token issue -c id -f value)
-&lt;/code>&lt;/pre>&lt;p>You can refresh the access token and obtain an OpenStack token in a
-single &lt;code>../get-token.py&lt;/code>{.interpreted-text role=&amp;quot;download&amp;rdquo;} script
-expecting your credentials to be available in the environment:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>CHECKIN_CLIENT_ID&lt;/code>: Your Check-in client id (get it from &lt;a href="https://aai.egi.eu/fedcloud">FedCloud
-Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>CHECKIN_CLIENT_SECRET&lt;/code>: Your Check-in client secret (get it from
-&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>CHECKIN_REFRESH_TOKEN&lt;/code>: Your Check-in refresh token (get it from
-&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>OS_AUTH_URL&lt;/code>: Keystone URL (depends on the provider, you can get it
-in &lt;a href="https://goc.egi.eu">GOCDB&lt;/a>)&lt;/li>
-&lt;li>&lt;code>OS_PROJECT_ID&lt;/code>: OpenStack project to use (See script above for
-obtaining it)&lt;/li>
-&lt;/ul>
-&lt;p>Optionally set the &lt;code>CHECKIN_URL&lt;/code> to the Check-in endpoint
-(e.g. &lt;code>https://aai-dev.egi.eu/&lt;/code> if testing on the devel environment).&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># Export OIDC env
-export CHECKIN_CLIENT_ID=&amp;lt;CLIENT_ID&amp;gt;
-export CHECKIN_CLIENT_SECRET=&amp;lt;CLIENT_SECRET&amp;gt;
-export CHECKIN_REFRESH_TOKEN=&amp;lt;REFRESH_TOKEN&amp;gt;
-# Select OpenStack endpoint
-export OS_AUTH_URL=&amp;lt;OPENSTACK_URL&amp;gt;
-# Retrieve project ID
-python get-projects.py
-export OS_PROJECT_ID=&amp;lt;PROJECT_ID&amp;gt;
-# Retrieve OpenStack token
-export OS_TOKEN=$(python get-token.py)
-echo $OS_TOKEN
-&lt;/code>&lt;/pre>&lt;h2 id="useful-commands-with-openstack-cli">Useful commands with OpenStack CLI&lt;/h2>
-&lt;p>Please refer to the &lt;a href="https://docs.openstack.org/nova/rocky/user/">nova
-documentation&lt;/a> for a
-complete guide on the VM management features of OpenStack. We list in
-the sections below some useful commands for the EGI Cloud.&lt;/p>
+&lt;p>Most OpenStack clients allow authentication with tokens, so you can easily use
+them with EGI Cloud providers just doing a first step for obtaining the token.
+With the OpenStack client you can use the following command to set the OS_TOKEN
+variable with the needed token:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ &lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>openstack --os-auth-type v3oidcaccesstoken &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-protocol openid --os-identity-provider egi.eu &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-auth-url &amp;lt;keystone url&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-access-token &amp;lt;your access token&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-project-id &amp;lt;your project id&amp;gt; token issue -c id -f value&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can refresh the access token and obtain an OpenStack token with the &lt;code>egicli&lt;/code>
+command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Retrieve project ID&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Retrieve OpenStack token&lt;/span>
+&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint token --site &amp;lt;name of the site&amp;gt;&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$OS_TOKEN&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-commands-with-openstack-cli">Useful commands with OpenStack CLI&lt;/h2>
+&lt;p>Please refer to the
+&lt;a href="https://docs.openstack.org/nova/rocky/user/">nova documentation&lt;/a> for a complete
+guide on the VM management features of OpenStack. We list in the sections below
+some useful commands for the EGI Cloud.&lt;/p>
 &lt;h3 id="registering-an-existing-ssh-key">Registering an existing ssh key&lt;/h3>
-&lt;p>It's possible to register an ssh key that can later be used as the
-default ssh key for the default user of the VM (via the &lt;code>--key-name&lt;/code>
-argument to &lt;code>openstack server create&lt;/code>:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
-&lt;/code>&lt;/pre>&lt;h3 id="creating-a-vm">Creating a VM&lt;/h3>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack flavor list
-FLAVOR=&amp;lt;FLAVOR_NAME&amp;gt;
+&lt;p>It's possible to register an ssh key that can later be used as the default ssh
+key for the default user of the VM (via the &lt;code>--key-name&lt;/code> argument to
+&lt;code>openstack server create&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack keypair create --public-key ~/.ssh/id_rsa.pub mykey
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="creating-a-vm">Creating a VM&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack flavor list
+&lt;span style="color:#000">FLAVOR&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;FLAVOR_NAME&amp;gt;
 openstack image list
-IMAGE_ID=&amp;lt;IMAGE_ID&amp;gt;
+&lt;span style="color:#000">IMAGE_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;IMAGE_ID&amp;gt;
 openstack network list
-# Pick FedCloud network
-NETWORK_ID=&amp;lt;NETOWRK_ID&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Pick FedCloud network&lt;/span>
+&lt;span style="color:#000">NETWORK_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NETOWRK_ID&amp;gt;
 openstack security group list
-openstack server create --flavor $FLAVOR --image $IMAGE_ID \
---nic net-id=$NETWORK_ID --security-group default \
---key-name mykey oneprovider
-# Creating a floating IP
+openstack server create --flavor &lt;span style="color:#000">$FLAVOR&lt;/span> --image &lt;span style="color:#000">$IMAGE_ID&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --nic net-id&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$NETWORK_ID&lt;/span> --security-group default &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --key-name mykey oneprovider
+&lt;span style="color:#8f5902;font-style:italic"># Creating a floating IP&lt;/span>
 openstack floating ip create &amp;lt;NETOWRK_NAME&amp;gt;
-# Assigning floating IP to server
+&lt;span style="color:#8f5902;font-style:italic"># Assigning floating IP to server&lt;/span>
 openstack server add floating ip &amp;lt;SERVER_ID&amp;gt; &amp;lt;IP&amp;gt;
-# Removing floating IP from server
+&lt;span style="color:#8f5902;font-style:italic"># Removing floating IP from server&lt;/span>
 openstack server show &amp;lt;SERVER_ID&amp;gt;
-# Deleting server
+&lt;span style="color:#8f5902;font-style:italic"># Deleting server&lt;/span>
 openstack server remove floating ip &amp;lt;SERVER_ID&amp;gt; &amp;lt;IP&amp;gt;
 openstack server delete &amp;lt;SERVER_ID&amp;gt;
-# Deleting floating IP
+&lt;span style="color:#8f5902;font-style:italic"># Deleting floating IP&lt;/span>
 openstack floating ip delete &amp;lt;IP&amp;gt;
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;a href="https://docs.openstack.org/mitaka/install-guide-obs/launch-instance-provider.html">OpenStack: launch an instance on the provider
-network&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.openstack.org/ocata/user-guide/cli-manage-ip-addresses.html">OpenStack: Manging IP
-addresses&lt;/a>&lt;/li>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://docs.openstack.org/mitaka/install-guide-obs/launch-instance-provider.html">OpenStack: launch an instance on the provider network&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.openstack.org/ocata/user-guide/cli-manage-ip-addresses.html">OpenStack: Manging IP addresses&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="using-cloud-init">Using cloud-init&lt;/h3>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack server create --flavor m3.medium \
---image d0a89aa8-9644-408d-a023-4dcc1148ca01 \
---user-data userdata.txt --key-name My_Key server01.example.com
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;a href="https://docs.openstack.org/nova/queens/user/user-data.html">OpenStack: providing user data
-(cloud-init)&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://cloudinit.readthedocs.io/en/latest/index.html">cloudinit
-documentation&lt;/a>&lt;/li>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack server create --flavor m3.medium &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --image d0a89aa8-9644-408d-a023-4dcc1148ca01 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --user-data userdata.txt --key-name My_Key server01.example.com
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://docs.openstack.org/nova/queens/user/user-data.html">OpenStack: providing user data (cloud-init)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://cloudinit.readthedocs.io/en/latest/index.html">cloudinit documentation&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="shell-script-data-as-user-data">Shell script data as user data&lt;/h4>
-&lt;pre>&lt;code class="language-{.shell}" data-lang="{.shell}">#!/bin/sh
-adduser --disabled-password --gecos &amp;quot;&amp;quot; clouduser
-&lt;/code>&lt;/pre>&lt;h4 id="cloud-config-data-as-user-data">cloud-config data as user data&lt;/h4>
-&lt;pre>&lt;code class="language-{.yaml}" data-lang="{.yaml}">#cloud-config
-hostname: mynode
-fqdn: mynode.example.com
-manage_etc_hosts: true
-&lt;/code>&lt;/pre>&lt;ul>
-&lt;li>&lt;a href="https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples">Official cloud-config
-examples&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://www.zetta.io/en/help/articles-tutorials/customizing-instance-deployment-cloud-init/">Cloud-init
-example&lt;/a>&lt;/li>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic">#!/bin/sh
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>adduser --disabled-password --gecos &lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&lt;/span> clouduser
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="cloud-config-data-as-user-data">cloud-config data as user data&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#8f5902;font-style:italic">#cloud-config&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">hostname&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>mynode&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">fqdn&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>mynode.example.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">manage_etc_hosts&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">true&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;a href="https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples">Official cloud-config examples&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.zetta.io/en/help/articles-tutorials/customizing-instance-deployment-cloud-init/">Cloud-init example&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="creating-a-snapshot-image-from-running-vm">Creating a snapshot image from running VM&lt;/h3>
-&lt;p>You can create a new image from a snapshot of an existing VM that will
-allow you to easily recover a previous version of your VM or to use it
-as a template to clone a given VM.&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack server image create &amp;lt;your VM&amp;gt; --name &amp;lt;name of the snapshot&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>Once the snapshot is ready
-(&lt;code>openstack image show &amp;lt;name of the snapshot&amp;gt;&lt;/code> will give your the
-details you can use it as any other image at the provider:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack server create --flavor &amp;lt;flavor&amp;gt; \
---image &amp;lt;name of the snapshot&amp;gt; \
-&amp;lt;name of the new VM&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>You can override files in the snapshot if needed, e.g. changing the SSH
-keys:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">openstack server create --flavor &amp;lt;flavor&amp;gt; \
---image &amp;lt;name of the snapshot&amp;gt; \
---file /home/ubuntu/.ssh/authorized_keys=my_new_keys \
-&amp;lt;name of the new VM&amp;gt;
-&lt;/code>&lt;/pre>&lt;h2 id="terraform">Terraform&lt;/h2>
-&lt;p>&lt;a href="https://terraform.io">Terraform&lt;/a> supports EGI Cloud OpenStack providers
-by using valid access tokens for Keystone. For using this, just
-configure your provider as usual in Terraform, but do not include
-user/password information:&lt;/p>
-&lt;pre>&lt;code class="language-{.terraform}" data-lang="{.terraform}"># Configure the OpenStack Provider
-provider &amp;quot;openstack&amp;quot; {
-project_id = &amp;quot;&amp;lt;your project id&amp;gt;&amp;quot;
-auth_url = &amp;quot;http://&amp;lt;your keystone url&amp;gt;/v3&amp;quot;
+&lt;p>You can create a new image from a snapshot of an existing VM that will allow you
+to easily recover a previous version of your VM or to use it as a template to
+clone a given VM.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack server image create &amp;lt;your VM&amp;gt; --name &amp;lt;name of the snapshot&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once the snapshot is ready (&lt;code>openstack image show &amp;lt;name of the snapshot&amp;gt;&lt;/code> will
+give your the details you can use it as any other image at the provider:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack server create --flavor &amp;lt;flavor&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --image &amp;lt;name of the snapshot&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;name of the new VM&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can override files in the snapshot if needed, e.g. changing the SSH keys:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openstack server create --flavor &amp;lt;flavor&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --image &amp;lt;name of the snapshot&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --file /home/ubuntu/.ssh/authorized_keys&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>my_new_keys &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &amp;lt;name of the new VM&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="terraform">Terraform&lt;/h2>
+&lt;p>&lt;a href="https://terraform.io">Terraform&lt;/a> supports EGI Cloud OpenStack providers by
+using valid access tokens for Keystone. For using this, just configure your
+provider as usual in Terraform, but do not include user/password information:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#8f5902;font-style:italic"># Configure the OpenStack Provider
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack&amp;#34;&lt;/span> {
+&lt;span style="color:#c4a000"> project_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your project id&amp;gt;&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000"> auth_url&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;http://&amp;lt;your keystone url&amp;gt;/v3&amp;#34;&lt;/span>
+}&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># Create a server
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack_compute_instance_v2&amp;#34; &amp;#34;test-server&amp;#34;&lt;/span> {&lt;span style="color:#8f5902;font-style:italic">
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> # ...
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>when launching Terraform, set the &lt;code>OS_TOKEN&lt;/code> environment variable to a valid
+token as shown in :ref:OpenStack token for other clients. You may also set the
+Keystone URL and project id in the &lt;code>OS_AUTH_URL&lt;/code> and &lt;code>OS_PROJECT_ID&lt;/code> environment
+variables:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-terraform" data-lang="terraform">&lt;span style="color:#204a87;font-weight:bold">provider&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack&amp;#34;&lt;/span> {
 }
-# Create a server
-resource &amp;quot;openstack_compute_instance_v2&amp;quot; &amp;quot;test-server&amp;quot; {
-# ...
-}
-&lt;/code>&lt;/pre>&lt;p>when launching Terraform, set the &lt;code>OS_TOKEN&lt;/code> environment variable to a
-valid token as shown in :ref:OpenStack token for other clients. You may
-also set the Keystone URL and project id in the &lt;code>OS_AUTH_URL&lt;/code> and
-&lt;code>OS_PROJECT_ID&lt;/code> environment variables:&lt;/p>
-&lt;pre>&lt;code class="language-{.terraform}" data-lang="{.terraform}">provider &amp;quot;openstack&amp;quot; {
-}
-data &amp;quot;openstack_images_image_v2&amp;quot; &amp;quot;ubuntu16&amp;quot; {
-most_recent = true
-properties {
-APPLIANCE_MPURI = &amp;quot;https://appdb.egi.eu/store/vo/image/8df7ba00-8467-57aa-bf1e-05754a2a73bf:6428/&amp;quot;
+&lt;span style="color:#a40000">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack_images_image_v2&amp;#34; &amp;#34;ubuntu16&amp;#34;&lt;/span> {
+&lt;span style="color:#c4a000"> most_recent&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;span style="color:#a40000">properties&lt;/span> {
+&lt;span style="color:#c4a000"> APPLIANCE_MPURI&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://appdb.egi.eu/store/vo/image/8df7ba00-8467-57aa-bf1e-05754a2a73bf:6428/&amp;#34;&lt;/span>
 }
 }
-data &amp;quot;openstack_compute_flavor_v2&amp;quot; &amp;quot;small&amp;quot; {
-vcpus = 1
-ram = 2048
-disk = 20
+&lt;span style="color:#a40000">data&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack_compute_flavor_v2&amp;#34; &amp;#34;small&amp;#34;&lt;/span> {
+&lt;span style="color:#c4a000"> vcpus&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#c4a000"> ram&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2048&lt;/span>
+&lt;span style="color:#c4a000"> disk&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>
 }
-resource &amp;quot;openstack_compute_instance_v2&amp;quot; &amp;quot;vm&amp;quot; {
-name = &amp;quot;testvm&amp;quot;
-image_id = &amp;quot;${data.openstack_images_image_v2.ubuntu16.id}&amp;quot;
-flavor_id = &amp;quot;${data.openstack_compute_flavor_v2.small.id}&amp;quot;
-security_groups = [&amp;quot;default&amp;quot;]
+&lt;span style="color:#204a87;font-weight:bold">resource&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openstack_compute_instance_v2&amp;#34; &amp;#34;vm&amp;#34;&lt;/span> {
+&lt;span style="color:#c4a000"> name&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;testvm&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000"> image_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.openstack_images_image_v2.ubuntu16.id}&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000"> flavor_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.openstack_compute_flavor_v2.small.id}&amp;#34;&lt;/span>
+&lt;span style="color:#c4a000"> security_groups&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 }
-&lt;/code>&lt;/pre>&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">$ export CHECKIN_CLIENT_ID=&amp;lt;CLIENT_ID&amp;gt;
-$ export CHECKIN_CLIENT_SECRET=&amp;lt;CLIENT_SECRET&amp;gt;
-$ export CHECKIN_REFRESH_TOKEN=&amp;lt;REFRESH_TOKEN&amp;gt;
-$ export OS_AUTH_URL=&amp;lt;OPENSTACK_URL&amp;gt;
-$ export OS_PROJECT_ID=&amp;lt;PROJECT_ID&amp;gt;
-$ export OS_TOKEN=$(python get-token.py)
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_AUTH_URL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;OPENSTACK_URL&amp;gt;
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>python get-token.py&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 $ terraform plan
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
-persisted to local or remote state storage.
+persisted to &lt;span style="color:#204a87">local&lt;/span> or remote state storage.
 data.openstack_compute_flavor_v2.small: Refreshing state...
 data.openstack_images_image_v2.ubuntu16: Refreshing state...
 ------------------------------------------------------------------------
@@ -653,96 +599,95 @@ access_ip_v4: &amp;lt;computed&amp;gt;
 access_ip_v6: &amp;lt;computed&amp;gt;
 all_metadata.%: &amp;lt;computed&amp;gt;
 availability_zone: &amp;lt;computed&amp;gt;
-flavor_id: &amp;quot;2&amp;quot;
+flavor_id: &lt;span style="color:#4e9a06">&amp;#34;2&amp;#34;&lt;/span>
 flavor_name: &amp;lt;computed&amp;gt;
-force_delete: &amp;quot;false&amp;quot;
-image_id: &amp;quot;ceb0434d-37af-4d1f-9efe-13f6f9937df2&amp;quot;
+force_delete: &lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>
+image_id: &lt;span style="color:#4e9a06">&amp;#34;ceb0434d-37af-4d1f-9efe-13f6f9937df2&amp;#34;&lt;/span>
 image_name: &amp;lt;computed&amp;gt;
-name: &amp;quot;testvm&amp;quot;
+name: &lt;span style="color:#4e9a06">&amp;#34;testvm&amp;#34;&lt;/span>
 network.#: &amp;lt;computed&amp;gt;
-power_state: &amp;quot;active&amp;quot;
+power_state: &lt;span style="color:#4e9a06">&amp;#34;active&amp;#34;&lt;/span>
 region: &amp;lt;computed&amp;gt;
-security_groups.#: &amp;quot;1&amp;quot;
-security_groups.3814588639: &amp;quot;default&amp;quot;
-stop_before_destroy: &amp;quot;false&amp;quot;
-Plan: 1 to add, 0 to change, 0 to destroy.
+security_groups.#: &lt;span style="color:#4e9a06">&amp;#34;1&amp;#34;&lt;/span>
+security_groups.3814588639: &lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>
+stop_before_destroy: &lt;span style="color:#4e9a06">&amp;#34;false&amp;#34;&lt;/span>
+Plan: &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> to add, &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> to change, &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> to destroy.
 ------------------------------------------------------------------------
-Note: You didn't specify an &amp;quot;-out&amp;quot; parameter to save this plan, so Terraform
-can't guarantee that exactly these actions will be performed if
-&amp;quot;terraform apply&amp;quot; is subsequently run.
-&lt;/code>&lt;/pre>&lt;p>Note that as in the example above you can get images using information
-from AppDB if needed.&lt;/p>
+Note: You didn&lt;span style="color:#4e9a06">&amp;#39;t specify an &amp;#34;-out&amp;#34; parameter to save this plan, so Terraform
+&lt;/span>&lt;span style="color:#4e9a06">can&amp;#39;&lt;/span>t guarantee that exactly these actions will be performed &lt;span style="color:#204a87;font-weight:bold">if&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;terraform apply&amp;#34;&lt;/span> is subsequently run.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that as in the example above you can get images using information from
+AppDB if needed.&lt;/p>
 &lt;h2 id="libcloud">libcloud&lt;/h2>
-&lt;p>&lt;a href="https://libcloud.apache.org/index.html">Apache libcloud&lt;/a> support
-OpenStack and EGI authentication mechanisms by setting the
-&lt;code>ex_force_auth_version&lt;/code> to &lt;code>3.x_oidc_access_token&lt;/code> or &lt;code>2.0_voms&lt;/code>
-respectively. Check the &lt;a href="https://libcloud.readthedocs.io/en/latest/compute/drivers/openstack.html#connecting-to-the-openstack-installation">libcloud docs on connecting to
-OpenStack&lt;/a>
+&lt;p>&lt;a href="https://libcloud.apache.org/index.html">Apache libcloud&lt;/a> support OpenStack and
+EGI authentication mechanisms by setting the &lt;code>ex_force_auth_version&lt;/code> to
+&lt;code>3.x_oidc_access_token&lt;/code> or &lt;code>2.0_voms&lt;/code> respectively. Check the
+&lt;a href="https://libcloud.readthedocs.io/en/latest/compute/drivers/openstack.html#connecting-to-the-openstack-installation">libcloud docs on connecting to OpenStack&lt;/a>
 for details. See below two code samples for using them&lt;/p>
 &lt;h3 id="openid-connect">OpenID Connect&lt;/h3>
-&lt;pre>&lt;code class="language-{.python}" data-lang="{.python}">import requests
-from libcloud.compute.types import Provider
-from libcloud.compute.providers import get_driver
-refresh_data = {
-'client_id': '&amp;lt;your client_id&amp;gt;',
-'client_secret': '&amp;lt;your client_secret&amp;gt;',
-'grant_type': 'refresh_token',
-'refresh_token': '&amp;lt;your refresh_token&amp;gt;',
-'scope': 'openid email profile',
-}
-r = requests.post(&amp;quot;https://aai.egi.eu/oidc/token&amp;quot;,
-auth=(client_id, client_secret),
-data=refresh_data)
-access_token = r.json()['access_token']
-OpenStack = get_driver(Provider.OPENSTACK)
-# first parameter is the identity provider: &amp;quot;egi.eu&amp;quot;
-# Second parameter is the access_token
-# The protocol 'openid' is specified in ex_tenant_name, and tenant/project cannot be selected :(
-driver = OpenStack('egi.eu', access_token, ex_tenant_name='openid',
-ex_force_auth_url='https://keystone_url:5000',
-ex_force_auth_version='3.x_oidc_access_token')
-&lt;/code>&lt;/pre>&lt;h3 id="voms">VOMS&lt;/h3>
-&lt;pre>&lt;code class="language-{.python}" data-lang="{.python}">from libcloud.compute.types import Provider
-from libcloud.compute.providers import get_driver
-OpenStack = get_driver(Provider.OPENSTACK)
-# assume your proxy is available at /tmp/x509up_u1000
-# you can obtain a proxy with the voms-proxy-init command
-# no need for username
-driver = OpenStack(None, '/tmp/x509up_u1000', ex_tenant_name='EGI_FCTF',
-ex_force_auth_url='https://sbgcloud.in2p3.fr:5000',
-ex_force_auth_version='2.0_voms')
-&lt;/code>&lt;/pre></description></item><item><title>Users: Storage</title><link>/users/cloud-compute/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/storage/</guid><description>
-&lt;p>If you are in need of more storage than the one provided within image
-disk of your VMs, or need to persist data independently from the VMs
-storage, you will need to use one of the solutions available as part
-of the &lt;a href="../../online-storage/">EGI online storage service&lt;/a>.&lt;/p>
-&lt;p>This page describes the Block Storage offering of the online
-storage which is only accessible from VMs running on the EGI Cloud.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">requests&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">libcloud.compute.types&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">Provider&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">libcloud.compute.providers&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">get_driver&lt;/span>
+&lt;span style="color:#000">refresh_data&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;client_id&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;&amp;lt;your client_id&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;client_secret&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;&amp;lt;your client_secret&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;grant_type&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;refresh_token&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;refresh_token&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;&amp;lt;your refresh_token&amp;gt;&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#39;scope&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;openid email profile&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000">r&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">requests&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">post&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">auth&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">client_secret&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>
+&lt;span style="color:#000">data&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">refresh_data&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">access_token&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">r&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">json&lt;/span>&lt;span style="color:#000;font-weight:bold">()[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;access_token&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">OpenStack&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">get_driver&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Provider&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">OPENSTACK&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># first parameter is the identity provider: &amp;#34;egi.eu&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Second parameter is the access_token&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># The protocol &amp;#39;openid&amp;#39; is specified in ex_tenant_name&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># and tenant/project cannot be selected :(&lt;/span>
+&lt;span style="color:#000">driver&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">OpenStack&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;egi.eu&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">access_token&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ex_tenant_name&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;openid&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">ex_force_auth_url&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;https://keystone_url:5000&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">ex_force_auth_version&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;3.x_oidc_access_token&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="voms">VOMS&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">libcloud.compute.types&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">Provider&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">libcloud.compute.providers&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">get_driver&lt;/span>
+&lt;span style="color:#000">OpenStack&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">get_driver&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Provider&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">OPENSTACK&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># assume your proxy is available at /tmp/x509up_u1000&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># you can obtain a proxy with the voms-proxy-init command&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># no need for username&lt;/span>
+&lt;span style="color:#000">driver&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">OpenStack&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">None&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/tmp/x509up_u1000&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">ex_tenant_name&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;EGI_FCTF&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">ex_force_auth_url&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;https://sbgcloud.in2p3.fr:5000&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">ex_force_auth_version&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;2.0_voms&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Users: Storage</title><link>/users/cloud-compute/storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/storage/</guid><description>
+&lt;p>If you are in need of more storage than the one provided within image disk of
+your VMs, or need to persist data independently from the VMs storage, you will
+need to use one of the solutions available as part of the
+&lt;a href="../../online-storage/">EGI online storage service&lt;/a>.&lt;/p>
+&lt;p>This page describes the Block Storage offering of the online storage which is
+only accessible from VMs running on the EGI Cloud.&lt;/p>
 &lt;h2 id="block-storage">Block Storage&lt;/h2>
-&lt;p>&lt;strong>Block storage&lt;/strong> provides additional storage blocks which can be
-attached to a virtual machine. A storage block is a virtual disk of a
-given size, which can be exposed as a virtual device in the VM. You can
-think of this can of devices as a USB stick that can be plugged into the
-VMs and can be used as a regular drive. You can format it with any file
-system you want and mount it in your VM. Block devices are persistent,
-thus they keep all the data after VM shutdown and need to be explicitly
-destroyed when data is not needed anymore. Block storage disks can be
-accessed only from within a VM, and only from VMs running at the same
-provider where the block storage is located. Also, they can be accessed
-by only one VM at the same time. As part of the IaaS service, block
-storage is managed via OpenStack/OCCI APIs. There is a limit on the
-number of block storage devices you can attach on a VM and there is a
-limit to the maximum size of such virtual disks. These values will
-depend on the particular provider and your SLA. Moreover, the disk space
-is accounted for the entire block storage device, regardless how much of
-it is actually used.&lt;/p>
-&lt;p>Block storage is created and managed via requests to specific APIs. Once
-the storage is attached to a VM, it is managed as a regular disk that
-can be used as any other disk from within the VM.&lt;/p>
+&lt;p>&lt;strong>Block storage&lt;/strong> provides additional storage blocks which can be attached to a
+virtual machine. A storage block is a virtual disk of a given size, which can be
+exposed as a virtual device in the VM. You can think of this can of devices as a
+USB stick that can be plugged into the VMs and can be used as a regular drive.
+You can format it with any file system you want and mount it in your VM. Block
+devices are persistent, thus they keep all the data after VM shutdown and need
+to be explicitly destroyed when data is not needed anymore. Block storage disks
+can be accessed only from within a VM, and only from VMs running at the same
+provider where the block storage is located. Also, they can be accessed by only
+one VM at the same time. As part of the IaaS service, block storage is managed
+via OpenStack/OCCI APIs. There is a limit on the number of block storage devices
+you can attach on a VM and there is a limit to the maximum size of such virtual
+disks. These values will depend on the particular provider and your SLA.
+Moreover, the disk space is accounted for the entire block storage device,
+regardless how much of it is actually used.&lt;/p>
+&lt;p>Block storage is created and managed via requests to specific APIs. Once the
+storage is attached to a VM, it is managed as a regular disk that can be used as
+any other disk from within the VM.&lt;/p>
 &lt;h3 id="management">Management&lt;/h3>
-&lt;p>OpenStack providers offer block storage using their native API. Both the
-CLI client or dashboard can be used. Main commands for managing volumes
-are listed below:&lt;/p>
+&lt;p>OpenStack providers offer block storage using their native API. Both the CLI
+client or dashboard can be used. Main commands for managing volumes are listed
+below:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -777,28 +722,28 @@ are listed below:&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;p>For using the legacy OCCI interface refer to &lt;a href="https://wiki.egi.eu/wiki/HOWTO11_How_to_use_the_rOCCI_Client#How_to_create_block_storage.3F">OCCI
-How-to&lt;/a>.&lt;/p>
+&lt;!-- markdownlint-enable line-length -->
+&lt;p>For using the legacy OCCI interface refer to
+&lt;a href="https://wiki.egi.eu/wiki/HOWTO11_How_to_use_the_rOCCI_Client#How_to_create_block_storage.3F">OCCI How-to&lt;/a>.&lt;/p>
 &lt;h3 id="using-block-storage-from-your-vms">Using block storage from your VMs&lt;/h3>
-&lt;p>Block Storage will appear as block devices into your VM. Usually these
-devices are empty upon creation. The first time you attach them to a VM,
-you will need to partition and create filesystems on the device.&lt;/p>
-&lt;p>You can just create a filesystem on the block device with the following
-command (run this at your VM!).&lt;/p>
+&lt;p>Block Storage will appear as block devices into your VM. Usually these devices
+are empty upon creation. The first time you attach them to a VM, you will need
+to partition and create filesystems on the device.&lt;/p>
+&lt;p>You can just create a filesystem on the block device with the following command
+(run this at your VM!).&lt;/p>
 &lt;div class="alert alert-danger" role="alert">
 &lt;h4 class="alert-heading">Danger&lt;/h4>
-Only run this command the first time you use the device, it deletes all
-data!
+Only run this command the first time
+you use the device, it deletes all data!
 &lt;/div>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># mkfs.ext4 /dev/&amp;lt;volume device&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>The &lt;code>&amp;lt;volume device&amp;gt;&lt;/code> (e.g &lt;code>vdb&lt;/code>) can be obtained with the
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># mkfs.ext4 /dev/&amp;lt;volume device&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The &lt;code>&amp;lt;volume device&amp;gt;&lt;/code> (e.g &lt;code>vdb&lt;/code>) can be obtained with the
 &lt;code>openstack volume show&lt;/code> command&lt;/p>
 &lt;p>Once you have a filesystem you can mount it at the desired path:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}"># mount /dev/&amp;lt;volume device&amp;gt; /&amp;lt;path&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>With that you can access &lt;code>/&amp;lt;path&amp;gt;&lt;/code> where all your data will be
-available. Applications will not see any difference between a block
-storage device and a regular disk, thus no major changes should be
-required in the application logic.&lt;/p></description></item><item><title>Users: GPUs</title><link>/users/cloud-compute/gpgpu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/gpgpu/</guid><description>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># mount /dev/&amp;lt;volume device&amp;gt; /&amp;lt;path&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>With that you can access &lt;code>/&amp;lt;path&amp;gt;&lt;/code> where all your data will be available.
+Applications will not see any difference between a block storage device and a
+regular disk, thus no major changes should be required in the application logic.&lt;/p></description></item><item><title>Users: GPUs</title><link>/users/cloud-compute/gpgpu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/gpgpu/</guid><description>
 &lt;h1 id="gpu-resources-on-egi-cloud">GPU resources on EGI Cloud&lt;/h1>
 &lt;p>GPUs resources are available on selected providers of the EGI Cloud. These are
 available as specific &lt;strong>flavours&lt;/strong> that when used to instantiate a Virtual
@@ -880,44 +825,42 @@ VMOps dashboard, or Infrastructure manager.&lt;/p>
 &lt;a href="https://appdb.egi.eu/store/vappliance/nvidia.docker.centos.7">AppDB&lt;/a>. Some VOs
 (acc-comp.egi.eu, eosc-synergy.eu) have the image included in the VO image list.&lt;/p></description></item><item><title>Users: EC3</title><link>/users/cloud-compute/ec3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/</guid><description>
 &lt;p>&lt;a href="http://servproject.i3m.upv.es/ec3/">EC3&lt;/a> (Elastic Cloud Compute Cluster) is a
-tool to create elastic virtual clusters on Infrastructure as a Service
-(IaaS) providers. It supports the provisioning of clusters running TORQUE,
-SLURM, SGE, HTCondor, Mesos, Nomad, Kubernetes and others that will be
-automatically resized to fit the load (e.g. number of jobs at the batch system).&lt;/p>
-&lt;p>This section of the documentation will guide you on how to use EC3 with EGI Cloud
-providers using the OpenStack API and OpenID Connect for deploying your clusters.&lt;/p></description></item><item><title>Users: Federation Architecture and Implementation</title><link>/users/cloud-compute/federation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/federation/</guid><description>
+tool to create elastic virtual clusters on Infrastructure as a Service (IaaS)
+providers. It supports the provisioning of clusters running TORQUE, SLURM, SGE,
+HTCondor, Mesos, Nomad, Kubernetes and others that will be automatically resized
+to fit the load (e.g. number of jobs at the batch system).&lt;/p>
+&lt;p>This section of the documentation will guide you on how to use EC3 with EGI
+Cloud providers using the OpenStack API and OpenID Connect for deploying your
+clusters.&lt;/p></description></item><item><title>Users: Federation Architecture and Implementation</title><link>/users/cloud-compute/federation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/federation/</guid><description>
 &lt;p>The EGI Federated Cloud is a multi-national cloud system that integrates
-community, private and/or public clouds into a scalable computing
-platform for research. The Federation pools services from a
-heterogeneous set of cloud providers using a single authentication and
-authorisation framework that allows the portability of workloads across
-multiple providers and enable bringing computing to data. The current
-implementation is focused on IaaS services but can be easily applied to
-PaaS and SaaS layers.&lt;/p>
+community, private and/or public clouds into a scalable computing platform for
+research. The Federation pools services from a heterogeneous set of cloud
+providers using a single authentication and authorisation framework that allows
+the portability of workloads across multiple providers and enable bringing
+computing to data. The current implementation is focused on IaaS services but
+can be easily applied to PaaS and SaaS layers.&lt;/p>
 &lt;p>Each resource centre of the federated infrastructure operates a &lt;em>Cloud
-Management Framework (CMF)&lt;/em> according to its own preferences and
-constraints and joins the federation by integrating this CMF with
-components of the EGI service portfolio. CMFs must at least be
-integrated with EGI AAI so users can access services with a single
-identity, integration with other components and APIs to be provided are
-agreed by the community the resource centre provides services to.&lt;/p>
-&lt;p>EGI follows a Service Integration and Management (SIAM) approach to
-manage the federation with processes that cover the different aspects of
-the IT Service Management. Providers in the federation keep complete
-control of their services and resources. EGI VO OLAs establish a
-reliable, trust-based communication channel between the Customer and the
-providers to agree on the services, their levels and the types of
-support. The EGI VO OLAs are not legal contracts but, as agreements,
-they outline the clear intentions to collaborate and support research.&lt;/p>
+Management Framework (CMF)&lt;/em> according to its own preferences and constraints and
+joins the federation by integrating this CMF with components of the EGI service
+portfolio. CMFs must at least be integrated with EGI AAI so users can access
+services with a single identity, integration with other components and APIs to
+be provided are agreed by the community the resource centre provides services
+to.&lt;/p>
+&lt;p>EGI follows a Service Integration and Management (SIAM) approach to manage the
+federation with processes that cover the different aspects of the IT Service
+Management. Providers in the federation keep complete control of their services
+and resources. EGI VO OLAs establish a reliable, trust-based communication
+channel between the Customer and the providers to agree on the services, their
+levels and the types of support. The EGI VO OLAs are not legal contracts but, as
+agreements, they outline the clear intentions to collaborate and support
+research.&lt;/p>
 &lt;h2 id="federated-iaas">Federated IaaS&lt;/h2>
-&lt;p>The EGI Federated Cloud Infrastructure as a Service (IaaS) resource
-centres deploy a Cloud Management Framework (CMF) that provide users
-with an API-based service for management of Virtual Machines and
-associated Block Storage to enable persistence and Networks to enable
-connectivity of the Virtual Machines among themselves and third party
-resources.&lt;/p>
-&lt;p>The IaaS federation is a thin layer that brings the providers together
-with:&lt;/p>
+&lt;p>The EGI Federated Cloud Infrastructure as a Service (IaaS) resource centres
+deploy a Cloud Management Framework (CMF) that provide users with an API-based
+service for management of Virtual Machines and associated Block Storage to
+enable persistence and Networks to enable connectivity of the Virtual Machines
+among themselves and third party resources.&lt;/p>
+&lt;p>The IaaS federation is a thin layer that brings the providers together with:&lt;/p>
 &lt;ul>
 &lt;li>federated authentication;&lt;/li>
 &lt;li>resource discovery;&lt;/li>
@@ -925,93 +868,88 @@ with:&lt;/p>
 &lt;li>usage accounting; and&lt;/li>
 &lt;li>monitoring.&lt;/li>
 &lt;/ul>
-&lt;p>The IaaS capabilities (VM, block storage, network management) must be
-provided via community agreed APIs (OpenStack and/or OCCI are supported
-at the moment) that allow integration with EGI Check-in for
-authentication and authorisation of users. Those providers that limit
-the interaction to web dashboards and do not expose APIs to direct
-consumption for users cannot be considered part of the EGI IaaS Cloud
-Compute service.&lt;/p>
-&lt;p>The information system provides a real-time view about the actual
-capabilities of federation participants. The EGI Configuration Database
-(GOCDB) contains the list of resource centres and their entry endpoints.
-Information about these endpoints is expressed in a standard format
-(GlueSchema 2.1) and pushed to consumers via the Argo Messaging System.
-The AppDB Information System collects this information in a central
-service for discovery.&lt;/p>
-&lt;p>Users can instantiate VMs on the providers from a set of Virtual Machine
-Images available on a central catalogue implemented in AppDB's Cloud
-Marketplace. Virtual Machine Images are synchronised to the providers
-periodically using the HEPiX image lists format.&lt;/p>
-&lt;p>Usage of resources is gathered centrally using EGI Accounting repository
-and available for visualisation at &lt;a href="https://accounting.egi.eu">EGI Accounting
-portal&lt;/a>.&lt;/p>
-&lt;p>Those endpoints published in the EGI Configuration Database are
-monitored via &lt;a href="https://argoeu.github.io/">ARGO&lt;/a>. The set of probes check
-the availability of the providers and their correct functionality.&lt;/p>
-&lt;p>Users and Community platforms built on top of the EGI IaaS can interact
-with the cloud providers at three different layers:&lt;/p>
+&lt;p>The IaaS capabilities (VM, block storage, network management) must be provided
+via community agreed APIs (OpenStack and/or OCCI are supported at the moment)
+that allow integration with EGI Check-in for authentication and authorisation of
+users. Those providers that limit the interaction to web dashboards and do not
+expose APIs to direct consumption for users cannot be considered part of the EGI
+IaaS Cloud Compute service.&lt;/p>
+&lt;p>The information system provides a real-time view about the actual capabilities
+of federation participants. The EGI Configuration Database (GOCDB) contains the
+list of resource centres and their entry endpoints. Information about these
+endpoints is expressed in a standard format (GlueSchema 2.1) and pushed to
+consumers via the Argo Messaging System. The AppDB Information System collects
+this information in a central service for discovery.&lt;/p>
+&lt;p>Users can instantiate VMs on the providers from a set of Virtual Machine Images
+available on a central catalogue implemented in AppDB's Cloud Marketplace.
+Virtual Machine Images are synchronised to the providers periodically using the
+HEPiX image lists format.&lt;/p>
+&lt;p>Usage of resources is gathered centrally using EGI Accounting repository and
+available for visualisation at
+&lt;a href="https://accounting.egi.eu">EGI Accounting portal&lt;/a>.&lt;/p>
+&lt;p>Those endpoints published in the EGI Configuration Database are monitored via
+&lt;a href="https://argoeu.github.io/">ARGO&lt;/a>. The set of probes check the availability of
+the providers and their correct functionality.&lt;/p>
+&lt;p>Users and Community platforms built on top of the EGI IaaS can interact with the
+cloud providers at three different layers:&lt;/p>
 &lt;ul>
-&lt;li>Directly using the IaaS APIs to manage individual resources. This
-option is recommended for pre-existing use cases with requirements
-on specific APIs.&lt;/li>
-&lt;li>Using IaaS Federated Access Tools that allow managing the complexity
-of dealing with different providers in a uniform way. These tools
-include:
+&lt;li>Directly using the IaaS APIs to manage individual resources. This option is
+recommended for pre-existing use cases with requirements on specific APIs.&lt;/li>
+&lt;li>Using IaaS Federated Access Tools that allow managing the complexity of
+dealing with different providers in a uniform way. These tools include:
 &lt;ul>
-&lt;li>IaaS provisioning systems that allow to define infrastructure as
-code and manage and combine resources from different providers,
-thus enabling the portability of application deployments between
-them (e.g. IM or Terraform); and&lt;/li>
-&lt;li>cloud brokers, that provide matchmaking for workloads to
-available providers (e.g. the INDIGO-DataCloud Orchestrator).&lt;/li>
+&lt;li>IaaS provisioning systems that allow to define infrastructure as code and
+manage and combine resources from different providers, thus enabling the
+portability of application deployments between them (e.g. IM or Terraform);
+and&lt;/li>
+&lt;li>cloud brokers, that provide matchmaking for workloads to available providers
+(e.g. the INDIGO-DataCloud Orchestrator).&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>Using the AppDB VMOps dashboard, a web-based GUI that simplifies the
-management of VMs on any provider of the EGI infrastructure. AppDB
-VMOps in turn relies on the Infrastructure Manager.&lt;/li>
+management of VMs on any provider of the EGI infrastructure. AppDB VMOps in
+turn relies on the Infrastructure Manager.&lt;/li>
 &lt;/ul>
-&lt;p>EGI provides ready-to-use software components to enable the federation
-for OpenStack and OpenNebula. These components rely on public APIs of
-the IaaS system and use Check-in accounts for authenticating into the
-provider.&lt;/p>
+&lt;p>EGI provides ready-to-use software components to enable the federation for
+OpenStack and OpenNebula. These components rely on public APIs of the IaaS
+system and use Check-in accounts for authenticating into the provider.&lt;/p>
 &lt;h2 id="implementation">Implementation&lt;/h2>
 &lt;h3 id="aai">AAI&lt;/h3>
-&lt;p>Federated identity ensures that users of the federation can use a single
-account for accessing the resources.&lt;/p>
+&lt;p>Federated identity ensures that users of the federation can use a single account
+for accessing the resources.&lt;/p>
 &lt;h4 id="openid-connect">OpenID Connect&lt;/h4>
-&lt;p>Providers of the EGI Cloud support authentication with OAuth2.0 tokens
-provided by Check-in OpenID Connect Identity provider. Support builds on
-the &lt;a href="https://wiki.egi.eu/wiki/AAI_guide_for_SPs">AAI guide for SPs&lt;/a> with
-detailed configuration provided at the &lt;a href="https://egi-federated-cloud-integration.readthedocs.io/en/latest/openstack.html#openid-connect-support">EGI Cloud integration
-manual&lt;/a>.&lt;/p>
-&lt;p>The integration relies on the OpenStack Keystone &lt;a href="https://developer.openstack.org/api-ref/identity/v3-ext/index.html#os-federation-api">OS-FEDERATION
-API&lt;/a>.&lt;/p>
+&lt;p>Providers of the EGI Cloud support authentication with OAuth2.0 tokens provided
+by Check-in OpenID Connect Identity provider. Support builds on the
+&lt;a href="https://wiki.egi.eu/wiki/AAI_guide_for_SPs">AAI guide for SPs&lt;/a> with detailed
+configuration provided at the
+&lt;a href="https://egi-federated-cloud-integration.readthedocs.io/en/latest/openstack.html#openid-connect-support">EGI Cloud integration manual&lt;/a>.&lt;/p>
+&lt;p>The integration relies on the OpenStack Keystone
+&lt;a href="https://developer.openstack.org/api-ref/identity/v3-ext/index.html#os-federation-api">OS-FEDERATION API&lt;/a>.&lt;/p>
 &lt;h4 id="legacy-voms--x509-certificates">Legacy VOMS / X.509 certificates&lt;/h4>
-&lt;p>EGI can support users still using X.509 certificates extended with VO
-attributes (e.g. acknowledging that the user is member of the VO) in a
-so called VOMS proxy. This VOMS proxy certificate is used in subsequent
-calls to the endpoints which map the certificate and VO information via
-specific integration modules for VOMS authentication.&lt;/p>
+&lt;p>EGI can support users still using X.509 certificates extended with VO attributes
+(e.g. acknowledging that the user is member of the VO) in a so called VOMS
+proxy. This VOMS proxy certificate is used in subsequent calls to the endpoints
+which map the certificate and VO information via specific integration modules
+for VOMS authentication.&lt;/p>
 &lt;p>There are two implementations for the support of VOMS proxies:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://github.com/the-rocci-project/keystorm">KeyStorm&lt;/a> provides
-federated authentication for OpenNebula/rOCCI.&lt;/li>
-&lt;li>&lt;a href="https://github.com/IFCA/Keystone-VOMS">Keystone-VOMS&lt;/a> is an
-OpenStack Keystone plugin to enable VOMS authentication. It allows
-users to get tokens which can be used to access any of the OpenStack
-services. Users are generated on the fly in Keystone, it does not
-need regular synchronization with the VO Management server Perun.&lt;/li>
+&lt;li>&lt;a href="https://github.com/the-rocci-project/keystorm">KeyStorm&lt;/a> provides federated
+authentication for OpenNebula/rOCCI.&lt;/li>
+&lt;li>&lt;a href="https://github.com/IFCA/Keystone-VOMS">Keystone-VOMS&lt;/a> is an OpenStack
+Keystone plugin to enable VOMS authentication. It allows users to get tokens
+which can be used to access any of the OpenStack services. Users are generated
+on the fly in Keystone, it does not need regular synchronization with the VO
+Management server Perun.&lt;/li>
 &lt;/ul>
 &lt;h3 id="information-discovery">Information discovery&lt;/h3>
-&lt;p>The information system provides a real-time view about the actual
-capabilities of federation participants. The information system can be
-used by both human users and online services.&lt;/p>
+&lt;p>The information system provides a real-time view about the actual capabilities
+of federation participants. The information system can be used by both human
+users and online services.&lt;/p>
 &lt;h4 id="configuration-database">Configuration DataBase&lt;/h4>
-&lt;p>EGI&amp;rsquo;s central configuration database (&lt;a href="https://goc.egi.eu">GOCDB&lt;/a>) is
-used to catalogue the static information of the production
-infrastructure topology. To allow Resource Providers to expose IaaS
-federation endpoints, the following service types are avialable:&lt;/p>
+&lt;p>EGI&amp;rsquo;s central configuration database (&lt;a href="https://goc.egi.eu">GOCDB&lt;/a>) is used to
+catalogue the static information of the production infrastructure topology. To
+allow Resource Providers to expose IaaS federation endpoints, the following
+service types are avialable:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>org.openstack.nova&lt;/code>,&lt;/li>
 &lt;li>&lt;code>org.openstack.swift&lt;/code>,&lt;/li>
@@ -1021,49 +959,45 @@ federation endpoints, the following service types are avialable:&lt;/p>
 &lt;/ul>
 &lt;p>All providers &lt;strong>must&lt;/strong> enter cloud service endpoints to GOCDB to enable
 integration with EGI..&lt;/p>
-&lt;p>The
-&lt;a href="https://github.com/EGI-Foundation/cloud-info-provider">Cloud-info-provider&lt;/a>
-extracts information from the resource centres using their native APIs
-and formats it following Glue, and OGC recommended standard. This
-information is pushed to the Argo Messaging System and consumed by AppDB
-to provide a central information discovery service that aggregates
-several other sources of information of the infrastructure on a single
-endpoint.&lt;/p>
+&lt;p>The &lt;a href="https://github.com/EGI-Foundation/cloud-info-provider">Cloud-info-provider&lt;/a>
+extracts information from the resource centres using their native APIs and
+formats it following Glue, and OGC recommended standard. This information is
+pushed to the Argo Messaging System and consumed by AppDB to provide a central
+information discovery service that aggregates several other sources of
+information of the infrastructure on a single endpoint.&lt;/p>
 &lt;h3 id="virtual-machine-image-management">Virtual Machine Image management&lt;/h3>
-&lt;p>In a distributed, federated IaaS service, users need solutions for
-efficiently managing and distributing their VM Images across multiple
-resource providers. EGI provides a catalogue of Virtual Machine images
-(VMIs) that allows any user to share their VMI and communities to select
-those relevant for distribution across providers. These images are
-automatically replicated at the providers supporting the community and
-converted as needed to ensure the correct instantiation when used.&lt;/p>
-&lt;p>AppDB includes a Virtual Appliance Marketplace supporting Virtual
-Appliances (VAs), which are clean-and mean virtual machine images
-designed to run on a virtualisation platform, that provide a software
-solution out-of-the-box, ready to be used with minimal or no set-up
-within the IaaS providers.&lt;/p>
-&lt;p>AppDB allows representatives of research communities (VOs) to generate a
-VM image list via GUI that resource centres subscribe to. The
-subscription enables the periodic download, conversion and storage of
-those images in the local IaaS image repository.
-&lt;a href="https://github.com/the-cloudkeeper-project/cloudkeeper">cloudkeeper&lt;/a>
-provides this automated synchronisation between AppDB and
-OpenStack/OpenNebula.&lt;/p>
+&lt;p>In a distributed, federated IaaS service, users need solutions for efficiently
+managing and distributing their VM Images across multiple resource providers.
+EGI provides a catalogue of Virtual Machine images (VMIs) that allows any user
+to share their VMI and communities to select those relevant for distribution
+across providers. These images are automatically replicated at the providers
+supporting the community and converted as needed to ensure the correct
+instantiation when used.&lt;/p>
+&lt;p>AppDB includes a Virtual Appliance Marketplace supporting Virtual Appliances
+(VAs), which are clean-and mean virtual machine images designed to run on a
+virtualisation platform, that provide a software solution out-of-the-box, ready
+to be used with minimal or no set-up within the IaaS providers.&lt;/p>
+&lt;p>AppDB allows representatives of research communities (VOs) to generate a VM
+image list via GUI that resource centres subscribe to. The subscription enables
+the periodic download, conversion and storage of those images in the local IaaS
+image repository.
+&lt;a href="https://github.com/the-cloudkeeper-project/cloudkeeper">cloudkeeper&lt;/a> provides
+this automated synchronisation between AppDB and OpenStack/OpenNebula.&lt;/p>
 &lt;h3 id="accounting">Accounting&lt;/h3>
-&lt;p>Federated Accounting provides an integrated view about resource/service
-usage: it pulls together usage information from the federated sites and
-services, integrates the data and presents them in such a way that both
-individual users as well as whole communities can monitor their own
-resource/service usage across the whole federation.&lt;/p>
+&lt;p>Federated Accounting provides an integrated view about resource/service usage:
+it pulls together usage information from the federated sites and services,
+integrates the data and presents them in such a way that both individual users
+as well as whole communities can monitor their own resource/service usage across
+the whole federation.&lt;/p>
 &lt;h4 id="cloud-usage-record">Cloud Usage Record&lt;/h4>
 &lt;p>The federated cloud task force has agreed on a Cloud Usage Record, which
-inherits from the &lt;a href="https://www.ogf.org/documents/GFD.98.pdf">OGF Usage
-Record&lt;/a>. This record defines
-the data that resource providers must send to EGI&amp;rsquo;s central Accounting
-repository.&lt;/p>
-&lt;p>Version 0.4 of the Cloud Accounting Usage Record was agreed at the
-FedCloud Face to Face in Amsterdam in January 2015. A summary table of
-the format is shown below:&lt;/p>
+inherits from the &lt;a href="https://www.ogf.org/documents/GFD.98.pdf">OGF Usage Record&lt;/a>.
+This record defines the data that resource providers must send to EGI&amp;rsquo;s central
+Accounting repository.&lt;/p>
+&lt;p>Version 0.4 of the Cloud Accounting Usage Record was agreed at the FedCloud Face
+to Face in Amsterdam in January 2015. A summary table of the format is shown
+below:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1222,7 +1156,7 @@ the format is shown below:&lt;/p>
 &lt;td>ImageId&lt;/td>
 &lt;td>&lt;code>varchar(255)&lt;/code>&lt;/td>
 &lt;td>&lt;/td>
-&lt;td>Every image has a unique ID associated with it.&lt;br>For images from the EGI FedCloud AppDB this should be &lt;code>VMCATCHER_EVENT_AD_MPURI&lt;/code>&lt;br>For images from other repositories it should be a vmcatcher equivalent&lt;br>For local images - local identifier of the image.&lt;/td>
+&lt;td>Every image has a unique ID associated with it. For images from the EGI FedCloud AppDB this should be &lt;code>VMCATCHER_EVENT_AD_MPURI&lt;/code>; for images from other repositories it should be a vmcatcher equivalent; for local images - local identifier of the image.&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>CloudType&lt;/td>
@@ -1232,11 +1166,13 @@ the format is shown below:&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;!-- markdownlint-enable line-length -->
 &lt;h4 id="public-ip-usage-record">Public IP Usage Record&lt;/h4>
-&lt;p>The fedcloud task force has agreed on an IP Usage Record. The format
-uses many of the same fields as the Cloud Usage Record. The Usage Record
-should be a &amp;quot;snapshot&amp;quot; of the number of IPs currently assigned to a
-user. A table defining v0.2 of the format is shown below:&lt;/p>
+&lt;p>The fedcloud task force has agreed on an IP Usage Record. The format uses many
+of the same fields as the Cloud Usage Record. The Usage Record should be a
+&amp;quot;snapshot&amp;quot; of the number of IPs currently assigned to a user. A table defining
+v0.2 of the format is shown below:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -1320,63 +1256,61 @@ user. A table defining v0.2 of the format is shown below:&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>A JSON schema defining a valid Public IP Usage message can be found at:
 &lt;a href="https://github.com/apel/apel/blob/9476bd86424f6162c3b87b6daf6b4270ceb8fea6/apel/db/__init__.py">https://github.com/apel/apel/blob/9476bd86424f6162c3b87b6daf6b4270ceb8fea6/apel/db/__init__.py&lt;/a>&lt;/p>
 &lt;h4 id="apel-and-accounting-portal">APEL and accounting portal&lt;/h4>
-&lt;p>Once generated, records are delivered to the central accounting
-repository using APEL SSM (Secure STOMP Messenger). SSM client packages
-can be obtained at &lt;a href="https://apel.github.io">https://apel.github.io&lt;/a>. A Cloud Accounting Summary
-Usage Record has also been defined and summaries created on a daily
-basis from all the accounting records received from the Resource
-Providers are sent to the EGI Accounting Portal. The &lt;a href="http://accounting.egi.eu/">Accounting
-portal&lt;/a> also runs SSM to receive these
-summaries and provides a web view of the accounting data received from
-the Resource Providers.&lt;/p>
+&lt;p>Once generated, records are delivered to the central accounting repository using
+APEL SSM (Secure STOMP Messenger). SSM client packages can be obtained at
+&lt;a href="https://apel.github.io">https://apel.github.io&lt;/a>. A Cloud Accounting Summary Usage Record has also been
+defined and summaries created on a daily basis from all the accounting records
+received from the Resource Providers are sent to the EGI Accounting Portal. The
+&lt;a href="http://accounting.egi.eu/">Accounting portal&lt;/a> also runs SSM to receive these
+summaries and provides a web view of the accounting data received from the
+Resource Providers.&lt;/p>
 &lt;h4 id="accounting-probes">Accounting Probes&lt;/h4>
 &lt;p>Implementation of the extactor probes for accounting are listed below:&lt;/p>
 &lt;ul>
-&lt;li>OpenNebula:
-&lt;a href="https://github.com/the-oneacct-export-project/oneacct-export">https://github.com/the-oneacct-export-project/oneacct-export&lt;/a>&lt;/li>
+&lt;li>OpenNebula: &lt;a href="https://github.com/the-oneacct-export-project/oneacct-export">https://github.com/the-oneacct-export-project/oneacct-export&lt;/a>&lt;/li>
 &lt;li>OpenStack: &lt;a href="https://github.com/IFCA/caso">https://github.com/IFCA/caso&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h3 id="monitoring">Monitoring&lt;/h3>
-&lt;p>Services in the EGI infrastructure are monitored via [ARGO](&amp;lt;https://argo.egi.eu/).
-Specific probes to check functionality and availability of services must be
-provided by service developers, The current set of probes used for monitoring
-IaaS resources consists of:&lt;/p>
+&lt;p>Services in the EGI infrastructure are monitored via
+&lt;a href="https://argo.egi.eu/">ARGO&lt;/a>. Specific probes to check functionality and
+availability of services must be provided by service developers, The current set
+of probes used for monitoring IaaS resources consists of:&lt;/p>
 &lt;ul>
-&lt;li>OCCI probes (&lt;code>eu.egi.cloud.OCCI-VM&lt;/code> and
-&lt;code>eu.egi.cloud.OCCI-Context&lt;/code>): OCCI-VM creates an instance of a given
-image by using OCCI, checks its status and deletes it afterwards.
-OCCI-Context checks that the OCCI interfaces correctly supports the
-standard and the FedCloud contextualization extension.&lt;/li>
-&lt;li>Accounting probe (&lt;code>eu.egi.cloud.APEL-Pub&lt;/code>): Checks if the cloud
-resource is publishing data to the Accounting repository&lt;/li>
+&lt;li>OCCI probes (&lt;code>eu.egi.cloud.OCCI-VM&lt;/code> and &lt;code>eu.egi.cloud.OCCI-Context&lt;/code>): OCCI-VM
+creates an instance of a given image by using OCCI, checks its status and
+deletes it afterwards. OCCI-Context checks that the OCCI interfaces correctly
+supports the standard and the FedCloud contextualization extension.&lt;/li>
+&lt;li>Accounting probe (&lt;code>eu.egi.cloud.APEL-Pub&lt;/code>): Checks if the cloud resource is
+publishing data to the Accounting repository&lt;/li>
 &lt;li>TCP checks (&lt;code>org.nagios.Broker-TCP&lt;/code>, &lt;code>org.nagios.CDMI-TCP&lt;/code>,
-&lt;code>org.nagios.OCCI-TCP&lt;/code> and &lt;code>org.nagios.CloudBDII-Check&lt;/code>): Basic TCP
-checks for services.&lt;/li>
-&lt;li>VM Marketplace probe (&lt;code>eu.egi.cloud.AppDB-Update&lt;/code>): gets a
-predetermined image list from AppDB and checks its update interval.&lt;/li>
-&lt;li>Perun probe (&lt;code>eu.egi.cloud.Perun-Check&lt;/code>): connects to the server and
-checks the status by using internal Perun interface&lt;/li>
+&lt;code>org.nagios.OCCI-TCP&lt;/code> and &lt;code>org.nagios.CloudBDII-Check&lt;/code>): Basic TCP checks for
+services.&lt;/li>
+&lt;li>VM Marketplace probe (&lt;code>eu.egi.cloud.AppDB-Update&lt;/code>): gets a predetermined image
+list from AppDB and checks its update interval.&lt;/li>
+&lt;li>Perun probe (&lt;code>eu.egi.cloud.Perun-Check&lt;/code>): connects to the server and checks
+the status by using internal Perun interface&lt;/li>
 &lt;/ul>
 &lt;h2 id="roadmap">Roadmap&lt;/h2>
-&lt;p>The TCB-Cloud board defines the roadmap for the technical evolution of
-the EGI Cloud. All the components are continuously maintained to:&lt;/p>
+&lt;p>The TCB-Cloud board defines the roadmap for the technical evolution of the EGI
+Cloud. All the components are continuously maintained to:&lt;/p>
 &lt;ul>
-&lt;li>Improve their programmability, providing complete APIs specification
-in adequate format for facilitating the generation clients (e.g.
-following the OpenAPI initiative and Swagger).&lt;/li>
-&lt;li>Lower the barriers to integrate and operate resource centres in the
-federation by a) minimizing the number of components used; b)
-contributing code to upstream distributions; and c) use only public
-APIs of the Cloud Management Frameworks.&lt;/li>
+&lt;li>Improve their programmability, providing complete APIs specification in
+adequate format for facilitating the generation clients (e.g. following the
+OpenAPI initiative and Swagger).&lt;/li>
+&lt;li>Lower the barriers to integrate and operate resource centres in the federation
+by a) minimizing the number of components used; b) contributing code to
+upstream distributions; and c) use only public APIs of the Cloud Management
+Frameworks.&lt;/li>
 &lt;/ul>
 &lt;p>Currently the EGI FedCloud TaskForce is focused on moving to a central
-operations model, where providers only need to integrate their system
-with EGI Check-in but do not need to deploy and configure the different
-tools (accounting, discovery, VMI management, etc.) locally but delegate
-this to a central EGI team.&lt;/p></description></item><item><title>Users: FAQ</title><link>/users/cloud-compute/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/faq/</guid><description>
+operations model, where providers only need to integrate their system with EGI
+Check-in but do not need to deploy and configure the different tools
+(accounting, discovery, VMI management, etc.) locally but delegate this to a
+central EGI team.&lt;/p></description></item><item><title>Users: FAQ</title><link>/users/cloud-compute/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/faq/</guid><description>
 &lt;h2 id="basics">Basics&lt;/h2>
 &lt;h3 id="how-can-i-get-access-to-the-cloud-compute-service">How can I get access to the cloud compute service?&lt;/h3>
 &lt;p>There is a VO available for 6 months piloting activities that any researcher in
@@ -1597,9 +1531,10 @@ account that anyone with access to the VM may be able to access also the
 contextualisation information.&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
-Take into account that anyone with access to the VM may be able to access also
-the contextualisation information, so ensure that no sensitive data like clear
-text passwords is used during contextualisation.
+Take into account that anyone with
+access to the VM may be able to access also the contextualisation information,
+so ensure that no sensitive data like clear text passwords is used during
+contextualisation.
 &lt;/div>
 &lt;h3 id="how-can-i-use-ansible">How can I use ansible?&lt;/h3>
 &lt;p>Ansible relies on ssh for accessing the servers it will configure. VMs at EGI
