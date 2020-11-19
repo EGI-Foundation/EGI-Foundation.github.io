@@ -107,7 +107,7 @@ using &lt;code>pkcs12&lt;/code>:&lt;/p>
 &lt;li>
 &lt;p>First you will need to create the private key, use &lt;code>-nocerts&lt;/code>. Open your
 terminal, enter the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openssl pkcs12 -nocerts -in my_cert.p12 -out userkey.pem
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl pkcs12 -nocerts -in my_cert.p12 -out userkey.pem
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
 &lt;table>
 &lt;thead>
@@ -139,7 +139,7 @@ to &lt;code>“Enter PEM pass phrase”&lt;/code>, enter the pass phrase of your
 &lt;li>
 &lt;p>Now you can create the certificate, use &lt;code>-clcerts&lt;/code>, (use &lt;code>-nokeys&lt;/code> hereu will
 not output private key), and the command is:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">openssl pkcs12 -clcerts -nokeys -in my_cert.p12 -out usercert.pem
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl pkcs12 -clcerts -nokeys -in my_cert.p12 -out usercert.pem
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>When prompted to &lt;code>“Enter Import Password”&lt;/code>, simply press enter since no
 password should have been given when exporting from keychain.&lt;/p>
 &lt;p>For further information on the options of the pkcs12 command, consult
