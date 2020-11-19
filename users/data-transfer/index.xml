@@ -260,7 +260,7 @@ users.&lt;/p>
 &lt;a href="https://italiangrid.github.io/voms/index.html">VOMS&lt;/a> X.509 proxies extended
 with VO information for authentication and authorisation.&lt;/p>
 &lt;p>Learn about
-&lt;a href="../../check-in/voms/#creating-a-proxy">VOMS configuration and proxy creation&lt;/a>.&lt;/p>
+&lt;a href="../../check-in/vos/voms/#creating-a-proxy">VOMS configuration and proxy creation&lt;/a>.&lt;/p>
 &lt;h2 id="restful-api">RESTFul API&lt;/h2>
 &lt;p>The User RESTFul APIs can be used to submit transfers jobs (collections of
 single transfers), monitor and cancel existing transfers. Please check the CERN

@@ -41,7 +41,7 @@ Avail Space&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>kB&lt;span
 &lt;span style="color:#0000cf;font-weight:bold">10995116266&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">11&lt;/span> SRM cirigridse01.univ-bpclermont.fr
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="client-access">Client access&lt;/h2>
 &lt;p>The access via client requires the user to obtain a valid X.509 user VOMS proxy.
-Please refer to the &lt;a href="../../check-in/voms/">Check-in doc&lt;/a> for more information.
+Please refer to the &lt;a href="../../check-in/vos/voms/">Check-in doc&lt;/a> for more information.
 Integration with OpenID Connect and the EGI Check-in service is under piloting
 at some of the endpoints on the infrastructure , but it has not yet reached the
 production stage.&lt;/p>
