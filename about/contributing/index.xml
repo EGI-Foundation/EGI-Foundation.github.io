@@ -1,1 +1,452 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Contributing</title><link>/about/contributing/</link><description>Recent content in Contributing on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/about/contributing/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Contributing</title><link>/about/contributing/</link><description>Recent content in Contributing on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/about/contributing/index.xml" rel="self" type="application/rss+xml"/><item><title>About: Style guide</title><link>/about/contributing/style/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/contributing/style/</guid><description>
+&lt;h2 id="general-recommendations">General recommendations&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>All files and folders should be lower case;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>EGI Services should be named exactly as in the
+&lt;a href="https://www.egi.eu/services/">EGI Services Portfolio&lt;/a>;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Acronyms should be used only when it makes sense;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Service names should never be replaced by acronyms;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>In the introduction of services it is appropriate to have a link to the
+service public page, if any:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">[&lt;span style="color:#204a87;font-weight:bold">EGI Cloud Compute&lt;/span>](&lt;span style="color:#c4a000">https://www.egi.eu/services/cloud-compute/&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="writing-markdown">Writing markdown&lt;/h2>
+&lt;p>Files have to be written in Markdown, using code compliant with
+&lt;a href="https://spec.commonmark.org/0.29/">CommonMark&lt;/a> and
+&lt;a href="https://github.github.com/gfm/">GitHub Flavored Markdown&lt;/a> which is based on
+CommonMark.&lt;/p>
+&lt;h3 id="notable-points">Notable points&lt;/h3>
+&lt;ul>
+&lt;li>Lines should be wrapped at 80 characters.&lt;/li>
+&lt;li>Sentences should be separated by one space only.&lt;/li>
+&lt;li>Indent is made with tabs not with spaces.&lt;/li>
+&lt;li>Indent secondary (and following) level lists with 2 spaces.&lt;/li>
+&lt;li>Lines should end with a Line Feed character (&amp;quot;\n&amp;rdquo;)&lt;/li>
+&lt;li>Files should end with a Line Feed character (&amp;quot;\n&amp;rdquo;), but not including an empty
+line.&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tips&lt;/h4>
+Syntax examples that can be used in the
+files is documented in the &lt;a href="../syntax">syntax section&lt;/a>.
+&lt;/div>
+&lt;h3 id="automating-formatting-and-checking">Automating formatting and checking&lt;/h3>
+&lt;p>Style should be enforced via the usage of &lt;a href="https://prettier.io/">Prettier&lt;/a>.
+Prettier can be integrated with
+&lt;a href="https://prettier.io/docs/en/editors.html">various editors&lt;/a>.&lt;/p>
+&lt;ul>
+&lt;li>With VIM/neovim it can be used via a plugin like
+&lt;a href="https://github.com/dense-analysis/ale">ALE&lt;/a> as documented on the
+&lt;a href="https://prettier.io/docs/en/vim.html">official documentation&lt;/a>.&lt;/li>
+&lt;li>With VScode one should check
+&lt;a href="https://prettier.io/docs/en/editors.html#visual-studio-code">official documentation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>Configuration is provided in &lt;code>.prettierrc&lt;/code>, options can be set as follow:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">--print-width &lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --tab-width &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --prose-wrap always
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>When a Pull Request is received, the proposed changes are checked using
+&lt;a href="https://github.com/EGI-Foundation/documentation/tree/master/.github/workflows">various linters&lt;/a>.&lt;/p>
+&lt;h2 id="adding-exceptions-for-style-violations">Adding exceptions for style violations&lt;/h2>
+&lt;p>Successfully passing the checks is a firm requirement, but for some specific
+cases it&amp;rsquo;s possible to add some tags in the file to by pass the checks.&lt;/p>
+&lt;p>The situation when it&amp;rsquo;s possible to violate the style guide can be:&lt;/p>
+&lt;ul>
+&lt;li>long lines due to formatting constructs like tables&lt;/li>
+&lt;li>in-line HTML tags that have to be used in tables or when no other proper
+solution is available&lt;/li>
+&lt;/ul>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+Exceptions should only be used
+when there are no other choices, and should be confined to the smallest possible
+block of markdown code.
+&lt;/div>
+&lt;h3 id="dealing-with-long-lines-due-to-tables">Dealing with long lines due to tables&lt;/h3>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tips&lt;/h4>
+Ideally when there is no real interest
+for having a long table it&amp;rsquo;s better to move to another way of formatting the
+documentation.
+&lt;/div>
+&lt;p>Nevertheless when a table is indeed the proper way to present the data, it can
+be encapsulated with some specific
+&lt;a href="https://github.com/DavidAnson/markdownlint">markdownlint&lt;/a> code disabling the
+&lt;code>line-length&lt;/code> check:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">&amp;lt;!-- markdownlint-disable line-length --&amp;gt;
+| Action | rOCCI | OpenStack | This is a very long column with important data |
+| ----------- | ------------------------ | ---------------------- | ---------------------------------------------- |
+| List images | &lt;span style="color:#4e9a06">`occi -a list -r os_tpl`&lt;/span> | &lt;span style="color:#4e9a06">`openstack image list`&lt;/span> | Lorem ipsum |
+&amp;lt;!-- markdownlint-enable line-length --&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+In case the table leads to the
+introduction of scroll bar, please reconsider using another formatting.
+&lt;/div>
+&lt;h3 id="dealing-with-in-line-html-tags">Dealing with in-line HTML tags&lt;/h3>
+&lt;p>In some specific it&amp;rsquo;s not possible to use anything but in-line HTML tags:&lt;/p>
+&lt;ul>
+&lt;li>presentation page leveraging bootstrap CSS classes or with advanced features&lt;/li>
+&lt;li>adding some specific formatting like a list in a cell of a table.&lt;/li>
+&lt;/ul>
+&lt;p>When this is happening the part with the in-line HTML tags should be decorated
+with the proper &lt;a href="https://github.com/DavidAnson/markdownlint">markdownlint&lt;/a> code
+disabling the &lt;code>no-inline-html&lt;/code> check.&lt;/p>
+&lt;p>In this examples two checks are disabled at the same time: &lt;code>line-length&lt;/code> and
+&lt;code>no-inline-html&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">&amp;lt;!-- markdownlint-disable line-length no-inline-html --&amp;gt;
+| Action | rOCCI | OpenStack | This is a very long column with important data |
+| ----------- | ------------------------ | ---------------------- | ---------------------------------------------- |
+| List images | &lt;span style="color:#4e9a06">`occi -a list -r os_tpl`&lt;/span> | &lt;span style="color:#4e9a06">`openstack image list`&lt;/span> | &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Lorem&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;ipsum&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; |
+&amp;lt;!-- markdownlint-enable line-length no-inline-html --&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+Always use the tag that is
+providing the proper semantic: for a list use &lt;code>&amp;lt;ul&amp;gt;&lt;/code> and &lt;code>&amp;lt;li&amp;gt;&lt;/code>, not &lt;code>&amp;lt;br /&amp;gt;&lt;/code>.
+&lt;/div></description></item><item><title>About: Syntax</title><link>/about/contributing/syntax/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/contributing/syntax/</guid><description>
+&lt;p>&lt;a href="https://gohugo.io/getting-started/configuration-markup/">Hugo&lt;/a>, the tool used
+to generate the static site from the source code, is using
+&lt;a href="https://github.com/yuin/goldmark/">goldmark&lt;/a> to parse and render markdown.&lt;/p>
+&lt;p>It&amp;rsquo;s compliant with &lt;a href="https://spec.commonmark.org/0.29/">CommonMark&lt;/a> and
+&lt;a href="https://github.github.com/gfm/">GitHub Flavored Markdown&lt;/a> which is also based
+on CommonMark.&lt;/p>
+&lt;p>Markdown provides various elements, and Hugo adds the support of &lt;em>shortcodes&lt;/em> a
+feature allowing to use templates for easily including or displaying content,
+from image inclusion to advanced display structures.&lt;/p>
+&lt;p>For references The following shortcodes are available:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://gohugo.io/content-management/shortcodes/">Hugo&amp;rsquo;s shortcodes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.docsy.dev/docs/adding-content/shortcodes/">Docsy theme shortcodes&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="linking-to-another-page">Linking to another page&lt;/h3>
+&lt;p>You can use the path to the other page:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">This is a link to [&lt;span style="color:#204a87;font-weight:bold">another page&lt;/span>](&lt;span style="color:#c4a000">../my-other-page&lt;/span>).
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="linking-to-another-section-in-the-same-page">Linking to another section in the same page&lt;/h3>
+&lt;p>You need to use an anchor targeting the section name, putting it in lower case
+and adding dashes to separate words:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">This is a test of linking to a specic [&lt;span style="color:#204a87;font-weight:bold">section&lt;/span>](&lt;span style="color:#c4a000">#the-section-header&lt;/span>)
+&lt;span style="color:#800080;font-weight:bold">## The section header
+&lt;/span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>
+Second section content.
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="adding-an-information-or-warning-message">Adding an information or warning message&lt;/h3>
+&lt;p>This is achieved using
+&lt;a href="https://www.docsy.dev/docs/adding-content/shortcodes/">Docsy shortcodes&lt;/a>.&lt;/p>
+&lt;h4 id="general-message">General message&lt;/h4>
+&lt;p>The following code:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">{{% pageinfo %}} This is a placeholder. {{% /pageinfo %}}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Will render as:&lt;/p>
+&lt;div class="pageinfo pageinfo-primary">
+This is a placeholder.
+&lt;/div>
+&lt;h4 id="note-or-information-message">Note or information message&lt;/h4>
+&lt;p>The following code:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">{{% alert title=&amp;#34;Note&amp;#34; color=&amp;#34;info&amp;#34; %}} This is a Note. {{% /alert %}}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Will render as:&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is a Note.
+&lt;/div>
+&lt;h4 id="warning-message">Warning message&lt;/h4>
+&lt;p>The following code:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">{{% alert title=&amp;#34;Warning&amp;#34; color=&amp;#34;warning&amp;#34; %}} This is a warning.
+{{% /alert %}}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Will render as:&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This is a warning.
+&lt;/div>
+&lt;h3 id="including-file-snippets">Including file snippets&lt;/h3>
+&lt;p>The code should be surrounded with three backticks and include the file type as
+a parameter.&lt;/p>
+&lt;p>The supported languages are dependant on the syntax highlighter, which depends
+itself on the mardkown parser.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+For &lt;a href="https://gohugo.io/">Hugo&lt;/a> the
+&lt;a href="https://github.com/yuin/goldmark">goldmark parser&lt;/a> is used and it relies on the
+&lt;a href="https://github.com/alecthomas/chroma">Chroma highlighter&lt;/a>.
+&lt;/div>
+&lt;p>The list of languages supported by chroma can be found in their
+&lt;a href="https://github.com/alecthomas/chroma#supported-languages">GitHub repository&lt;/a>.&lt;/p>
+&lt;p>The following code should be used for a shell excerpt:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="color:#4e9a06">```sh
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>ssh-keygen -f fedcloud
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$HOME&lt;/span>
+&lt;span style="color:#4e9a06">```&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Will render as:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">ssh-keygen -f fedcloud
+&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$HOME&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="including-images">Including images&lt;/h3>
+&lt;p>The image files should be stored next to the markdown file that is including
+them.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+The image files should have a meaningful
+name (like &lt;code>datahub-replica-management.png&lt;/code>).
+&lt;/div>
+&lt;p>The following code is used to include an image, providing a meaningful
+alternative text:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">![&lt;span style="color:#204a87;font-weight:bold">Viewing file distribution over the Oneproviders&lt;/span>](&lt;span style="color:#c4a000">datahub-replica-management.png&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>About: Using Git and GitHub</title><link>/about/contributing/git/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/about/contributing/git/</guid><description>
+&lt;p>For collaboration purposes, it is best if you create a GitHub account and fork
+the repository to your own account. Once you do this you will be able to push
+your changes to your GitHub repository for others to see and use, and it will be
+easier to send pull requests.&lt;/p>
+&lt;p>If you are new to &lt;code>git&lt;/code> and &lt;strong>GitHub&lt;/strong> you are advised to start by the two
+following articles providing simple tutorials:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://opensource.com/article/18/1/step-step-guide-git">Step by step guide to git&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://opensource.com/article/19/7/create-pull-request-github">Creating pull request with GitHub&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>GitHub official documentation is available at
+&lt;a href="https://docs.github.com/en/github">docs.github.com&lt;/a>.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Tips&lt;/h4>
+The
+&lt;a href="https://github.com/firstcontributions/first-contributions">first-contributions&lt;/a>
+is a repository allowing anyone to freely learn and test creating a real Pull
+Request to an existing GitHub repository.
+&lt;/div>
+&lt;p>Additional documentation about the main steps for working with GitHub is also
+available in this section.&lt;/p>
+&lt;h2 id="the-github-flow">The GitHub flow&lt;/h2>
+&lt;p>In order to be able to send code update to the repository you need to:&lt;/p>
+&lt;ul>
+&lt;li>fork the repository to your GitHub account&lt;/li>
+&lt;li>clone the repository on your local computer&lt;/li>
+&lt;li>create a &lt;em>feature branch&lt;/em> where you will commit your changes&lt;/li>
+&lt;li>push the &lt;em>feature branch&lt;/em> to the repository fork in your GitHub account&lt;/li>
+&lt;li>open a Pull Request against the upstream repository&lt;/li>
+&lt;/ul>
+&lt;p>In this process three git repositories are used:&lt;/p>
+&lt;ul>
+&lt;li>The &lt;em>upstream&lt;/em> repository: EGI-Foundation/documentation&lt;/li>
+&lt;li>Your fork, also named &lt;em>origin&lt;/em>: &amp;lt;your_username&amp;gt;/documentation&lt;/li>
+&lt;li>A local clone of your fork, containing references to your fork, its &lt;em>origin&lt;/em>
+and to the &lt;em>upstream&lt;/em> repository&lt;/li>
+&lt;/ul>
+&lt;h2 id="adding-an-ssh-key-to-your-github-account">Adding an SSH key to your GitHub account&lt;/h2>
+&lt;p>The most convenient way to authenticate with GitHub is to use SSH keys over the
+SSH protocol.&lt;/p>
+&lt;p>You can add an SSH &lt;em>public&lt;/em> key to your GitHub account in the &lt;code>Settings&lt;/code> on
+GitHub, at &lt;a href="https://github.com/settings/keys">https://github.com/settings/keys&lt;/a>.&lt;/p>
+&lt;p>Refer to
+&lt;a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/connecting-to-github-with-ssh">Connecting to GitHub with SSH&lt;/a>
+for an extensive documentation on using SSH keys with GitHub.&lt;/p>
+&lt;p>It&amp;rsquo;s worth to mention that your ssh &lt;em>public&lt;/em> keys can easily be retrieved using
+an URL like &lt;code>https://github.com/&amp;lt;your_username&amp;gt;.keys&lt;/code>.&lt;/p>
+&lt;p>In order to manage repositories over ssh, you will will have to clone them via
+SSH, not HTTPS.&lt;/p>
+&lt;p>If you already have a local clone of a repository created via HTTPS, you can
+switch it to SSH by following
+&lt;a href="https://docs.github.com/en/free-pro-team@latest/github/using-git/changing-a-remotes-url#switching-remote-urls-from-https-to-ssh">Switching remote URLs from HTTPS to SSH&lt;/a>.&lt;/p>
+&lt;h2 id="starting-with-the-github-cli">Starting with the GitHub CLI&lt;/h2>
+&lt;p>The GitHub Command Line Interface greatly helps with working with GitHub
+repositories from a terminal.&lt;/p>
+&lt;p>It can be installed using the packages available on
+&lt;a href="https://cli.github.com/">their homepage&lt;/a>. There is also a
+&lt;a href="https://cli.github.com/manual/">manual&lt;/a>.&lt;/p>
+&lt;p>Once installed you will have to start by setting up authentication.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Authenticate with GitHub&lt;/span>
+gh auth login
+&lt;span style="color:#8f5902;font-style:italic"># Favor ssh protocol&lt;/span>
+gh config &lt;span style="color:#204a87">set&lt;/span> git_protocol ssh
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="working-with-repositories">Working with repositories&lt;/h2>
+&lt;p>The easiest way is to do it via the GitHub CLI that will also clone it locally.
+But it can also be done via the web interface, using the &lt;em>fork&lt;/em> button and then
+cloning it locally manually.&lt;/p>
+&lt;h3 id="forking-and-cloning">Forking and cloning&lt;/h3>
+&lt;p>This command will fork the repository to your GitHub account and clone a local
+copy for you to work with.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh repo fork EGI-Foundation/documentation
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cloning-the-fork">Cloning the fork&lt;/h3>
+&lt;p>If you want to clone an existing fork you should use:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh repo clone &amp;lt;your_username&amp;gt;/documentation
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="validating-the-local-clone">Validating the local clone&lt;/h3>
+&lt;p>If your local clone of you fork is correctly setup you should see references to
+the origin and upstream repositories.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git remote -v
+origin git@github.com:&amp;lt;your_username&amp;gt;/documentation &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>fetch&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+origin git@github.com:&amp;lt;your_username&amp;gt;/documentation &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>push&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+upstream git@github.com:EGI-Foundation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>fetch&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+upstream git@github.com:EGI-Foundation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>push&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="running-the-site-locally">Running the site locally&lt;/h2>
+&lt;p>The documentation webiste is built from the source files using
+&lt;a href="https://gohugo.io/">Hugo&lt;/a>. The repository
+&lt;a href="https://github.com/EGI-Foundation/documentation/blob/master/README.md">README&lt;/a>
+can be used as a reference for building instructions.&lt;/p>
+&lt;h3 id="requirements">Requirements&lt;/h3>
+&lt;ul>
+&lt;li>mdl&lt;/li>
+&lt;li>hugo&lt;/li>
+&lt;li>NodeJS
+&lt;ul>
+&lt;li>postcss-cli&lt;/li>
+&lt;li>autoprofixer&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="building-and-testing">Building and testing&lt;/h3>
+&lt;p>To install npm+nodejs please check the instructions at:
+&lt;a href="https://www.npmjs.com/get-npm">https://www.npmjs.com/get-npm&lt;/a>&lt;/p>
+&lt;p>The rest of the tools can be installed as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gem install mdl
+npm install postcss-cli@7.1.2
+npm install autoprefixer@9.0
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The supported Hugo version packages are available under the &lt;code>binaries&lt;/code> folder.&lt;/p>
+&lt;p>To build and run the site, from the repository root&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">git submodule update --init --recursive --depth &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+mdl -s relaxed -s style.rb -r ~MD002,~MD024 content/
+&lt;span style="color:#8f5902;font-style:italic"># Pick the repository specific to your platform&lt;/span>
+./binaries/&amp;lt;platform&amp;gt;/hugo server -D
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The website is available at: &lt;a href="http://localhost:1313/">http://localhost:1313/&lt;/a>.&lt;/p>
+&lt;h2 id="branches-and-commits">Branches and Commits&lt;/h2>
+&lt;p>You should submit your patch as a git branch ideally named with a meaningful
+name related to the changes you want to propose. This is called a &lt;em>feature
+branch&lt;/em> (sometimes also named &lt;em>topic branch&lt;/em>). You will commit your
+modifications to this &lt;em>feature branch&lt;/em> and submit a Pull Request (PR) based on
+the differences between the upstream master branch and your &lt;em>feature branch&lt;/em>.&lt;/p>
+&lt;h3 id="creating-a-feature-branch">Creating a feature branch&lt;/h3>
+&lt;p>Try to avoid committing changes to the &lt;em>master&lt;/em> branch of your clone to simplify
+management, creating a dedicated &lt;em>feature branch&lt;/em> helps a lot. Try to pick a
+meaningful name for the branch (my_nice_update in the example).&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># This should be done from the up-to-date master branch&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Read furthermore to see documentation on updating a local clone&lt;/span>
+git checkout -b my_nice_update
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="writing-changes">Writing changes&lt;/h2>
+&lt;p>The documentation being made of plain text files you are free to use whatever
+text editor or Integrated Development Environment (IDE) suits you, from
+&lt;a href="https://neovim.io/">neovim&lt;/a> to
+&lt;a href="https://code.visualstudio.com/">Visual Studio Code&lt;/a>.&lt;/p>
+&lt;p>Some environments may provide you plugins helping with syntax or offering a
+preview, they are worth checking.&lt;/p>
+&lt;p>Be sure to commit files with having been formated using
+&lt;a href="https://prettier.io/">Prettier&lt;/a> as documented in our &lt;a href="../style/">style guide&lt;/a>.&lt;/p>
+&lt;h2 id="committing-changes">Committing changes&lt;/h2>
+&lt;p>It is the best practice to have your commit message have a &lt;em>summary line&lt;/em> that
+includes the issue number, followed by an empty line and then a brief
+description of the commit. This also helps other contributors understand the
+purpose of changes to the code.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text"> #3 - platform_family and style
+* use platform_family for platform checking
+* update notifies syntax to &amp;#34;resource_type[resource_name]&amp;#34; instead of
+resources() lookup
+* GH-692 - delete config files dropped off by packages in conf.d
+* dropped debian 4 support because all other platforms have the same
+values, and it is older than &amp;#34;old stable&amp;#34; debian release
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Select the modified files to be committed&lt;/span>
+git add files1 path2/
+&lt;span style="color:#8f5902;font-style:italic"># Commit the changes&lt;/span>
+git commit -m &amp;lt;commit_message&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pushing-the-feature-branch-to-the-fork-for-preparing-a-pr">Pushing the feature branch to the fork for preparing a PR&lt;/h2>
+&lt;p>From inside a feature branch you can push it to your remote fork.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Ask git to keep trace of the link between local and remote branches&lt;/span>
+git push --set-upstream
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done &lt;code>git&lt;/code> output will show a URL that you can click to generate a Pull
+Request (PR).&lt;/p>
+&lt;p>Accessing GitHub upstream or fork repositories may also propose you to submit a
+PR.&lt;/p>
+&lt;p>If needed GitHub CLI can also be used to prepare the PR:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh pr create &amp;lt;your_username&amp;gt;:&amp;lt;feature_branch&amp;gt; --web
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="updating-the-local-feature-branch-with-changes-made-on-the-pr">Updating the local feature branch with changes made on the PR&lt;/h3>
+&lt;p>Once you PR have been opened it will be reviewed, and reviewers can propose and
+commit changes to your PR. If you need to make further changes be sure to update
+the local clone with the remote changes.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Retrieve changes made on your PR in the upstream repository&lt;/span>
+git pull
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then you can commit new changes and push them to your remote fork.&lt;/p>
+&lt;h2 id="updating-a-repository-clone-with-the-upstream-changes">Updating a repository clone with the upstream changes&lt;/h2>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># If you are still in a branch created for a previous PR, move to master&lt;/span>
+git checkout master
+&lt;span style="color:#8f5902;font-style:italic"># Get the latest data from the upstream repository&lt;/span>
+git fetch upstream
+&lt;span style="color:#8f5902;font-style:italic"># Update your local copy with this data&lt;/span>
+git rebase upstream/master master
+&lt;span style="color:#8f5902;font-style:italic"># Update your remote GitHub fork with those changes&lt;/span>
+git push
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="updating-a-local-feature-branch-with-changes-made-on-the-master-branch">Updating a local feature branch with changes made on the master branch&lt;/h2>
+&lt;p>In case the &lt;em>master&lt;/em> branch evolved since the feature branch was created, it may
+be required to merge the new changes in the feature branch.&lt;/p>
+&lt;p>It can easily be done via the PR page on the GitHub web interface, but it can
+also be done in your repository clone using &lt;code>git rebase&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Retrieve changes made in the upstream repository&lt;/span>
+git fetch upstream
+&lt;span style="color:#8f5902;font-style:italic"># Check out the feature branch&lt;/span>
+git checkout feature_branch
+&lt;span style="color:#8f5902;font-style:italic"># Apply the new changes on main to your feature branch&lt;/span>
+git rebase upstream/master
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>In case some files have been changed on both sides you will will have to merge
+the conflicts manually.&lt;/p>
+&lt;h2 id="cloning-a-pull-request-to-edit-test-and-review-it-locally">Cloning a Pull Request to edit, test and review it locally&lt;/h2>
+&lt;p>It&amp;rsquo;s possible to clone a Pull Request to a local branch to test it locally. It&amp;rsquo;s
+done using the PR number.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># List available PR and their identifiers.&lt;/span>
+gh pr list
+&lt;span style="color:#8f5902;font-style:italic"># Clone specific PR&lt;/span>
+gh pr checkout XX
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once done it&amp;rsquo;s possible to build and run the site locally:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># From the root of the repository clone&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># Here on MacOS X, adapt depending on your platform&lt;/span>
+./binaries/macos64/hugo server -D
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The documentation will then be accessible on
+&lt;a href="http://localhost:1313">http://localhost:1313&lt;/a>.&lt;/p>
+&lt;blockquote>
+&lt;p>People having write access to the repository hosting the branch related to the
+PR (ie. usually the PR author) will be able to add and edit files.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># From the local clone of the repository&lt;/span>
+gh pr checkout XXX
+vim yyy.zz
+git add yyy.zz
+git commit yyy.zz -m &amp;lt;commit_message&amp;gt;
+git push
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="updating-a-local-clone-of-a-pr">Updating a local clone of a PR&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># It will ask you to merge changes&lt;/span>
+git pull
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Then you can refer to the &lt;code>README.md&lt;/code> to see how to test it locally.&lt;/p>
+&lt;p>In case the PR got commits that were forced pushed you may have troubles, in
+that case it may be easier to
+&lt;a href="#cleaning-a-local-clone-of-a-pr">delete the local branch&lt;/a> and do another
+&lt;a href="#cloning-a-pull-request-to-test-and-review-it-locally">checkout of the PR&lt;/a>.&lt;/p>
+&lt;h3 id="cleaning-a-local-clone-of-a-pr">Cleaning a local clone of a PR&lt;/h3>
+&lt;p>In case you have troubles updating the local clone, as it can happens if changes
+were forced pushed to it, it maybe easier to delete the local copy of the PR and
+recreate it.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Switch to main branch&lt;/span>
+git checkout master
+&lt;span style="color:#8f5902;font-style:italic"># Check local branches&lt;/span>
+git branch -vv
+&lt;span style="color:#8f5902;font-style:italic"># Delete a specific branch&lt;/span>
+git branch -d &amp;lt;branch_name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># If you need to force the deletion use -D&lt;/span>
+git branch -D &amp;lt;branch_name&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="using-git-stash-to-save-changes-for-later-usage">Using git stash to save changes for later usage&lt;/h2>
+&lt;p>Sometimes we realise just before committing a change that we are not in the
+correct branch (ie. that we forgot to create a dedicated feature branch), when
+this happens &lt;code>git stash&lt;/code> can be helpful.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Saving a change&lt;/span>
+git stash save &amp;lt;optional message&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Creating the forgotten branch&lt;/span>
+git checkout -b &amp;lt;my_feature_branch&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Reviewing the saved changes, use TAB completion&lt;/span>
+git stash show &amp;lt;TAB&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Applying the saved changes, use TAB completion&lt;/span>
+git stash pop &amp;lt;TAB&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Review the changes to be committed&lt;/span>
+git diff
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>If you already committed your change(s) you may have to look at &lt;code>git reset&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#8f5902;font-style:italic"># Viewing the diff of the two last commits&lt;/span>
+git log -n &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> -p
+&lt;span style="color:#8f5902;font-style:italic"># Reverting the last change, keeping the change in the local directory&lt;/span>
+git reset HEAD^
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
