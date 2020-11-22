@@ -1,4 +1,109 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – EC3</title><link>/users/cloud-compute/ec3/</link><description>Recent content in EC3 on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/cloud-compute/ec3/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Introduction</title><link>/users/cloud-compute/ec3/basics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/basics/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – EC3</title><link>/users/cloud-compute/ec3/</link><description>Recent content in EC3 on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/cloud-compute/ec3/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: EC3 portal</title><link>/users/cloud-compute/ec3/portal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/portal/</guid><description>
+&lt;h2 id="deploy-cluster">Deploy cluster&lt;/h2>
+&lt;p>Through a &amp;ldquo;job wizard&amp;rdquo; interface the user can login to the
+&lt;a href="https://servproject.i3m.upv.es/ec3-ltos/index.php">Elastic Cloud Compute Cluster (EC3) portal&lt;/a>
+and configure the virtual cluster with the related tools and applications to be
+deployed in the EGI Cloud. Click on the “Deploy your cluster” button to create a
+cluster in the EGI Cloud.&lt;/p>
+&lt;p>&lt;img src="ec3-portal.png" alt="EC3 Portal.">&lt;/p>
+&lt;p>The cluster is composed of a front node, where a batch job scheduler is running,
+and a number of compute nodes. These compute nodes will be dynamically deployed
+and provisioned to fit increasing load, and un-deployed when they are in idle
+status. The installation and configuration of the cluster is performed by means
+of the execution of Ansible receipts.&lt;/p>
+&lt;p>A wizard will guide the user during the configuration process of the cluster,
+allowing to configure details like the operating system, the characteristics of
+the nodes, the maximum number of nodes of the cluster or the pre-installed
+software packages. Specifically, the general wizard steps include:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>LRMS&lt;/strong> selection: choose &lt;strong>Torque&lt;/strong> from the list of LRMSs (Local Resource
+Management System) that can be automatically installed and configured by EC3.&lt;/p>
+&lt;p>&lt;img src="ec3-lrms.png" alt="Configure the LRMS of the EC3 cluster">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Endpoint&lt;/strong>: the endpoints of the providers where to deploy the elastic
+cluster. The endpoints serving the
+&lt;a href="https://operations-portal.egi.eu/vo/view/voname/vo.access.egi.eu">vo.access.egi.eu VO&lt;/a>
+are dynamically retrieved from the
+&lt;a href="https://appdb.egi.eu/">EGI Application DataBase&lt;/a> using REST APIs.&lt;/p>
+&lt;p>&lt;img src="ec3-endpoint.png" alt="Select the provider’s endpoint where deploy the cluster">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Operating System&lt;/strong>: choose one of the available EGI base OS images
+available to create the cluster (e.g. CentOS7, or EGI Ubuntu 18.04 LTS).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Instance details&lt;/strong>: in terms of CPU and RAM to allocate for the front-end
+and the working nodes.&lt;/p>
+&lt;p>&lt;img src="ec3-nodes.png" alt="Configure of the cluster nodes">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Cluster’s size and name&lt;/strong>: the name of the cluster and the maximum number
+of nodes of the cluster, without including the front-end. This value
+indicates the maximum number of working nodes that the cluster can scale.
+Initially, the cluster is created with the front-end and only one working
+node: the other working nodes are powered on on-demand.&lt;/p>
+&lt;p>&lt;img src="ec3-size.png" alt="Select the maximum number of nodes">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Resume and Launch&lt;/strong>: a summary of the chosen cluster configuration. To
+start the deployment process, click the Submit button.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+The configuration of the cluster may
+take some time. Please wait for its completion before starting to use the
+cluster!
+&lt;/div>
+&lt;p>When the front-end node of the cluster has been successfully deployed, the user
+will be notified with the credentials to access via SSH.&lt;/p>
+&lt;p>The cluster details are available by clicking on the &lt;strong>&amp;ldquo;Manage your deployed
+clusters&amp;rdquo;&lt;/strong> link on the front page.&lt;/p>
+&lt;h2 id="accessing-the-ec3-cluster">Accessing the EC3 cluster&lt;/h2>
+&lt;p>To access the front-end of the elastic cluster:&lt;/p>
+&lt;ol>
+&lt;li>Download the SSH private key provided by the EC3 portal;&lt;/li>
+&lt;li>Change its permissions to 600;&lt;/li>
+&lt;li>Access via SSH providing the key as identity file for public key
+authentication.&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ ssh -i key.pem cloudadm@&amp;lt;CLUSTER_PUBLIC_IP&amp;gt;
+Last login: Mon Nov &lt;span style="color:#0000cf;font-weight:bold">18&lt;/span> 11:37:29 &lt;span style="color:#0000cf;font-weight:bold">2019&lt;/span> from torito.i3m.upv.es
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>cloudadm@server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both the front-end and the working node are configured by Ansible. This process
+usually takes some time. User can monitor the status of the cluster
+configuration using the &lt;code>is_cluster_ready&lt;/code> command-line tool:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># is_cluster_ready&lt;/span>
+Cluster is still configuring.
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The cluster is successfully configured when the command returns the following
+message:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># is_cluster_ready&lt;/span>
+Cluster configured!
+node state enabled &lt;span style="color:#204a87">time&lt;/span> stable &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> used &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> total
+&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ clues status
+node state enabled &lt;span style="color:#204a87">time&lt;/span> stable &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> used &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> total
+-----------------------------------------------------------------------
+wn1 off enabled 00h04&lt;span style="color:#4e9a06">&amp;#39;20&amp;#34; 0,0 1,-1
+&lt;/span>&lt;span style="color:#4e9a06">wn2 off enabled 00h04&amp;#39;&lt;/span>20&lt;span style="color:#4e9a06">&amp;#34; 0,0 1,-1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="operate-the-ec3-cluster">Operate the EC3 cluster&lt;/h2>
+&lt;p>To force CLUES to spawn a new node of the cluster, please use the command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ clues poweron wn1
+node wn1 powered on
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The configuration triggers the execution of several ansible processes to
+configure the node and may take some time. To monitor the configuration of the
+node, you can use the &lt;code>is_cluster_ready&lt;/code> command.&lt;/p>
+&lt;p>To avoid that clues powers off the node in case of inactivities, once the node
+is configured, you can disable the node as it follows:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ clues disable wn1
+node wn1 successfully disabled
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log-files">Log files&lt;/h2>
+&lt;ul>
+&lt;li>Cluster logs files are available in &lt;code>/var/tmp/.im/&amp;lt;cluster_id&amp;gt;&lt;/code>&lt;/li>
+&lt;li>IM log files are in &lt;code>/var/log/im/im.log&lt;/code>&lt;/li>
+&lt;li>CLUES log files are in &lt;code>/var/log/clues2/clues2.log&lt;/code>&lt;/li>
+&lt;/ul></description></item><item><title>Users: EC3 CLI</title><link>/users/cloud-compute/ec3/cli/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/cli/</guid><description>
 &lt;p>You can find here documentation on how to deploy a sample SLURM cluster, which
 you can then adapt to create other kind of clusters easily.&lt;/p>
 &lt;h2 id="getting-started">Getting started&lt;/h2>
@@ -222,372 +327,41 @@ mycluster configured 193.144.46.234 &lt;span style="color:#0000cf;font-weight:bo
 $ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 destroy mycluster -a auth.dat -y
 WARNING: you are going to delete the infrastructure &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>including frontend and nodes&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>.
 Success deleting the cluster!
-&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length --></description></item><item><title>Users: HTC</title><link>/users/cloud-compute/ec3/htc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/htc/</guid><description>
-&lt;h2 id="templates">Templates&lt;/h2>
-&lt;p>We will build a torque cluster on one of the EGI Cloud providers using EC3.
-Create a directory to store EC3 configuration and init it with &lt;code>egicli&lt;/code>:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mkdir -p torque
-&lt;span style="color:#204a87">cd&lt;/span> torque
-egicli endpoint ec3 --site &amp;lt;your site&amp;gt; --project-id &amp;lt;project_id&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>We will use the following templates:&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>torque&lt;/code> (from ec3 default templates)&lt;/li>
-&lt;li>&lt;code>nfs&lt;/code> (from ec3 detault templates),&lt;/li>
-&lt;li>&lt;code>ubuntu-1604&lt;/code> (user&amp;rsquo;s template),&lt;/li>
-&lt;li>&lt;code>cluster_configure&lt;/code> (user&amp;rsquo;s template)&lt;/li>
-&lt;/ol>
-&lt;p>You can find the content below (make sure that you adapt them to your needs):&lt;/p>
-&lt;p>&lt;code>templates/ubuntu-1604.radl&lt;/code> specifies the VM image to use in the deployment:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext">description ubuntu-1604 (
-kind = &amp;#39;images&amp;#39; and
-short = &amp;#39;Ubuntu 16.04&amp;#39; and
-content = &amp;#39;FEDCLOUD Image for EGI Ubuntu 16.04 LTS [Ubuntu/16.04/VirtualBox]&amp;#39;
-)
-system front (
-cpu.arch = &amp;#39;x86_64&amp;#39; and
-cpu.count &amp;gt;= 4 and
-memory.size &amp;gt;= 8196 and
-disk.0.os.name = &amp;#39;linux&amp;#39; and
-disk.0.image.url = &amp;#39;ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;&amp;#39; and
-disk.0.os.credentials.username = &amp;#39;ubuntu&amp;#39;
-)
-system wn (
-cpu.arch = &amp;#39;x86_64&amp;#39; and
-cpu.count &amp;gt;= 2 and
-memory.size &amp;gt;= 2048m and
-ec3_max_instances = 10 and # maximum number of working nodes in the cluster
-disk.0.os.name = &amp;#39;linux&amp;#39; and
-disk.0.image.url = &amp;#39;ost://&amp;lt;url&amp;gt;/&amp;lt;image_id&amp;gt;&amp;#39; and
-disk.0.os.credentials.username = &amp;#39;ubuntu&amp;#39;
-)
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>templates/cluster_configure.radl&lt;/code> customises the torque deployment to match our
-needs:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext">configure front (
-@begin
----
-- vars:
-- USERS:
-- { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
-- { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
-[..]
-tasks:
-- user:
-name: &amp;#34;{{ item.name }}&amp;#34;
-password: &amp;#34;{{ item.password }}&amp;#34;
-shell: /bin/bash
-append: yes
-state: present
-with_items: &amp;#34;{{ USERS }}&amp;#34;
-- name: Install missing dependences in Debian system
-apt: pkg={{ item }} state=present
-with_items:
-- build-essential
-- mpich
-- gcc
-- g++
-- vim
-become: yes
-when: ansible_os_family == &amp;#34;Debian&amp;#34;
-- name: SSH without password
-include_role:
-name: grycap.ssh
-vars:
-ssh_type_of_node: front
-ssh_user: &amp;#34;{{ user.name }}&amp;#34;
-loop: &amp;#39;{{ USERS }}&amp;#39;
-loop_control:
-loop_var: user
-- name: Updating the /etc/hosts.allow file
-lineinfile:
-path: /etc/hosts.allow
-line: &amp;#39;sshd: XXX.XXX.XXX.*&amp;#39;
-become: yes
-- name: Updating the /etc/hosts.deny file
-lineinfile:
-path: /etc/hosts.deny
-line: &amp;#39;ALL: ALL&amp;#39;
-become: yes
-@end
-)
-configure wn (
-@begin
----
-- vars:
-- USERS:
-- { name: user01, password: &amp;lt;PASSWORD&amp;gt; }
-- { name: user02, password: &amp;lt;PASSWORD&amp;gt; }
-[..]
-tasks:
-- user:
-name: &amp;#34;{{ item.name }}&amp;#34;
-password: &amp;#34;{{ item.password }}&amp;#34;
-shell: /bin/bash
-append: yes
-state: present
-with_items: &amp;#34;{{ USERS }}&amp;#34;
-- name: Install missing dependences in Debian system
-apt: pkg={{ item }} state=present
-with_items:
-- build-essential
-- mpich
-- gcc
-- g++
-- vim
-become: yes
-when: ansible_os_family == &amp;#34;Debian&amp;#34;
-- name: SSH without password
-include_role:
-name: grycap.ssh
-vars:
-ssh_type_of_node: wn
-ssh_user: &amp;#34;{{ user.name }}&amp;#34;
-loop: &amp;#39;{{ USERS }}&amp;#39;
-loop_control:
-loop_var: user
-- name: Updating the /etc/hosts.allow file
-lineinfile:
-path: /etc/hosts.allow
-line: &amp;#39;sshd: XXX.XXX.XXX.*&amp;#39;
-become: yes
-- name: Updating the /etc/hosts.deny file
-lineinfile:
-path: /etc/hosts.deny
-line: &amp;#39;ALL: ALL&amp;#39;
-become: yes
-@end
-)
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="create-the-cluster">Create the cluster&lt;/h2>
-&lt;p>Deploy the cluster using ec3 docker image:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> grycap/ec3 launch torque_cluster &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> torque nfs ubuntu-1604 refresh cluster_configure &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -a auth.dat
-Creating infrastructure
-Infrastructure successfully created with ID: 529c62ec-343e-11e9-8b1d-300000000002
-Front-end state: launching
-Front-end state: pending
-Front-end state: running
-IP: 212.189.145.XXX
-Front-end configured with IP 212.189.145.XXX
-Transferring infrastructure
-Front-end ready!
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>To access the cluster, use the command:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -ti -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 ssh torque_cluster
-Warning: Permanently added &lt;span style="color:#4e9a06">&amp;#39;212.189.145.140&amp;#39;&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>ECDSA&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> to the list of known hosts.
-Welcome to Ubuntu 14.04.5 LTS &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>GNU/Linux 3.13.0-164-generic x86_64&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-* Documentation: https://help.ubuntu.com/
-Last login: Tue Feb &lt;span style="color:#0000cf;font-weight:bold">19&lt;/span> 13:04:45 &lt;span style="color:#0000cf;font-weight:bold">2019&lt;/span> from servproject.i3m.upv.es
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="configuration-of-the-cluster">Configuration of the cluster&lt;/h2>
-&lt;h3 id="enable-password-based-authentication">Enable Password-based authentication&lt;/h3>
-&lt;p>Change settings in &lt;code>/etc/ssh/sshd_config&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext"># Change to no to disable tunnelled clear text passwords
-PasswordAuthentication yes
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>and restart the ssh daemon:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo service ssh restart
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="configure-the-number-of-processors-of-the-cluster">Configure the number of processors of the cluster&lt;/h3>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ cat /var/spool/torque/server_priv/nodes
-wn1 &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>XX
-wn2 &lt;span style="color:#000">np&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>XX
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>To obtain the number of CPU/cores (np) in Linux, use the command:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ lscpu &lt;span style="color:#000;font-weight:bold">|&lt;/span> grep -i CPU
-CPU op-mode&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: 32-bit, 64-bit
-CPU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: &lt;span style="color:#0000cf;font-weight:bold">16&lt;/span>
-On-line CPU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> list: 0-15
-CPU family: &lt;span style="color:#0000cf;font-weight:bold">6&lt;/span>
-Model name: Intel&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>R&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> Xeon&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>R&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> CPU E5520 @ 2.27GHz
-CPU MHz: 2266.858
-NUMA node0 CPU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: 0-3,8-11
-NUMA node1 CPU&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>: 4-7,12-15
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="test-the-cluster">Test the cluster&lt;/h3>
-&lt;p>Create a simple test script:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ cat test.sh
-&lt;span style="color:#8f5902;font-style:italic">#!/bin/bash&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#PBS -N job&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#PBS -q batch&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic">#cd $PBS_O_WORKDIR/&lt;/span>
-hostname -f
-sleep &lt;span style="color:#0000cf;font-weight:bold">5&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Submit to the batch queue:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">qsub -l &lt;span style="color:#000">nodes&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> test.sh
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="destroy-the-cluster">Destroy the cluster&lt;/h2>
-&lt;p>To destroy the running cluster, use the command:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 destroy torque_cluster
-WARNING: you are going to delete the infrastructure &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>including frontend and nodes&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>.
-Continue &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>y/N&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>? y
-Success deleting the cluster!
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Users: ECAS</title><link>/users/cloud-compute/ec3/ecas/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/ecas/</guid><description>
-&lt;p>The following guide is intended for researchers who want to use ECAS, a complete
-environment enabling data analysis experiments, in the EGI cloud.&lt;/p>
-&lt;p>ECAS (ENES Climate Analytics Service) is part of the EOSC-hub service catalog
-and aims to:&lt;/p>
-&lt;ol>
-&lt;li>provide server-based computation,&lt;/li>
-&lt;li>avoid data transfer, and&lt;/li>
-&lt;li>improve reusability of data and workflows.&lt;/li>
-&lt;/ol>
-&lt;p>It relies on &lt;a href="http://ophidia.cmcc.it/">Ophidia&lt;/a>, a data analytics framework for
-eScience, which provides declarative, server-side, and parallel data analysis,
-jointly with an internal storage model able to efficiently deal with
-multidimensional data and a hierarchical data organization to manage large data
-volumes (&amp;ldquo;datacubes&amp;rdquo;), and on JupyterHub, to give users access to ready-to-use
-computational environments and resources.&lt;/p>
-&lt;p>Thanks to the Elastic Cloud Compute Cluster (EC3) platform, operated by the
-&lt;a href="http://www.upv.es/index-en.html">Polytechnic University of Valencia (UPV)&lt;/a>,
-researchers will be able to rely on the EGI Cloud Compute service to scale up to
-larger simulations without being worried about the complexity of the underlying
-infrastructure.&lt;/p>
-&lt;p>This guide will show how to:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length --></description></item><item><title>Users: EC3 applications and tools</title><link>/users/cloud-compute/ec3/apps/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/apps/</guid><description>
+&lt;p>This section documents how to run some applications and use the existing tools
+with EC3.&lt;/p>
+&lt;h2 id="how-to-run-scientific-applications-in-ec3">How to run scientific applications in EC3&lt;/h2>
+&lt;h3 id="namd-cluster">NAMD cluster&lt;/h3>
+&lt;p>To deploy &lt;a href="https://www.ks.uiuc.edu/Research/namd/">NAMD&lt;/a> clusters, please
+select one of the available LRMS (Local Resource Management System) and
+choose NAMD from the list of applications.&lt;/p>
+&lt;h2 id="how-to-use-generic-toolspractices-in-ec3">How to use generic tools/practices in EC3&lt;/h2>
+&lt;h3 id="ecas-cluster">ECAS cluster&lt;/h3>
+&lt;p>Check the dedicated &lt;a href="./ecas/">ECAS documentation&lt;/a>.&lt;/p>
+&lt;h3 id="kubernetes">Kubernetes&lt;/h3>
+&lt;p>Check the
+&lt;a href="../../../cloud-container-compute">Cloud Container Compute documentation&lt;/a>.&lt;/p>
+&lt;h3 id="mesos--marathon--chronos">Mesos + Marathon + Chronos&lt;/h3>
+&lt;p>To deploy a virtual cluster with
+&lt;a href="https://mesosphere.github.io/marathon/">Marathon&lt;/a>,
+&lt;a href="http://mesos.apache.org/">Mesos&lt;/a>, and
+&lt;a href="https://mesos.github.io/chronos/">Chronos&lt;/a> as an orchestration,
+please select Mesos + Marathon + Chronos from the list of available LRMS.&lt;/p>
+&lt;h3 id="oscar-cluster">OSCAR cluster&lt;/h3>
+&lt;p>To deploy
+&lt;a href="https://www.egi.eu/about/newsletters/serverless-computing-for-data-processing-applications-in-egi/">Serverless computing for data-processing applications&lt;/a>
+in EGI, please select OSCAR from the list of LRMS (Local Resource Management
+System). Use cases of applications that use the OSCAR framework for
+event-driven high-throughput processing of files:&lt;/p>
 &lt;ul>
-&lt;li>deploy an ECAS elastic cluster of VMs in order to automatically install and
-configure the whole ECAS environment services, i.e. JupyterHub, PyOphidia,
-several Python libraries such as numpy, matplotlib and Basemap;&lt;/li>
-&lt;li>perform data intensive analysis using the Ophidia HPDA framework;&lt;/li>
-&lt;li>access the ECAS JupyterHub interface to create and share documents containing
-live code, equations, visualizations and explanatory text.&lt;/li>
+&lt;li>&lt;a href="https://github.com/indigo-dc/plant-classification-theano">Plants Classification&lt;/a>,
+an application that performs plant classification using Lasagne/Theano.&lt;/li>
+&lt;li>&lt;a href="https://www.imagemagick.org/">ImageMagick&lt;/a>, a tool to manipulate images.&lt;/li>
+&lt;li>&lt;a href="https://github.com/eubr-atmosphere/radiomics">Radiomics&lt;/a>, a use case about
+the handling of Rheumatic Heart Disease (RHD) through image computing and
+Artificial Intelligence (AI).&lt;/li>
 &lt;/ul>
-&lt;h2 id="deploy-an-ecas-cluster-with-ec3">Deploy an ECAS cluster with EC3&lt;/h2>
-&lt;p>In the latest release of the EC3 platform, tailored to support the EGI
-&lt;a href="../../../applications-on-demand">Applications on Demand (AoD) service&lt;/a>, a new
-Ansible receipt is now available for researchers interested to deploy ECAS
-cluster on the EGI Infrastuctrure. Additional details on how to configure and
-deploy an ECAS cluster on EGI resources are provided in the next sections.&lt;/p>
-&lt;p>ECAS in now available in the latest release of the EC3 platform supporting the
-EGI Applications on Demand (AoD). The next sections provide details on how to
-configure and deploy an ECAS cluster on EGI resources.&lt;/p>
-&lt;h3 id="configure-and-deploy-the-cluster">Configure and deploy the cluster&lt;/h3>
-&lt;p>To configure and deploy a Virtual Elastic Cluster using EC3, access the
-&lt;a href="https://servproject.i3m.upv.es/ec3-ltos/index.php">EC3 platform front page&lt;/a> and
-click on the &lt;strong>&amp;quot;Deploy your cluster&amp;quot;&lt;/strong> link as shown in the figure below:&lt;/p>
-&lt;p>&lt;img src="ecas-front.png" alt="EC3 front page.">&lt;/p>
-&lt;p>A wizard will guide you through the cluster configuration process. Specifically,
-the general wizard steps include:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>LRMS selection&lt;/strong>: choose &lt;strong>ECAS&lt;/strong> from the list of LRMSs (Local Resource
-Management System) that can be automatically installed and configured by EC3.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-lrms.png" alt="LRMS selection.">&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Endpoint&lt;/strong>: the endpoints of the providers where to deploy the ECAS elastic
-cluster. The endpoints serving the &lt;code>vo.access.egi.eu&lt;/code> VO are dynamically
-retrieved from the &lt;a href="https://appdb.egi.eu/">EGI Application DataBase&lt;/a> using
-REST APIs.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-endpoint.png" alt="Endpoint selection.">&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Operating System&lt;/strong>: choose EGI CentOS7 as cluster OS.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-os.png" alt="Operating System selection.">&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Instance details&lt;/strong>, in terms of CPU and RAM to allocate for the front-end
-and the working nodes.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-instance.png" alt="Instance details.">&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Cluster&amp;rsquo;s size and name&lt;/strong>: the name of the cluster and the maximum number of
-nodes of the cluster, without including the front-end. This value indicates
-the maximum number of working nodes that the cluster can scale to. Initially,
-the cluster is created with the front-end and only one working node: the other
-working nodes will be powered on on-demand.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-size.png" alt="Cluster size and name.">&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Resume and Launch&lt;/strong>: a summary of the chosen cluster configuration. To start
-the deployment process, click the Submit button.&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="ecas-summary.png" alt="Resume and Launch.">&lt;/p>
-&lt;p>When the front-end node of the cluster has been successfully deployed, you will
-be notified with the credentials to access via SSH.&lt;/p>
-&lt;p>&lt;img src="ecas-end.png" alt="ECAS cluster connection details.">&lt;/p>
-&lt;p>The cluster details are available by clicking on the &amp;quot;Manage your deployed
-clusters&amp;quot; link on the front page:&lt;/p>
-&lt;p>&lt;img src="ecas-manage.png" alt="Manage your clusters.">&lt;/p>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note&lt;/h4>
-The configuration of the cluster may
-take some time. Please wait for its completion before starting to start using
-the cluster.
-&lt;/div>
-&lt;h3 id="accessing-the-cluster">Accessing the cluster&lt;/h3>
-&lt;p>To access the front-end of the cluster:&lt;/p>
-&lt;ul>
-&lt;li>download the SSH private key provided by the EC3 portal;&lt;/li>
-&lt;li>change its permissions to &lt;code>600&lt;/code>;&lt;/li>
-&lt;li>access via SSH providing the key as identity file for public key
-authentication.&lt;/li>
-&lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>fabrizio@MBP EC3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ ssh -i key.pem cloudadm@134.158.151.218
-Last login: Mon Nov &lt;span style="color:#0000cf;font-weight:bold">18&lt;/span> 11:37:29 &lt;span style="color:#0000cf;font-weight:bold">2019&lt;/span> from torito.i3m.upv.es
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>cloudadm@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ sudo su -
-&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>root@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>#
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Both the front-end and the working node are configured by Ansible. This process
-usually takes some time. You can monitor the status of the cluster configuration
-using the &lt;code>is_cluster_ready&lt;/code> command-line tool:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>root@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># is_cluster_ready&lt;/span>
-Cluster is still configuring.
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The cluster is successfully configured when the command returns the following
-message:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>root@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># is_cluster_ready&lt;/span>
-Cluster configured!
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>As SLURM is used as workload manager, it is possible to check the status of the
-working nodes by using the sinfo command, which provides information about Slurm
-nodes and partitions.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>root@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># sinfo&lt;/span>
-PARTITION AVAIL TIMELIMIT NODES STATE NODELIST
-debug* up infinite &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> down* oph-io2
-debug* up infinite &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> idle oph-io1
-&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="accessing-the-scientific-eco-system">Accessing the scientific eco-system&lt;/h3>
-&lt;p>ECAS provides two different ways to get access to its scientific eco-system:
-Ophidia client (&lt;code>oph_term&lt;/code>) and JupyterHub.&lt;/p>
-&lt;h4 id="perform-some-basic-operations-with-ophidia">Perform some basic operations with Ophidia&lt;/h4>
-&lt;p>Run the Ophidia terminal as &lt;code>ophuser&lt;/code> user.&lt;/p>
-&lt;p>&lt;img src="ecas-oph_term.png" alt="Ophidia terminal.">&lt;/p>
-&lt;p>The default parameters are already defined as environmental variables inside the
-&lt;code>.bashrc&lt;/code> file:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_SERVER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;127.0.0.1&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_SERVER_PORT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;11732&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_PASSWD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;abcd&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_USER&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;oph-test&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create an empty container and a new datacube with random data and dimensions.&lt;/p>
-&lt;p>&lt;img src="ecas-container-1.png" alt="Create container (1).">&lt;/p>
-&lt;p>&lt;img src="ecas-container-2.png" alt="Create container (2).">&lt;/p>
-&lt;p>Now, you can submit your first operation of data transformation: let&amp;rsquo;s reduce
-the whole datacube in a single value for grid point using the average along the
-time:&lt;/p>
-&lt;p>&lt;img src="ecas-reduce.png" alt="Reduce datacube.">&lt;/p>
-&lt;p>Let&amp;rsquo;s have a look at the environment by listing the datacubes and containers in
-the session:&lt;/p>
-&lt;p>&lt;img src="ecas-list.png" alt="List objects in session.">&lt;/p>
-&lt;p>By default, the Ophidia terminal will use the last output datacube PID. So, you
-can use the &lt;code>oph_explorecube&lt;/code> operator to visualize the first 100 values.&lt;/p>
-&lt;p>&lt;img src="ecas-explore.png" alt="Explorecube operator.">&lt;/p>
-&lt;p>For further details about the Ophidia operators, please refer to the official
-&lt;a href="http://ophidia.cmcc.it/">documentation&lt;/a>.&lt;/p>
-&lt;h4 id="accessing-the-jupyter-interface">Accessing the Jupyter interface&lt;/h4>
-&lt;p>To access the Jupyter interface, open the browser at
-&lt;code>https://&amp;lt;YOUR_CLUSTER_IP&amp;gt;:443/jupyter&lt;/code> and log in to the system using the
-username and password specified in the &lt;code>jupyterhub_config.pyp&lt;/code> configuration
-file (see the &lt;code>c.Authenticator.whitelist&lt;/code> and &lt;code>c.DummyAuthenticator.password&lt;/code>
-lines) located at the &lt;code>/root&lt;/code> folder.&lt;/p>
-&lt;p>&lt;img src="ecas-jupyterhub.png" alt="JupyterHub login.">&lt;/p>
-&lt;p>From JupyterHub in ECAS you can do several things such as:&lt;/p>
-&lt;ul>
-&lt;li>create and run a Jupyter Notebook exploiting PyOphidia and Python libraries
-for visualization and plotting (e.g. matplotlib, basemap, NumPy);&lt;/li>
-&lt;li>browse the directories, download and update the files in the home folder;&lt;/li>
-&lt;li>execute operators and workflows directly from the Ophidia Terminal.&lt;/li>
-&lt;/ul>
-&lt;p>To get started with the ECAS environment capabilities, open the
-&lt;code>ECAS_Basics.ipynb&lt;/code> notebook available under the &lt;code>notebooks/&lt;/code> folder in the home
-directory.&lt;/p>
-&lt;p>&lt;img src="ecas-jupyter.png" alt="Jupyter.">&lt;/p>
-&lt;h2 id="references">References&lt;/h2>
-&lt;ul>
-&lt;li>&lt;a href="https://ecaslab.cmcc.it/web/home.html">https://ecaslab.cmcc.it/web/home.html&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ecaslab.dkrz.de/home.html">https://ecaslab.dkrz.de/home.html&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://ophidia.cmcc.it/">http://ophidia.cmcc.it/&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/ECAS-Lab">https://github.com/ECAS-Lab&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/OphidiaBigData/ansible-role-ophidia-cluster">https://github.com/OphidiaBigData/ansible-role-ophidia-cluster&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.grycap.upv.es/ec3">http://www.grycap.upv.es/ec3&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://www.github.com/grycap/ec3">http://www.github.com/grycap/ec3&lt;/a>&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;h3 id="slurm-cluster">SLURM cluster&lt;/h3>
+&lt;p>To deploy &lt;a href="https://slurm.schedmd.com/documentation.html">SLURM&lt;/a> clusters,
+please select SLURM from the list of available LRMS.
+See also the dedicated guide on &lt;a href="./htc/">HTC clusters&lt;/a>&lt;/p></description></item></channel></rss>

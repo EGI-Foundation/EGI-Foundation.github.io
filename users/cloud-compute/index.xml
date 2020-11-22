@@ -825,25 +825,23 @@ VMOps dashboard, or Infrastructure manager.&lt;/p>
 &lt;a href="https://appdb.egi.eu/store/vappliance/nvidia.docker.centos.7">AppDB&lt;/a>. Some VOs
 (acc-comp.egi.eu, eosc-synergy.eu) have the image included in the VO image list.&lt;/p></description></item><item><title>Users: EC3</title><link>/users/cloud-compute/ec3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/</guid><description>
 &lt;p>&lt;a href="http://servproject.i3m.upv.es/ec3/">EC3&lt;/a> (Elastic Cloud Compute Cluster) is a
-tool to create elastic virtual clusters on Infrastructure as a Service
-(IaaS) providers, either public (such as
+tool to create elastic virtual clusters on Infrastructure as a Service (IaaS)
+providers, either public (such as
 &lt;a href="https://aws.amazon.com/">Amazon Web Services&lt;/a>,
 &lt;a href="http://cloud.google.com/">Google Cloud&lt;/a> or
 &lt;a href="http://azure.microsoft.com/">Microsoft Azure&lt;/a>) or on-premises (such as
 &lt;a href="http://www.opennebula.org/">OpenNebula&lt;/a> and
-&lt;a href="http://www.openstack.org/">OpenStack&lt;/a>).
-It supports the provisioning of clusters running
-&lt;a href="https://github.com/adaptivecomputing/torque">TORQUE&lt;/a>,
+&lt;a href="http://www.openstack.org/">OpenStack&lt;/a>). It supports the provisioning of
+clusters running &lt;a href="https://github.com/adaptivecomputing/torque">TORQUE&lt;/a>,
 &lt;a href="http://slurm.schedmd.com/">SLURM&lt;/a>,
 &lt;a href="https://research.cs.wisc.edu/htcondor/">HTCondor&lt;/a>,
 &lt;a href="http://mesos.apache.org/">Mesos&lt;/a>, &lt;a href="https://www.nomadproject.io/">Nomad&lt;/a>,
-&lt;a href="https://kubernetes.io/">Kubernetes&lt;/a> and others that will be
-automatically resized to fit the load (e.g. number of jobs at the batch system).&lt;/p>
+&lt;a href="https://kubernetes.io/">Kubernetes&lt;/a> and others that will be automatically
+resized to fit the load (e.g. number of jobs at the batch system).&lt;/p>
 &lt;p>The following section of the documentation will guide you on how to:&lt;/p>
 &lt;ul>
-&lt;li>Request access to EC3,&lt;/li>
-&lt;li>Deploy simple EC3 elastic cluster on top of the IaaS providers of the EGI Cloud,
-either using the web interface or the command-line interface,&lt;/li>
+&lt;li>Deploy simple EC3 elastic cluster on top of the IaaS providers of the EGI
+Cloud, either using the web interface or the command-line interface,&lt;/li>
 &lt;li>Run pre-configured scientific applications in the EC3 elastic cluster.&lt;/li>
 &lt;/ul></description></item><item><title>Users: Federation Architecture and Implementation</title><link>/users/cloud-compute/federation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/federation/</guid><description>
 &lt;p>The EGI Federated Cloud is a multi-national cloud system that integrates
