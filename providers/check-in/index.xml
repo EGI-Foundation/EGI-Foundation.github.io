@@ -450,6 +450,50 @@ more information can be found in the protocol-specific sections that follow.&lt;
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
+&lt;h2 id="general-information">General Information&lt;/h2>
+&lt;p>EGI Check-in supports two authentication and authorisation protocols that you
+can choose from:&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html">Security Assertion Markup Language (SAML) 2.0&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://openid.net/specs/openid-connect-core-1_0.html">OpenID Connect&lt;/a> - an
+extension to &lt;a href="https://tools.ietf.org/html/rfc6749">OAuth 2.0&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>Regardless of which of the two protocols you are going to use, you need to
+provide the following information to connect your service to EGI Check-in:&lt;/p>
+&lt;ol>
+&lt;li>Name of the service (in English and optionally in other languages supported
+by the service)&lt;/li>
+&lt;li>Short description of the service&lt;/li>
+&lt;li>Website (URL) for localised information about the service; the content found
+at the URL SHOULD provide more complete information than what provided by the
+description&lt;/li>
+&lt;li>Contact information of the following types:
+&lt;ul>
+&lt;li>Helpdesk/Support contact information (for redirecting user)&lt;/li>
+&lt;li>Administrative&lt;/li>
+&lt;li>Technical&lt;/li>
+&lt;li>Security/incident response&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Privacy statement URL: The privacy policy is used to document the data
+collected and processed by the service. You can use the
+&lt;a href="https://docs.google.com/document/d/1ZU7VjH3g7qcfWcz0Z8TTv-vQiVoRA_wOsuMyJaz28Og/edit">Privacy Policy template&lt;/a>&lt;/li>
+&lt;li>Logo URL (optional for showing in catalogues); if provided, logos SHOULD:
+&lt;ul>
+&lt;li>use a transparent background where appropriate to facilitate the usage of
+logos within a user interface&lt;/li>
+&lt;li>use PNG, or GIF (less preferred), images&lt;/li>
+&lt;li>use HTTPS URLs in order to avoid mixed-content warnings within browsers&lt;/li>
+&lt;li>have a size larger than 40000 and smaller than 50000 characters when
+encoded in base64&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+If you choose to register an OIDC client
+, then you can fill this information in the client configuration.
+&lt;/div>
 &lt;h2 id="saml-service-provider">SAML Service Provider&lt;/h2>
 &lt;p>To enable federated access to a web-based application, you can connect to the
 EGI Check-in IdP as a SAML Service Provider (SP). Users of the application will
@@ -491,6 +535,9 @@ depends on the integration environment being used:&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
+&lt;p>To register your SAML SP, please contact &lt;code>checkin-support&lt;/code> &lt;code>&amp;lt;AT&amp;gt;&lt;/code>
+&lt;code>mailman.egi.eu&lt;/code>. Your request should include the general information about your
+service (see &lt;a href="#general-information">General Information&lt;/a>) and the SP&amp;rsquo;s metadata.&lt;/p>
 &lt;h3 id="metadata">Metadata&lt;/h3>
 &lt;p>Metadata provided by your SP should contain a descriptive name of the service
 that your SP represents in at least English. It is recommended to also provide
@@ -570,7 +617,9 @@ the authenticated user.&lt;/p>
 &lt;h3 id="client-registration">Client registration&lt;/h3>
 &lt;p>Before your service can use the EGI Check-in OIDC Provider for user login, you
 must set up a client at &lt;a href="https://aai-dev.egi.eu/oidc/manage/#admin/clients">https://aai-dev.egi.eu/oidc/manage/#admin/clients&lt;/a> in
-order to obtain OAuth 2.0 credentials and register one or more redirect URIs.&lt;/p>
+order to obtain OAuth 2.0 credentials and register one or more redirect URIs.
+The client configuration should include the general information about your
+service, as described in &lt;a href="#general-information">General Information&lt;/a> section.&lt;/p>
 &lt;h4 id="obtaining-oauth-20-credentials">Obtaining OAuth 2.0 credentials&lt;/h4>
 &lt;p>You need OAuth 2.0 credentials, including a client ID and client secret, to
 authenticate users through the EGI Check-in OIDC Provider.&lt;/p>
@@ -773,7 +822,76 @@ Client sends a Token Request to the Token Endpoint.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
-&lt;h5 id="refresh-request">Refresh request&lt;/h5>
+&lt;h5 id="proof-key-for-code-exchange-pkce">Proof Key for Code Exchange (PKCE)&lt;/h5>
+&lt;p>The Proof Key for Code Exchange (PKCE, pronounced pixie) extension
+(&lt;a href="https://tools.ietf.org/html/rfc7636">RFC 7636&lt;/a>) describes a technique for
+public clients (clients without &lt;code>client_secret&lt;/code>) to mitigate the threat of
+having the authorization code intercepted. The technique involves the client
+first creating a secret, and then using that secret again when exchanging the
+authorization code for an access token. This way if the code is intercepted, it
+will not be useful since the token request relies on the initial secret.&lt;/p>
+&lt;h6 id="client-configuration">Client configuration&lt;/h6>
+&lt;p>To enable PKCE you need to &lt;a href="https://aai-dev.egi.eu/oidc">https://aai-dev.egi.eu/oidc&lt;/a> and create/edit a
+client. In &amp;ldquo;Credentials&amp;rdquo; tab under &amp;ldquo;Token Endpoint Authentication Method&amp;rdquo; select
+&amp;ldquo;No authentication&amp;rdquo; and in &amp;ldquo;Crypto&amp;rdquo; tab under &amp;ldquo;Proof Key for Code Exchange
+(PKCE) Code Challenge Method&amp;rdquo; select &amp;ldquo;SHA-256 hash algorithm&amp;rdquo;.&lt;/p>
+&lt;h6 id="protocol-flow">Protocol Flow&lt;/h6>
+&lt;p>Because the PKCE-enhanced Authorization Code Flow builds upon the standard
+Authorization Code Flow, the steps are very similar.&lt;/p>
+&lt;p>First, the client creates and records a secret named the &lt;code>code_verifier&lt;/code>. The
+&lt;code>code_verifier&lt;/code> is a high-entropy cryptographic random STRING using the
+unreserved characters [A-Z] / [a-z] / [0-9] / &amp;ldquo;-&amp;rdquo; / &amp;ldquo;.&amp;rdquo; / &amp;ldquo;_&amp;rdquo; / &amp;ldquo;~&amp;rdquo;, with a
+minimum length of 43 characters and a maximum length of 128 characters. Then the
+client creates a &lt;code>code_challenge&lt;/code> derived from the &lt;code>code_verifier&lt;/code> by using one
+of the following transformations on the code verifier:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>plain&lt;/code> code_challenge = code_verifier&lt;/li>
+&lt;li>&lt;code>S256&lt;/code> code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))&lt;/li>
+&lt;/ul>
+&lt;p>If the client is capable of using &lt;code>S256&lt;/code>, it MUST use &lt;code>S256&lt;/code>. Clients are
+permitted to use &lt;code>plain&lt;/code> only if they cannot support &lt;code>S256&lt;/code> for some technical
+reason.&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+There are various tools that generate
+these values such as &lt;a href="https://tonyxu-io.github.io/pkce-generator/">https://tonyxu-io.github.io/pkce-generator/&lt;/a>
+&lt;/div>
+&lt;p>Then the &lt;code>code_challenge&lt;/code> is sent in the Authorization Request along with the
+transformation method (&lt;code>code_challenge_method&lt;/code>).&lt;/p>
+&lt;p>####### Example request&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">GET https://aai.egi.eu/oidc/authorize?
+&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">scope&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>openid%20profile%20email
+&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">redirect_uri&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">redirect_uri&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">response_type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>code
+&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">code_challenge&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">code_challenge&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">code_challenge_method&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>S256&lt;span style="color:#4e9a06">&amp;#34;
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The Authorization Endpoint responds as usual but records &lt;code>code_challenge&lt;/code> and
+the &lt;code>code_challenge_method&lt;/code>.&lt;/p>
+&lt;p>####### Example response&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">HTTP/1.1 &lt;span style="color:#0000cf;font-weight:bold">302&lt;/span> Found
+Location: &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">redirect_uri&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>?
+&lt;span style="color:#000">code&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>fgtLHT
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The client then sends the authorization code in the Access Token Request as
+usual but includes the &lt;code>code_verifier&lt;/code> secret generated in the first request.&lt;/p>
+&lt;p>####### Example request&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;grant_type=authorization_code&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;code=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">code&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;client_id=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;redirect_uri=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">redirect_uri&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;code_verifier=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">code_verifier&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The authorization server transforms &lt;code>code_verifier&lt;/code> and compares it to
+&lt;code>code_challenge&lt;/code> from the first request. Access is denied if they are not equal.&lt;/p>
+&lt;p>####### Example response&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;id_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;scope&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid email profile&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;token_type&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Bearer&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="refresh-request">Refresh request&lt;/h5>
 &lt;p>The following request allows obtaining an access token from a refresh token
 using the &lt;code>grant_type&lt;/code> value &lt;code>refresh_token&lt;/code>:&lt;/p>
 &lt;table>
@@ -1592,7 +1710,7 @@ connected to Check-in.&lt;/p>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
-&lt;td align="left">Experimental&lt;/td>
+&lt;td align="left">Stable&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1841,6 +1959,67 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
+&lt;h3 id="12-certentitlement">12. CertEntitlement&lt;/h3>
+&lt;!-- markdownlint-disable line-length no-inline-html -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">CertEntitlement&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">Provides information about the user&amp;rsquo;s certificate subject(s) and the associated VO(s)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;strong>Not available&lt;/strong>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>cert_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>cert_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">VO/group management tools integrated with Check-in&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>{&amp;quot;cert_entitlement&amp;quot;: [{&amp;quot;cert_subject_dn&amp;quot;: &amp;quot;/C=GR/O=HellasGrid/...&amp;quot;,&amp;quot;cert_iss&amp;quot;: &amp;quot;/C=GR/O=HellasGrid/...&amp;quot;,&amp;quot;eduperson_entitlement&amp;quot;: &amp;quot;urn:mace:egi.eu:group:checkin-integration:role=VO-Admin#aai.egi.eu&amp;quot;}]}&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">This is available only for DIRAC&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length no-inline-html -->
 &lt;h2 id="user-authorisation">User authorisation&lt;/h2>
 &lt;p>The following information about the authenticated user can be provided by EGI
 Check-in in order to control user access to resources:&lt;/p>
@@ -1858,7 +2037,7 @@ as a URN.&lt;/p>
 &lt;h4 id="syntax">Syntax&lt;/h4>
 &lt;p>An entitlement value expressing group membership and role information has the
 following syntax (components enclosed in square brackets are OPTIONAL):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">group&lt;/span>:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>[:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">SUBGROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>*]][:&lt;span style="color:#000">role&lt;/span>&lt;span style="color:#000;font-weight:bold">=&amp;lt;&lt;/span>&lt;span style="color:#000">ROLE&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>]#&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">AUTHORITY&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">group&lt;/span>:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>[:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">SUBGROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>*][:&lt;span style="color:#000">role&lt;/span>&lt;span style="color:#000;font-weight:bold">=&amp;lt;&lt;/span>&lt;span style="color:#000">ROLE&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>]#&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">AUTHORITY&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> is the name of a VO, research collaboration or a top level arbitrary
