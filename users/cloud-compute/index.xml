@@ -743,7 +743,66 @@ you use the device, it deletes all data!
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># mount /dev/&amp;lt;volume device&amp;gt; /&amp;lt;path&amp;gt;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>With that you can access &lt;code>/&amp;lt;path&amp;gt;&lt;/code> where all your data will be available.
 Applications will not see any difference between a block storage device and a
-regular disk, thus no major changes should be required in the application logic.&lt;/p></description></item><item><title>Users: GPUs</title><link>/users/cloud-compute/gpgpu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/gpgpu/</guid><description>
+regular disk, thus no major changes should be required in the application logic.&lt;/p>
+&lt;h2 id="exposing-storage-to-egi-file-transfer-service">Exposing storage to EGI File Transfer service&lt;/h2>
+&lt;p>The &lt;a href="../../data-transfer">File Transfer service&lt;/a> allows you to move any type of
+data files asynchronously from one storage to another. If you want to copy data
+from/to one VM running on the EGI cloud, you will need to run a compatible
+server (Webdav/https, GridFTP, xrootd, SRM, S3, GCloud) that can interact with
+the FTS3 software.&lt;/p>
+&lt;p>An easy way to provide a GridFTP server on your VM is to use the
+&lt;a href="https://github.com/cern-fts/ready2go/tree/master/gridftp-le">gridftp-le ready2go docker stack&lt;/a>
+for deploying a GridFTP Docker Container with certificates from Let&amp;rsquo;s Encrypt.
+Take into account:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Security groups for the VM must allow ports 80, 2811 and the 50000-50200 range.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The VM must have a valid DNS entry (you can use
+&lt;a href="https://nsupdate.fedcloud.eu">FedCloud&amp;rsquo;s Dynamic DNS&lt;/a> for getting one)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The default setup uses &lt;code>/srv&lt;/code> as path to expose and maps users to the &lt;code>nobody&lt;/code>
+user. Make sure that &lt;code>nobody&lt;/code> is able to read (and write if needed) on that
+location or set the mapping to the appropriate users.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The Let&amp;rsquo;s Encrypt certificates may not be accepted by some the EGI
+infrastructure endpoints, you may want to consider using IGTF certificates
+instead. Check your CA for instructions on how to get those.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>You can add direct mappings for specific DNs by adding a
+&lt;code>/etc/localgridmap.conf&lt;/code> file in your running container. See the example below
+to map the
+&lt;code>/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Enol Fernandez del Castillo&lt;/code>
+DN to &lt;code>nobody&lt;/code>. You can add as many lines as needed:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext">&amp;#34;/DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/CN=Enol Fernandez del Castillo&amp;#34; nobody
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;/li>
+&lt;li>
+&lt;p>You need to specify the environment variables in the &lt;code>docker-compose.yml&lt;/code> file
+for obtaining the Let&amp;rsquo;s Encrypt certificate. An extra variable
+&lt;code>GLOBUS_HOSTNAME&lt;/code> must be also set:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">environment&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- TESTCERT&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- EMAIL=youremail@domain.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- DOMAIN=mygridftp.example.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- GLOBUS_HOSTNAME=mygridftp.example.com&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>If you are running on a site with MTU smaller than 1500 (e.g. CESNET-MCC),
+make sure that you set the MTU to a value smaller than the interface MTU(you
+can check this with &lt;code>ip addr&lt;/code>). In your &lt;code>docker-compose.yml&lt;/code>, add:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">networks&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">default&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">driver&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>bridge&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">driver_opts&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">com.docker.network.driver.mtu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1434&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul></description></item><item><title>Users: GPUs</title><link>/users/cloud-compute/gpgpu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/gpgpu/</guid><description>
 &lt;h1 id="gpu-resources-on-egi-cloud">GPU resources on EGI Cloud&lt;/h1>
 &lt;p>GPUs resources are available on selected providers of the EGI Cloud. These are
 available as specific &lt;strong>flavours&lt;/strong> that when used to instantiate a Virtual
