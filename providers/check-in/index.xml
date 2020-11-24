@@ -112,7 +112,7 @@ name, email and affiliation information, complies with the
 &lt;p>Information about group membership and role information released by your IdP
 should follow the URN scheme below (see also
 &lt;a href="https://aarc-community.org/guidelines/aarc-g002">AARC-G002&lt;/a>):&lt;/p>
-&lt;pre>&lt;code>&amp;lt;NAMESPACE&amp;gt;:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*]][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
+&lt;pre>&lt;code>&amp;lt;NAMESPACE&amp;gt;:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
 &lt;/code>&lt;/pre>
 &lt;p>where:&lt;/p>
 &lt;ul>
@@ -858,7 +858,7 @@ these values such as &lt;a href="https://tonyxu-io.github.io/pkce-generator/">ht
 &lt;/div>
 &lt;p>Then the &lt;code>code_challenge&lt;/code> is sent in the Authorization Request along with the
 transformation method (&lt;code>code_challenge_method&lt;/code>).&lt;/p>
-&lt;p>####### Example request&lt;/p>
+&lt;p>Example request:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">GET https://aai.egi.eu/oidc/authorize?
 &lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>
 &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">scope&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>openid%20profile%20email
@@ -868,13 +868,13 @@ transformation method (&lt;code>code_challenge_method&lt;/code>).&lt;/p>
 &lt;span style="color:#000;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">code_challenge_method&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>S256&lt;span style="color:#4e9a06">&amp;#34;
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The Authorization Endpoint responds as usual but records &lt;code>code_challenge&lt;/code> and
 the &lt;code>code_challenge_method&lt;/code>.&lt;/p>
-&lt;p>####### Example response&lt;/p>
+&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">HTTP/1.1 &lt;span style="color:#0000cf;font-weight:bold">302&lt;/span> Found
 Location: &lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">redirect_uri&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>?
 &lt;span style="color:#000">code&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>fgtLHT
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>The client then sends the authorization code in the Access Token Request as
 usual but includes the &lt;code>code_verifier&lt;/code> secret generated in the first request.&lt;/p>
-&lt;p>####### Example request&lt;/p>
+&lt;p>Example request:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;grant_type=authorization_code&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;code=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">code&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
@@ -883,7 +883,7 @@ usual but includes the &lt;code>code_verifier&lt;/code> secret generated in the 
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;code_verifier=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">code_verifier&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>The authorization server transforms &lt;code>code_verifier&lt;/code> and compares it to
 &lt;code>code_challenge&lt;/code> from the first request. Access is denied if they are not equal.&lt;/p>
-&lt;p>####### Example response&lt;/p>
+&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUlMyNTYifQ...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -930,15 +930,15 @@ using the &lt;code>grant_type&lt;/code> value &lt;code>refresh_token&lt;/code>:&
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h6 id="example-request">Example request&lt;/h6>
+&lt;p>Example request:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST -u &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_secret&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -d &lt;span style="color:#4e9a06">&amp;#34;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=refresh_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;refresh_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">myRefreshToken&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     -d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>     &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h6 id="example-response">Example response&lt;/h6>
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;grant_type=refresh_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;refresh_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">myRefreshToken&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWx...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -988,15 +988,15 @@ of the request are:&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
-&lt;h6 id="example-request-1">Example request&lt;/h6>
+&lt;p>Example request:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST -u &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_B_id&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">client_B_secret&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;audience=tokenExchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;subject_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">access_token_A&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;subject_token_type=urn:ietf:params:oauth:token-type:access_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20profile%20offline_access&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    &lt;span style="color:#4e9a06">&amp;#34;http://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h6 id="example-response-1">Example response&lt;/h6>
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn:ietf:params:oauth:grant-type:token-exchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;audience=tokenExchange&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;subject_token=&lt;/span>&lt;span style="color:#4e9a06">${&lt;/span>&lt;span style="color:#000">access_token_A&lt;/span>&lt;span style="color:#4e9a06">}&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;subject_token_type=urn:ietf:params:oauth:token-type:access_token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;scope=openid%20profile%20offline_access&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;http://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJvaWRjIiwiYWxnIjoiUl...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
@@ -1009,15 +1009,11 @@ of the request are:&lt;/p>
 &lt;p>The device code flow enables OAuth clients on (input-constrained) devices to
 obtain user authorization for accessing protected resources without using an
 on-device user-agent, provided that they have an Internet connection.&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>Device Authorization Request&lt;/strong>&lt;/p>
+&lt;h6 id="1-device-authorization-request">1. Device Authorization Request&lt;/h6>
 &lt;p>The client initiates the authorization flow by requesting a set of
 verification codes from the authorization server by making an HTTP &amp;ldquo;POST&amp;rdquo;
- request to the device authorization endpoint. The client constructs the
- request with the following parameters:&lt;/p>
-&lt;/li>
-&lt;/ol>
+request to the device authorization endpoint. The client constructs the request
+with the following parameters:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
@@ -1041,33 +1037,27 @@ verification codes from the authorization server by making an HTTP &am
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
-&lt;h6 id="example-request-2">Example request&lt;/h6>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/devicecode&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
-&lt;/code>&lt;/pre>&lt;/div>&lt;h6 id="example-response-2">Example response&lt;/h6>
+&lt;p>Example request:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/devicecode&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;device_code&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;c4341bd6-5e82-4f9c-9f6f-5842409d48db&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">600&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;user_code&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;IEJSJB&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">&amp;#34;verification_uri&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/device)&amp;#34;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;verification_uri&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/device&amp;#34;&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>User Interaction&lt;/strong>&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h6 id="2-user-interaction">2. User Interaction&lt;/h6>
 &lt;p>After receiving a successful Authorization Response, the client displays or
 otherwise communicates the &lt;code>user_code&lt;/code> and the &lt;code>verification_uri&lt;/code> to the end
 user and instructs them to visit the URI in a user agent on a secondary
 device (for example, in a browser on their mobile phone), and enter the
 user code.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>Device Access Token Request&lt;/strong>&lt;/p>
+&lt;h6 id="3-device-access-token-request">3. Device Access Token Request&lt;/h6>
 &lt;p>After displaying instructions to the user, the client makes an Access Token
 Request to the token endpoint. The request contains the following parameters:&lt;/p>
-&lt;/li>
-&lt;/ol>
 &lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
@@ -1106,15 +1096,15 @@ Request to the token endpoint. The request contains the following para
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
-&lt;h6 id="example-request-3">Example request&lt;/h6>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai-dev.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;device_code={myDeviceCode}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
-&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>    -d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
-&lt;/code>&lt;/pre>&lt;/div>&lt;h6 id="example-response-3">Example response&lt;/h6>
+&lt;p>Example request:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">curl -X POST &lt;span style="color:#4e9a06">&amp;#34;https://aai.egi.eu/oidc/token&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-H &lt;span style="color:#4e9a06">&amp;#34;Content-Type: application/x-www-form-urlencoded&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Adevice_code&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;device_code={myDeviceCode}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_id={myClientID}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;client_secret={myClientSecret}&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span>-d &lt;span style="color:#4e9a06">&amp;#34;&amp;amp;scope=openid%20profile&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example response:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;access_token&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;eyJraWQiOiJyc2ExIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbiIs...&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
 &lt;span style="color:#204a87;font-weight:bold">&amp;#34;expires_in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3599&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>

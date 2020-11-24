@@ -291,9 +291,8 @@ status&lt;/p>
 &lt;/ol>
 &lt;h3 id="managing-vo-groups">Managing VO groups&lt;/h3>
 &lt;p>VO groups can only be created by Check-in platform administrators. Please
-contact &lt;a href="mailto:checkin-support@mailman.egi.eu">Checkin Support&lt;/a> indicating the
-following information for every (sub)group that you need to add/remove to/from
-your VO:&lt;/p>
+contact &lt;code>checkin-support&lt;/code> &lt;code>&amp;lt;AT&amp;gt;&lt;/code> &lt;code>mailman.egi.eu&lt;/code> indicating the following
+information for every (sub)group that you need to add/remove to/from your VO:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>VO name&lt;/strong>&lt;/li>
 &lt;li>&lt;strong>Group name&lt;/strong>&lt;/li>
@@ -432,12 +431,10 @@ login credentials already linked to your EGI account.&lt;/p>
 &lt;p>To view the available groups expand the &lt;strong>Groups&lt;/strong> drop down list and click
 &lt;strong>All Groups&lt;/strong>&lt;/p>
 &lt;p>&lt;img src="./check-in-groups-drop-down.png" alt="Groups drop down">&lt;/p>
-&lt;ol>
-&lt;li>Expand the &lt;strong>Filter&lt;/strong> section and find the COU admin group you are
-interested in. For the case of the service-integration COU with type the
-string service-integration in the text box with the placeholder Name. Then
-we click on Filter button&lt;/li>
-&lt;/ol>
+&lt;p>Expand the &lt;strong>Filter&lt;/strong> section and find the COU admin group you are interested
+in. For the case of the service-integration COU with type the string
+service-integration in the text box with the placeholder Name.Then we click
+on Filter button&lt;/p>
 &lt;p>&lt;img src="./check-in-groups-expand-filter.png" alt="Expand groups">&lt;/p>
 &lt;/li>
 &lt;li>
