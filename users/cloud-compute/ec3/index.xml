@@ -364,4 +364,25 @@ Artificial Intelligence (AI).&lt;/li>
 &lt;h3 id="slurm-cluster">SLURM cluster&lt;/h3>
 &lt;p>To deploy &lt;a href="https://slurm.schedmd.com/documentation.html">SLURM&lt;/a> clusters,
 please select SLURM from the list of available LRMS.
-See also the dedicated guide on &lt;a href="./htc/">HTC clusters&lt;/a>&lt;/p></description></item></channel></rss>
+See also the dedicated guide on &lt;a href="./htc/">HTC clusters&lt;/a>&lt;/p></description></item><item><title>Users: Instructions for developers</title><link>/users/cloud-compute/ec3/developers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/developers/</guid><description>
+&lt;p>This section documents how to integrate a new application in EC3.&lt;/p>
+&lt;h2 id="about">About&lt;/h2>
+&lt;p>The process to integrate a new application in EC3 is described by the
+following process:&lt;/p>
+&lt;ul>
+&lt;li>Describe the application to be integrated with Ansible, the open-source
+automation engine that automates software provisioning, configuration
+management, and application deployment.&lt;/li>
+&lt;li>Use the Ansible receipt to create a new RADL template&lt;/li>
+&lt;/ul>
+&lt;h3 id="documentations">Documentations&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="http://docs.ansible.com/">Ansible documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://ec3.readthedocs.io/en/devel/templates.html">EC3 documentation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/grycap/ec3/tree/master/templates">RADL&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="contacts">Contacts&lt;/h3>
+&lt;ul>
+&lt;li>Miguel Caballer at: micafer1 &lt;at> upv &lt;dot> es&lt;/li>
+&lt;li>Amanda Calatrava at: amcaar &lt;at> i3m &lt;dot> upv &lt;dot> es&lt;/li>
+&lt;/ul></description></item></channel></rss>
