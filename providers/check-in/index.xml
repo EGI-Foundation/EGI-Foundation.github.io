@@ -598,9 +598,9 @@ attributes that are relevant for user authorisation:&lt;/p>
 &lt;!-- markdownlint-enable line-length -->
 &lt;h3 id="references">References&lt;/h3>
 &lt;ul>
-&lt;li>&lt;a href="https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPConfiguration">Shibboleth SP Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.shibboleth.net/confluence/display/SP3/Configuration">Shibboleth SP Configuration&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://simplesamlphp.org/docs/stable/simplesamlphp-sp">SimpleSAMLphp Service Provider QuickStart&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/UNINETT/mod_auth_mellon">Simple SAML 2.0 service provider with mod_auth_mellon Apache module&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/latchset/mod_auth_mellon">Simple SAML 2.0 service provider with mod_auth_mellon Apache module&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="openid-connect-service-provider">OpenID Connect Service Provider&lt;/h2>
 &lt;p>Service Providers can be integrated with EGI Check-in using OpenID Connect
