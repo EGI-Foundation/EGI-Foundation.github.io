@@ -175,11 +175,43 @@ your installation)&lt;/p>
 &lt;tr>
 &lt;td>&lt;strong>2170&lt;/strong>/TCP&lt;/td>
 &lt;td>&lt;strong>BDII&lt;/strong>/LDAP&lt;/td>
-&lt;td>EGI Service Discovery/Information System.&lt;/td>
+&lt;td>EGI Service Discovery/Information System (to be decommissioned).&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length -->
+&lt;h3 id="outgoing-ports">Outgoing ports&lt;/h3>
+&lt;p>The EGI Cloud components require the following outgoing connections open:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Port&lt;/th>
+&lt;th>Host&lt;/th>
+&lt;th>Note&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>443&lt;/strong>/TCP&lt;/td>
+&lt;td>&lt;code>msg.argo.grnet.gr&lt;/code>&lt;/td>
+&lt;td>ARGO Messaging System (used to send accounting records by SSM).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>443&lt;/strong>/TCP&lt;/td>
+&lt;td>&lt;code>vmcaster.appdb.egi.eu&lt;/code>&lt;/td>
+&lt;td>AppDB image lists (used by cloudkeeper).&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>8080&lt;/strong>/TCP&lt;/td>
+&lt;td>&lt;code>cephrgw01.ifca.es&lt;/code>&lt;/td>
+&lt;td>Swift server hosting EGI images (used by cloudkeeper).&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length -->
+&lt;p>Images listed in AppDB may be hosted in other servers besides
+&lt;code>cephrgw01.ifca.es&lt;/code>. Check the specific VO-wide image lists for details.&lt;/p>
 &lt;h2 id="permissions">Permissions&lt;/h2>
 &lt;p>This is an overview of the expected account permissions used in an OpenStack
 site, these accounts can be merged as needed for your deployment:&lt;/p>
@@ -714,7 +746,7 @@ mapping you have created:&lt;/p>
 +-------------------+--------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>For every VO you support you should configure the corresponding &lt;code>.lsc&lt;/code> files at
 &lt;code>/etc/grid-security/vomsdir/&amp;lt;vo name&amp;gt;/&lt;/code>. Those files depend on each VO, check
-the &lt;a href="https://operations-portal.egi.eu/vo">Operations Portal&lt;/a> for details.
+the &lt;a href="https://operations-portal.egi.eu/">Operations Portal&lt;/a> for details.
 You can find below the &lt;code>fedcloud.egi.eu&lt;/code> configuration:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ cat /etc/grid-security/vomsdir/fedcloud.egi.eu/voms1.grid.cesnet.cz.lsc
 /DC&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>cz/DC&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>cesnet-ca/O&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>CESNET/CN&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>voms1.grid.cesnet.cz
