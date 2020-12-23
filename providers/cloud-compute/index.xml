@@ -605,7 +605,129 @@ members of &lt;code>fedcloud.egi.eu&lt;/code>:&lt;/p>
 &lt;span style="color:#000;font-weight:bold">]&lt;/span>
 &lt;span style="color:#000;font-weight:bold">}&lt;/span>
 &lt;span style="color:#000;font-weight:bold">]&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="moving-to-egi-check-in-production-instance">Moving to EGI Check-in production instance&lt;/h4>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="multiple-oidc-providers">Multiple OIDC providers&lt;/h5>
+&lt;p>If your OpenStack deployment needs to support multiple identity providers
+(besides EGI Check-in) you will need to configure &lt;code>mod_auth_openidc&lt;/code> to
+support &lt;a href="https://github.com/zmartzone/mod_auth_openidc/wiki/Multiple-Providers#discovery">multiple
+providers&lt;/a>
+and use an OAuth2.0 token introspection proxy like
+&lt;a href="https://github.com/indigo-iam/esaco">ESACO&lt;/a>.&lt;/p>
+&lt;h5 id="mod_auth_openidc-configuration">&lt;code>mod_auth_openidc&lt;/code> configuration&lt;/h5>
+&lt;p>First, create a directory to host each of the providers configuration, in our
+case we will use &lt;code>/var/lib/apache2/oidc/metadata&lt;/code>, but adapt this to your
+specific needs. Ensure this directory is writable by the user running apache:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mkdir -p /var/lib/apache2/oidc/metadata
+chown -R www-data:www-data /var/lib/apache2/oidc/metadata
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Set in your Apache configuration the &lt;code>OIDCMetadataDir&lt;/code> pointing to that
+directory&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ApacheConf" data-lang="ApacheConf">&lt;span style="color:#204a87">OIDCMetadataDir&lt;/span> &lt;span style="color:#4e9a06">/var/lib/apache2/oidc/metadata&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You may remove the &lt;code>OIDCProviderMetadataURL&lt;/code>, &lt;code>OIDCClientID&lt;/code> and
+&lt;code>OIDCClientSecret&lt;/code> options from the Apache configuration as these will be now
+set in new files created in the metadata directory. For every provider you will
+support, you need to create 3 files:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;code>&amp;lt;urlencoded-issuer-value-with-https-prefix-and-trailing-slash-stripped&amp;gt;.provider&lt;/code>
+with the OpenID Connect Discovery OP JSON metadata. The easiest way to create
+this file is getting its content from the OIDC server itself. For EGI
+Check-in:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl https://aai-dev.egi.eu/oidc/.well-known/openid-configuration &amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> /var/lib/apache2/oidc/metadata/aai-dev.egi.eu%2Foidc.provider
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>&amp;lt;urlencoded-issuer-value-with-https-prefix-and-trailing-slash-stripped&amp;gt;.client&lt;/code>
+with the client credentials. For EGI Check-in (&lt;code>aai-dev.egi.eu%2Foidc.client&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;client_id&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your client id&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;client_secret&amp;#34;&lt;/span> &lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your secret id&amp;gt;&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;code>&amp;lt;urlencoded-issuer-value-with-https-prefix-and-trailing-slash-stripped&amp;gt;.conf&lt;/code>
+with any extra configuration for the provider. This may not be needed if
+all your providers are similar. For example to specify the scopes to use for
+Check-in, use a &lt;code>aai-dev.egi.eu%2Foidc.conf&lt;/code> as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-json" data-lang="json">&lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;#34;scope&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid email profile eduperson_entitlement&amp;#34;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;p>Now add for the providers you support new configuration in Apache to facilitate
+the use of the dashboard. This is for a configuration of an &lt;code>egi.eu&lt;/code> identity
+provider with &lt;code>openid&lt;/code> as protocol:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ApacheConf" data-lang="ApacheConf">&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Location&lt;/span> &lt;span style="color:#4e9a06">~ &amp;#34;/identity/v3/auth/OS-FEDERATION/identity_providers/egi.eu/protocols/openid/websso&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;gt;&lt;/span>
+&lt;span style="color:#204a87">AuthType&lt;/span> openid-connect
+&lt;span style="color:#8f5902;font-style:italic"># This is your Redirect URI with a new iss=&amp;lt;your idp iss&amp;gt; option added&lt;/span>
+&lt;span style="color:#204a87">OIDCDiscoverURL&lt;/span> http://openstack-test.test.fedcloud.eu/identity/v3/auth/OS-FEDERATION/websso/openid/redirect?iss=https%3A%2F%2Faai-dev.egi.eu%2Foidc%2F
+&lt;span style="color:#8f5902;font-style:italic"># Ensure that the user is authenticated with the expected iss&lt;/span>
+&lt;span style="color:#204a87">Require&lt;/span> claim iss:https://aai-dev.egi.eu/oidc/
+&lt;span style="color:#204a87">Require&lt;/span> valid-user
+&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Location&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>In your Horizon configuration, set the list of providers and their mappings:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#8f5902;font-style:italic"># this is the list that will show up in the dropdown menu&lt;/span>
+&lt;span style="color:#000">WEBSSO_CHOICES&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;credentials&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Keystone Credentials&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)),&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;egi.eu&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;EGI Check-in&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)),&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;other-idp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;Other IdP&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)),&lt;/span>
+&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># this maps the options above to keystone&amp;#39;s idps and protocols&lt;/span>
+&lt;span style="color:#000">WEBSSO_IDP_MAPPING&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;egi.eu&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;egi.eu&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;other-idp&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;other-idp.com&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;openid&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="esaco-configuration">ESACO configuration&lt;/h5>
+&lt;p>ESACO will handle OAuth tokens when users hit your Keystone from API/CLI. It
+needs to run as a daemon that listens (by default) on port 8156. We will use
+docker for facilitating the deployment:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Create a yaml file with the configuration of the different providers
+(&lt;code>application.yaml&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">oidc&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">clients&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">issuer-url&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>https&lt;span style="color:#000;font-weight:bold">:&lt;/span>//aai-dev.egi.eu/oidc/&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">client-id&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your check-in client id&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">client-secret&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your check-in client secret&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">issuer-url&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;another&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>idp&lt;span style="color:#8f5902;font-style:italic">&amp;gt;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> client-id: &amp;#34;&amp;lt;your client id for second idp&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">client-secret&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;your client secret for second idp&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Create a environment file with the ESACO credentials you want to use
+(&lt;code>esaco.env&lt;/code>):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># User name credential requested from clients introspecting tokens&lt;/span>
+&lt;span style="color:#000">ESACO_USER_NAME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;esaco user name&amp;gt;
+&lt;span style="color:#8f5902;font-style:italic"># Password credential requested from clients introspecting tokens&lt;/span>
+&lt;span style="color:#000">ESACO_USER_PASSWORD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;esaco password&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Run the ESACO server (adapt this as it better fits to run on your servers
+and make it run permanently):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run -p 8156:8156 -d -env-file&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>esaco.env &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -v application.yml:/esaco/config/application.yml:ro &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> indigoiam/esaco:latest
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Configure Keystone&amp;rsquo;s Apache to use ESACO as OAuth introspection endpoint:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ApacheConf" data-lang="ApacheConf">&lt;span style="color:#8f5902;font-style:italic"># point this to the host where ESACO is running&lt;/span>
+&lt;span style="color:#204a87">OIDCOAuthIntrospectionEndpoint&lt;/span> http://localhost:8156/introspect
+&lt;span style="color:#204a87">OIDCOAuthClientID&lt;/span> &amp;lt;esaco &lt;span style="color:#204a87;font-weight:bold">user&lt;/span> name&amp;gt;
+&lt;span style="color:#204a87">OIDCOAuthClientSecret&lt;/span> &amp;lt;esaco password&amp;gt;
+&lt;span style="color:#204a87">OIDCIDTokenIatSlack&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3600&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>Configure also the locations in Apache that should use OAuth:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ApacheConf" data-lang="ApacheConf">&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Location&lt;/span> &lt;span style="color:#4e9a06">~ &amp;#34;/identity/v3/OS-FEDERATION/identity_providers/egi.eu/protocols/openid/auth&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;gt;&lt;/span>
+&lt;span style="color:#204a87">Authtype&lt;/span> oauth20
+&lt;span style="color:#204a87">Require&lt;/span> valid-user
+&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Location&amp;gt;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">&amp;lt;Location&lt;/span> &lt;span style="color:#4e9a06">~ &amp;#34;/identity/v3/OS-FEDERATION/identity_providers/other_idp/protocols/openid/auth&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">&amp;gt;&lt;/span>
+&lt;span style="color:#204a87">Authtype&lt;/span> oauth20
+&lt;span style="color:#204a87">Require&lt;/span> valid-user
+&lt;span style="color:#204a87;font-weight:bold">&amp;lt;/Location&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h4 id="moving-to-egi-check-in-production-instance">Moving to EGI Check-in production instance&lt;/h4>
 &lt;p>Once tests in the development instance of Check-in are successful, you can move
 to the production instance. You should open a &lt;a href="https://ggus.eu">GGUS ticket&lt;/a> for
 the request. Besides you will need to update your configuration as follows:&lt;/p>
@@ -620,8 +742,8 @@ the request. Besides you will need to update your configuration as follows:&lt;/
 openstack mapping &lt;span style="color:#204a87">set&lt;/span> --rules mapping.egi.json egi-mapping
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
-&lt;p>Update Apache configuration to use [aai.egi.eu]{.title-ref} instead of
-`aai-dev.egi.eu`:&lt;/p>
+&lt;p>Update Apache configuration to use &lt;code>aai.egi.eu&lt;/code> instead of
+&lt;code>aai-dev.egi.eu&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-ApacheConf" data-lang="ApacheConf">&lt;span style="color:#204a87">OIDCProviderMetadataURL&lt;/span> https://aai.egi.eu/oidc/.well-known/openid-configuration
 &lt;span style="color:#204a87">OIDCOAuthIntrospectionEndpoint&lt;/span> https://aai.egi.eu/oidc/introspect
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
@@ -945,7 +1067,7 @@ with:&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You should be able to get the BDII information with an LDAP client, e.g.:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ldapsearch -x -p &lt;span style="color:#0000cf;font-weight:bold">2170&lt;/span> -h &amp;lt;yourVM.hostname.domain.com&amp;gt; -b &lt;span style="color:#000">o&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>glue
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="egi-vm-image-management">EGI VM Image Management&lt;/h2>
-&lt;p>VM Images are replicated using [cloudkeeper]{.title-ref}, which has two
+&lt;p>VM Images are replicated using &lt;code>cloudkeeper&lt;/code>, which has two
 components:&lt;/p>
 &lt;ul>
 &lt;li>fronted (cloudkeeper-core) dealing the with image lists and downloading the
