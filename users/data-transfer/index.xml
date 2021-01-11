@@ -1,22 +1,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Data Transfer</title><link>/users/data-transfer/</link><description>Recent content in Data Transfer on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/data-transfer/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Clients</title><link>/users/data-transfer/clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/data-transfer/clients/</guid><description>
 &lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>The FTS3 service offers a command line client to ease the interaction with the service.&lt;/p>
+&lt;p>The FTS3 service offers a command line client to ease the interaction with the
+service.&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>The client software is available for RHEL 6 and 7 derivatives.&lt;/p>
-&lt;p>Please note that the RHEL 6 support is ending the 30/11/2020 and the implementation for RHEL 8 is on-going.&lt;/p>
-&lt;p>Users from other distributions should refer to the &lt;a href="../api/#restful-api">RESTFul API section&lt;/a>.&lt;/p>
+&lt;p>Please note that the RHEL 6 support is ending the 30/11/2020 and the
+implementation for RHEL 8 is on-going.&lt;/p>
+&lt;p>Users from other distributions should refer to the
+&lt;a href="../api/#restful-api">RESTFul API section&lt;/a>.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;p>The CLI can be installed from the EPEL repositories with the following package:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">yum install fts-rest-cli -y
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="commands">Commands&lt;/h2>
 &lt;p>This section describes some of the commands that can be issues via the FTS CLI.
-As per the API, in order to authenticate to the FTS REST server you need an X.509
-User certificate, please refer to this &lt;a href="../api/#authentication--authorisation">section&lt;/a>&lt;br>
+As per the API, in order to authenticate to the FTS REST server you need an
+X.509 User certificate, please refer to this
+&lt;a href="../api/#authentication--authorisation">section&lt;/a>&lt;br>
 for more information.&lt;/p>
-&lt;p>Full documentation about the FTS CLI is available at:&lt;/p>
-&lt;p>&lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/fts-rest/docs/cli/index.html">https://fts3-docs.web.cern.ch/fts3-docs/fts-rest/docs/cli/index.html&lt;/a>&lt;/p>
+&lt;p>Check the &lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/fts-rest/docs/cli/index.html">full documentation about the FTS CLI&lt;/a>&lt;/p>
 &lt;h3 id="fts-rest-whoami">fts-rest-whoami&lt;/h3>
-&lt;p>This command can be used to check, as the name suggests, who are we for the server.&lt;/p>
+&lt;p>This command can be used to check, as the name suggests, who are we for the
+server.&lt;/p>
 &lt;h4 id="usage">Usage&lt;/h4>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">fts-rest-whoami &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>options&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
 Options
@@ -58,9 +62,8 @@ takes precedence&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fts-rest-delegate -s https://fts3-public.cern.ch:8446
 Delegation id: 9ab8068853808c6b
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="fts-rest-transfer-submit">fts-rest-transfer-submit&lt;/h3>
-&lt;p>This command can be used to submit new jobs to FTS3. It supports simple and
-bulk submissions.
-The bulk format is as follows:&lt;/p>
+&lt;p>This command can be used to submit new jobs to FTS3. It supports simple and bulk
+submissions. The bulk format is as follows:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
 &lt;span style="color:#4e9a06">&amp;#34;files&amp;#34;&lt;/span>: &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>
 &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>
@@ -189,53 +192,57 @@ takes precedence&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
 CANCELED
 &lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Users: WebFTS</title><link>/users/data-transfer/webfts/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/data-transfer/webfts/</guid><description>
 &lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>The WebFTS interface offers end users a way to graphically execute and monitor file
-transfer between storages using different protocols. You can check CERN &lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/docs/webfts/userguide.html">WebFTS
-documentation&lt;/a> and
-&lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/docs/webfts/faq.html">FAQ&lt;/a> for more details.&lt;/p>
+&lt;p>The WebFTS interface offers end users a way to graphically execute and monitor
+file transfer between storages using different protocols. You can check CERN
+&lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/docs/webfts/userguide.html">WebFTS documentation&lt;/a>
+and &lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/docs/webfts/faq.html">FAQ&lt;/a> for more
+details.&lt;/p>
 &lt;h3 id="credential-delegation">Credential Delegation&lt;/h3>
-&lt;p>In order to move files between storage endpoints, named also Storage Elements (SE),
-the authentication is done using an X.509 certificate which needs to be installed on the
-browser. The Integration with EGI Check-in is under development and will be available at
-a later date in the production instance.&lt;/p>
-&lt;p>A pop-up window appears when you choose the &amp;ldquo;My jobs&amp;rdquo; or &amp;ldquo;Submit a transfer&amp;rdquo; tabs.
-There, you will need to paste the private RSA key of your certificate.
-The private key &lt;strong>WILL NOT BE TRANSMITTED ANYWHERE&lt;/strong>. It is only used locally
-(within the user&amp;rsquo;s browser) to generate the proxies needed to have access to the FTS
-services.&lt;/p>
+&lt;p>In order to move files between storage endpoints, named also Storage Elements
+(SE), the authentication is done using an X.509 certificate which needs to be
+installed on the browser. The Integration with EGI Check-in is under development
+and will be available at a later date in the production instance.&lt;/p>
+&lt;p>A pop-up window appears when you choose the &amp;ldquo;My jobs&amp;rdquo; or &amp;ldquo;Submit a transfer&amp;rdquo;
+tabs. There, you will need to paste the private RSA key of your certificate. The
+private key &lt;strong>WILL NOT BE TRANSMITTED ANYWHERE&lt;/strong>. It is only used locally
+(within the user&amp;rsquo;s browser) to generate the proxies needed to have access to the
+FTS services.&lt;/p>
 &lt;p>&lt;img src="webfts_delegate.png" alt="image">&lt;/p>
 &lt;p>To obtain the private key, you can run in the console:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openssl pkcs12 -in yourCert.p12 -nocerts -nodes &lt;span style="color:#000;font-weight:bold">|&lt;/span> openssl rsa
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>This command requires openssl.&lt;/p>
 &lt;p>If you need a delegation with VOMS credentials (required to access some types of
-Storage Elements), you will need to introduce the name of the virtual organization (VO)
-you belong to.&lt;/p>
-&lt;p>From the right button where the remaining time for the current delegation is shown,
-you can remove the current delegation and delegate again (the delegation window will appear).&lt;/p>
+Storage Elements), you will need to introduce the name of the virtual
+organization (VO) you belong to.&lt;/p>
+&lt;p>From the right button where the remaining time for the current delegation is
+shown, you can remove the current delegation and delegate again (the delegation
+window will appear).&lt;/p>
 &lt;h3 id="submit-a-transfer">Submit a transfer&lt;/h3>
-&lt;p>Open the &amp;ldquo;Submit a transfer&amp;rdquo; tab and Load origin and destination storage elements
-as endpoints.
-If one endpoint URL is not known, there is an autocompletion once 3 characters have been typed.
-You should also specify the protocol, the address of the endpoint and the path. (Ex:
+&lt;p>Open the &amp;ldquo;Submit a transfer&amp;rdquo; tab and Load origin and destination storage
+elements as endpoints. If one endpoint URL is not known, there is an
+autocompletion once 3 characters have been typed. You should also specify the
+protocol, the address of the endpoint and the path. (Ex:
 &lt;code>gsiftp://lxfsra10a01.cern.ch/dpm/cern.ch/home/&lt;/code>).&lt;/p>
-&lt;p>Browse the content and select all the files you want to transfer. &lt;code>CTRL&lt;/code> and &lt;code>SHIFT&lt;/code> keys can be used
-for selecting multiple entries at once.&lt;/p>
-&lt;p>If you need to filter the list of files and folders, you can use the available filters:
-name, size and date. Once you have loaded both endpoints and selected the files, the transfer
-buttons will be enabled.
-Click the button with the correct direction. A success or error message will appear above the
-endpoints&amp;rsquo; containers.&lt;/p>
+&lt;p>Browse the content and select all the files you want to transfer. &lt;code>CTRL&lt;/code> and
+&lt;code>SHIFT&lt;/code> keys can be used for selecting multiple entries at once.&lt;/p>
+&lt;p>If you need to filter the list of files and folders, you can use the available
+filters: name, size and date. Once you have loaded both endpoints and selected
+the files, the transfer buttons will be enabled. Click the button with the
+correct direction. A success or error message will appear above the endpoints&amp;rsquo;
+containers.&lt;/p>
 &lt;p>You can now check the status of you transfer in the &amp;ldquo;My jobs&amp;rdquo; tab.&lt;/p>
 &lt;p>&lt;img src="webfts_submit.png" alt="image">&lt;/p>
 &lt;h3 id="listing-your-transfers">Listing your transfers&lt;/h3>
-&lt;p>Open the &amp;ldquo;My jobs&amp;rdquo; tab. If you have done any transfers recently, they will appear there.
-If you click on an individual transfer, you can see its state and any errors.&lt;/p>
-&lt;p>You can resubmit transfer jobs, but you would need to delegate your credentials if you did not
-do it before. You can do this at any state by clicking the &amp;ldquo;Resubmit&amp;rdquo; button.&lt;/p>
-&lt;p>The transfer states are: YELLOW if still running, GREEN if successfully completed and RED if
-something went wrong.&lt;/p>
-&lt;p>The transfers that are not completed have a &amp;ldquo;Cancel&amp;rdquo; button on the left of the &amp;ldquo;Resubmit&amp;rdquo; button.
-Clicking this button will cancel that transfer.&lt;/p>
+&lt;p>Open the &amp;ldquo;My jobs&amp;rdquo; tab. If you have done any transfers recently, they will
+appear there. If you click on an individual transfer, you can see its state and
+any errors.&lt;/p>
+&lt;p>You can resubmit transfer jobs, but you would need to delegate your credentials
+if you did not do it before. You can do this at any state by clicking the
+&amp;ldquo;Resubmit&amp;rdquo; button.&lt;/p>
+&lt;p>The transfer states are: YELLOW if still running, GREEN if successfully
+completed and RED if something went wrong.&lt;/p>
+&lt;p>The transfers that are not completed have a &amp;ldquo;Cancel&amp;rdquo; button on the left of the
+&amp;ldquo;Resubmit&amp;rdquo; button. Clicking this button will cancel that transfer.&lt;/p>
 &lt;p>&lt;img src="webfts_monitor.png" alt="image">&lt;/p></description></item><item><title>Users: API</title><link>/users/data-transfer/api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/data-transfer/api/</guid><description>
 &lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>The EGI Data Transfer service offers API both for Users and Admins, in this
@@ -432,23 +439,24 @@ u&lt;span style="color:#4e9a06">&amp;#39;vo_name&amp;#39;&lt;/span>: u&lt;span s
 &lt;a href="https://fts3-docs.web.cern.ch/fts3-docs/fts-rest/docs/easy/index.html">documentation&lt;/a>
 is also available.&lt;/p></description></item><item><title>Users: Monitoring</title><link>/users/data-transfer/monitoring/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/data-transfer/monitoring/</guid><description>
 &lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>Each instance of the FTS3 service, offers a Web monitoring interface, that can be
-accessed by end-users in order to monitor their submitted transfers and obtain
-statistics.&lt;/p>
+&lt;p>Each instance of the FTS3 service, offers a Web monitoring interface, that can
+be accessed by end-users in order to monitor their submitted transfers and
+obtain statistics.&lt;/p>
 &lt;h2 id="features">Features&lt;/h2>
-&lt;p>The Web monitoring can be accessed without user authentication, only access to the
-transfer log files needs an X.509 user certificate installed on the browser.&lt;/p>
+&lt;p>The Web monitoring can be accessed without user authentication, only access to
+the transfer log files needs an X.509 user certificate installed on the browser.&lt;/p>
 &lt;h3 id="overview-page">Overview page&lt;/h3>
-&lt;p>The Overview page offers a way to access the information about the transfers submitted
-and executed in the last 6 hours. Users can filter transfers per Virtual Organization,
-source or destination storage or JobId.&lt;/p>
+&lt;p>The Overview page offers a way to access the information about the transfers
+submitted and executed in the last 6 hours. Users can filter transfers per
+Virtual Organization, source or destination storage or JobId.&lt;/p>
 &lt;p>&lt;img src="ftsmon_overview.png" alt="image">&lt;/p>
 &lt;h3 id="job-details-page">Job details page&lt;/h3>
-&lt;p>By selecting a specific job the information about the job details are displayed. Each
-transfer part of the job is listed with his own information. From this page it&amp;rsquo;s also
-possible to access the transfer logs (upon authentication).&lt;/p>
+&lt;p>By selecting a specific job the information about the job details are displayed.
+Each transfer part of the job is listed with his own information. From this page
+it&amp;rsquo;s also possible to access the transfer logs (upon authentication).&lt;/p>
 &lt;p>&lt;img src="ftsmon_details.png" alt="image">&lt;/p>
 &lt;h3 id="optimizer-page">Optimizer page&lt;/h3>
-&lt;p>The Optimizer page shows Optimizer information about a specific link, detailing the
-throughput evolution and the parallel transfer/stream per link at a given time.&lt;/p>
+&lt;p>The Optimizer page shows Optimizer information about a specific link, detailing
+the throughput evolution and the parallel transfer/stream per link at a given
+time.&lt;/p>
 &lt;p>&lt;img src="ftsmon_optimizer.png" alt="image">&lt;/p></description></item></channel></rss>

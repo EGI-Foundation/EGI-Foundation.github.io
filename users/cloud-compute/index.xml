@@ -803,11 +803,12 @@ can check this with &lt;code>ip addr&lt;/code>). In your &lt;code>docker-compose
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">com.docker.network.driver.mtu&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1434&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul></description></item><item><title>Users: GPUs</title><link>/users/cloud-compute/gpgpu/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/gpgpu/</guid><description>
-&lt;h1 id="gpu-resources-on-egi-cloud">GPU resources on EGI Cloud&lt;/h1>
+&lt;h2 id="gpu-resources-on-egi-cloud">GPU resources on EGI Cloud&lt;/h2>
 &lt;p>GPUs resources are available on selected providers of the EGI Cloud. These are
 available as specific &lt;strong>flavours&lt;/strong> that when used to instantiate a Virtual
 Machine will make the hardware available to the user.&lt;/p>
 &lt;p>The table below summarises the available options:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -849,11 +850,13 @@ Machine will make the hardware available to the user.&lt;/p>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;h1 id="access-to-gpu-resources-on-egi-cloud">Access to GPU resources on EGI Cloud&lt;/h1>
+&lt;!-- markdownlint-enable line-length -->
+&lt;h2 id="access-to-gpu-resources-on-egi-cloud">Access to GPU resources on EGI Cloud&lt;/h2>
 &lt;p>GPUs sites can be accessed by different ways: via site-specific dashboards and
 endpoints or via common federated-cloud services like common Horizon dashboard,
 VMOps dashboard, or Infrastructure manager.&lt;/p>
 &lt;p>Site-specific dashboards and endpoints are described in the following table:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -865,21 +868,22 @@ VMOps dashboard, or Infrastructure manager.&lt;/p>
 &lt;tbody>
 &lt;tr>
 &lt;td>IISAS-GPUCloud&lt;/td>
-&lt;td>&lt;a href="https://nova3.ui.savba.sk/horizon">https://nova3.ui.savba.sk/horizon&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://keystone3.ui.savba.sk">https://keystone3.ui.savba.sk&lt;/a>:5000/&lt;/td>
+&lt;td>&lt;code>https://nova3.ui.savba.sk/horizon&lt;/code>&lt;/td>
+&lt;td>&lt;code>https://keystone3.ui.savba.sk:5000/&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>IFCA-LCG2&lt;/td>
-&lt;td>&lt;a href="https://portal.cloud.ifca.es/">https://portal.cloud.ifca.es/&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://api.cloud.ifca.es">https://api.cloud.ifca.es&lt;/a>:5000/&lt;/td>
+&lt;td>&lt;code>https://portal.cloud.ifca.es&lt;/code>&lt;/td>
+&lt;td>&lt;code>https://api.cloud.ifca.es:5000/&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>CESNET-MCC&lt;/td>
-&lt;td>&lt;a href="https://dashboard.cloud.muni.cz/">https://dashboard.cloud.muni.cz/&lt;/a>&lt;/td>
-&lt;td>&lt;a href="https://identity.cloud.muni.cz/">https://identity.cloud.muni.cz/&lt;/a>&lt;/td>
+&lt;td>&lt;code>https://dashboard.cloud.muni.cz&lt;/code>&lt;/td>
+&lt;td>&lt;code>https://identity.cloud.muni.cz/&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
+&lt;!-- markdownlint-enable line-length -->
 &lt;p>A VM image with pre-installed NVIDIA driver and Docker is available at
 &lt;a href="https://appdb.egi.eu/store/vappliance/nvidia.docker.centos.7">AppDB&lt;/a>. Some VOs
 (acc-comp.egi.eu, eosc-synergy.eu) have the image included in the VO image list.&lt;/p></description></item><item><title>Users: EC3</title><link>/users/cloud-compute/ec3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/</guid><description>

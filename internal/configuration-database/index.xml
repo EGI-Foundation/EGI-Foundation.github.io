@@ -43,8 +43,8 @@ group&lt;/a> ;&lt;/li>
 &lt;p>Please note, GOCDB does not support single or double quotes in the certificate
 Distinguished Name (DN).&lt;/p>
 &lt;p>This DN is rejected by GOCDB because of the single quote:&lt;/p>
-&lt;pre>&lt;code>/C=UK/O=STFC/OU=SomeOrgUnit/CN=David Mc'Donald
-&lt;/code>&lt;/pre>&lt;p>This is in accordance with &lt;a href="https://tools.ietf.org/html/rfc1778">RFC1778&lt;/a> which
+&lt;p>&lt;code>/C=UK/O=STFC/OU=SomeOrgUnit/CN=David Mc'Donald&lt;/code>&lt;/p>
+&lt;p>This is in accordance with &lt;a href="https://tools.ietf.org/html/rfc1778">RFC1778&lt;/a> which
 also disallows single quotes in all Relative Distinguished Name (RDN)
 components, and the OGF Certificate Authority Working Group (CAOPS) who
 strongly discourage any type of quote in a certificate DN as specified by their

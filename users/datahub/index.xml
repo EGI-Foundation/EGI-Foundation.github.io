@@ -1,45 +1,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – DataHub</title><link>/users/datahub/</link><description>Recent content in DataHub on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/datahub/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Clients</title><link>/users/datahub/clients/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/datahub/clients/</guid><description>
 &lt;p>The Oneclient code and basic documentation are available on
 &lt;a href="https://github.com/onedata/oneclient">GitHub&lt;/a>.&lt;/p>
-&lt;p>The official documentation is hosted on the &lt;a href="https://onedata.org/#/home/documentation/doc/using_onedata/oneclient.html">Onedata
-homepage&lt;/a>.&lt;/p>
+&lt;p>The official documentation is hosted on the
+&lt;a href="https://onedata.org/#/home/documentation/doc/using_onedata/oneclient.html">Onedata homepage&lt;/a>.&lt;/p>
 &lt;h2 id="using-the-web-interface">Using the web interface&lt;/h2>
 &lt;p>&lt;img src="datahub-connect-check-in.png" alt="Selecting EGI to connect using EGI Check-in">&lt;/p>
-&lt;p>Using EGI Check-in it's possible to connect with your institute
-credentials.&lt;/p>
+&lt;p>Using EGI Check-in it's possible to connect with your institute credentials.&lt;/p>
 &lt;p>&lt;img src="datahub-welcome-screen.png" alt="EGI DataHub landing page">&lt;/p>
-&lt;p>On this page it&amp;rsquo;s possible to have an overview of all the spaces and
-their supporting providers.&lt;/p>
+&lt;p>On this page it&amp;rsquo;s possible to have an overview of all the spaces and their
+supporting providers.&lt;/p>
 &lt;p>&lt;img src="datahub-space-info.png" alt="Information about spaces supported by a Oneprovider">&lt;/p>
-&lt;p>On this capture, the information about the spaces supported by a
-specific provider is displayed.&lt;/p>
+&lt;p>On this capture, the information about the spaces supported by a specific
+provider is displayed.&lt;/p>
 &lt;p>&lt;img src="datahub-browse-space.png" alt="Information about spaces supported by a Oneprovider">&lt;/p>
 &lt;p>The data space can be managed (i.e. uploading/downloading/managing files and
 metadata, managing space access) using the web browser.&lt;/p>
 &lt;h2 id="generating-tokens-for-using-oneclient-or-apis">Generating tokens for using Oneclient or APIs&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
-In order to be able to access your spaces using &lt;a href="../clients">Oneclient&lt;/a> or
-&lt;a href="../api">APIs&lt;/a>, it&amp;rsquo;s required to generate an access token.
+In order to be able to access
+your spaces using &lt;a href="../clients">Oneclient&lt;/a> or &lt;a href="../api">APIs&lt;/a>, it&amp;rsquo;s required to
+generate an access token.
 &lt;/div>
 &lt;p>Tokens have to be generated from the &lt;strong>EGI DataHub&lt;/strong> (Onezone) interface.&lt;/p>
 &lt;p>&lt;img src="datahub-space-token.png" alt="Managing access tokens from EGI DataHub">&lt;/p>
 &lt;p>The access tokens can be created and managed using the EGI DataHub web
 interface.&lt;/p>
 &lt;h2 id="installing-and-testing-oneclient-in-a-docker-container">Installing and testing Oneclient in a docker container&lt;/h2>
-&lt;p>A quick and simple solution for testing is to install the client on
-demand in a container for a supported Operating System flavor (mainly
-various CentOS and Ubuntu releases).&lt;/p>
+&lt;p>A quick and simple solution for testing is to install the client on demand in a
+container for a supported Operating System flavor (mainly various CentOS and
+Ubuntu releases).&lt;/p>
 &lt;p>The following variables have to be exported in the container:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong>
-the spaces.&lt;/li>
-&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client
-should connect to.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong> the spaces.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client should
+connect to.&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
-In order to be able to use FUSE, the container should run in &lt;strong>privileged&lt;/strong> mode.
+In order to be able to use FUSE,
+the container should run in &lt;strong>privileged&lt;/strong> mode.
 &lt;/div>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run -it --privileged centos:7 /bin/bash
 root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># curl -sS http://get.onedata.org/oneclient-1902.sh | bash&lt;/span>
@@ -52,37 +52,39 @@ root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&l
 root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># mkdir /tmp/space&lt;/span>
 root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># oneclient /tmp/space&lt;/span>
 root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># ls /tmp/space&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here the data is mounted in &lt;code>/tmp/space&lt;/code>, creating a file into it will
-push it to the Oneprovider and it will be accessible in the web
-interface and from other providers supporting the space.&lt;/p>
-&lt;p>For a real production usage it's preferable to use the Oneclient
-container as a source for a volume mounted into another container.&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Here the data is mounted in &lt;code>/tmp/space&lt;/code>, creating a file into it will push it
+to the Oneprovider and it will be accessible in the web interface and from other
+providers supporting the space.&lt;/p>
+&lt;p>For a real production usage it's preferable to use the Oneclient container as a
+source for a volume mounted into another container.&lt;/p>
 &lt;h2 id="testing-oneclient-in-a-oneclient-docker-container-with-nfs-or-samba">Testing Oneclient in a Oneclient docker container with NFS or samba&lt;/h2>
-&lt;p>Docker containers for the Oneclient are available, the existing versions
-can be seen on the &lt;a href="https://hub.docker.com/r/onedata/oneclient/tags">Oneclient docker hub&lt;/a>.&lt;/p>
-&lt;p>It&amp;rsquo;s possible to use the most recent version by specifying the &lt;code>latest&lt;/code>
-tag. We also recommend using the same version as shown on the Onezone
-and Oneprovider pages.&lt;/p>
+&lt;p>Docker containers for the Oneclient are available, the existing versions can be
+seen on the
+&lt;a href="https://hub.docker.com/r/onedata/oneclient/tags">Oneclient docker hub&lt;/a>.&lt;/p>
+&lt;p>It&amp;rsquo;s possible to use the most recent version by specifying the &lt;code>latest&lt;/code> tag. We
+also recommend using the same version as shown on the Onezone and Oneprovider
+pages.&lt;/p>
 &lt;p>The following variables have to be exported to be used in the container:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong>
-the spaces.&lt;/li>
-&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client
-should connect to.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong> the spaces.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client should
+connect to.&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
-In order to be able to use FUSE, the container should run in
-&lt;strong>privileged&lt;/strong> mode.
+In order to be able to use FUSE,
+the container should run in &lt;strong>privileged&lt;/strong> mode.
 &lt;/div>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONECLIENT_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ACCESS_TOKEN_FROM_ONEZONE&amp;gt;
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONECLIENT_PROVIDER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>plg-cyfronet-01.datahub.egi.eu
 docker run -it --privileged -e &lt;span style="color:#000">ONECLIENT_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ONECLIENT_ACCESS_TOKEN&lt;/span> -e &lt;span style="color:#000">ONECLIENT_PROVIDER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ONECLIENT_PROVIDER_HOST&lt;/span> onedata/oneclient:19.02.0-rc2
 Connecting to provider &lt;span style="color:#4e9a06">&amp;#39;plg-cyfronet-01.datahub.egi.eu:443&amp;#39;&lt;/span> using session ID: &lt;span style="color:#4e9a06">&amp;#39;4138963898952098752&amp;#39;&lt;/span>...
 Getting configuration...
 Oneclient has been successfully mounted in &lt;span style="color:#4e9a06">&amp;#39;/mnt/oneclient&amp;#39;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the client will run in the background and the data will be available
-through &lt;strong>samba/CIFS&lt;/strong> or &lt;strong>nfs&lt;/strong> protocols:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>Now the client will run in the background and the data will be available through
+&lt;strong>samba/CIFS&lt;/strong> or &lt;strong>nfs&lt;/strong> protocols:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Identifying the IP of the container&lt;/span>
 docker inspect --format &lt;span style="color:#4e9a06">&amp;#34;{{ .NetworkSettings.IPAddress }}&amp;#34;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>docker ps -ql&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 172.17.0.2
@@ -92,23 +94,23 @@ docker inspect --format &lt;span style="color:#4e9a06">&amp;#34;{{ .NetworkSetti
 &lt;li>&lt;code>nfs://172.17.0.2/onedata&lt;/code>&lt;/li>
 &lt;/ul>
 &lt;h2 id="testing-oneclient-in-a-oneclient-docker-container-with-local-file-access">Testing Oneclient in a Oneclient docker container with local file access&lt;/h2>
-&lt;p>Another solution is to mount a local directory as a volume in the
-container, allowing to access both the working directory as well as the
-Onedata spaces, thus allowing to easily exchange files between a local
-directory and a Onedata space.&lt;/p>
-&lt;p>In order to do this we will open a &lt;code>bash&lt;/code> shell in the container then we
-will mount manually the Onedata spaces.&lt;/p>
+&lt;p>Another solution is to mount a local directory as a volume in the container,
+allowing to access both the working directory as well as the Onedata spaces,
+thus allowing to easily exchange files between a local directory and a Onedata
+space.&lt;/p>
+&lt;p>In order to do this we will open a &lt;code>bash&lt;/code> shell in the container then we will
+mount manually the Onedata spaces.&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong>
-the spaces.&lt;/li>
-&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client
-should connect to.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong> the spaces.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client should
+connect to.&lt;/li>
 &lt;/ul>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
-In order to be able to use FUSE, the container should run in
-&lt;strong>privileged&lt;/strong> mode.
+In order to be able to use FUSE,
+the container should run in &lt;strong>privileged&lt;/strong> mode.
 &lt;/div>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONECLIENT_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ACCESS_TOKEN_FROM_ONEZONE&amp;gt;
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONECLIENT_PROVIDER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>plg-cyfronet-01.datahub.egi.eu
 docker run -it --privileged -e &lt;span style="color:#000">ONECLIENT_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ONECLIENT_ACCESS_TOKEN&lt;/span> -e &lt;span style="color:#000">ONECLIENT_PROVIDER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">$ONECLIENT_PROVIDER_HOST&lt;/span> -v &lt;span style="color:#000">$PWD&lt;/span>:/mnt/src --entrypoint bash onedata/oneclient:19.02.0-rc2
@@ -120,19 +122,19 @@ root@aca612a84fb4:/tmp# ls /mnt/oneclient
 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
 root@aca612a84fb4:/tmp# ls /mnt/src
 &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>...&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now it's possible to use the following mount points:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>Now it's possible to use the following mount points:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>/mnt/oneclient&lt;/code>: the Onedata spaces&lt;/li>
-&lt;li>&lt;code>/mnt/src&lt;/code>: the local directory (any absolute path could have been
-used instead of &lt;code>$PWD&lt;/code> that points to the working directory)&lt;/li>
+&lt;li>&lt;code>/mnt/src&lt;/code>: the local directory (any absolute path could have been used
+instead of &lt;code>$PWD&lt;/code> that points to the working directory)&lt;/li>
 &lt;/ul>
 &lt;h2 id="testing-oneclient-in-a-virtual-machine">Testing Oneclient in a Virtual Machine&lt;/h2>
 &lt;p>The following variables have to be exported:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong>
-the spaces.&lt;/li>
-&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client
-should connect to.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong> the spaces.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client should
+connect to.&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl -sS http://get.onedata.org/oneclient-1902.sh &lt;span style="color:#000;font-weight:bold">|&lt;/span> bash
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONECLIENT_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ACCESS_TOKEN_FROM_ONEZONE&amp;gt;
@@ -140,13 +142,13 @@ should connect to.&lt;/li>
 mkdir /tmp/space
 oneclient /tmp/space
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="testing-oneclient-in-a-vagrant-box">Testing Oneclient in a Vagrant box&lt;/h2>
-&lt;p>It's possible to quickly test Oneclient using &lt;a href="https://www.vagrantup.com/">Vagrant&lt;/a>.&lt;/p>
+&lt;p>It's possible to quickly test Oneclient using
+&lt;a href="https://www.vagrantup.com/">Vagrant&lt;/a>.&lt;/p>
 &lt;p>The following variables have to be exported:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong>
-the spaces.&lt;/li>
-&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client
-should connect to.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_ACCESS_TOKEN&lt;/code>: access token allowing to access &lt;strong>all&lt;/strong> the spaces.&lt;/li>
+&lt;li>&lt;code>ONECLIENT_PROVIDER_HOST&lt;/code>: name or IP of the Oneprovider the client should
+connect to.&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">vagrant init ubuntu/xenial64
 vagrant up
@@ -191,23 +193,25 @@ oneclient /tmp/space
 &lt;h2 id="integrating-datahub-and-egi-notebooks">Integrating DataHub and EGI Notebooks&lt;/h2>
 &lt;p>&lt;img src="datahub-notebooks-integration.png" alt="image">&lt;/p></description></item><item><title>Users: API</title><link>/users/datahub/api/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/datahub/api/</guid><description>
 &lt;p>Most if not all operations can be performed using the Onedata API.&lt;/p>
-&lt;p>The official documentation is at &lt;a href="https://onedata.org/#/home/api">https://onedata.org/#/home/api&lt;/a>.&lt;/p>
+&lt;p>The official documentation is &lt;a href="https://onedata.org/#/home/api">here&lt;/a>.&lt;/p>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Important&lt;/h4>
-In order to be able to access the Onedata APIs, an access
-token is required. See below for instructions on how to generate one.
+In order to be able to access
+the Onedata APIs, an access token is required. See below for instructions on how
+to generate one.
 &lt;/div>
 &lt;h2 id="getting-an-api-access-token">Getting an API access token&lt;/h2>
 &lt;p>Tokens have to be generated from the &lt;strong>EGI DataHub&lt;/strong> (Onezone) interface as
-documented in &lt;a href="../clients/#generating-tokens-for-using-oneclient-or-apis">Generating tokens for using Oneclient or
-APIs&lt;/a> or using a
-command line call as documented hereafter.&lt;/p>
-&lt;p>Bear in mind that a single API token can be used with both Onezone,
-Oneprovider and other Onedata APIs.&lt;/p>
+documented in
+&lt;a href="../clients/#generating-tokens-for-using-oneclient-or-apis">Generating tokens for using Oneclient or APIs&lt;/a>
+or using a command line call as documented hereafter.&lt;/p>
+&lt;p>Bear in mind that a single API token can be used with both Onezone, Oneprovider
+and other Onedata APIs.&lt;/p>
 &lt;p>It&amp;rsquo;s possible to retrieve the &lt;code>CLIENT_ID&lt;/code>, &lt;code>CLIENT_SECRET&lt;/code> and &lt;code>REFRESH_TOKEN&lt;/code>
-using a &lt;a href="https://aai.egi.eu/fedcloud/">special OIDC client connected to
-Check-in&lt;/a>. See
+using a
+&lt;a href="https://aai.egi.eu/fedcloud/">special OIDC client connected to Check-in&lt;/a>. See
 &lt;a href="../../check-in/">Check-in documentation&lt;/a> for more information.&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#000">CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
 &lt;span style="color:#000">CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
 &lt;span style="color:#000">REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
@@ -215,13 +219,14 @@ Check-in&lt;/a>. See
 curl -X POST -u &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$CLIENT_ID&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>:&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$CLIENT_SECRET&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -d &lt;span style="color:#4e9a06">&amp;#34;client_id=&lt;/span>&lt;span style="color:#000">$CLIENT_ID&lt;/span>&lt;span style="color:#4e9a06">&amp;amp;&lt;/span>&lt;span style="color:#000">$CLIENT_SECRET&lt;/span>&lt;span style="color:#4e9a06">&amp;amp;grant_type=refresh_token&amp;amp;refresh_token=&lt;/span>&lt;span style="color:#000">$REDRESH_TOKEN&lt;/span>&lt;span style="color:#4e9a06">&amp;amp;scope=openid%20email%20profile&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;https://aai.egi.eu/oidc/token&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span> python -m json.tool&lt;span style="color:#000;font-weight:bold">;&lt;/span>
-&lt;span style="color:#8f5902;font-style:italic"># Token is in the `access_token` field of the response&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following variables should be set:&lt;/p>
+&lt;span style="color:#8f5902;font-style:italic"># Token is in the access_token field of the response&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>The following variables should be set:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>OIDC_TOKEN&lt;/code>: OpenID Connect Access token.&lt;/li>
 &lt;li>&lt;code>ONEZONE_HOST&lt;/code>: name or IP of the Onezone host (to use Onezone API).&lt;/li>
-&lt;li>&lt;code>ONEPROVIDER_HOST&lt;/code>: name or IP of the Oneprovider host (to use
-Oneprovider API).&lt;/li>
+&lt;li>&lt;code>ONEPROVIDER_HOST&lt;/code>: name or IP of the Oneprovider host (to use Oneprovider
+API).&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#000">ONEZONE_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://datahub.egi.eu
 &lt;span style="color:#000">OIDC_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;OIDC_ACCESS_TOKEN&amp;gt;
@@ -229,9 +234,9 @@ curl -H &lt;span style="color:#4e9a06">&amp;#34;X-Auth-Token: egi:&lt;/span>&lt;
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> -H &lt;span style="color:#4e9a06">&amp;#39;Content-type: application/json&amp;#39;&lt;/span> -d &lt;span style="color:#4e9a06">&amp;#39;{}&amp;#39;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$ONEZONE_HOST&lt;/span>&lt;span style="color:#4e9a06">/api/v3/onezone/user/client_tokens&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="testing-the-api-with-the-rest-client">Testing the API with the REST client&lt;/h2>
-&lt;p>A docker container with clients acting as wrappers around the API calls
-is available: &lt;code>onedata/rest-cli&lt;/code>. It's very convenient for discovering
-and testing the &lt;strong>Onezone&lt;/strong> and &lt;strong>Oneprovider&lt;/strong> API.&lt;/p>
+&lt;p>A docker container with clients acting as wrappers around the API calls is
+available: &lt;code>onedata/rest-cli&lt;/code>. It's very convenient for discovering and testing
+the &lt;strong>Onezone&lt;/strong> and &lt;strong>Oneprovider&lt;/strong> API.&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run -it onedata/rest-cli
 &lt;span style="color:#8f5902;font-style:italic"># Exporting env for Onezone API&lt;/span>
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONEZONE_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://datahub.egi.eu
@@ -250,8 +255,7 @@ oneprovider-rest-cli getAllSpaces &lt;span style="color:#000;font-weight:bold">|
 oneprovider-rest-cli listFiles &lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;EGI Foundation/&amp;#39;&lt;/span>
 oneprovider-rest-cli listFiles &lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;EGI Foundation/CS3_dataset&amp;#39;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="printing-the-raw-rest-calls-of-a-wrapped-command">Printing the raw REST calls of a wrapped command&lt;/h2>
-&lt;p>Raw REST calls (used with &lt;code>curl&lt;/code>) can be printed using the &lt;code>--dry-run&lt;/code>
-switch.&lt;/p>
+&lt;p>Raw REST calls (used with &lt;code>curl&lt;/code>) can be printed using the &lt;code>--dry-run&lt;/code> switch.&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run -it onedata/rest-cli
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONEZONE_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>https://datahub.egi.eu
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">ONEZONE_API_KEY&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;ACCESS_TOKEN&amp;gt;
@@ -260,25 +264,25 @@ onezone-rest-cli listEffectiveUserSpaces &lt;span style="color:#000;font-weight:
 &lt;span style="color:#8f5902;font-style:italic"># Printing the curl command without running it&lt;/span>
 onezone-rest-cli listEffectiveUserSpaces --dry-run
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="working-with-pid--handle">Working with PID / Handle&lt;/h2>
-&lt;p>It&amp;rsquo;s possible to mint a Permanent Identifier (PID) for a space or a
-subdirectory of a space using a handle service (like Handle.net) that is
-registered in the Onezone (EGI DataHub).&lt;/p>
-&lt;p>Once done, accessing the PID using its URL will redirect to the Onedata
-share allowing to retrieve the files.&lt;/p>
+&lt;p>It&amp;rsquo;s possible to mint a Permanent Identifier (PID) for a space or a subdirectory
+of a space using a handle service (like Handle.net) that is registered in the
+Onezone (EGI DataHub).&lt;/p>
+&lt;p>Once done, accessing the PID using its URL will redirect to the Onedata share
+allowing to retrieve the files.&lt;/p>
 &lt;p>Prerequisites: access to a Handle service registered in the Onezone. See the
-&lt;a href="https://onedata.org/#/home/documentation/doc/using_onedata/handle_services.html">Handle Service API
-documentation&lt;/a>
+&lt;a href="https://onedata.org/#/home/documentation/doc/using_onedata/handle_services.html">Handle Service API documentation&lt;/a>
 for documentation on registering a new Handle service or ask a Onezone
 administrator to authorize you to use an existing Handle service already
 registered in the Onezone.&lt;/p>
 &lt;p>The following variables should be set:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>API_ACCESS_TOKEN&lt;/code>: &lt;a href="https://onedata.org/docs/doc/using_onedata/using_onedata_from_cli.html#authentication">Onedata API access
-token&lt;/a>&lt;/li>
+&lt;li>&lt;code>API_ACCESS_TOKEN&lt;/code>:
+&lt;a href="https://onedata.org/docs/doc/using_onedata/using_onedata_from_cli.html#authentication">Onedata API access token&lt;/a>&lt;/li>
 &lt;li>&lt;code>ONEZONE_HOST&lt;/code>: name or IP of the Onezone host (to use Onezone API).&lt;/li>
-&lt;li>&lt;code>ONEPROVIDER_HOST&lt;/code>: name or IP of the Oneprovider host (to use
-Oneprovider API)&lt;/li>
+&lt;li>&lt;code>ONEPROVIDER_HOST&lt;/code>: name or IP of the Oneprovider host (to use Oneprovider
+API)&lt;/li>
 &lt;/ul>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Getting the IDs of the available Handle Services&lt;/span>
 curl -sS --tlsv1.2 -H &lt;span style="color:#4e9a06">&amp;#34;X-Auth-Token: &lt;/span>&lt;span style="color:#000">$API_ACCESS_TOKEN&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$ONEZONE_HOST&lt;/span>&lt;span style="color:#4e9a06">/api/v3/onezone/user/handle_services&amp;#34;&lt;/span>
@@ -323,7 +327,7 @@ curl --tlsv1.2 -H &lt;span style="color:#4e9a06">&amp;#34;X-Auth-Token: &lt;/spa
 &lt;span style="color:#000">HANDLE_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;HANDLE_ID&amp;gt;
 curl --tlsv1.2 -H &lt;span style="color:#4e9a06">&amp;#34;X-Auth-Token: &lt;/span>&lt;span style="color:#000">$API_ACCESS_TOKEN&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#000">$ONEZONE_HOST&lt;/span>&lt;span style="color:#4e9a06">/api/v3/onezone/user/handles/&lt;/span>&lt;span style="color:#000">$HANDLE_ID&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Users: Links</title><link>/users/datahub/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/datahub/links/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length --></description></item><item><title>Users: Links</title><link>/users/datahub/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/datahub/links/</guid><description>
 &lt;ul>
 &lt;li>&lt;a href="https://datahub.egi.eu">EGI DataHub service&lt;/a>
 &lt;ul>

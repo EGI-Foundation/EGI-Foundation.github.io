@@ -1,22 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Cloud Container Compute</title><link>/users/cloud-container-compute/</link><description>Recent content in Cloud Container Compute on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/cloud-container-compute/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Docker VM</title><link>/users/cloud-container-compute/docker/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-container-compute/docker/</guid><description>
-&lt;p>The &lt;a href="https://appdb.egi.eu/store/vappliance/egi.docker.ubuntu.16.04">EGI Docker
-VA&lt;/a> is a
-ready-to-use Virtual Machine Image with
-&lt;a href="https://www.docker.com/">docker&lt;/a> and
-&lt;a href="https://docs.docker.com/compose/">docker-compose&lt;/a> pre-installed.&lt;/p>
+&lt;p>The
+&lt;a href="https://appdb.egi.eu/store/vappliance/egi.docker.ubuntu.16.04">EGI Docker VA&lt;/a>
+is a ready-to-use Virtual Machine Image with &lt;a href="https://www.docker.com/">docker&lt;/a>
+and &lt;a href="https://docs.docker.com/compose/">docker-compose&lt;/a> pre-installed.&lt;/p>
 &lt;p>You can start that image as any other VA available from AppDB:&lt;/p>
 &lt;ol>
 &lt;li>
-&lt;p>Go to the &lt;a href="https://appdb.egi.eu/store/vappliance/egi.docker.ubuntu.16.04">EGI Docker image entry in
-AppDB&lt;/a>.&lt;/p>
+&lt;p>Go to the
+&lt;a href="https://appdb.egi.eu/store/vappliance/egi.docker.ubuntu.16.04">EGI Docker image entry in AppDB&lt;/a>.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Check the identifiers of the endpoint, image and flavor you want to
-use at the provider.&lt;/p>
+&lt;p>Check the identifiers of the endpoint, image and flavor you want to use at
+the provider.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Use a ssh key when, so you can log into the VM once it's
-instantiated.&lt;/p>
+&lt;p>Use a ssh key when, so you can log into the VM once it's instantiated.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Once up, just ssh in the VM and start using docker as usual.&lt;/p>
@@ -24,20 +22,20 @@ instantiated.&lt;/p>
 &lt;/ol>
 &lt;h3 id="using-docker-from-inside-the-vm">Using docker from inside the VM&lt;/h3>
 &lt;p>You can log in with user &lt;code>ubuntu&lt;/code> and your ssh key:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">ssh -i &amp;lt;yourprivatekey&amp;gt; ubuntu@&amp;lt;your VM ip&amp;gt;
-&lt;/code>&lt;/pre>&lt;p>Once in, you can run any docker command, e.g.:&lt;/p>
-&lt;pre>&lt;code class="language-{.console}" data-lang="{.console}">ubuntu@fedcloud_vm:~$ sudo docker run hello-world
-Unable to find image 'hello-world:latest' locally
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh -i &amp;lt;yourprivatekey&amp;gt; ubuntu@&amp;lt;your VM ip&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once in, you can run any docker command, e.g.:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ubuntu@fedcloud_vm:~$ sudo docker run hello-world
+Unable to find image &lt;span style="color:#4e9a06">&amp;#39;hello-world:latest&amp;#39;&lt;/span> locally
 latest: Pulling from library/hello-world
-b901d36b6f2f: Pull complete
-0a6ba66e537a: Pull complete
+b901d36b6f2f: Pull &lt;span style="color:#204a87">complete&lt;/span>
+0a6ba66e537a: Pull &lt;span style="color:#204a87">complete&lt;/span>
 Digest: sha256:8be990ef2aeb16dbcb9271ddfe2610fa6658d13f6dfb8bc72074cc1ca36966a7
-Status: Downloaded newer image for hello-world:latest
+Status: Downloaded newer image &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> hello-world:latest
 Hello from Docker.
 This message shows that your installation appears to be working correctly.
 To generate this message, Docker took the following steps:
 1. The Docker client contacted the Docker daemon.
-2. The Docker daemon pulled the &amp;quot;hello-world&amp;quot; image from the Docker Hub.
+2. The Docker daemon pulled the &lt;span style="color:#4e9a06">&amp;#34;hello-world&amp;#34;&lt;/span> image from the Docker Hub.
 3. The Docker daemon created a new container from that image which runs the
 executable that produces the output you are currently reading.
 4. The Docker daemon streamed that output to the Docker client, which sent it
@@ -48,72 +46,78 @@ Share images, automate workflows, and more with a free Docker Hub account:
 https://hub.docker.com
 For more examples and ideas, visit:
 https://docs.docker.com/userguide/
-&lt;/code>&lt;/pre>&lt;p>Docker-compose can be also used to execute applications with more than one container
-running together, &lt;a href="https://docs.docker.com/compose/">follow this documentation&lt;/a>
-to learn more.&lt;/p></description></item><item><title>Users: Kubernetes</title><link>/users/cloud-container-compute/k8s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-container-compute/k8s/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Docker-compose can be also used to execute applications with more than one
+container running together,
+&lt;a href="https://docs.docker.com/compose/">follow this documentation&lt;/a> to learn more.&lt;/p></description></item><item><title>Users: Kubernetes</title><link>/users/cloud-container-compute/k8s/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-container-compute/k8s/</guid><description>
 &lt;p>There are several container management tools available, on the EGI Cloud we use
-&lt;a href="https://kubernetes.io">Kubernetes&lt;/a> as the default platform for our service. This
-guide explains how to get a running scalable Kubernetes deployment for your
+&lt;a href="https://kubernetes.io">Kubernetes&lt;/a> as the default platform for our service.
+This guide explains how to get a running scalable Kubernetes deployment for your
 applications with EC3.&lt;/p>
 &lt;h2 id="getting-started">Getting started&lt;/h2>
 &lt;p>Before getting your kubernetes cluster deployed, you need to get access to the
-Cloud Compute service, check the &lt;a href="../../cloud-compute/auth">Authentication and Authorisation guide&lt;/a>
-for more information. You should also get &lt;a href="https://github.com/EGI-Foundation/egcli/">&lt;code>egicli&lt;/code>&lt;/a>
-installed to get EC3 templates needed to start deployment.&lt;/p>
+Cloud Compute service, check the
+&lt;a href="../cloud-compute/auth">Authentication and Authorisation guide&lt;/a> for more
+information. You should also get
+&lt;a href="https://github.com/EGI-Foundation/egicli/">&lt;code>egicli&lt;/code>&lt;/a> installed to get EC3
+templates needed to start deployment.&lt;/p>
 &lt;p>Your kubernetes deployment needs to be performed at an specific provider (site)
-and project. Discover them using &lt;code>egicli&lt;/code> as described in the &lt;a href="../cloud-compute/ec3/basics">EC3 tutorial&lt;/a>.&lt;/p>
+and project. Discover them using &lt;code>egicli&lt;/code> as described in the
+&lt;a href="../cloud-compute/ec3">EC3 tutorial&lt;/a>.&lt;/p>
 &lt;h3 id="ec3-templates">EC3 Templates&lt;/h3>
 &lt;p>EC3 relies on a set of &lt;em>templates&lt;/em> that will determine what will be deployed on
 the infrastructure. &lt;code>egicli&lt;/code> helps you to get an initial set of templates for
 your kubernetes deployment:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ mkdir k8s
-$ &lt;span style="color:#204a87">cd&lt;/span> k8s
-$ egicli endpoint ec3 --site &amp;lt;your site&amp;gt; --project-id &amp;lt;project_id&amp;gt;
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mkdir k8s
+&lt;span style="color:#204a87">cd&lt;/span> k8s
+egicli endpoint ec3 --site &amp;lt;your site&amp;gt; --project-id &amp;lt;project_id&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You will also need a base image template for the deployment. Please refer to the
-&lt;a href="../cloud-compute/ec3/basics">EC3 tutorial&lt;/a> to create such file. Below you can
+&lt;a href="../cloud-compute/ec3">EC3 tutorial&lt;/a> to create such file. Below you can
 see an example for IFCA-LCG2 site with project related to &lt;code>vo.access.egi.eu&lt;/code>:&lt;/p>
-&lt;pre>&lt;code>description ubuntu-ifca (
-kind = 'images' and
-short = 'ubuntu18-ifca' and
-content = 'Ubuntu 18 image at IFCA-LCG2'
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext">description ubuntu-ifca (
+kind = &amp;#39;images&amp;#39; and
+short = &amp;#39;ubuntu18-ifca&amp;#39; and
+content = &amp;#39;Ubuntu 18 image at IFCA-LCG2&amp;#39;
 )
 network public (
-provider_id = 'external' and
-outports contains '22/tcp'
+provider_id = &amp;#39;external&amp;#39; and
+outports contains &amp;#39;22/tcp&amp;#39;
 )
-network private (provider_id = 'provider-2008')
+network private (provider_id = &amp;#39;provider-2008&amp;#39;)
 system front (
-cpu.arch = 'x86_64' and
+cpu.arch = &amp;#39;x86_64&amp;#39; and
 cpu.count &amp;gt;= 2 and
 memory.size &amp;gt;= 2048 and
-disk.0.os.name = 'linux' and
-disk.0.image.url = 'ost://api.cloud.ifca.es/723171cb-53b2-4881-ae37-a7400ce0665b' and
-disk.0.os.credentials.username = 'cloudadm'
+disk.0.os.name = &amp;#39;linux&amp;#39; and
+disk.0.image.url = &amp;#39;ost://api.cloud.ifca.es/723171cb-53b2-4881-ae37-a7400ce0665b&amp;#39; and
+disk.0.os.credentials.username = &amp;#39;cloudadm&amp;#39;
 )
 system wn (
-cpu.arch = 'x86_64' and
+cpu.arch = &amp;#39;x86_64&amp;#39; and
 cpu.count &amp;gt;= 2 and
 memory.size &amp;gt;= 2048 and
 ec3_max_instances = 5 and # maximum number of working nodes in the cluster
-disk.0.os.name = 'linux' and
-disk.0.image.url = 'ost://api.cloud.ifca.es/723171cb-53b2-4881-ae37-a7400ce0665b' and
-disk.0.os.credentials.username = 'cloudadm'
+disk.0.os.name = &amp;#39;linux&amp;#39; and
+disk.0.image.url = &amp;#39;ost://api.cloud.ifca.es/723171cb-53b2-4881-ae37-a7400ce0665b&amp;#39; and
+disk.0.os.credentials.username = &amp;#39;cloudadm&amp;#39;
 )
-&lt;/code>&lt;/pre>&lt;p>Now you are ready to deploy the cluster using &lt;code>launch&lt;/code> command of ec3 with:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>Now you are ready to deploy the cluster using &lt;code>launch&lt;/code> command of ec3 with:&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>the name of the deployment, &lt;code>k8s&lt;/code> in this case&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>a list of templates: &lt;code>kubernetes&lt;/code> for configuring kubernetes, &lt;code>ubuntu&lt;/code>
-for specifying the image and site details, &lt;code>refresh&lt;/code> to enable credential
-refresh and elasticity&lt;/p>
+&lt;p>a list of templates: &lt;code>kubernetes&lt;/code> for configuring kubernetes, &lt;code>ubuntu&lt;/code> for
+specifying the image and site details, &lt;code>refresh&lt;/code> to enable credential refresh
+and elasticity&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>the credentials to access the site with &lt;code>-a auth.dat&lt;/code>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 launch k8s kubernetes ubuntu refresh -a auth.dat
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> launch k8s kubernetes ubuntu refresh -a auth.dat
 Creating infrastructure
 Infrastructure successfully created with ID: b9577c34-f818-11ea-a644-2e0fc3c063db
 Front-end configured with IP 193.144.46.249
@@ -139,8 +143,9 @@ cloudadm@kubeserver:~$
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo kubectl get nodes
 NAME STATUS ROLES AGE VERSION
 kubeserver.localdomain Ready master 23h v1.18.3
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The cluster will only have one node (the master) and will start new nodes as
-you create pods. Alternatively you can poweron nodes manually:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The cluster will only have one node (the master) and will start new nodes as you
+create pods. Alternatively you can poweron nodes manually:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ clues status
 node state enabled &lt;span style="color:#204a87">time&lt;/span> stable &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> used &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>cpu,mem&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> total
 -----------------------------------------------------------------------------------------------
@@ -155,18 +160,23 @@ wn4.localdomain off enabled 00h32&lt;span style="color:#4e9a06">&amp;#39;22&amp;
 &lt;/span>&lt;span style="color:#4e9a06">NAME STATUS ROLES AGE VERSION
 &lt;/span>&lt;span style="color:#4e9a06">kubeserver.localdomain Ready master 24h v1.18.3
 &lt;/span>&lt;span style="color:#4e9a06">wn1.localdomain Ready &amp;lt;none&amp;gt; 6m49s v1.18.3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="exposing-services-outside-the-cluster">Exposing services outside the cluster&lt;/h2>
-&lt;p>Kubernetes uses &lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">services&lt;/a>
-for exposing an applications via the network. The services can rely on Load Balancers
-supported at the underlying cloud provider, which is not always feasible on the
-EGI Cloud providers. As an alternative solution we use an &lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress controller&lt;/a>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;h2 id="exposing-services-outside-the-cluster">Exposing services outside the cluster&lt;/h2>
+&lt;p>Kubernetes uses
+&lt;a href="https://kubernetes.io/docs/concepts/services-networking/service/">services&lt;/a> for
+exposing an applications via the network. The services can rely on Load
+Balancers supported at the underlying cloud provider, which is not always
+feasible on the EGI Cloud providers. As an alternative solution we use an
+&lt;a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress controller&lt;/a>
 which allows us to expose services using rules based on host names.&lt;/p>
-&lt;p>Helm allows you to quickly install the &lt;a href="https://github.com/kubernetes/ingress-nginx/">nginx based ingress&lt;/a>.
-Add the helm repos:&lt;/p>
+&lt;p>Helm allows you to quickly install the
+&lt;a href="https://github.com/kubernetes/ingress-nginx/">nginx based ingress&lt;/a>. Add the
+helm repos:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 cloudadm@kubeserver:~$ sudo helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 cloudadm@kubeserver:~$ sudo helm repo update
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a configuration file (&lt;code>ingress.yaml&lt;/code>), get the externalIP using &lt;code>ip addr&lt;/code>:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a configuration file (&lt;code>ingress.yaml&lt;/code>), get the externalIP using
+&lt;code>ip addr&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">controller&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">tolerations&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#204a87;font-weight:bold">effect&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>NoSchedule&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -182,9 +192,10 @@ cloudadm@kubeserver:~$ sudo helm repo update
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>and install:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo helm install ingress -n kube-system -f ingress.yaml ingress-nginx/ingress-nginx
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Now you are ready to expose your services using a valid hostname. Use the
-&lt;a href="https://nsupdate.fedcloud.eu/">EGI Cloud Dynamic DNS service&lt;/a> for getting hostnames
-if you need. Assign as IP the public IP of the master node. Once you have a hostname
-assigned to the master IP, the ingress will be able to reply to requests already:&lt;/p>
+&lt;a href="https://nsupdate.fedcloud.eu/">EGI Cloud Dynamic DNS service&lt;/a> for getting
+hostnames if you need. Assign as IP the public IP of the master node. Once you
+have a hostname assigned to the master IP, the ingress will be able to reply to
+requests already:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ curl ingress.test.fedcloud.eu
 &amp;lt;html&amp;gt;
 &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;404 Not Found&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
@@ -193,8 +204,8 @@ assigned to the master IP, the ingress will be able to reply to requests already
 &amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx/1.19.2&amp;lt;/center&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following example yaml creates a service and exposes at that ingress.test.fedcloud.eu
-host:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>The following example yaml creates a service and exposes at that
+ingress.test.fedcloud.eu host:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>apps/v1&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>Deployment&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">metadata&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -242,7 +253,8 @@ host:&lt;/p>
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">backend&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">serviceName&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>my-nginx&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">servicePort&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#0000cf;font-weight:bold">80&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the ingress will redirect request to the NGINX pod that we have just created:&lt;/p>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the ingress will redirect request to the NGINX pod that we have just
+created:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ curl ingress.test.fedcloud.eu
 &amp;lt;!DOCTYPE html&amp;gt;
 &amp;lt;html&amp;gt;
@@ -269,16 +281,17 @@ Commercial support is available at
 &amp;lt;/html&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="volumes">Volumes&lt;/h2>
 &lt;p>Volumes on these deployments can be supported with NFS volume driver. You can
-either manually configure the server on one of the nodes or use EC3 to deploy
-it and configure it for you. Create a &lt;code>templates/nfs.radl&lt;/code> to do so:&lt;/p>
-&lt;pre>&lt;code>description nfs (
-kind = 'component' and
-short = 'Tool to configure shared directories inside a network.' and
-content = 'Network File System (NFS) client allows you to access shared directories from Linux client.'
+either manually configure the server on one of the nodes or use EC3 to deploy it
+and configure it for you. Create a &lt;code>templates/nfs.radl&lt;/code> to do so:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plaintext" data-lang="plaintext">description nfs (
+kind = &amp;#39;component&amp;#39; and
+short = &amp;#39;Tool to configure shared directories inside a network.&amp;#39; and
+content = &amp;#39;Network File System (NFS) client allows you to access shared directories from Linux client.&amp;#39;
 )
 system front (
-ec3_templates contains 'nfs' and
-disk.0.applications contains (name = 'ansible.modules.grycap.nfs')
+ec3_templates contains &amp;#39;nfs&amp;#39; and
+disk.0.applications contains (name = &amp;#39;ansible.modules.grycap.nfs&amp;#39;)
 )
 configure front (
 @begin
@@ -287,16 +300,16 @@ configure front (
 file:
 path: /volumes
 state: directory
-mode: '0777'
+mode: &amp;#39;0777&amp;#39;
 - roles:
 - role: grycap.nfs
-nfs_mode: 'front'
+nfs_mode: &amp;#39;front&amp;#39;
 nfs_exports:
-- path: &amp;quot;/volumes&amp;quot;
-export: &amp;quot;wn*.localdomain(rw,async,no_root_squash,no_subtree_check,insecure) kubeserver.localdomain(rw,async,no_root_squash,no_subtree_check,insecure)&amp;quot;
+- path: &amp;#34;/volumes&amp;#34;
+export: &amp;#34;wn*.localdomain(rw,async,no_root_squash,no_subtree_check,insecure) kubeserver.localdomain(rw,async,no_root_squash,no_subtree_check,insecure)&amp;#34;
 @end
 )
-system wn (ec3_templates contains 'nfs')
+system wn (ec3_templates contains &amp;#39;nfs&amp;#39;)
 configure wn (
 @begin
 - tasks:
@@ -306,22 +319,28 @@ name: nfs-common
 state: present
 @end
 )
-&lt;/code>&lt;/pre>&lt;p>if you have a running cluster, you can add the NFS support by reconfiguring the
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>if you have a running cluster, you can add the NFS support by reconfiguring the
 cluster:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 reconfigure k8s -a auth.dat -t nfs
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> reconfigure k8s -a auth.dat -t nfs
 Reconfiguring infrastructure
 Front-end configured with IP 193.144.46.249
 Transferring infrastructure
 Front-end ready!
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>And then install the NFS driver in kubernetes with helm:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo helm install nfs-provisioner stable/nfs-client-provisioner &lt;span style="color:#4e9a06">\
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo helm install nfs-provisioner &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> stable/nfs-client-provisioner &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --namespace kube-system &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set nfs.server&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>192.168.10.9 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set storageClass.defaultClass&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">true&lt;/span> &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set nfs.path&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>/volumes &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --set tolerations&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>0&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.effect&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>NoSchedule,tolerations&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>0&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>.key&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>node-role.kubernetes.io/master
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now you are ready to create a &lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PVC&lt;/a>
-and attach it to a pod, see this example:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>Now you are ready to create a
+&lt;a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">PVC&lt;/a> and
+attach it to a pod, see this example:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">---&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">apiVersion&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>v1&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">kind&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>PersistentVolumeClaim&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -355,12 +374,14 @@ and attach it to a pod, see this example:&lt;/p>
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">mountPath&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>/volume&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once you apply the yaml, you will see the new PVC gets bounded to a PV created
 in NFS:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloudadm@kubeserver:~$ sudo kubectl get pvc
 NAME STATUS VOLUME CAPACITY ACCESS MODES STORAGECLASS AGE
 test-pvc Bound pvc-39f970de-eaad-44d7-b49f-90dc9de54a14 3Gi RWO nfs-client 9m46s
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="destroying-the-cluster">Destroying the cluster&lt;/h2>
-&lt;p>Once you don&amp;rsquo;t need the cluster anymore, you can undeploy with the &lt;code>destroy&lt;/code> command
-of EC3:&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;h2 id="destroying-the-cluster">Destroying the cluster&lt;/h2>
+&lt;p>Once you don&amp;rsquo;t need the cluster anymore, you can undeploy with the &lt;code>destroy&lt;/code>
+command of EC3:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint ec3-refresh &lt;span style="color:#8f5902;font-style:italic"># refresh your credentials to interact with the cluster&lt;/span>
 $ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 destroy k8s -y -a auth.dat
 WARNING: you are going to delete the infrastructure &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>including frontend and nodes&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>.
