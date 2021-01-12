@@ -886,7 +886,103 @@ VMOps dashboard, or Infrastructure manager.&lt;/p>
 &lt;!-- markdownlint-enable line-length -->
 &lt;p>A VM image with pre-installed NVIDIA driver and Docker is available at
 &lt;a href="https://appdb.egi.eu/store/vappliance/nvidia.docker.centos.7">AppDB&lt;/a>. Some VOs
-(acc-comp.egi.eu, eosc-synergy.eu) have the image included in the VO image list.&lt;/p></description></item><item><title>Users: EC3</title><link>/users/cloud-compute/ec3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/</guid><description>
+(acc-comp.egi.eu, eosc-synergy.eu) have the image included in the VO image list.&lt;/p></description></item><item><title>Users: Dynamic DNS</title><link>/users/cloud-compute/dynamic-dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/dynamic-dns/</guid><description>
+&lt;p>The Dynamic DNS service provides a unified, federation-wide Dynamic DNS support
+for VMs in EGI infrastrcuture. Users can register their chosen meaningful and
+memorable DNS host names in given domains (e.g. &lt;code>my-server.vo.fedcloud.eu&lt;/code>) and
+assign to public IPs of their servers.&lt;/p>
+&lt;p>By using Dynamic DNS, users can host services in EGI Cloud with their
+meaningful service names, can freely move VMs from sites to sites without
+modifying server/client configurations (federated approach), can request valid
+server certificates in advance (critical for security) and many other
+advantages.&lt;/p>
+&lt;h2 id="dynamic-dns-gui-portal">Dynamic DNS GUI portal&lt;/h2>
+&lt;p>The Dynamic DNS offers a &lt;a href="https://nsupdate.fedcloud.eu">web GUI portal&lt;/a> where
+users can login using their Check-in credentials. For doing so, click on the
+&lt;em>Login&lt;/em> link (top left) and then click on the &lt;em>egi&lt;/em> button.&lt;/p>
+&lt;p>Once logged in, you will be presented with the following page:&lt;/p>
+&lt;p>&lt;img src="dynamic-dns-portal.png" alt="Dynamic DNS front page">&lt;/p>
+&lt;p>To register a new DNS host name:&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>click on &lt;em>Overview&lt;/em> and then on &lt;em>Add Host&lt;/em>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Type in the host name you&amp;rsquo;d like to register and select the domain to use.&lt;/p>
+&lt;p>&lt;img src="add-host.png" alt="Add host">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The portal will then show you a secret than can be used for updating
+the host ip whenever needed. Note it down so you can use it later.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>From the VM you&amp;rsquo;d like to assign the name to, run a command like follows:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">curl &lt;span style="color:#4e9a06">&amp;#34;https://&amp;lt;hostname&amp;gt;:&amp;lt;secret&amp;gt;@nsupdate.fedcloud.eu/nic/update&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where &lt;code>&amp;lt;hostname&amp;gt;&lt;/code> is the full hostname generated before, e.g.
+&lt;code>myserver.fedcloud-tf.fedcloud.eu&lt;/code> and &lt;code>&amp;lt;secret&amp;gt;&lt;/code> is the secret generated
+in the previous step. You can add that as a boot command in your &lt;code>cloud-init&lt;/code>
+configuration:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#8f5902;font-style:italic">#cloud-config&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">runcmd&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>- &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>curl&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#4e9a06">&amp;#34;https://&amp;lt;hostname&amp;gt;:&amp;lt;secret&amp;gt;@nsupdate.fedcloud.eu/nic/update&amp;#34;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>You can also manually edit your registered hostnames in the &lt;em>Overview&lt;/em> menu
+by clicking on the hostname you&amp;rsquo;d like to manage&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>Hostnames/IP addresses are not expired so no need to refresh IP addresses if
+no changes, it is enough to run once. You can add the following command
+&lt;code>curl https://HOSTNAME:SECRET@nsupdate.fedcloud.eu/nic/update&lt;/code> to cloud-init
+as described above to assign hostname automatically at VM start&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>DNS server set Time-to-Live (max time for caching DNS records) to 1 min for
+dynamic DNS, but MS Windows seems to not respect that. You can clear DNS cache
+in Windows with &lt;code>ipconfig /flushdns&lt;/code> command with Administrator account&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/div>
+&lt;h2 id="api">API&lt;/h2>
+&lt;p>Dynamic DNS update server uses dydns2 protocol, compatible with commercial
+providers like &lt;a href="https://help.dyn.com/remote-access-api/perform-update/">dyn.com&lt;/a>,
+and &lt;a href="http://www.noip.com/integrate/request">noip.com&lt;/a>. The API is specified as
+follows:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-plain" data-lang="plain">GET /nic/update?hostname=yourhostname&amp;amp;myip=ipaddress
+Host: nsupdate.fedcloud.eu
+Authorization: Basic base64-encoded-auth-string
+User-Agent:
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>base64-encoded-auth-string&lt;/code>: base64 encoding of username:password&lt;/li>
+&lt;li>&lt;code>username&lt;/code>: your host name&lt;/li>
+&lt;li>&lt;code>password&lt;/code>: your host secret&lt;/li>
+&lt;li>&lt;code>hostname&lt;/code> in the parameter string can be omitted or must be the same as
+&lt;code>username&lt;/code>&lt;/li>
+&lt;li>&lt;code>myip&lt;/code> in the parameter string if omitted, the IP address of the client
+performing the GET request will be used&lt;/li>
+&lt;/ul>
+&lt;h2 id="security">Security&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>For updating IP address, only hostname and its secret are needed. No user
+information is stored on VM in any form for updating IP.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NS-update server uses HTTPS protocol, hostname/secret are encrypted as data
+and not visible during transfer so it is secure to use the update URL&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NS-update portal does not store host secret in recoverable form. If you forget
+the secret of your hostname, simply generate new one via &amp;ldquo;Show configuration&amp;rdquo;
+button in the host edit page. The old secret will be invalid.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>Users: EC3</title><link>/users/cloud-compute/ec3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/</guid><description>
 &lt;p>&lt;a href="http://servproject.i3m.upv.es/ec3/">EC3&lt;/a> (Elastic Cloud Compute Cluster) is a
 tool to create elastic virtual clusters on Infrastructure as a Service (IaaS)
 providers, either public (such as
