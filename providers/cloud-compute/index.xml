@@ -45,19 +45,8 @@ we are not providing packages):
 &lt;/ul></description></item><item><title>Providers: OpenStack</title><link>/providers/cloud-compute/openstack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/cloud-compute/openstack/</guid><description>
 &lt;p>This manual provides information on how to set up a Resource Centre providing
 cloud resources in the EGI infrastructure. Integration with FedCloud requires a
-&lt;em>working OpenStack installation&lt;/em> as a pre-requirement (see
-&lt;a href="http://docs.openstack.org/">http://docs.openstack.org/&lt;/a> for details). Support for OpenStack is provided for
-the following versions:&lt;/p>
-&lt;ul>
-&lt;li>OpenStack Mitaka -- LTS under Ubuntu 16.04 (otherwise EOL)&lt;/li>
-&lt;li>OpenStack Ocata&lt;/li>
-&lt;li>OpenStack Pike&lt;/li>
-&lt;li>OpenStack Queens (note that support for Keystone-VOMS is not available, only
-necessary for legacy VOs)&lt;/li>
-&lt;/ul>
-&lt;p>Support for other versions is not guaranteed and they are not recommended in
-production as they are EOL'd. See &lt;a href="http://releases.openstack.org/">http://releases.openstack.org/&lt;/a> for more
-details on the OpenStack releases.&lt;/p>
+&lt;em>working OpenStack installation&lt;/em> as a pre-requirement. EGI supports any recent
+&lt;a href="http://releases.openstack.org">OpenStack version&lt;/a> (tested from OpenStack Mitaka).&lt;/p>
 &lt;p>EGI expects the following OpenStack services to be available and accessible from
 outside your site:&lt;/p>
 &lt;ul>
@@ -87,15 +76,14 @@ deployment.&lt;/li>
 records to the central accounting database on the EGI Accounting service
 (&lt;a href="https://apel.github.io/">APEL&lt;/a>)&lt;/li>
 &lt;li>&lt;strong>cloud-info-provider&lt;/strong> registers the RC configuration and description through
-the EGI Information System to facilitate service discovery&lt;/li>
+the &lt;a href="https://argoeu.github.io/guides/messaging/">ARGO Messaging Service&lt;/a> to
+facilitate service discovery&lt;/li>
 &lt;li>&lt;strong>cloudkeeper&lt;/strong> (and &lt;strong>cloudkeeper-os&lt;/strong>) synchronises with
 &lt;a href="https://appdb.egi.eu/browse/cloud">EGI AppDB&lt;/a> so new or updated images can be
 provided by the RC to user communities (VO).&lt;/li>
 &lt;/ul>
 &lt;p>Not all EGI components need to share the same credentials. They are individually
 configured, you can use different credentials and permissions if desired.&lt;/p>
-&lt;p>Optionally, &lt;strong>ooi (OpenStack OCCI Interface)&lt;/strong> translates between OpenStack API
-and OCCI.&lt;/p>
 &lt;h2 id="installation-options">Installation options&lt;/h2>
 &lt;p>EGI distributes the integration components as:&lt;/p>
 &lt;ul>
@@ -171,11 +159,6 @@ your installation)&lt;/p>
 &lt;td>&lt;strong>9292&lt;/strong>/TCP&lt;/td>
 &lt;td>&lt;strong>OpenStack&lt;/strong>/glance&lt;/td>
 &lt;td>VM Image management.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>&lt;strong>2170&lt;/strong>/TCP&lt;/td>
-&lt;td>&lt;strong>BDII&lt;/strong>/LDAP&lt;/td>
-&lt;td>EGI Service Discovery/Information System (to be decommissioned).&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1028,45 +1011,68 @@ are two scripts &lt;code>/usr/local/bin/caso-extract.sh&lt;/code> and
 volumes.&lt;/p>
 &lt;h2 id="egi-information-system">EGI Information System&lt;/h2>
 &lt;p>Information discovery provides a real-time view about the actual images and
-flavors available at the OpenStack for the federation users. It has two
-components:&lt;/p>
-&lt;ul>
-&lt;li>Resource-Level BDII: which queries the OpenStack deployment to get the
-information to publish&lt;/li>
-&lt;li>Site-Level BDII: gathers information from several resource-level BDIIs and
-makes it publicly available for the EGI information system.&lt;/li>
-&lt;/ul>
-&lt;h3 id="using-the-vm-appliance-1">Using the VM Appliance&lt;/h3>
-&lt;h4 id="resource-level-bdii">Resource-level BDII&lt;/h4>
-&lt;p>This is provided by container &lt;code>egifedcloud/cloudbdii&lt;/code>. You need to configure:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>/etc/cloud-info-provider/openstack.rc&lt;/code>, with the credentials to query your
-OpenStack. The user configured just needs to be able to access the lists of
-images and flavors.&lt;/li>
-&lt;li>&lt;code>/etc/cloud-info-provider/openstack.yaml&lt;/code>, this file includes the static
-information of your deployment. Make sure to set the &lt;code>SITE-NAME&lt;/code> as defined in
-GOCDB.&lt;/li>
-&lt;/ul>
-&lt;h4 id="site-level-bdii">Site-level BDII&lt;/h4>
-&lt;p>The &lt;code>egifedcloud/sitebdii&lt;/code> container runs this process. Configuration files:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>/etc/sitebdii/glite-info-site-defaults.conf&lt;/code>. Set here the name of your site
-(as defined in GOCDB) and the public hostname where the appliance will be
-available.&lt;/li>
-&lt;li>&lt;code>/etc/sitebdii/site.cfg&lt;/code>. Include here basic information on your site.&lt;/li>
-&lt;/ul>
-&lt;h4 id="running-the-services-1">Running the services&lt;/h4>
-&lt;p>There is a &lt;code>bdii.service&lt;/code> unit for systemd available in the appliance. This
-leverages docker-compose for running the containers. You can start the service
-with:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl start bdii
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Check the status with:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl status bdii
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>And stop with:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl stop bdii
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You should be able to get the BDII information with an LDAP client, e.g.:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ldapsearch -x -p &lt;span style="color:#0000cf;font-weight:bold">2170&lt;/span> -h &amp;lt;yourVM.hostname.domain.com&amp;gt; -b &lt;span style="color:#000">o&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>glue
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="egi-vm-image-management">EGI VM Image Management&lt;/h2>
+flavors available at the OpenStack for the federation users. It runs as a
+single python application
+&lt;a href="https://github.com/EGI-Foundation/cloud-info-provider">cloud-info-provider&lt;/a>
+that pushes information through the &lt;a href="https://argoeu.github.io/guides/messaging/">Argo Messaging Service
+(AMS)&lt;/a>&lt;/p>
+&lt;div class="alert alert-info" role="alert">
+&lt;h4 class="alert-heading">BDII is deprecated&lt;/h4>
+Cloud providers no longer need to provide BDII as the Argo Messaging Service
+is used instead for transferring information
+&lt;/div>
+&lt;p>You can either run the service by yourself or rely on central operations of the
+cloud-info-provider. In both cases you must register your host DN in the GOCDB
+entry for the &lt;code>org.openstack.nova&lt;/code>.&lt;/p>
+&lt;h3 id="catch-all-operations">Catch-all operations&lt;/h3>
+&lt;p>EGI can manage the operation of the &lt;code>cloud-info-provider&lt;/code> for the site so you
+don&amp;rsquo;t need to do it. In order for your site to be included in the centrally
+operated &lt;code>cloud-info-provider&lt;/code>, you need to create a Pull Request at the
+&lt;a href="https://github.com/EGI-Foundation/fedcloud-catchall-operations/">EGI-Foundation/fedcloud-catchall-operations
+repository&lt;/a>
+adding your site configuration in the &lt;code>sites&lt;/code> directory with a file like this:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">endpoint&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;your&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>endpoint&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>as&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>declared&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>in&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOCDB&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">gocdb&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;your&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>site&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>name&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>as&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>declared&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>in&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>GOCDB&amp;gt;&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#204a87;font-weight:bold">vos&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># a list of VOs you support in your deployment as follows&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#204a87;font-weight:bold">auth&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">project_id&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;local&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OpenStack&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>project&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>identifier&lt;span style="color:#8f5902;font-style:italic">&amp;gt;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> name: &amp;lt;name of the vo&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">&lt;/span>- &lt;span style="color:#204a87;font-weight:bold">auth&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">project_id&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&amp;lt;local&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>OpenStack&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>project&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>identifier&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>for&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>second&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>VO&lt;span style="color:#8f5902;font-style:italic">&amp;gt;
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic"> name: &amp;lt;name of another vo&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Once PR is merged, the service will be reconfigured and your site should start
+publishing information.&lt;/p>
+&lt;h2 id="local-operations">Local operations&lt;/h2>
+&lt;p>You can operate by yourself the &lt;code>cloud-info-provider&lt;/code>. The software can be
+obtained as RPMs, debs and python packages from the &lt;a href="https://github.com/EGI-Foundation/cloud-info-provider/releases">GitHub releases
+page&lt;/a>.&lt;/p>
+&lt;p>The &lt;code>cloud-info-provider&lt;/code> needs a configuration file where your site is
+described, see the &lt;a href="https://github.com/EGI-Foundation/cloud-info-provider/blob/master/etc/sample.openstack.yaml">sample OpenStack
+configuration&lt;/a>
+for the required information. The authentication parameters for your local
+OpenStack and the AMS are passed as command line options:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cloud-info-provider-service --yaml-file &amp;lt;your site description.yaml&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --middleware openstack &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-auth-url &amp;lt;your keystone URL&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span> any other options &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> authentication &lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+--format glue21 &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --publisher ams &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --ams-cert &amp;lt;your host certificate&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --ams-key &amp;lt;your host secret key&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --ams-topic &amp;lt;your endpoint topic&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>For authentication, you should be able to use any authentication method
+supported by &lt;a href="https://opendev.org/openstack/keystoneauth">keystoneauth&lt;/a>, for
+user name and password use: &lt;code>--os-password&lt;/code> and &lt;code>--os-username&lt;/code>. Check the
+complete list of options with &lt;code>cloud-info-provider-service --help&lt;/code>.&lt;/p>
+&lt;p>The AMS topic has the format: &lt;code>SITE_&amp;lt;SITE_NAME&amp;gt;_ENDPOINT_&amp;lt;GOCDB_ID&amp;gt;&lt;/code>, where
+&lt;code>&amp;lt;SITE_NAME&amp;gt;&lt;/code> is the name of the site as declared in GOCDB and &lt;code>&amp;lt;GOCDB_ID&amp;gt;&lt;/code> is
+the id of the endpoint in GOCDB. For example, &lt;a href="https://goc.egi.eu/portal/index.php?Page_Type=Service&amp;amp;id=7513">this
+endpoint&lt;/a> would
+have a topic like: &lt;code>SITE_IFCA-LCG2_ENDPOINT_7513G0&lt;/code>.&lt;/p>
+&lt;p>You should periodically run the cloud-info-provider (e.g. with a cron
+every 5 minutes) to push the information for consumption by clients.&lt;/p>
+&lt;h2 id="egi-vm-image-management">EGI VM Image Management&lt;/h2>
 &lt;p>VM Images are replicated using &lt;code>cloudkeeper&lt;/code>, which has two
 components:&lt;/p>
 &lt;ul>
@@ -1075,7 +1081,7 @@ needed images, run periodically with cron&lt;/li>
 &lt;li>backend (cloudkeeper-os) dealing with your glance catalogue, running
 permanently.&lt;/li>
 &lt;/ul>
-&lt;h3 id="using-the-vm-appliance-2">Using the VM Appliance&lt;/h3>
+&lt;h3 id="using-the-vm-appliance-1">Using the VM Appliance&lt;/h3>
 &lt;p>Every 4 hours, the appliance will perform the following actions:&lt;/p>
 &lt;ul>
 &lt;li>download the configured lists in &lt;code>/etc/cloudkeeper/image-lists.conf&lt;/code> and
@@ -1094,7 +1100,7 @@ authentication, check the following guides for getting such token and URLs:&lt;/
 and&lt;/li>
 &lt;li>&lt;a href="https://wiki.appdb.egi.eu/main:faq:how_to_subscribe_to_a_private_image_list_using_the_vmcatcher">how to subscribe to a private image list&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;h4 id="running-the-services-2">Running the services&lt;/h4>
+&lt;h4 id="running-the-services-1">Running the services&lt;/h4>
 &lt;p>cloudkeeper-os should run permanently, there is a &lt;code>cloudkeeper-os.service&lt;/code> for
 systemd in the appliance. Manage as usual:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl &amp;lt;start&lt;span style="color:#000;font-weight:bold">|&lt;/span>stop&lt;span style="color:#000;font-weight:bold">|&lt;/span>status&amp;gt; cloudkeeper-os
@@ -1764,41 +1770,44 @@ every 2 hours.&lt;/p></description></item><item><title>Providers: GOCDB Registra
 creating a new site for your cloud services, check the
 &lt;a href="https://wiki.egi.eu/wiki/PROC09">PROC09 Resource Centre Registration and Certification&lt;/a>
 procedure. Services can also coexist within an existing (grid) site.&lt;/p>
+&lt;h2 id="expected-services">Expected Services&lt;/h2>
 &lt;p>These are the expected services for a working site:&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Site-BDII&lt;/strong>. This service collects and publishes site's data for the
-Information System. Existing sites should already have this registered.&lt;/li>
-&lt;li>&lt;strong>eu.egi.cloud.accounting&lt;/strong>. Register here the host sending the records to the
-accounting repository (executing SSM send).&lt;/li>
-&lt;li>&lt;strong>eu.egi.cloud.vm-metadata.vmcatcher&lt;/strong> for the VMI replication mechanism.
-Register here the host providing the replication (i.e. the host with
-cloudkeeper installation)&lt;/li>
+&lt;li>
+&lt;p>If offering native OpenStack access (nova), register: &lt;code>org.openstack.nova&lt;/code>
+for the Nova endpoint of the site. The &lt;strong>endpoint URL&lt;/strong> must contain the
+Keystone v3 URL: &lt;code>https://hostname:port/url/v3&lt;/code>. Set the &lt;strong>Host DN&lt;/strong> so the
+cloud-info-provider can be enabled in the AMS.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If offering native OpenStack access (swift), register: &lt;code>org.openstack.swift&lt;/code>
+for the swift endpoint of the site. The &lt;strong>endpoint URL&lt;/strong> field must contain the
+Keystone v3 URL: &lt;code>https://hostname:port/url/v3&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>eu.egi.cloud.accounting&lt;/code> for the host sending the records to the
+accounting repository (executing SSM send).&lt;/p>
+&lt;/li>
 &lt;/ul>
-&lt;p>If offering OCCI interface, sites should register:&lt;/p>
+&lt;h2 id="deprecated-services">Deprecated services&lt;/h2>
+&lt;p>Deprecated services for cloud providers:&lt;/p>
 &lt;ul>
 &lt;li>
-&lt;p>&lt;strong>eu.egi.cloud.vm-management.occi&lt;/strong> for the OCCI endpoint offered by the site.
-The endpoint URL must follow this syntax:&lt;/p>
+&lt;p>&lt;code>Site-BDII&lt;/code>. This service collects and publishes site's data for the
+Information System. Existing sites should already have this registered.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>eu.egi.cloud.vm-metadata.vmcatcher&lt;/code> for the VMI replication mechanism.
+Register here the host providing the replication (i.e. the host with
+cloudkeeper installation)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>If offering OCCI interface, &lt;code>eu.egi.cloud.vm-management.occi&lt;/code> for the OCCI
+endpoint offered by the site. The endpoint URL must follow this syntax:&lt;/p>
 &lt;p>&lt;code>https://hostname:port/?image=&amp;lt;image_name&amp;gt;&amp;amp;resource=&amp;lt;resource_name&amp;gt;&lt;/code>&lt;/p>
 &lt;p>where &lt;code>&amp;lt;image_name&amp;gt;&lt;/code> and &lt;code>&amp;lt;resource_name&amp;gt;&lt;/code> cannot contain spaces. These
-attributes map to &lt;code>os_tpl&lt;/code> and &lt;code>resource_tpl&lt;/code> respectively and will be the ones
-used for monitoring purposes.&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>If offering native OpenStack access (nova), register:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>org.openstack.nova&lt;/strong> for the Nova endpoint of the site. The endpoint URL
-must contain the Keystone v3 URL:&lt;/p>
-&lt;p>&lt;code>https://hostname:port/url/v3&lt;/code>&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>If offering native OpenStack access (swift), register:&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>&lt;strong>org.openstack.swift&lt;/strong> for the swift endpoint of the site. The endpoint URL
-field must contain Keystone v3 URL:&lt;/p>
-&lt;p>&lt;code>https://hostname:port/url/v3&lt;/code>&lt;/p>
+attributes map to &lt;code>os_tpl&lt;/code> and &lt;code>resource_tpl&lt;/code> respectively and will be the
+ones used for monitoring purposes.&lt;/p>
 &lt;/li>
 &lt;/ul></description></item><item><title>Providers: VO Configuration</title><link>/providers/cloud-compute/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/providers/cloud-compute/configuration/</guid><description>
 &lt;p>This section provides the needed steps for supporting a new VO in your
