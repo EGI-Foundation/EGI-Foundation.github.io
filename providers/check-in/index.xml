@@ -2010,6 +2010,67 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
+&lt;h3 id="13-ssh-public-key">13. SSH Public Key&lt;/h3>
+&lt;!-- markdownlint-disable line-length no-inline-html -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">SSH Public Key&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">Provides information about the user&amp;rsquo;s SSH public key(s)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.24552.500.1.1.1.13&lt;/code> (sshPublicKey)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>ssh_public_key&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>ssh_public_key&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">Userinfo endpoint&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Added SSH public key(s) in user&amp;rsquo;s Check-in Profile&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>ssh-rsa AAAAB3NzaC...qxxEEipdnZ nikosev@grnet-hq.admin.grnet.gr&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Experimental&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length no-inline-html -->
 &lt;h2 id="user-authorisation">User authorisation&lt;/h2>
 &lt;p>The following information about the authenticated user can be provided by EGI
 Check-in in order to control user access to resources:&lt;/p>
