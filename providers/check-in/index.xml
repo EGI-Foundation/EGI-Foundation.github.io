@@ -682,10 +682,6 @@ UserInfo Endpoint:&lt;/p>
 &lt;td>&lt;ul>&lt;li>&lt;code>email&lt;/code>&lt;/li>&lt;li>&lt;code>email_verified&lt;/code>&lt;/li>&lt;li>&lt;code>voperson_verified_email&lt;/code>&lt;/li>&lt;/ul>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;code>refeds_edu&lt;/code>&lt;/td>
-&lt;td>&lt;ul>&lt;li>&lt;code>acr&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_assurance&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/li>&lt;li>&lt;code>eduperson_entitlement&lt;/code>&lt;/li>&lt;/ul>&lt;/td>
-&lt;/tr>
-&lt;tr>
 &lt;td>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
 &lt;td>&lt;code>eduperson_scoped_affiliation&lt;/code>&lt;/td>
 &lt;/tr>
@@ -1129,7 +1125,7 @@ user authorisation:&lt;/p>
 &lt;tbody>
 &lt;tr>
 &lt;td>&lt;a href="#vogroup-membership-and-role-information">VO/group membership/roles of the authenticated user&lt;/a>&lt;/td>
-&lt;td>&lt;code>edu_person_entitlements&lt;/code>&lt;/td>
+&lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td>&lt;a href="#level-of-assurance">Level of Assurance (LoA)&lt;/a>&lt;/td>
@@ -2081,7 +2077,7 @@ Check-in in order to control user access to resources:&lt;/p>
 &lt;h3 id="vogroup-membership-and-role-information">VO/group membership and role information&lt;/h3>
 &lt;h4 id="background">Background&lt;/h4>
 &lt;p>VO/group membership and role information is encoded in entitlements
-(&lt;code>eduPersonEntitlement&lt;/code> attribute values in SAML or &lt;code>edu_person_entitlements&lt;/code>
+(&lt;code>eduPersonEntitlement&lt;/code> attribute values in SAML or &lt;code>eduperson_entitlement&lt;/code>
 claim in OIDC). These entitlements are typically used to indicate access rights
 to protected resources. Entitlements are multi-valued, with each value formatted
 as a URN.&lt;/p>
