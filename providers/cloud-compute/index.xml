@@ -260,7 +260,7 @@ needed.&lt;/li>
 &lt;p>&lt;em>Access&lt;/em> tab:&lt;/p>
 &lt;blockquote>
 &lt;ul>
-&lt;li>Enable &lt;em>openid&lt;/em>, &lt;em>profile&lt;/em>, &lt;em>email&lt;/em>, &lt;em>eduperson_entitlement&lt;/em> and in the
+&lt;li>Enable &lt;em>openid&lt;/em>, &lt;em>profile&lt;/em>, &lt;em>email&lt;/em>, &lt;em>eduperson_entitlement&lt;/em> in the
 &lt;strong>Scope&lt;/strong> field&lt;/li>
 &lt;li>Enable &lt;em>authorization code&lt;/em> in the &lt;strong>Grant Types&lt;/strong> field&lt;/li>
 &lt;li>Enable &lt;em>Allow calls to the Introspection Endpoint?&lt;/em> in &lt;strong>Introspection&lt;/strong>
