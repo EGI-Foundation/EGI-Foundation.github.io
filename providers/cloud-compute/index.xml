@@ -240,8 +240,9 @@ Community to access your service.&lt;/li>
 &lt;/ol>
 &lt;h4 id="registration-into-check-in-development-instance">Registration into Check-in development instance&lt;/h4>
 &lt;p>Before your service can use the EGI Check-in OIDC Provider for user login, you
-must set up a client at &lt;a href="https://aai-dev.egi.eu/oidc/manage/#admin/clients">https://aai-dev.egi.eu/oidc/manage/#admin/clients&lt;/a> in
-order to obtain OAuth 2.0 credentials and register one or more redirect URIs.&lt;/p>
+must set up a client at the &lt;a href="https://aai-dev.egi.eu/oidc/manage/user/clients">EGI Check-in ODIC client management
+page&lt;/a> in order to obtain OAuth2.0
+credentials and register one or more redirect URIs.&lt;/p>
 &lt;p>Make sure that you fill in the following options:&lt;/p>
 &lt;ul>
 &lt;li>
