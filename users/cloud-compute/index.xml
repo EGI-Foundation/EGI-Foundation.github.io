@@ -1713,4 +1713,32 @@ Cloud can be also accessed via ssh, just make sure you inject the correct public
 keys in the VMs to be able to access.&lt;/p>
 &lt;p>If you don't have public IPs for all the VMs to be managed, you can also use
 one as a gateway as described in the
-&lt;a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-configure-a-jump-host-to-access-servers-that-i-have-no-direct-access-to">Ansible FAQ&lt;/a>.&lt;/p></description></item></channel></rss>
+&lt;a href="https://docs.ansible.com/ansible/latest/reference_appendices/faq.html#how-do-i-configure-a-jump-host-to-access-servers-that-i-have-no-direct-access-to">Ansible FAQ&lt;/a>.&lt;/p>
+&lt;h3 id="how-can-i-release-resources-without-destroying-my-data">How can I release resources without destroying my data?&lt;/h3>
+&lt;p>Whenever you delete a VM, the ephemeral disks associated with it will be also
+deleted. If you don&amp;rsquo;t plan to use your VM for some time, there are several
+ways to release resources consumed by the VM (e.g. CPU, RAM) and recover the
+the data or boot your VM in a previous state when you need it back. We list
+below the main strategies you can use:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Use a volume to store the data to be kept: Check the &lt;a href="../storage">Storage section of the
+documentation&lt;/a> to learn how to use volumes. If you start your VM
+from a volume, the VM can be destroyed and recreated easily. OpenStack
+documentation cover how to &lt;a href="https://docs.openstack.org/nova/latest/user/launch-instance-from-volume.html">start a VM from a volume with CLI&lt;/a>
+or &lt;a href="https://docs.openstack.org/horizon/latest/user/launch-instances.html">using the Horizon dashboard&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Suspend or shelve instance: Suspending a VM will pause a VM, releasing CPU
+and memory, and allowing to resume later in time at the exact same state.
+Shelving shuts down the VM, thus RAM contents will be lost but disk will be
+kept. This releases more resources from the provider while still allows to
+easily boot the VM back without losing disk contents.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Create snapshot of instance: a snapshot will create a new VM image at your
+provider that can be used to boot a new instance of the VM with the same
+disk content. You can use this technique for creating a base template
+image that can be later re-used to start similar VMs easily.&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>
