@@ -1896,7 +1896,7 @@ connected to Check-in.&lt;/p>
 &lt;tbody>
 &lt;tr>
 &lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
-&lt;td align="left">Assurance of the identity of the user&lt;/td>
+&lt;td align="left">Assurance of the identity of the user, following &lt;a href="https://refeds.org/assurance">REFEDS Assurance Framework (RAF)&lt;/a> and the &lt;a href="https://docs.egi.eu/providers/check-in/sp/#level-of-assurance">EGI AAI Assurance Profiles&lt;/a>. The following RAF values are qualified and automatically set for all Community identities:&lt;ul>&lt;li>$PREFIX$&lt;/li>&lt;li>$PREFIX$/ID/unique&lt;/li>&lt;li>$PREFIX$/ID/eppn-unique-no-reassign&lt;/li>&lt;li>$PREFIX$/IAP/low&lt;/li>&lt;li>$PREFIX$/ATP/ePA-1m&lt;/li>&lt;li>$PREFIX$/ATP/ePA-1d&lt;/li>&lt;/ul>Following RAF values are set if the currently used authentication provider asserts (or otherwise qualifies to) them:&lt;/br>&lt;ul>&lt;li>$PREFIX$/IAP/medium&lt;/li>&lt;li>$PREFIX$/IAP/high&lt;/li>&lt;/ul>The following compound profiles are asserted if the user qualifies to them&lt;/br>&lt;ul>&lt;li>$PREFIX$/profile/cappuccino&lt;/li>&lt;li>$PREFIX$/profile/espresso&lt;/li>&lt;/ul>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
@@ -1932,7 +1932,7 @@ connected to Check-in.&lt;/p>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
-&lt;td align="left">&lt;em>[https://aai.egi.eu/LoA#Low]&lt;/em>&lt;/td>
+&lt;td align="left">&lt;em>[&lt;code>https://aai.egi.eu/LoA#Low&lt;/code>, &lt;code>https://refeds.org/assurance/IAP/low&lt;/code>]&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
@@ -2111,9 +2111,9 @@ following syntax (components enclosed in square brackets are OPTIONAL):&lt;/p>
 &lt;p>Based on the authentication method selected by the user, the EGI proxy assigns a
 Level of Assurance (LoA), which is conveyed to the SP through both the
 &lt;code>eduPersonAssurance&lt;/code> attribute and the Authentication Context Class
-(&lt;code>AuthnContextClassRef&lt;/code>) of the SAML authentication response. EGI AAI currently
-distinguishes between three LoA levels, similarly to the
-&lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002">eID Assurance Framework (eIDAF)&lt;/a>.
+(&lt;code>AuthnContextClassRef&lt;/code>) of the SAML authentication response. EGI Check-in uses
+Assurance Profiles which distinguish between three Level of Assurance (LoA) levels,
+similarly to the &lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002">eID Assurance Framework (eIDAF)&lt;/a>.
 Each level is represented by a URI as follows:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Low&lt;/strong>: Authentication through a social identity provider or other low
@@ -2123,6 +2123,11 @@ identity assurance provider: &lt;code>https://aai.egi.eu/LoA#Low&lt;/code>&lt;/l
 &lt;li>&lt;strong>High&lt;/strong>: Substantial + multi-factor authn (not yet supported, TBD):
 &lt;code>https://aai.egi.eu/LoA#High&lt;/code>&lt;/li>
 &lt;/ul>
+&lt;p>Moreover, EGI Check-in follows the &lt;a href="https://wiki.refeds.org/display/ASS/REFEDS+Assurance+Framework+ver+1.0">REFEDS Assurance framework (RAF)&lt;/a>.
+The EGI Check-in conveys any RAF values provided by the IdP directly to the SP,
+through the aforementioned methods. Furthermore, Check-in will append into the User&amp;rsquo;s
+profile any additional LoA, if the user is eligible for it. For example,
+a user having a Verified Email is eligible for the RAF value &lt;code>https://refeds.org/assurance/IAP/low&lt;/code>&lt;/p>
 &lt;p>Some EGI SPs have been configured to provide limited access (or not to accept at
 all) credentials with the Low LoA.&lt;/p>
 &lt;p>Note: When logging in through the EGI SSO IdP, the LoA is determined based on
