@@ -54,7 +54,7 @@ Prettier can be integrated with
 &lt;p>Configuration is provided in &lt;code>.prettierrc&lt;/code>, options can be set as follow:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">--print-width &lt;span style="color:#0000cf;font-weight:bold">80&lt;/span> --tab-width &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span> --prose-wrap always
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>When a Pull Request is received, the proposed changes are checked using
-&lt;a href="https://github.com/EGI-Foundation/documentation/tree/master/.github/workflows">various linters&lt;/a>.&lt;/p>
+&lt;a href="https://github.com/EGI-Federation/documentation/tree/master/.github/workflows">various linters&lt;/a>.&lt;/p>
 &lt;h2 id="adding-exceptions-for-style-violations">Adding exceptions for style violations&lt;/h2>
 &lt;p>Successfully passing the checks is a firm requirement, but for some specific
 cases it&amp;rsquo;s possible to add some tags in the file to by pass the checks.&lt;/p>
@@ -230,7 +230,7 @@ available in this section.&lt;/p>
 &lt;/ul>
 &lt;p>In this process three git repositories are used:&lt;/p>
 &lt;ul>
-&lt;li>The &lt;em>upstream&lt;/em> repository: EGI-Foundation/documentation&lt;/li>
+&lt;li>The &lt;em>upstream&lt;/em> repository: EGI-Federation/documentation&lt;/li>
 &lt;li>Your fork, also named &lt;em>origin&lt;/em>: &amp;lt;your_username&amp;gt;/documentation&lt;/li>
 &lt;li>A local clone of your fork, containing references to your fork, its &lt;em>origin&lt;/em>
 and to the &lt;em>upstream&lt;/em> repository&lt;/li>
@@ -268,7 +268,7 @@ cloning it locally manually.&lt;/p>
 &lt;h3 id="forking-and-cloning">Forking and cloning&lt;/h3>
 &lt;p>This command will fork the repository to your GitHub account and clone a local
 copy for you to work with.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh repo fork EGI-Foundation/documentation
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh repo fork EGI-Federation/documentation
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cloning-the-fork">Cloning the fork&lt;/h3>
 &lt;p>If you want to clone an existing fork you should use:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gh repo clone &amp;lt;your_username&amp;gt;/documentation
@@ -278,12 +278,12 @@ the origin and upstream repositories.&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ git remote -v
 origin git@github.com:&amp;lt;your_username&amp;gt;/documentation &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>fetch&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
 origin git@github.com:&amp;lt;your_username&amp;gt;/documentation &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>push&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-upstream git@github.com:EGI-Foundation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>fetch&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
-upstream git@github.com:EGI-Foundation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>push&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+upstream git@github.com:EGI-Federation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>fetch&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
+upstream git@github.com:EGI-Federation/documentation.git &lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>push&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="running-the-site-locally">Running the site locally&lt;/h2>
 &lt;p>The documentation webiste is built from the source files using
 &lt;a href="https://gohugo.io/">Hugo&lt;/a>. The repository
-&lt;a href="https://github.com/EGI-Foundation/documentation/blob/master/README.md">README&lt;/a>
+&lt;a href="https://github.com/EGI-Federation/documentation/blob/master/README.md">README&lt;/a>
 can be used as a reference for building instructions.&lt;/p>
 &lt;h3 id="requirements">Requirements&lt;/h3>
 &lt;ul>

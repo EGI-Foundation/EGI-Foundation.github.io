@@ -13,9 +13,9 @@ Cloud providers, including persistent storage for users notebooks.&lt;/li>
 &lt;li>CA authority to allocate recognised certificates for the HTTPS server&lt;/li>
 &lt;li>&lt;a href="https://prometheus.io/">Prometheus&lt;/a> for monitoring resource consumption.&lt;/li>
 &lt;li>Specific EGI hooks for
-&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-monitoring">monitoring&lt;/a>,
-&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-accounting">accounting&lt;/a> and
-&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-backup">backup&lt;/a>.&lt;/li>
+&lt;a href="https://github.com/EGI-Federation/egi-notebooks-monitoring">monitoring&lt;/a>,
+&lt;a href="https://github.com/EGI-Federation/egi-notebooks-accounting">accounting&lt;/a> and
+&lt;a href="https://github.com/EGI-Federation/egi-notebooks-backup">backup&lt;/a>.&lt;/li>
 &lt;li>VO-Specific storage/Big data facilities or any pluggable tools into the
 notebooks environment can be added to community specific instances.&lt;/li>
 &lt;/ul>
@@ -105,10 +105,10 @@ will allow to get up-to-date valid credentials as needed.&lt;/p>
 &lt;h4 class="alert-heading">Warning&lt;/h4>
 This is Work in progress, expect changes!
 &lt;/div>
-&lt;p>&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-accounting">Accounting module&lt;/a>
+&lt;p>&lt;a href="https://github.com/EGI-Federation/egi-notebooks-accounting">Accounting module&lt;/a>
 generates VM-like accounting records for each of the notebooks started at the
 service. It's available as a
-&lt;a href="https://egi-foundation.github.io/egi-notebooks-chart/">helm chart&lt;/a> that can be
+&lt;a href="https://EGI-Federation.github.io/egi-notebooks-chart/">helm chart&lt;/a> that can be
 deployed in the same namespace as the JupyterHub chart. The only needed
 configuration for the chart is an IGTF-recognised certificate for the host
 registered in GOCDB as accounting.&lt;/p>
@@ -118,11 +118,11 @@ registered in GOCDB as accounting.&lt;/p>
 &lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>&lt;span style="color:#204a87;font-weight:bold">hostkey&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline"> &lt;/span>|&lt;span style="color:#8f5902;font-style:italic">-
 &lt;/span>&lt;span style="color:#8f5902;font-style:italic"> &amp;lt;hostkey&amp;gt;&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="monitoring">Monitoring&lt;/h3>
-&lt;p>&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-monitoring">Monitoring&lt;/a> is
+&lt;p>&lt;a href="https://github.com/EGI-Federation/egi-notebooks-monitoring">Monitoring&lt;/a> is
 performed by trying to execute a user notebook every hour. This is accomplished
 by registering a new service in the hub that has admin permissions. Monitoring
 is then deployed as a
-&lt;a href="https://egi-foundation.github.io/egi-notebooks-chart/">helm chart&lt;/a> that must be
+&lt;a href="https://EGI-Federation.github.io/egi-notebooks-chart/">helm chart&lt;/a> that must be
 deployed in the same namespace as the JupyterHub chart. Configuration of
 JupyterHub must include this section:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#204a87;font-weight:bold">hub&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#f8f8f8;text-decoration:underline">
@@ -137,7 +137,7 @@ JupyterHub must include this section:&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="docker-images">Docker images&lt;/h3>
 &lt;p>Our service relies on custom images for the hub and the single-user notebooks.
 Dockerfiles are available at
-&lt;a href="https://github.com/EGI-foundation/egi-notebooks-images">EGI Notebooks images&lt;/a>
+&lt;a href="https://github.com/EGI-Federation/egi-notebooks-images">EGI Notebooks images&lt;/a>
 git repository and automatically build for every commit pushed to the repo to
 &lt;a href="https://hub.docker.com/u/eginotebooks">eginotebooks @ dockerhub&lt;/a>.&lt;/p>
 &lt;h4 id="hub-image">Hub image&lt;/h4>

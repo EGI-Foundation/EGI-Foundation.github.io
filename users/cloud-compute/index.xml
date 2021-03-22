@@ -80,7 +80,7 @@ of access tokens as needed. You can access the
 access to several different projects within that provider (a project can be
 considered equivalent to a VO allocation). In order to discover which projects
 are available you can do that using the Keystone API.&lt;/p>
-&lt;p>You can use the &lt;a href="https://github.com/EGI-Foundation/egicli">&lt;code>egicli&lt;/code>&lt;/a> to simplify
+&lt;p>You can use the &lt;a href="https://github.com/EGI-Federation/egicli">&lt;code>egicli&lt;/code>&lt;/a> to simplify
 the discovery of projects. First, define these variables in your environment:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>CHECKIN_CLIENT_ID&lt;/code>: Your Check-in client id (get it from
@@ -131,7 +131,7 @@ of X.509 certificates should be limited to legacy applications.
 &lt;p>&lt;a href="https://italiangrid.github.io/voms/index.html">VOMS&lt;/a> uses X.509 proxies
 extended with VO information for authentication and authorisation on the
 providers. You can learn about X.509 certificates and VOMS in the
-&lt;a href="../../check-in/voms">Check-in documentation&lt;/a>.&lt;/p>
+&lt;a href="../../check-in/vos/voms">Check-in documentation&lt;/a>.&lt;/p>
 &lt;h3 id="voms-configuration">VOMS configuration&lt;/h3>
 &lt;p>Valid configuration for &lt;code>fedcloud.egi.eu&lt;/code> is available on the
 &lt;a href="https://appdb.egi.eu/store/vappliance/egi.fedcloud.clients">FedCloud client VM&lt;/a>
@@ -338,7 +338,7 @@ our base images. This tool can use &lt;a href="https://www.virtualbox.org/">Virt
 a hypervisor for the creation of the images and guarantees identical results
 under different platforms and providers.&lt;/p>
 &lt;p>Check the
-&lt;a href="https://github.com/EGI-Foundation/fedcloud-vmi-templates">fedcloud-vmi-templates github repo&lt;/a>
+&lt;a href="https://github.com/EGI-Federation/fedcloud-vmi-templates">fedcloud-vmi-templates github repo&lt;/a>
 with all the packer recipes used to build our images and re-use them as needed
 for your images.&lt;/p></description></item><item><title>Users: VMOps Dashboard</title><link>/users/cloud-compute/vmops/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/vmops/</guid><description>
 &lt;p>The &lt;a href="https://appdb.egi.eu/">EGI Application Database (AppDB)&lt;/a> includes a web GUI
@@ -1130,7 +1130,7 @@ service types are avialable:&lt;/p>
 &lt;/ul>
 &lt;p>All providers &lt;strong>must&lt;/strong> enter cloud service endpoints to GOCDB to enable
 integration with EGI..&lt;/p>
-&lt;p>The &lt;a href="https://github.com/EGI-Foundation/cloud-info-provider">Cloud-info-provider&lt;/a>
+&lt;p>The &lt;a href="https://github.com/EGI-Federation/cloud-info-provider">Cloud-info-provider&lt;/a>
 extracts information from the resource centres using their native APIs and
 formats it following Glue, and OGC recommended standard. This information is
 pushed to the Argo Messaging System and consumed by AppDB to provide a central

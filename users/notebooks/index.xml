@@ -4,7 +4,7 @@ languages. Each language is available as a different
 &lt;a href="https://jupyter.readthedocs.io/en/latest/projects/kernels.html">kernel&lt;/a>.&lt;/p>
 &lt;p>For the EGI service we have enabled a set of kernels that are automatically
 built from the
-&lt;a href="https://github.com/EGI-Foundation/egi-notebooks-images">EGI-Foundation/egi-notebooks-images&lt;/a>
+&lt;a href="https://github.com/EGI-Federation/egi-notebooks-images">EGI-Federation/egi-notebooks-images&lt;/a>
 GitHub repository.&lt;/p>
 &lt;h2 id="python">Python&lt;/h2>
 &lt;p>Default Python 3 kernel, it includes commonly used data analysis and machine
@@ -233,11 +233,11 @@ using keyboard shortcuts.&lt;/li>
 below you can find links to other notebooks that we have used in past trainings
 that may be useful to explore the system:&lt;/p>
 &lt;ol>
-&lt;li>&lt;a href="https://github.com/EGI-Foundation/training-notebooks-di4r-2018/blob/master/00-first-notebook.ipynb">A very basic notebook to get started&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://github.com/EGI-Foundation/training-notebooks-climate-change/blob/master/cckp_historical_temperature.ipynb">Getting data and doing a simple plot&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://github.com/EGI-Foundation/training-notebooks-di4r-2018/blob/master/02-wind-nowcast.ipynb">Connect to NOAA's GrADS Data Server to plot wind speed&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://github.com/EGI-Foundation/training-notebooks-di4r-2018/blob/master/03-customizing.ipynb">Installing new libraries&lt;/a>.&lt;/li>
-&lt;li>&lt;a href="https://github.com/EGI-Foundation/training-notebooks-di4r-2018/blob/master/04-check-in.ipynb">Interact with Check-in&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/EGI-Federation/training-notebooks-di4r-2018/blob/master/00-first-notebook.ipynb">A very basic notebook to get started&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/EGI-Federation/training-notebooks-climate-change/blob/master/cckp_historical_temperature.ipynb">Getting data and doing a simple plot&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://github.com/EGI-Federation/training-notebooks-di4r-2018/blob/master/02-wind-nowcast.ipynb">Connect to NOAA's GrADS Data Server to plot wind speed&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://github.com/EGI-Federation/training-notebooks-di4r-2018/blob/master/03-customizing.ipynb">Installing new libraries&lt;/a>.&lt;/li>
+&lt;li>&lt;a href="https://github.com/EGI-Federation/training-notebooks-di4r-2018/blob/master/04-check-in.ipynb">Interact with Check-in&lt;/a>&lt;/li>
 &lt;/ol></description></item><item><title>Users: FAQ</title><link>/users/notebooks/faq/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/notebooks/faq/</guid><description>
 &lt;h2 id="how-do-i-install-library-_x_">How do I install library &lt;em>X&lt;/em>?&lt;/h2>
 &lt;p>You can install new software easily on the notebooks using &lt;code>conda&lt;/code> or &lt;code>pip&lt;/code>. The
@@ -256,6 +256,6 @@ stopped (automatically after 1 hour of inactivity)!
 &lt;p>Yes! Just let us know what are your needs. You can contact us via:&lt;/p>
 &lt;ul>
 &lt;li>Opening a ticket in the &lt;a href="https://ggus.eu">EGI Helpdesk&lt;/a>, or&lt;/li>
-&lt;li>Creating a &lt;a href="https://github.com/EGI-foundation/notebooks/issues">Github Issue&lt;/a>&lt;/li>
+&lt;li>Creating a &lt;a href="https://github.com/EGI-Federation/notebooks/issues">Github Issue&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p>We will analyse your request and get back to you.&lt;/p></description></item></channel></rss>

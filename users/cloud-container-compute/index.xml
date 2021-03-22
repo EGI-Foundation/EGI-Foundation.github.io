@@ -58,7 +58,7 @@ applications with EC3.&lt;/p>
 Cloud Compute service, check the
 &lt;a href="../cloud-compute/auth">Authentication and Authorisation guide&lt;/a> for more
 information. You should also get
-&lt;a href="https://github.com/EGI-Foundation/egicli/">&lt;code>egicli&lt;/code>&lt;/a> installed to get EC3
+&lt;a href="https://github.com/EGI-Federation/egicli/">&lt;code>egicli&lt;/code>&lt;/a> installed to get EC3
 templates needed to start deployment.&lt;/p>
 &lt;p>Your kubernetes deployment needs to be performed at an specific provider (site)
 and project. Discover them using &lt;code>egicli&lt;/code> as described in the
