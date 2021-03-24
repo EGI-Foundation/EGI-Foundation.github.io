@@ -587,4 +587,29 @@ handle
 &lt;a href="https://docs.microsoft.com/en-za/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#scoping%3E">Scoping elements&lt;/a>.
 Check-in can be configured to omit the scoping element from the authentication
 requests sent to such IdPs in order to allow successful logins. Please contact
-the CheckIn support team and include a screenshot of your error.&lt;/p></description></item></channel></rss>
+the CheckIn support team and include a screenshot of your error.&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;h2 id="i-have-linked-an-igtf-x509-certificate-to-my-check-in-identity-but-the-information-is-inaccurate-or-incomplete">I have linked an IGTF X.509 certificate to my Check-in identity but the information is inaccurate or incomplete&lt;/h2>
+&lt;!-- markdownlint-enable line-length -->
+&lt;h3 id="what-can-i-do">What can I do?&lt;/h3>
+&lt;p>To update your certificate information, follow these steps to log into your
+Check-in profile page using your IGTF certificate:&lt;/p>
+&lt;ol>
+&lt;li>Click &lt;a href="https://aai.egi.eu/proxy/saml2/idp/SingleLogoutService.php?ReturnTo=https%3A%2F%2Faai.egi.eu%2Fregistry%2Fauth%2Flogin">here&lt;/a>
+to access your profile page&lt;/li>
+&lt;/ol>
+&lt;p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+This may log you out of any
+service you have accessed with Check-in on this browser!
+&lt;/div>
+2. On the Check-in identity provider discovery page, select &lt;strong>IGTF&lt;/strong>&lt;/p>
+&lt;div class="alert alert-warning" role="alert">
+&lt;h4 class="alert-heading">Warning&lt;/h4>
+If prompted to log in with a
+different identity provider, click &lt;strong>CHOOSE ANOTHER ACCOUNT&lt;/strong> and then select
+&lt;strong>IGTF&lt;/strong>. Alternatively, you can click &lt;a href="https://aai.egi.eu/registry/auth/login?idphint=https%3A%2F%2Fedugain-proxy.igtf.net%2Fsimplesaml%2Fsaml2%2Fidp%2Fmetadata.php">here&lt;/a>
+for your convenience
+&lt;/div>
+&lt;p>&lt;img src="./check-in-discovery-igft.png" alt="Check-in IdP discovery IGTF">&lt;/p></description></item></channel></rss>
