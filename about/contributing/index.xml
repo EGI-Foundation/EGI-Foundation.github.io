@@ -30,6 +30,7 @@ CommonMark.&lt;/p>
 &lt;li>Lines should be wrapped at 80 characters.&lt;/li>
 &lt;li>Sentences should be separated by one space only.&lt;/li>
 &lt;li>Indent is made with tabs not with spaces.&lt;/li>
+&lt;li>Lists should be using &lt;code>-&lt;/code> not &lt;code>*&lt;/code>&lt;/li>
 &lt;li>Indent secondary (and following) level lists with 2 spaces.&lt;/li>
 &lt;li>Lines should end with a Line Feed character (&amp;quot;\n&amp;rdquo;)&lt;/li>
 &lt;li>Files should end with a Line Feed character (&amp;quot;\n&amp;rdquo;), but not including an empty
