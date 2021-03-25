@@ -30,8 +30,8 @@ live code, equations, visualizations and explanatory text.&lt;/li>
 &lt;/ul>
 &lt;h2 id="deploy-an-ecas-cluster-with-ec3">Deploy an ECAS cluster with EC3&lt;/h2>
 &lt;p>In the latest release of the EC3 platform, tailored to support the EGI
-&lt;a href="../../../applications-on-demand">Applications on Demand (AoD) service&lt;/a>, a new
-Ansible receipt is now available for researchers interested to deploy ECAS
+&lt;a href="../../../../applications-on-demand">Applications on Demand (AoD) service&lt;/a>, a
+new Ansible receipt is now available for researchers interested to deploy ECAS
 cluster on the EGI Infrastuctrure. Additional details on how to configure and
 deploy an ECAS cluster on EGI resources are provided in the next sections.&lt;/p>
 &lt;p>ECAS in now available in the latest release of the EC3 platform supporting the
@@ -41,30 +41,30 @@ configure and deploy an ECAS cluster on EGI resources.&lt;/p>
 &lt;p>To configure and deploy a Virtual Elastic Cluster using EC3, access the
 &lt;a href="https://servproject.i3m.upv.es/ec3-ltos/index.php">EC3 platform front page&lt;/a> and
 click on the &lt;strong>&amp;quot;Deploy your cluster&amp;quot;&lt;/strong> link as shown in the figure below:&lt;/p>
-&lt;p>&lt;img src="ecas-front.png" alt="EC3 front page.">&lt;/p>
+&lt;p>&lt;img src="ecas-front.png" alt="EC3 frontpage">&lt;/p>
 &lt;p>A wizard will guide you through the cluster configuration process. Specifically,
 the general wizard steps include:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>LRMS selection&lt;/strong>: choose &lt;strong>ECAS&lt;/strong> from the list of LRMSs (Local Resource
 Management System) that can be automatically installed and configured by EC3.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-lrms.png" alt="LRMS selection.">&lt;/p>
+&lt;p>&lt;img src="ecas-lrms.png" alt="LRMS selection">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Endpoint&lt;/strong>: the endpoints of the providers where to deploy the ECAS elastic
 cluster. The endpoints serving the &lt;code>vo.access.egi.eu&lt;/code> VO are dynamically
 retrieved from the &lt;a href="https://appdb.egi.eu/">EGI Application DataBase&lt;/a> using
 REST APIs.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-endpoint.png" alt="Endpoint selection.">&lt;/p>
+&lt;p>&lt;img src="ecas-endpoint.png" alt="FedCloud endpoint">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Operating System&lt;/strong>: choose EGI CentOS7 as cluster OS.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-os.png" alt="Operating System selection.">&lt;/p>
+&lt;p>&lt;img src="ecas-os.png" alt="Cluster OS">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Instance details&lt;/strong>, in terms of CPU and RAM to allocate for the front-end
 and the working nodes.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-instance.png" alt="Instance details.">&lt;/p>
+&lt;p>&lt;img src="ecas-instance.png" alt="Instance details">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Cluster&amp;rsquo;s size and name&lt;/strong>: the name of the cluster and the maximum number of
 nodes of the cluster, without including the front-end. This value indicates
@@ -72,22 +72,22 @@ the maximum number of working nodes that the cluster can scale to. Initially,
 the cluster is created with the front-end and only one working node: the other
 working nodes will be powered on on-demand.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-size.png" alt="Cluster size and name.">&lt;/p>
+&lt;p>&lt;img src="ecas-size.png" alt="Cluster size and name">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Resume and Launch&lt;/strong>: a summary of the chosen cluster configuration. To start
 the deployment process, click the Submit button.&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="ecas-summary.png" alt="Resume and Launch.">&lt;/p>
+&lt;p>&lt;img src="ecas-summary.png" alt="Cluster summary">&lt;/p>
 &lt;p>When the front-end node of the cluster has been successfully deployed, you will
 be notified with the credentials to access via SSH.&lt;/p>
-&lt;p>&lt;img src="ecas-end.png" alt="ECAS cluster connection details.">&lt;/p>
+&lt;p>&lt;img src="ecas-end.png" alt="Cluster ssh credentials">&lt;/p>
 &lt;p>The cluster details are available by clicking on the &amp;quot;Manage your deployed
 clusters&amp;quot; link on the front page:&lt;/p>
-&lt;p>&lt;img src="ecas-manage.png" alt="Manage your clusters.">&lt;/p>
+&lt;p>&lt;img src="ecas-manage.png" alt="Cluster management">&lt;/p>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 The configuration of the cluster may
-take some time. Please wait for its completion before starting to start using
+take some time. Please wait for its completion before starting to use
 the cluster.
 &lt;/div>
 &lt;h3 id="accessing-the-cluster">Accessing the cluster&lt;/h3>
@@ -98,7 +98,7 @@ the cluster.
 &lt;li>access via SSH providing the key as identity file for public key
 authentication.&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>fabrizio@MBP EC3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ ssh -i key.pem cloudadm@134.158.151.218
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>user@localhost EC3&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ ssh -i key.pem cloudadm@&amp;lt;YOUR_CLUSTER_IP&amp;gt;
 Last login: Mon Nov &lt;span style="color:#0000cf;font-weight:bold">18&lt;/span> 11:37:29 &lt;span style="color:#0000cf;font-weight:bold">2019&lt;/span> from torito.i3m.upv.es
 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>cloudadm@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>$ sudo su -
 &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>root@oph-server ~&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>#
@@ -123,7 +123,7 @@ debug* up infinite &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> i
 Ophidia client (&lt;code>oph_term&lt;/code>) and JupyterHub.&lt;/p>
 &lt;h4 id="perform-some-basic-operations-with-ophidia">Perform some basic operations with Ophidia&lt;/h4>
 &lt;p>Run the Ophidia terminal as &lt;code>ophuser&lt;/code> user.&lt;/p>
-&lt;p>&lt;img src="ecas-oph_term.png" alt="Ophidia terminal.">&lt;/p>
+&lt;p>&lt;img src="ecas-oph_term.png" alt="Ophidia terminal">&lt;/p>
 &lt;p>The default parameters are already defined as environmental variables inside the
 &lt;code>.bashrc&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_SERVER_HOST&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;127.0.0.1&amp;#34;&lt;/span>
@@ -131,18 +131,18 @@ Ophidia client (&lt;code>oph_term&lt;/code>) and JupyterHub.&lt;/p>
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_PASSWD&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;abcd&amp;#34;&lt;/span>
 &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OPH_USER&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;oph-test&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Create an empty container and a new datacube with random data and dimensions.&lt;/p>
-&lt;p>&lt;img src="ecas-container-1.png" alt="Create container (1).">&lt;/p>
-&lt;p>&lt;img src="ecas-container-2.png" alt="Create container (2).">&lt;/p>
+&lt;p>&lt;img src="ecas-container-1.png" alt="Create container">&lt;/p>
+&lt;p>&lt;img src="ecas-container-2.png" alt="Create random datacube">&lt;/p>
 &lt;p>Now, you can submit your first operation of data transformation: let&amp;rsquo;s reduce
 the whole datacube in a single value for grid point using the average along the
 time:&lt;/p>
-&lt;p>&lt;img src="ecas-reduce.png" alt="Reduce datacube.">&lt;/p>
+&lt;p>&lt;img src="ecas-reduce.png" alt="Reduce datacube">&lt;/p>
 &lt;p>Let&amp;rsquo;s have a look at the environment by listing the datacubes and containers in
 the session:&lt;/p>
-&lt;p>&lt;img src="ecas-list.png" alt="List objects in session.">&lt;/p>
+&lt;p>&lt;img src="ecas-list.png" alt="List objects in session">&lt;/p>
 &lt;p>By default, the Ophidia terminal will use the last output datacube PID. So, you
 can use the &lt;code>oph_explorecube&lt;/code> operator to visualize the first 100 values.&lt;/p>
-&lt;p>&lt;img src="ecas-explore.png" alt="Explorecube operator.">&lt;/p>
+&lt;p>&lt;img src="ecas-explore.png" alt="Explore cube">&lt;/p>
 &lt;p>For further details about the Ophidia operators, please refer to the official
 &lt;a href="http://ophidia.cmcc.it/">documentation&lt;/a>.&lt;/p>
 &lt;h4 id="accessing-the-jupyter-interface">Accessing the Jupyter interface&lt;/h4>
@@ -150,19 +150,65 @@ can use the &lt;code>oph_explorecube&lt;/code> operator to visualize the first 1
 &lt;code>https://&amp;lt;YOUR_CLUSTER_IP&amp;gt;:443/jupyter&lt;/code> and log in to the system using the
 username and password specified in the &lt;code>jupyterhub_config.pyp&lt;/code> configuration
 file (see the &lt;code>c.Authenticator.whitelist&lt;/code> and &lt;code>c.DummyAuthenticator.password&lt;/code>
-lines) located at the &lt;code>/root&lt;/code> folder.&lt;/p>
-&lt;p>&lt;img src="ecas-jupyterhub.png" alt="JupyterHub login.">&lt;/p>
+lines) located under the &lt;code>/root&lt;/code> folder.&lt;/p>
+&lt;p>&lt;img src="ecas-jupyterhub.png" alt="JupyterHub interface">&lt;/p>
 &lt;p>From JupyterHub in ECAS you can do several things such as:&lt;/p>
 &lt;ul>
-&lt;li>create and run a Jupyter Notebook exploiting PyOphidia and Python libraries
-for visualization and plotting (e.g. matplotlib, basemap, NumPy);&lt;/li>
-&lt;li>browse the directories, download and update the files in the home folder;&lt;/li>
-&lt;li>execute operators and workflows directly from the Ophidia Terminal.&lt;/li>
+&lt;li>create and run a Jupyter Notebook exploiting PyOphidia and other Python
+libraries for data manipulation, analysis and visualization (e.g. NumPy,
+matplotlib, Cartopy);&lt;/li>
+&lt;li>browse the directories, download and update files in the home folder;&lt;/li>
+&lt;li>execute operators and workflows directly from the Ophidia Terminal;&lt;/li>
+&lt;li>access to a read-only data repository hosted in a Onedata space and perform
+any analysis on this shared data.&lt;/li>
 &lt;/ul>
+&lt;p>The ECAS space shared in the ECAS environment through the Onedata services is
+available at the &lt;code>onedata/ecas_provider/ECAS_space&lt;/code> folder located under the
+&lt;code>/data&lt;/code> directory.&lt;/p>
+&lt;p>&lt;img src="ecas-space.png" alt="Onedata ECAS space">&lt;/p>
 &lt;p>To get started with the ECAS environment capabilities, open the
-&lt;code>ECAS_Basics.ipynb&lt;/code> notebook available under the &lt;code>notebooks/&lt;/code> folder in the home
-directory.&lt;/p>
-&lt;p>&lt;img src="ecas-jupyter.png" alt="Jupyter.">&lt;/p>
+&lt;code>ECAS_Basics.ipynb&lt;/code> notebook available under the &lt;code>notebooks/&lt;/code> folder in the
+home directory.&lt;/p>
+&lt;p>&lt;img src="ecas-jupyter.png" alt="ECAS notebooks">&lt;/p>
+&lt;h3 id="accessing-the-grafana-ui">Accessing the Grafana UI&lt;/h3>
+&lt;p>This section will show how to monitor the ECAS environment and the resource
+usage and get aggregated information over time.&lt;/p>
+&lt;p>To access the Grafana monitoring interface, open the browser at
+&lt;code>https://&amp;lt;YOUR_CLUSTER_IP&amp;gt;:3000&lt;/code> and log in to the system using the
+&lt;em>admin&lt;/em> username and the password specified in the &lt;code>.grafana_pwd&lt;/code> file located
+under the &lt;code>/root&lt;/code> folder.&lt;/p>
+&lt;p>&lt;img src="grafana-login.png" alt="Grafana UI">&lt;/p>
+&lt;p>The Grafana-based monitoring system provides two dashboards in order to monitor
+the ECAS cluster both at system and application level.&lt;/p>
+&lt;ul>
+&lt;li>The &lt;strong>infrastructure dashboard&lt;/strong> provides information about the percentage
+of CPU, RAM, SWAP and disk used on each node (the front-end and the working nodes).&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="center">front-end node&lt;/th>
+&lt;th align="center">working node&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="center">&lt;img src="ecas-infra-server.png" alt="Front-end infra metrics">&lt;/td>
+&lt;td align="center">&lt;img src="ecas-infra-io.png" alt="wn infra metrics">&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>The &lt;strong>application dashboard&lt;/strong> shows information about which operator/workflow
+is being executed and its current execution status and provides aggregated
+information over time (e.g. number of total, completed and failed workflows/tasks,
+hourly weighted average of running cores).&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="ecas-application-dashboard.png" alt="Application metrics dashboard">&lt;/p>
+&lt;h3 id="destroy-the-cluster">Destroy the cluster&lt;/h3>
+&lt;p>To destroy the running cluster use the &lt;code>delete&lt;/code> action from the cluster
+management page.&lt;/p>
+&lt;p>&lt;img src="ecas-manage.png" alt="Destroy cluster">&lt;/p>
 &lt;h2 id="references">References&lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://ecaslab.cmcc.it/web/home.html">https://ecaslab.cmcc.it/web/home.html&lt;/a>&lt;/li>
