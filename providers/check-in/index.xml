@@ -590,7 +590,15 @@ attributes that are relevant for user authorisation:&lt;/p>
 &lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="#level-of-assurance">Level of Assurance (LoA)&lt;/a>&lt;/td>
+&lt;td>&lt;a href="#capabilities">Capabilities&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#gocdb-roles">GOCDB roles&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduPersonEntitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#identity-assurance">Identity Assurance&lt;/a>&lt;/td>
 &lt;td>&lt;code>eduPersonAssurance&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
@@ -1128,8 +1136,16 @@ user authorisation:&lt;/p>
 &lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>&lt;a href="#level-of-assurance">Level of Assurance (LoA)&lt;/a>&lt;/td>
-&lt;td>&lt;code>acr&lt;/code>&lt;/td>
+&lt;td>&lt;a href="#capabilities">Capabilities&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#gocdb-roles">GOCDB roles&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;a href="#identity-assurance">Identity Assurance&lt;/a>&lt;/td>
+&lt;td>&lt;code>eduperson_assurance&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -1823,19 +1839,19 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h3 id="10-entitlements">10. Entitlements&lt;/h3>
+&lt;h3 id="10-groups">10. Groups&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
 &lt;tr>
 &lt;th align="right">attribute name&lt;/th>
-&lt;th align="left">Entitlements&lt;/th>
+&lt;th align="left">Groups&lt;/th>
 &lt;/tr>
 &lt;/thead>
 &lt;tbody>
 &lt;tr>
 &lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
-&lt;td align="left">The user&amp;rsquo;s entitlements expressed as group/VO membership/role information&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s group/VO membership/role information expressed as entitlements&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
@@ -1871,7 +1887,7 @@ connected to Check-in.&lt;/p>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
-&lt;td align="left">&lt;em>urn:mace:egi.eu:group:vo.test.egi.eu:role=member#aai.egi.eu&lt;/em>&lt;/td>
+&lt;td align="left">&lt;em>urn:mace:egi.eu:aai.egi.eu:vm_operator@fedcloud.egi.eu&lt;/em>&lt;/td>
 &lt;/tr>
 &lt;tr>
 &lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
@@ -1884,7 +1900,129 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h3 id="11-assurance">11. Assurance&lt;/h3>
+&lt;h4 id="11-capabilities">11. Capabilities&lt;/h4>
+&lt;!-- markdownlint-disable line-length no-inline-html -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">Capabilities&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">This attribute describes the resource or child-resource a user is allowed to access, optionally specifying certain actions the user is entitled to perform, as described in &lt;a href="https://aarc-community.org/guidelines/aarc-g027/">AARC-G027&lt;/a>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code> (eduPersonEntitlement)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">Capabilities are managed by Check-in&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>urn:mace:egi.eu:res:rcauth#aai.egi.eu&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length no-inline-html -->
+&lt;h4 id="12-gocdb-roles">12. GOCDB Roles&lt;/h4>
+&lt;!-- markdownlint-disable line-length no-inline-html -->
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th align="right">attribute name&lt;/th>
+&lt;th align="left">GOCDB Roles&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td align="right">&lt;strong>description&lt;/strong>&lt;/td>
+&lt;td align="left">The user&amp;rsquo;s GOCDB role information expressed as entitlements&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>SAML Attribute(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>urn:oid:1.3.6.1.4.1.5923.1.1.1.7&lt;/code> (eduPersonEntitlement)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC scope&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim(s)&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;code>eduperson_entitlement&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>OIDC claim location&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;ul>&lt;li>Userinfo endpoint&lt;/li>&lt;li>Introspection endpoint&lt;/li>&lt;/ul>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>origin&lt;/strong>&lt;/td>
+&lt;td align="left">The roles are managed in GOCDB&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>changes&lt;/strong>&lt;/td>
+&lt;td align="left">Yes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>multiplicity&lt;/strong>&lt;/td>
+&lt;td align="left">Multi-valued&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>availability&lt;/strong>&lt;/td>
+&lt;td align="left">Not always&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>example&lt;/strong>&lt;/td>
+&lt;td align="left">&lt;em>urn:mace:egi.eu:goc.egi.eu:100453G0:GRIDOPS-CheckIn:Site+Administrator@egi.eu&lt;/em>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>notes&lt;/strong>&lt;/td>
+&lt;td align="left">-&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td align="right">&lt;strong>status&lt;/strong>&lt;/td>
+&lt;td align="left">Stable&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;!-- markdownlint-enable line-length no-inline-html -->
+&lt;h3 id="13-assurance">13. Assurance&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
@@ -1945,7 +2083,7 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h3 id="12-certentitlement">12. CertEntitlement&lt;/h3>
+&lt;h3 id="14-certentitlement">14. CertEntitlement&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
@@ -2006,7 +2144,7 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h3 id="13-ssh-public-key">13. SSH Public Key&lt;/h3>
+&lt;h3 id="15-ssh-public-key">15. SSH Public Key&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
@@ -2072,7 +2210,9 @@ connected to Check-in.&lt;/p>
 Check-in in order to control user access to resources:&lt;/p>
 &lt;ol>
 &lt;li>VO/group membership and role information about the authenticated user&lt;/li>
-&lt;li>Level of Assurance (LoA)&lt;/li>
+&lt;li>Capabilities&lt;/li>
+&lt;li>Identity Assurance&lt;/li>
+&lt;li>GOCDB roles&lt;/li>
 &lt;/ol>
 &lt;h3 id="vogroup-membership-and-role-information">VO/group membership and role information&lt;/h3>
 &lt;h4 id="background">Background&lt;/h4>
@@ -2084,8 +2224,8 @@ as a URN.&lt;/p>
 &lt;h4 id="syntax">Syntax&lt;/h4>
 &lt;p>An entitlement value expressing group membership and role information has the
 following syntax (components enclosed in square brackets are OPTIONAL):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">group&lt;/span>:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>[:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">SUBGROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>*][:&lt;span style="color:#000">role&lt;/span>&lt;span style="color:#000;font-weight:bold">=&amp;lt;&lt;/span>&lt;span style="color:#000">ROLE&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>]#&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">AUTHORITY&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> is the name of a VO, research collaboration or a top level arbitrary
 group. &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> names are unique within the &lt;code>urn:mace:egi.eu:group&lt;/code>
@@ -2100,20 +2240,49 @@ management system that is responsible for the identified group membership
 information&lt;/li>
 &lt;/ul>
 &lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">group&lt;/span>:&lt;span style="color:#000">fedcloud&lt;/span>.&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">role&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#000">vm_operator&lt;/span>#&lt;span style="color:#000">aai&lt;/span>.&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="old-syntax-will-be-deprecated-in-a-next-release">Old Syntax (will be deprecated in a next release)&lt;/h4>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:group:fedcloud.egi.eu:role=vm_operator#aai.egi.eu
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="old-syntax-will-be-deprecated-in-a-next-release">Old Syntax (will be deprecated in a next release)&lt;/h4>
 &lt;p>An entitlement value expressing group membership and role information has the
 following syntax (components enclosed in square brackets are OPTIONAL):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">-&lt;/span>&lt;span style="color:#000">AUTHORITY&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>:[&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">GROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>[:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">SUBGROUP&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>:…]]:&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">ROLE&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>@&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">VO&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">urn&lt;/span>:&lt;span style="color:#000">mace&lt;/span>:&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">aai&lt;/span>.&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>:&lt;span style="color:#000">vm_operator&lt;/span>@&lt;span style="color:#000">fedcloud&lt;/span>.&lt;span style="color:#000">egi&lt;/span>.&lt;span style="color:#000">eu&lt;/span>&lt;span style="color:#a40000">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="level-of-assurance">Level of Assurance&lt;/h3>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:&amp;lt;GROUP-AUTHORITY&amp;gt;:[&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;:…]]:&amp;lt;ROLE&amp;gt;@&amp;lt;VO&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:aai.egi.eu:vm_operator@fedcloud.egi.eu
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="capabilities">Capabilities&lt;/h3>
+&lt;h4 id="background-1">Background&lt;/h4>
+&lt;p>The user&amp;rsquo;s capability information is encoded in entitlements
+(&lt;code>eduPersonEntitlement&lt;/code> attribute values in SAML or &lt;code>eduperson_entitlement&lt;/code>
+claim in OIDC). These entitlements are typically used to indicate access rights
+to protected resources. Entitlements are multi-valued, with each value formatted
+as a URN following the syntax defined in
+&lt;a href="https://aarc-community.org/guidelines/aarc-g027/">AARC-G027&lt;/a>.&lt;/p>
+&lt;h4 id="syntax-1">Syntax&lt;/h4>
+&lt;p>An entitlement value expressing group membership and role information has the
+following syntax (components enclosed in square brackets are OPTIONAL):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:group:&amp;lt;GROUP&amp;gt;[:&amp;lt;SUBGROUP&amp;gt;*][:role=&amp;lt;ROLE&amp;gt;]#&amp;lt;GROUP-AUTHORITY&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> is the name of a VO, research collaboration or a top level arbitrary
+group. &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code> names are unique within the &lt;code>urn:mace:egi.eu:group&lt;/code>
+namespace;&lt;/li>
+&lt;li>zero or more &lt;code>&amp;lt;SUBGROUP&amp;gt;&lt;/code> components represent the hierarchy of subgroups in
+the &lt;code>&amp;lt;GROUP&amp;gt;&lt;/code>; specifying sub-groups is optional&lt;/li>
+&lt;li>the optional &lt;code>&amp;lt;ROLE&amp;gt;&lt;/code> component is scoped to the rightmost (sub)group; if no
+group information is specified, the role applies to the VO&lt;/li>
+&lt;li>&lt;code>&amp;lt;GROUP-AUTHORITY&amp;gt;&lt;/code> is a non-empty string that indicates the authoritative
+source for the entitlement value. For example, it can be the FQDN of the group
+management system that is responsible for the identified group membership
+information&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:res:rcauth#aai.egi.eu
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="identity-assurance">Identity Assurance&lt;/h3>
 &lt;p>Based on the authentication method selected by the user, the EGI proxy assigns a
-Level of Assurance (LoA), which is conveyed to the SP through both the
+Identity Assurance, which is conveyed to the SP through both the
 &lt;code>eduPersonAssurance&lt;/code> attribute and the Authentication Context Class
 (&lt;code>AuthnContextClassRef&lt;/code>) of the SAML authentication response. EGI Check-in uses
-Assurance Profiles which distinguish between three Level of Assurance (LoA) levels,
-similarly to the &lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002">eID Assurance Framework (eIDAF)&lt;/a>.
+Assurance Profiles which distinguish between three Identity Assurance levels,
+similarly to the
+&lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2015_235_R_0002">eID Assurance Framework (eIDAF)&lt;/a>.
 Each level is represented by a URI as follows:&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Low&lt;/strong>: Authentication through a social identity provider or other low
@@ -2123,11 +2292,13 @@ identity assurance provider: &lt;code>https://aai.egi.eu/LoA#Low&lt;/code>&lt;/l
 &lt;li>&lt;strong>High&lt;/strong>: Substantial + multi-factor authn (not yet supported, TBD):
 &lt;code>https://aai.egi.eu/LoA#High&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;p>Moreover, EGI Check-in follows the &lt;a href="https://wiki.refeds.org/display/ASS/REFEDS+Assurance+Framework+ver+1.0">REFEDS Assurance framework (RAF)&lt;/a>.
+&lt;p>Moreover, EGI Check-in follows the
+&lt;a href="https://wiki.refeds.org/display/ASS/REFEDS+Assurance+Framework+ver+1.0">REFEDS Assurance framework (RAF)&lt;/a>.
 The EGI Check-in conveys any RAF values provided by the IdP directly to the SP,
-through the aforementioned methods. Furthermore, Check-in will append into the User&amp;rsquo;s
-profile any additional LoA, if the user is eligible for it. For example,
-a user having a Verified Email is eligible for the RAF value &lt;code>https://refeds.org/assurance/IAP/low&lt;/code>&lt;/p>
+through the aforementioned methods. Furthermore, Check-in will append into the
+User&amp;rsquo;s profile any additional LoA, if the user is eligible for it. For example,
+a user having a Verified Email is eligible for the RAF value
+&lt;code>https://refeds.org/assurance/IAP/low&lt;/code>&lt;/p>
 &lt;p>Some EGI SPs have been configured to provide limited access (or not to accept at
 all) credentials with the Low LoA.&lt;/p>
 &lt;p>Note: When logging in through the EGI SSO IdP, the LoA is determined based on
@@ -2135,4 +2306,26 @@ the selected authentication mechanism as follows:&lt;/p>
 &lt;ul>
 &lt;li>Username/password credentials → Low&lt;/li>
 &lt;li>X.509 certification → Substantial&lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;h3 id="gocdb-roles">GOCDB Roles&lt;/h3>
+&lt;h4 id="background-2">Background&lt;/h4>
+&lt;p>GOCDB roles, as per
+&lt;a href="https://wiki.egi.eu/wiki/GOCDB/PI/get_user_method">GOCDB documentations&lt;/a>, are
+encoded (&lt;code>eduPersonEntitlement&lt;/code> attribute values in SAML or
+&lt;code>eduperson_entitlement&lt;/code> claim in OIDC). These entitlements are typically used to
+indicate access rights to protected resources. Entitlements are multi-valued,
+with each value formatted as a URN.&lt;/p>
+&lt;h4 id="syntax-2">Syntax&lt;/h4>
+&lt;p>An entitlement value expressing GOCDB roles has the following syntax (components
+enclosed in square brackets are OPTIONAL):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:goc.egi.eu:&amp;lt;PRIMARY_KEY&amp;gt;:&amp;lt;ON_ENTITY&amp;gt;:&amp;lt;USER_ROLE&amp;gt;@egi.eu
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>&amp;lt;PRIMARY_KEY&amp;gt;&lt;/code> is the primary key for the user role, e.g. &amp;ldquo;123G0&amp;rdquo;&lt;/li>
+&lt;li>&lt;code>&amp;lt;ON_ENTITY&amp;gt;&lt;/code> is the name of the entity on which the user role applies to,
+e.g. &amp;ldquo;GRIDOPS-GOCDB&amp;rdquo;&lt;/li>
+&lt;li>&lt;code>&amp;lt;USER_ROLE&amp;gt;&lt;/code> is the user&amp;rsquo;s role, e.g. &amp;ldquo;Site Operations Manager&amp;rdquo;&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">urn:mace:egi.eu:goc.egi.eu:100453G0:GRIDOPS-CheckIn:Site+Administrator@egi.eu
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
