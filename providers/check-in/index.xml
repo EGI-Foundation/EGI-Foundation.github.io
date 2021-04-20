@@ -1900,7 +1900,7 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h4 id="11-capabilities">11. Capabilities&lt;/h4>
+&lt;h3 id="11-capabilities">11. Capabilities&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
@@ -1961,7 +1961,7 @@ connected to Check-in.&lt;/p>
 &lt;/tbody>
 &lt;/table>
 &lt;!-- markdownlint-enable line-length no-inline-html -->
-&lt;h4 id="12-gocdb-roles">12. GOCDB Roles&lt;/h4>
+&lt;h3 id="12-gocdb-roles">12. GOCDB Roles&lt;/h3>
 &lt;!-- markdownlint-disable line-length no-inline-html -->
 &lt;table>
 &lt;thead>
