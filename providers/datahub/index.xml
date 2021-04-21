@@ -21,6 +21,14 @@ the OneProvider.&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
+&lt;h3 id="network-requirements">Network Requirements&lt;/h3>
+&lt;ul>
+&lt;li>The following ports need to be open on the local and site firewall:
+&lt;ul>
+&lt;li>80, 443, 9443, 6665 (for data transfer)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;h2 id="installation-and-attach-empty-storage-to-the-egi-datahub">Installation and attach empty storage to the EGI DataHub&lt;/h2>
 &lt;p>The installation of a new OneProvider is performed using the an installation
 script used &lt;code>onedatify&lt;/code> which will setup the components using Docker and
