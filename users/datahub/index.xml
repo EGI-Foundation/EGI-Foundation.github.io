@@ -44,7 +44,7 @@ the container should run in &lt;strong>privileged&lt;/strong> mode.
 container for a supported Operating System flavor (mainly various CentOS and
 Ubuntu releases).&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">docker run -it --privileged centos:7 /bin/bash
-root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># curl -sS http://get.onedata.org/oneclient-1902.sh | bash&lt;/span>
+root@81dbd7e84438 /&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>&lt;span style="color:#8f5902;font-style:italic"># curl -sS http://get.onedata.org/oneclient.sh | bash&lt;/span>
 &lt;span style="color:#8f5902;font-style:italic"># (...)&lt;/span>
 Complete!
 Installation has been completed successfully.
