@@ -1,0 +1,215 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Online Storage</title><link>/users/online-storage/</link><description>Recent content in Online Storage on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/online-storage/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Grid Storage</title><link>/users/online-storage/grid-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/online-storage/grid-storage/</guid><description>
+&lt;h2 id="grid-storage">Grid Storage&lt;/h2>
+&lt;p>Grid Storage allows you to store data in a reliable and high-quality environment
+and share it across distributed teams. Your data can be accessed through
+different protocols and can be replicated across different providers to increase
+fault-tolerance. Grid Storage gives you complete control over the data you share
+and with whom. Main features:&lt;/p>
+&lt;ul>
+&lt;li>Access highly-scalable storage from anywhere&lt;/li>
+&lt;li>Control the data you share&lt;/li>
+&lt;li>Organise your data using a flexible hierarchical structure&lt;/li>
+&lt;/ul>
+&lt;p>Grid Storage file access is based on
+&lt;a href="https://en.wikipedia.org/wiki/GridFTP">gridFTP&lt;/a> and
+&lt;a href="https://en.wikipedia.org/wiki/WebDAV">WebDav/HTTP&lt;/a> protocols together with
+&lt;a href="https://xrootd.slac.stanford.edu/">XRootD&lt;/a> and legacy
+&lt;a href="https://www.gridpp.ac.uk/wiki/SRM">SRM&lt;/a> (under deprecation at some of the
+endpoints).&lt;/p>
+&lt;p>Several Grid storage implementation are available on the infrastructure, the
+most common are the following:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.dcache.org/">dCache&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://twiki.cern.ch/twiki/bin/view/DPM/">DPM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://italiangrid.github.io/storm/">StoRM&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="endpoint-discovery">Endpoint Discovery&lt;/h2>
+&lt;p>The Storage endpoints that are available to user&amp;rsquo;s Virtual Organizations are
+discoverable via the EGI Information System (BDII).&lt;/p>
+&lt;p>The lcg-infosites command can be used to obtain VO-specific information on
+existing grid storages&lt;/p>
+&lt;p>The syntax is the following:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">lcg-infosites --vo voname -&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>v&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> -f &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>site name&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>option&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>s&lt;span style="color:#ce5c00;font-weight:bold">)]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>-h&lt;span style="color:#000;font-weight:bold">|&lt;/span> --help&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--is BDII&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>For example, to list the Storage Elements (SEs) available to the biomed VO one
+could issue the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">lcg-infosites --vo biomed se
+lcg-infosites --vo biomed se
+Avail Space&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>kB&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> Used Space&lt;span style="color:#ce5c00;font-weight:bold">(&lt;/span>kB&lt;span style="color:#ce5c00;font-weight:bold">)&lt;/span> Type SE
+------------------------------------------
+&lt;span style="color:#0000cf;font-weight:bold">280375465082&lt;/span> n.a SRM ccsrm.ihep.ac.cn
+&lt;span style="color:#0000cf;font-weight:bold">10995116266&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">11&lt;/span> SRM cirigridse01.univ-bpclermont.fr
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="client-access">Client access&lt;/h2>
+&lt;p>The access via client requires the user to obtain a valid X.509 user VOMS proxy.
+Please refer to the &lt;a href="../../check-in/vos/voms/">Check-in doc&lt;/a> for more
+information. Integration with OpenID Connect and the EGI Check-in service is
+under piloting at some of the endpoints on the infrastructure , but it has not
+yet reached the production stage.&lt;/p>
+&lt;p>The client widely used to access grid-storage is
+&lt;a href="https://dmc-docs.web.cern.ch/dmc-docs/gfal2/gfal2.html">gfal2&lt;/a> which is
+available for installation both on RHEL and Debian compatible systems.&lt;/p>
+&lt;p>In particular, gfal2 provides and abstraction layer on top of several storage
+protocols (XRootD, WebDAV, SRM, gsiftp, etc) and therefore is quite convenient
+as the same API can be used to access different protocols.&lt;/p>
+&lt;p>The gfal2 CLI can be installed as follows (for RHEL compatible systems):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">yum install gfal2-util gfal2-all
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>where &lt;em>gfal2-all&lt;/em> will install all the plug-ins to deal with all the available
+protocols.&lt;/p>
+&lt;p>In the following example the command to access storages via gfal2 are
+documented. Please note that the access via gsiftp protocol in the following
+example can be replaced by any other supported protocols&lt;/p>
+&lt;p>List files on a given endpoint:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-ls gsiftp://dcache-door-doma01.desy.de/dteam
+1G.header-1
+domatest
+gb
+SSE-demo
+&lt;span style="color:#204a87">test&lt;/span>
+tpctest
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Create a folder:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-mkdir gsiftp://dcache-door-doma01.desy.de/dteam/test
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Copy a local file:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-copy test.json gsiftp://dcache-door-doma01.desy.de/dteam/test
+Copying file:///root/Documents/test.json &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>DONE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> after 0s
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Copy files between storages:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-copy gsiftp://prometheus.desy.de/VOs/dteam/public-file gsiftp://dcache-door-doma01.desy.de/dteam/test
+Copying gsiftp://prometheus.desy.de/VOs/dteam/public-file &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>DONE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> after 3s
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Download a file to a local folder:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-copy gsiftp://prometheus.desy.de/VOs/dteam/public-file /tmp
+Copying gsiftp://prometheus.desy.de/VOs/dteam/public-file &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>DONE&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span> after 0s
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Delete a file:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">gfal-rm gsiftp://dcache-door-doma01.desy.de/dteam/test/public-file
+gsiftp://dcache-door-doma01.desy.de/dteam/test/public-file DELETED
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>More commands are available, please refer to the
+&lt;a href="https://dmc-docs.web.cern.ch/dmc-docs/gfal2-util.html">gfal2-util documentation&lt;/a>&lt;/p>
+&lt;h2 id="access-via-the-egi-data-transfer-service">Access via the EGI Data Transfer service&lt;/h2>
+&lt;p>The &lt;a href="../../data-transfer">EGI Data Transfer&lt;/a> service provides mechanism to
+optimize the transfer of files between EGI Online storage endpoints. Both a
+graphical interface and CLI are available to perform bulk movement of data.
+Please check the related documentation for more information.&lt;/p>
+&lt;h2 id="integration-with-data-management-frameworks">Integration with Data Management frameworks&lt;/h2>
+&lt;p>Grid Storage access most of the time is hidden to users by the integration
+performed within the Data Management framework used by Collaborations and
+Experiments.&lt;/p>
+&lt;p>In EGI for instance, the EGI Workload Management System
+&lt;a href="../../workload-manager/">EGI Workload Manager&lt;/a>, provides a way to efficiently
+access grid storage endpoints in order to read and store files on the
+infrastructures and to catalogue the existing file and related location.&lt;/p>
+&lt;p>The users when running computation via DIRAC does not actually access the
+storage directly, but they can of course retrieve the output of the computation
+which has been stored by the system on the grid.&lt;/p></description></item><item><title>Users: Object Storage</title><link>/users/online-storage/object-storage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/online-storage/object-storage/</guid><description>
+&lt;h2 id="object-storage">Object Storage&lt;/h2>
+&lt;p>Object storage is a standalone service that stores data as sets of individual
+objects organized within containers. Each object has its own URL, which can be
+used to access the resource, to share the file with other people, and to setup
+custom metadata and access control lists. These objects are accessed and managed
+via a REST API. There is virtually no limit to the amount of data you can store,
+only the space used is accounted, you can access the data from any location
+(from any VM running at any EGI provider or even from other cloud providers or
+from your own laptop/browser), you can expose the data via external portals
+(using HTTP as transport protocol), you can set access control lists per
+container and even make the data publicly available. On the other hand, data is
+accessed via a API requests, thus integration with existing applications may
+require a change to the application logic.&lt;/p>
+&lt;h3 id="usage-from-your-application">Usage from your application&lt;/h3>
+&lt;p>The Object storage in EGI is offered via OpenStack SWIFT deployments on some of
+the EGI Cloud providers.&lt;/p>
+&lt;p>Available SWIFT providers resources can be discovered in
+&lt;a href="https://goc.egi.eu/portal/index.php?Page_Type=Services&amp;amp;serviceType=org.openstack.swift&amp;amp;selectItemserviceType=org.openstack.swift&amp;amp;ngi=&amp;amp;searchTerm=&amp;amp;production=TRUE&amp;amp;monitored=TRUE&amp;amp;certStatus=Certified&amp;amp;scopeMatch=all&amp;amp;servKeyNames=&amp;amp;servKeyValue=">GOCDB&lt;/a>.&lt;/p>
+&lt;p>For accessing the endpoint check the &lt;code>URL&lt;/code> of the specific provider.&lt;/p>
+&lt;p>OpenStack SWIFT offers a RESTful API to manage your storage and you can manage
+it via the OpenStack CLI or web dashboard. Check the complete
+&lt;a href="https://docs.openstack.org/api-ref/object-store/">OpenStack object store API&lt;/a>
+for more information. More advanced usage include access via the S3 protocol and
+the EGI Data Transfer Service which are also described in the following
+sections.&lt;/p>
+&lt;h3 id="access-via-openstack-cli">Access via Openstack CLI&lt;/h3>
+&lt;p>The Openstack CLI can be used to perform operations over the SWIFT endpoints
+available on the infrastructure.&lt;/p>
+&lt;p>First the Openstack environment needs to be properly setup, and for this purpose
+the &lt;code>egicli&lt;/code> components is quite handy. For instance to setup the access to the
+SWIFT endpoint at IFCA-LCG2 via the Pilot VO (vo.access.egi.eu) the following is
+needed:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">egicli endpoint projects --site IFCA-LCG2
+id Name enabled site
+-------------------------------- ------------------------- --------- ---------
+13c11c4073f4456fac7df84c4eb8f85b VO:vo.nextgeoss.eu True IFCA-LCG2
+5eb8959a799240a98f4f303f5fbd80be VO:dteam True IFCA-LCG2
+9170e65775964a3ba6b18d83a2ad1968 eosc-hub.eu:d4science.org True IFCA-LCG2
+999f045cb1ff4684a15ebb338af69460 VO:vo.access.egi.eu True IFCA-LCG2
+f1d0308880134d04964097524eace710 VO:training.egi.eu True IFCA-LCG2
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>and then simply&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env --site IFCA-LCG2 --project-id 999f045cb1ff4684a15ebb338af69460&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the Openstack CLI can be used to perform operations on the SWIFT endpoint.&lt;/p>
+&lt;p>Starting from listing the available containers(buckets):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container list
++------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> egi_endorsed_vas &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------------------+
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Creating a new container:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container create test-egi
++---------+-----------+------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> account &lt;span style="color:#000;font-weight:bold">|&lt;/span> container &lt;span style="color:#000;font-weight:bold">|&lt;/span> x-trans-id &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++---------+-----------+------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> v1 &lt;span style="color:#000;font-weight:bold">|&lt;/span> test-egi &lt;span style="color:#000;font-weight:bold">|&lt;/span> tx000000000000000000afc-005f845160-2bb3ed4-RegionOne &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++---------+-----------+------------------------------------------------------+
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Creating a new Object by uploading a file:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object create test-egi file1.txt
++-----------+-----------+----------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> object &lt;span style="color:#000;font-weight:bold">|&lt;/span> container &lt;span style="color:#000;font-weight:bold">|&lt;/span> etag &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------+-----------+----------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> file1.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> test-egi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 5bbf5a52328e7439ae6e719dfe712200 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------+-----------+----------------------------------+
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Listing objects inside a container:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object list test-egi
++-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> file1.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++-----------+
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Download an object:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object save test-egi file1.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Removing an object from the container:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object delete test-egi file1.txt
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Removing the entire container (&lt;code>-r&lt;/code> option for recursive):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container delete test-egi
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="access-via-s3-protocol">Access via S3 protocol&lt;/h3>
+&lt;p>Openstack SWIFT is compatible with S3 protocol, therefore if the SWIFT
+deployment are properly configured they can be accessed as any other S3
+compatible storage.&lt;/p>
+&lt;p>In order to access the storage via S3 you need to create first the EC2
+credentials from the Openstack deployment.&lt;/p>
+&lt;p>The following command is needed:&lt;/p>
+&lt;!-- markdownlint-disable line-length -->
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ openstack ec2 credentials create
++------------+------------------------------------------------------------------------------------------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> Field &lt;span style="color:#000;font-weight:bold">|&lt;/span> Value &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------------+------------------------------------------------------------------------------------------------------------------------------------------+
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> access &lt;span style="color:#000;font-weight:bold">|&lt;/span> zxxxxxxxxxxxxxxxxxxxxxxxxxx &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> links &lt;span style="color:#000;font-weight:bold">|&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">{&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;self&amp;#39;&lt;/span>: &lt;span style="color:#4e9a06">&amp;#39;https://api.cloud.ifca.es:5000/v3/users/5495cd688ad7401b8e87b46bdea92f33/credentials/OS-EC2/xxxxxxxxxxxxxxxxx&amp;#39;&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">}&lt;/span> &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> project_id &lt;span style="color:#000;font-weight:bold">|&lt;/span> 999f045cb1ff4684a15ebb338af69460 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> secret &lt;span style="color:#000;font-weight:bold">|&lt;/span> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> trust_id &lt;span style="color:#000;font-weight:bold">|&lt;/span> None &lt;span style="color:#000;font-weight:bold">|&lt;/span>
+&lt;span style="color:#000;font-weight:bold">|&lt;/span> user_id &lt;span style="color:#000;font-weight:bold">|&lt;/span> xxxxxxxxxxxxxxxxxxxxxxxxxxxx &lt;span style="color:#000;font-weight:bold">|&lt;/span>
++------------+------------------------------------------------------------------------------------------------------------------------------------------+
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
+&lt;p>The &lt;code>access&lt;/code> and &lt;code>secret&lt;/code> values are needed in order to access the SWIFT via the
+S3 protocol&lt;/p>
+&lt;p>A lot of clients are available to access S3 compatible storages (awscli, s3cmd,
+etc). In EGI we are using the &lt;a href="https://davix.web.cern.ch">Davix client&lt;/a>, which
+has been developed at CERN and is available both in RHEL and Debian
+environments.&lt;/p>
+&lt;p>In order to list via S3 protocol the SWIFT server just type:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">davix-ls --s3accesskey &lt;span style="color:#4e9a06">&amp;#39;access&amp;#39;&lt;/span> --s3secretkey &lt;span style="color:#4e9a06">&amp;#39;secret&amp;#39;&lt;/span> --s3alternate s3s://api.cloud.ifca.es:8080/swift/v1/test-egi
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>davix-get&lt;/code>, &lt;code>davix-put&lt;/code> and &lt;code>davix-del&lt;/code> are also available to download, store
+and delete objects from the storage.&lt;/p>
+&lt;h3 id="access-via-the-egi-data-transfer">Access via the EGI Data Transfer&lt;/h3>
+&lt;p>The &lt;a href="../../data-transfer">EGI Data Transfer&lt;/a> can be also configured to move file
+to/from Object storages using the S3 protocol.&lt;/p>
+&lt;p>This will require to upload the EC2 access keys to the EGI Data Transfer
+service, which will be then entitled to generate the proper signed URL to access
+the storage.&lt;/p>
+&lt;p>Please contact the support (&lt;em>support_at_egi_dot_eu&lt;/em>) in order to have more
+details.&lt;/p></description></item></channel></rss>
