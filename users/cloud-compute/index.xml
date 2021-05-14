@@ -430,7 +430,7 @@ includes details on every OpenStack project, most providers offer access to:&lt;
 &lt;p>Web-dashboard of the integrated providers can be accessed using your EGI
 Check-in credentials directly: select &lt;em>OpenID Connect&lt;/em> or &lt;em>EGI Check-in&lt;/em> in the
 &lt;strong>Authenticate using&lt;/strong> drop-down menu of the login screen. You can explore
-&lt;a href="https://docs.openstack.org/horizon/rocky/user/">Horizon dashboard documentation&lt;/a>
+&lt;a href="https://docs.openstack.org/horizon/latest/user/">Horizon dashboard documentation&lt;/a>
 for more information on how to manage your resources from the browser. The rest
 of this guide will focus on CLI/API access.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
@@ -469,7 +469,7 @@ command:&lt;/p>
 &lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$OS_TOKEN&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-commands-with-openstack-cli">Useful commands with OpenStack CLI&lt;/h2>
 &lt;p>Please refer to the
-&lt;a href="https://docs.openstack.org/nova/rocky/user/">nova documentation&lt;/a> for a complete
+&lt;a href="https://docs.openstack.org/nova/latest/user/">nova documentation&lt;/a> for a complete
 guide on the VM management features of OpenStack. We list in the sections below
 some useful commands for the EGI Cloud.&lt;/p>
 &lt;h3 id="registering-an-existing-ssh-key">Registering an existing ssh key&lt;/h3>
@@ -509,7 +509,7 @@ openstack floating ip delete &amp;lt;IP&amp;gt;
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --image d0a89aa8-9644-408d-a023-4dcc1148ca01 &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --user-data userdata.txt --key-name My_Key server01.example.com
 &lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>&lt;a href="https://docs.openstack.org/nova/queens/user/user-data.html">OpenStack: providing user data (cloud-init)&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.openstack.org/nova/latest/user/user-data.html">OpenStack: providing user data (cloud-init)&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://cloudinit.readthedocs.io/en/latest/index.html">cloudinit documentation&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h4 id="shell-script-data-as-user-data">Shell script data as user data&lt;/h4>
