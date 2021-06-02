@@ -54,7 +54,7 @@ you will be able to interact with the infrastructure.&lt;/p>
 &lt;h3 id="other-vos">Other VOs&lt;/h3>
 &lt;p>Pre-existing VOs of EGI can be also used on IaaS cloud providers. Consult with
 your VO manager or browse the existing VOs at the
-&lt;a href="https://operations-portal.egi.eu/vo/">EGI Operations Portal&lt;/a>.&lt;/p>
+&lt;a href="https://operations-portal.egi.eu/vo/a/list">EGI Operations Portal&lt;/a>.&lt;/p>
 &lt;h2 id="check-in-and-access-tokens">Check-in and access tokens&lt;/h2>
 &lt;p>Access tokens can be obtained via several mechanisms, usually involving the use
 of a web server and a browser. Command line clients/APIs without access to a
