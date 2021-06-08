@@ -444,8 +444,8 @@ pip install openstackclient
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cat /etc/grid-security/certificates/*.pem &amp;gt;&amp;gt; &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>python -m requests.certs&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="authentication">Authentication&lt;/h2>
 &lt;p>Check the documentation at the
-&lt;a href="../auth/">authentication and authorisation section&lt;/a>on how to get the right
-credentials for accessing the providers.&lt;/p>
+&lt;a href="../auth/">authentication and authorisation section&lt;/a>
+on how to get the right credentials for accessing the providers.&lt;/p>
 &lt;h3 id="openstack-token-for-other-clients">OpenStack token for other clients&lt;/h3>
 &lt;p>Most OpenStack clients allow authentication with tokens, so you can easily use
 them with EGI Cloud providers just doing a first step for obtaining the token.
