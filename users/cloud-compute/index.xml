@@ -64,64 +64,53 @@ tokens. This allows you to have short-lived access tokens without having to
 collect credentials every single time one expires. You can request this token
 alongside the access and/or ID tokens as part of a user&amp;rsquo;s initial authentication
 flow.&lt;/p>
-&lt;p>In the case of EGI Check-in, we have created a special client meant to obtain
-your personal refresh token and client credentials that will allow the obtention
-of access tokens as needed. You can access the
+&lt;p>If you need to obtain these kind of tokens for using it in CLI tools or APIs,
+you can easily do so with the special &lt;em>fedcloud&lt;/em> client. You can access the
 &lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a> and click on
 'Authorise' to log in with your Check-in credentials to obtain:&lt;/p>
 &lt;ul>
-&lt;li>a client id&lt;/li>
-&lt;li>a client secret&lt;/li>
+&lt;li>a client id (&lt;code>fedcloud&lt;/code>)&lt;/li>
 &lt;li>a refresh token&lt;/li>
 &lt;/ul>
-&lt;p>Note them down so you can use them for the next steps.&lt;/p>
+&lt;div class="alert alert-danger" role="alert">
+&lt;h4 class="alert-heading">Refresh tokens&lt;/h4>
+Refresh tokens should be treated with care! This is a secret that can be used to
+impersonate you in the infrastructure. It is recommended not to store them in
+plain text.
+&lt;/div>
+&lt;p>Alternatively, you can use the
+&lt;a href="https://indigo-dc.gitbook.io/oidc-agent/user/oidc-gen/provider/egi">oidc-agent&lt;/a>
+tool, that is able to manage your tokens locally.&lt;/p>
 &lt;h3 id="discovering-projects-in-keystone">Discovering projects in Keystone&lt;/h3>
 &lt;p>The &lt;em>access token&lt;/em> will provide you access to a cloud provider, but you may have
 access to several different projects within that provider (a project can be
 considered equivalent to a VO allocation). In order to discover which projects
 are available you can do that using the Keystone API.&lt;/p>
-&lt;p>You can use the &lt;a href="https://github.com/EGI-Federation/egicli">&lt;code>egicli&lt;/code>&lt;/a> to simplify
-the discovery of projects. First, define these variables in your environment:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>CHECKIN_CLIENT_ID&lt;/code>: Your Check-in client id (get it from
-&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>CHECKIN_CLIENT_SECRET&lt;/code>: Your Check-in client secret (get it from
-&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>CHECKIN_REFRESH_TOKEN&lt;/code>: Your Check-in refresh token (get it from
-&lt;a href="https://aai.egi.eu/fedcloud">FedCloud Check-in client&lt;/a>)&lt;/li>
-&lt;li>&lt;code>EGI_SITE&lt;/code>: Name of the site (get it from &lt;a href="https://appdb.egi.eu">AppDB&lt;/a>, or
-list it with the &lt;code>egicli endpoint list&lt;/code> command)&lt;/li>
-&lt;/ul>
-&lt;p>And use them to get the list of projects:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># Retrieve list of projects from site&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
-egicli endpoint projects
+&lt;p>You can use the
+&lt;a href="https://github.com/EGI-Federation/fedcloudclient">&lt;code>fedcloud&lt;/code> client&lt;/a> to
+simplify the discovery of projects.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Get a list of sites (also available in [AppDB](https://appdb.egi.eu))&lt;/span>
+fedcloud site list
+&lt;span style="color:#8f5902;font-style:italic"># Get list of projects that you are allowed to access&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># You can either specify the name of the account in your oidc-agent configuration&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># or directly a valid access token&lt;/span>
+fedcloud endpoint projects --site&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;name of the site&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">[&lt;/span>--oidc-agent-account &amp;lt;account name&amp;gt;&lt;span style="color:#000;font-weight:bold">|&lt;/span>--oidc-access-token &amp;lt;access token&amp;gt;&lt;span style="color:#ce5c00;font-weight:bold">]&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># You can also use environment variables for the configuration&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;name of the site&amp;gt;
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OIDC_ACCESS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;your access token&amp;gt;
+fedcloud endpoint projects
+&lt;span style="color:#8f5902;font-style:italic"># or with oidc-agent&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OIDC_AGENT_ACCOUNT&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;account name&amp;gt;
+fedcloud enpoint projects
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="using-the-openstack-api">Using the OpenStack API&lt;/h3>
 &lt;p>Once you know which project to use, you can use your regular openstack cli
 commands for performing actual operations in the provider:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># EGI site&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># get environment variables for openstack&lt;/span>
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-openstack image list
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">fedcloud openstack image list --site &amp;lt;NAME_OF_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>For 3rd party tools that can use token based authentication in OpenStack, use
-the following command (after setting the environment as shown above):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># EGI site&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">EGI_SITE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;NAME_OF_THE_SITE&amp;gt;
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint token&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+the following command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>fedcloud openstack --site &amp;lt;NAME_OF_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> token issue -c id -f value&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="legacy-x509-aai">Legacy X.509 AAI&lt;/h2>
 &lt;div class="alert alert-warning" role="alert">
 &lt;h4 class="alert-heading">Warning&lt;/h4>
@@ -456,17 +445,8 @@ variable with the needed token:&lt;/p>
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-auth-url &amp;lt;keystone url&amp;gt; &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-access-token &amp;lt;your access token&amp;gt; &lt;span style="color:#4e9a06">\
 &lt;/span>&lt;span style="color:#4e9a06">&lt;/span> --os-project-id &amp;lt;your project id&amp;gt; token issue -c id -f value&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can refresh the access token and obtain an OpenStack token with the &lt;code>egicli&lt;/code>
-command:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># Export OIDC env&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># Retrieve project ID&lt;/span>
-&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
-&lt;span style="color:#8f5902;font-style:italic"># Retrieve OpenStack token&lt;/span>
-&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint token --site &amp;lt;name of the site&amp;gt;&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;span style="color:#204a87">echo&lt;/span> &lt;span style="color:#000">$OS_TOKEN&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can easily obtain an OpenStack token with the &lt;code>fedcloud&lt;/code> command:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">fedcloud openstack --site &amp;lt;NAME_OF_THE_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt; token issue
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-commands-with-openstack-cli">Useful commands with OpenStack CLI&lt;/h2>
 &lt;p>Please refer to the
 &lt;a href="https://docs.openstack.org/nova/latest/user/">nova documentation&lt;/a> for a complete
@@ -576,12 +556,11 @@ variables:&lt;/p>
 &lt;span style="color:#c4a000"> flavor_id&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;${data.openstack_compute_flavor_v2.small.id}&amp;#34;&lt;/span>
 &lt;span style="color:#c4a000"> security_groups&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;default&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_ID&amp;gt;
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_CLIENT_SECRET&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;CLIENT_SECRET&amp;gt;
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">CHECKIN_REFRESH_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;REFRESH_TOKEN&amp;gt;
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_AUTH_URL&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;OPENSTACK_URL&amp;gt;
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_PROJECT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&amp;lt;PROJECT_ID&amp;gt;
-$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>python get-token.py&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#8f5902;font-style:italic"># this will export OS_AUTH_URL and OS_PROJECT_ID&lt;/span>
+$ &lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>fedcloud site show-project-id --site &amp;lt;NAME_OF_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt;&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># now get a valid token&lt;/span>
+$ &lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>fedcloud openstack --site &amp;lt;NAME_OF_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt; &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> token issue -c id -f value&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 $ terraform plan
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
@@ -1585,26 +1564,31 @@ sites.&lt;/p>
 &lt;h2 id="discovery">Discovery&lt;/h2>
 &lt;h3 id="how-can-i-get-the-list-of-the-egi-cloud-providers">How can I get the list of the EGI Cloud providers?&lt;/h3>
 &lt;p>The list of certified providers is available in &lt;a href="https://goc.egi.eu">GOCDB&lt;/a>. The
-&lt;code>egicli endpoint list&lt;/code> command can help you to get that list:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint list
-Site &lt;span style="color:#204a87">type&lt;/span> URL
------------------- ------------------ ------------------------------------------------
-IFCA-LCG2 org.openstack.nova https://api.cloud.ifca.es:5000/v3/
-IN2P3-IRES org.openstack.nova https://sbgcloud.in2p3.fr:5000/v3
-UA-BITP org.openstack.nova https://openstack.bitp.kiev.ua:5000/v3
-RECAS-BARI org.openstack.nova https://cloud.recas.ba.infn.it:5000/v3
-NCG-INGRID-PT org.openstack.nova https://nimbus.ncg.ingrid.pt:5000/v3
-CLOUDIFIN org.openstack.nova https://cloud-ctrl.nipne.ro:443/v3
-IISAS-GPUCloud org.openstack.nova https://keystone3.ui.savba.sk:5000/v3/
-IISAS-FedCloud org.openstack.nova https://nova.ui.savba.sk:5000/v3/
-UNIV-LILLE org.openstack.nova https://thor.univ-lille.fr:5000/v3
-INFN-PADOVA-STACK org.openstack.nova https://egi-cloud.pd.infn.it:443/v3
-CYFRONET-CLOUD org.openstack.nova https://api.cloud.cyfronet.pl:5000/v3/
-SCAI org.openstack.nova https://fc.scai.fraunhofer.de:5000/v3
-CESNET-MCC org.openstack.nova https://identity.cloud.muni.cz/v3
-INFN-CATANIA-STACK org.openstack.nova https://stack-server.ct.infn.it:35357/v3
-CESGA org.openstack.nova https://fedcloud-osservices.egi.cesga.es:5000/v3
-100IT org.openstack.nova https://cloud-egi.100percentit.com:5000/v3/
+&lt;code>fedcloud site list&lt;/code> command can help you to get that list:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud site list
+100IT
+BIFI
+CESGA
+CESNET-MCC
+CETA-GRID
+CLOUDIFIN
+CYFRONET-CLOUD
+DESY-HH
+GSI-LCG2
+IFCA-LCG2
+IISAS-FedCloud
+IISAS-GPUCloud
+IN2P3-IRES
+INFN-CATANIA-STACK
+INFN-CLOUD-BARI
+INFN-PADOVA-STACK
+Kharkov-KIPT-LCG2
+NCG-INGRID-PT
+SCAI
+TR-FC1-ULAKBIM
+UA-BITP
+UNIV-LILLE
+fedcloud.srce.hr
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>The providers also generate dynamic information about their characteristics via
 the Argo Messaging System which is easily browsable from AppDB.&lt;/p>
 &lt;h3 id="how-can-i-choose-which-site-to-use">How can I choose which site to use?&lt;/h3>

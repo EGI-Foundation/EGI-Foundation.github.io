@@ -141,50 +141,18 @@ your cluster:&lt;/p>
 &lt;li>network identifiers&lt;/li>
 &lt;li>VM image identifiers&lt;/li>
 &lt;/ol>
-&lt;p>We will use &lt;code>egicli&lt;/code> to discover all needed details, set your credentials
-(Check-in client id, client secret and refresh tokens) as shown in
-&lt;a href="../auth/#check-in-and-access-tokens">the authentication guide&lt;/a> and start by
-listing the available sites:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint list
-Site &lt;span style="color:#204a87">type&lt;/span> URL
------------------- ------------------ ------------------------------------------------
-IFCA-LCG2 org.openstack.nova https://api.cloud.ifca.es:5000/v3/
-IN2P3-IRES org.openstack.nova https://sbgcloud.in2p3.fr:5000/v3
-CETA-GRID org.openstack.nova https://controller.ceta-ciemat.es:5000/v3/
-UA-BITP org.openstack.nova https://openstack.bitp.kiev.ua:5000/v3
-RECAS-BARI org.openstack.nova https://cloud.recas.ba.infn.it:5000/v3
-CLOUDIFIN org.openstack.nova https://cloud-ctrl.nipne.ro:443/v3
-IISAS-GPUCloud org.openstack.nova https://keystone3.ui.savba.sk:5000/v3/
-IISAS-FedCloud org.openstack.nova https://nova.ui.savba.sk:5000/v3/
-UNIV-LILLE org.openstack.nova https://thor.univ-lille.fr:5000/v3
-INFN-PADOVA-STACK org.openstack.nova https://egi-cloud.pd.infn.it:443/v3
-CYFRONET-CLOUD org.openstack.nova https://panel.cloud.cyfronet.pl:5000/v3/
-SCAI org.openstack.nova https://fc.scai.fraunhofer.de:5000/v3
-CESNET-MCC org.openstack.nova https://identity.cloud.muni.cz/v3
-INFN-CATANIA-STACK org.openstack.nova https://stack-server.ct.infn.it:35357/v3
-CESGA org.openstack.nova https://fedcloud-osservices.egi.cesga.es:5000/v3
-100IT org.openstack.nova https://cloud-egi.100percentit.com:5000/v3/
-NCG-INGRID-PT org.openstack.nova https://stratus.ncg.ingrid.pt:5000/v3
-fedcloud.srce.hr org.openstack.nova https://cloud.cro-ngi.hr:5000/v3/
-Kharkov-KIPT-LCG2 org.openstack.nova https://cloud.kipt.kharkov.ua:5000/v3
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>We will use &lt;code>CESGA&lt;/code>, which has
-&lt;code>https://fedcloud-osservices.egi.cesga.es:5000/v3&lt;/code> as URL. Get the available
-projects at the site:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint projects --site CESGA
-id Name enabled site
--------------------------------- ---------------- --------- ------
-3a8e9d966e644405bf19b536adf7743d vo.access.egi.eu True CESGA
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Using the project id and the site name, you can create the authorisation files
-needed for ec3:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">egicli endpoint ec3 --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d
+&lt;p>We will use &lt;code>fedcloud&lt;/code> cli to discover all needed details, set your credentials
+as shown in &lt;a href="../../auth/#check-in-and-access-tokens">the authentication guide&lt;/a> and
+create the autorisation files needed for ec3 (in this case for CESGA with
+VO vo.access.egi.eu):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">fedcloud ec3 init --site CESGA --vo vo.access.egi.eu
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>This will generate an &lt;code>auth.dat&lt;/code> file with your credentials to access the site
 and a &lt;code>templates/refresh.radl&lt;/code> with a token refreshal mechanism to allow long
 running clusters to be managed on the infrastructure.&lt;/p>
-&lt;p>Let&amp;rsquo;s get also a working OpenStack setup:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env --site CESGA --project-id 3a8e9d966e644405bf19b536adf7743d&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now, get the available networks, we will need both a public and private network:&lt;/p>
+&lt;p>Let&amp;rsquo;s get also some needed site information. Start getting the available networks,
+we will need both a public and private network:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ openstack network list
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud openstack --site CESGA --vo vo.access.egi.eu network list
 +--------------------------------------+----------------------+--------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> ID &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span> Subnets &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------------------------+----------------------+--------------------------------------+
@@ -194,7 +162,7 @@ running clusters to be managed on the infrastructure.&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;!-- markdownlint-enable line-length -->
 &lt;p>Then, get the list of images available:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ openstack image list
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud openstack --site CESGA --vo vo.access.egi.eu image list
 +--------------------------------------+----------------------------------------------------------+--------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> ID &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span> Status &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------------------------+----------------------------------------------------------+--------+
@@ -249,7 +217,7 @@ in almost every deployment: the &lt;code>front&lt;/code>, that runs the batch sy
 image, which is specified with the
 &lt;code>disk.0.image.url = 'ost://fedcloud-osservices.egi.cesga.es/8c4e2568-67a2-441a-b696-ac1b7c60de9c'&lt;/code>
 line: &lt;code>ost&lt;/code> refers to OpenStack, &lt;code>fedcloud-osservices.egi.cesga.es&lt;/code> is the
-hostname of the URL obtained above with &lt;code>egicli endpoint list&lt;/code> and
+hostname of the URL obtained above with &lt;code>fedcloud endpoint list&lt;/code> and
 &lt;code>8c4e2568-67a2-441a-b696-ac1b7c60de9c&lt;/code> is the id of the image in OpenStack. The
 size of the VM is also specified.&lt;/p>
 &lt;h2 id="launch-cluster">Launch cluster&lt;/h2>
@@ -317,9 +285,9 @@ wn4 off enabled 00h52&lt;span style="color:#4e9a06">&amp;#39;25&amp;#34; 0,0.0 1
 &lt;p>Once you are done with the cluster and want to destroy it, you can use the
 &lt;code>destroy&lt;/code> command. If your cluster was created more than one hour ago, your
 credentials to access the site will be expired and need to refreshed first with
-&lt;code>egicli endpoint ec3-refresh&lt;/code>:&lt;/p>
+&lt;code>fedcloud ec3 refresh&lt;/code>:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint ec3-refresh &lt;span style="color:#8f5902;font-style:italic"># refresh your auth.dat&lt;/span>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud ec3 refresh &lt;span style="color:#8f5902;font-style:italic"># refresh your auth.dat&lt;/span>
 $ docker run -it -v &lt;span style="color:#000">$PWD&lt;/span>:/root/ -w /root grycap/ec3 list &lt;span style="color:#8f5902;font-style:italic"># list your clusters&lt;/span>
 name state IP nodes
 ----------------------------------------------

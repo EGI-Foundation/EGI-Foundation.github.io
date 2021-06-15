@@ -221,10 +221,10 @@ management page.&lt;/p>
 &lt;/ul></description></item><item><title>Users: HTC</title><link>/users/cloud-compute/ec3/apps/htc/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/ec3/apps/htc/</guid><description>
 &lt;h2 id="templates">Templates&lt;/h2>
 &lt;p>We will build a torque cluster on one of the EGI Cloud providers using EC3.
-Create a directory to store EC3 configuration and init it with &lt;code>egicli&lt;/code>:&lt;/p>
+Create a directory to store EC3 configuration and init it with &lt;code>fedcloud&lt;/code>:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mkdir -p torque
 &lt;span style="color:#204a87">cd&lt;/span> torque
-egicli endpoint ec3 --site &amp;lt;your site&amp;gt; --project-id &amp;lt;project_id&amp;gt;
+fedcloud ec3 init --site &amp;lt;your site&amp;gt; --vo &amp;lt;your vo&amp;gt;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>We will use the following templates:&lt;/p>
 &lt;ol>
 &lt;li>&lt;code>torque&lt;/code> (from ec3 default templates)&lt;/li>

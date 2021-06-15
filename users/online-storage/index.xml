@@ -127,54 +127,45 @@ sections.&lt;/p>
 &lt;p>The Openstack CLI can be used to perform operations over the SWIFT endpoints
 available on the infrastructure.&lt;/p>
 &lt;p>First the Openstack environment needs to be properly setup, and for this purpose
-the &lt;code>egicli&lt;/code> components is quite handy. For instance to setup the access to the
-SWIFT endpoint at IFCA-LCG2 via the Pilot VO (vo.access.egi.eu) the following is
-needed:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">egicli endpoint projects --site IFCA-LCG2
-id Name enabled site
--------------------------------- ------------------------- --------- ---------
-13c11c4073f4456fac7df84c4eb8f85b VO:vo.nextgeoss.eu True IFCA-LCG2
-5eb8959a799240a98f4f303f5fbd80be VO:dteam True IFCA-LCG2
-9170e65775964a3ba6b18d83a2ad1968 eosc-hub.eu:d4science.org True IFCA-LCG2
-999f045cb1ff4684a15ebb338af69460 VO:vo.access.egi.eu True IFCA-LCG2
-f1d0308880134d04964097524eace710 VO:training.egi.eu True IFCA-LCG2
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>and then simply&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env --site IFCA-LCG2 --project-id 999f045cb1ff4684a15ebb338af69460&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now the Openstack CLI can be used to perform operations on the SWIFT endpoint.&lt;/p>
-&lt;p>Starting from listing the available containers(buckets):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container list
+the &lt;code>fedcloud&lt;/code> components is quite handy. For instance to setup the access to the
+SWIFT endpoint at IFCA-LCG2 via the Pilot VO (vo.access.egi.eu) you can use the
+&lt;code>fedcloud openstack&lt;/code> command. Start listing the available containers(buckets):&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu container list
 +------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> egi_endorsed_vas &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------------------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Creating a new container:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container create test-egi
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu container create test-egi
 +---------+-----------+------------------------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> account &lt;span style="color:#000;font-weight:bold">|&lt;/span> container &lt;span style="color:#000;font-weight:bold">|&lt;/span> x-trans-id &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+-----------+------------------------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> v1 &lt;span style="color:#000;font-weight:bold">|&lt;/span> test-egi &lt;span style="color:#000;font-weight:bold">|&lt;/span> tx000000000000000000afc-005f845160-2bb3ed4-RegionOne &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +---------+-----------+------------------------------------------------------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Creating a new Object by uploading a file:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object create test-egi file1.txt
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> object create test-egi file1.txt
 +-----------+-----------+----------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> object &lt;span style="color:#000;font-weight:bold">|&lt;/span> container &lt;span style="color:#000;font-weight:bold">|&lt;/span> etag &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------+-----------+----------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> file1.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span> test-egi &lt;span style="color:#000;font-weight:bold">|&lt;/span> 5bbf5a52328e7439ae6e719dfe712200 &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------+-----------+----------------------------------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Listing objects inside a container:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object list test-egi
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu object list test-egi
 +-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> file1.txt &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +-----------+
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Download an object:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object save test-egi file1.txt
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> object save test-egi file1.txt
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Removing an object from the container:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack object delete test-egi file1.txt
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> object delete test-egi file1.txt
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Removing the entire container (&lt;code>-r&lt;/code> option for recursive):&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">openstack container delete test-egi
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu container delete test-egi
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="access-via-s3-protocol">Access via S3 protocol&lt;/h3>
 &lt;p>Openstack SWIFT is compatible with S3 protocol, therefore if the SWIFT
 deployment are properly configured they can be accessed as any other S3
@@ -183,7 +174,7 @@ compatible storage.&lt;/p>
 credentials from the Openstack deployment.&lt;/p>
 &lt;p>The following command is needed:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ openstack ec2 credentials create
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">$ fedcloud openstack --site IFCA-LCG2 --vo vo.access.egi.eu ec2 credentials create
 +------------+------------------------------------------------------------------------------------------------------------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> Field &lt;span style="color:#000;font-weight:bold">|&lt;/span> Value &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +------------+------------------------------------------------------------------------------------------------------------------------------------------+

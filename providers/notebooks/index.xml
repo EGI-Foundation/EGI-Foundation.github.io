@@ -259,7 +259,7 @@ and at &lt;a href="https://appdb.egi.eu/store/vo/vo.notebooks.egi.eu">AppDB&lt;/
 &lt;p>In order to manage the resources you will need these tools installed on your
 client machine:&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>egicli&lt;/code> for discovering sites and managing tokens,&lt;/li>
+&lt;li>&lt;code>fedcloudclient&lt;/code> for discovering sites and managing tokens,&lt;/li>
 &lt;li>&lt;code>terraform&lt;/code> to create the VMs at the providers,&lt;/li>
 &lt;li>&lt;code>ansible&lt;/code> to configure the VMs and install kubernetes at the providers,&lt;/li>
 &lt;li>&lt;code>terraform-inventory&lt;/code> to get the list of hosts to use from terraform.&lt;/li>
@@ -278,25 +278,15 @@ and get &lt;code>terraform&lt;/code> ready:&lt;/p>
 git add &amp;lt;new provider&amp;gt;
 &lt;span style="color:#204a87">cd&lt;/span> &amp;lt;new provider&amp;gt;/terraform
 terraform init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Using the &lt;code>egicli&lt;/code> you can get the list of projects and their ids for a given
-site:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ egicli endpoint projects --site CESGA
-id Name enabled site
--------------------------------- ------------------- --------- ------
-3a8e9d966e644405bf19b536adf7743d vo.access.egi.eu True CESGA
-916506ac136741c28e4326975eef0bff vo.emso-eric.eu True CESGA
-b1d2ef2cc2284c57bcde21cf4ab141e3 vo.nextgeoss.eu True CESGA
-eb7ff20e603d471cb731bdb83a95a2b5 fedcloud.egi.eu True CESGA
-fcaf23d103c1485694e7494a59ee5f09 vo.notebooks.egi.eu True CESGA
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>And with the project ID, you can obtain all the environment variables needed to
-interact with the OpenStack APIs of the site:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint env --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>Now you are ready to use the openstack or terraform at the site. The token
-obtained is valid for 1 hour, you can refresh it at any time with:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>egicli endpoint token --site CESGA --project-id fcaf23d103c1485694e7494a59ee5f09&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Using the &lt;code>fedcloud&lt;/code> you can get set the right environment for interacting with
+the OpenStack APIs of a given site:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#204a87">eval&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>fedcloud site show-project-id --site CESGA --vo vo.notebooks.egi.eu&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Whenever you need to get a valid token for the site and VO, you can obtain it with:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#000">OS_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>fedcloud openstack --site CESGA --vo vo.notebooks.egi.eu &lt;span style="color:#4e9a06">\
+&lt;/span>&lt;span style="color:#4e9a06">&lt;/span> token issue -c id -f value&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>First get the network IDs and pool to use for the site:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ openstack network list
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud openstack --site CESGA --vo vo.notebooks.egi.eu network list
 +--------------------------------------+-------------------------+--------------------------------------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> ID &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span> Subnets &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------------------------+-------------------------+--------------------------------------+
@@ -313,7 +303,7 @@ provider which is the right network to use. Use these values in the
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You may want to check the right flavors for your VMs and adapt other variables
 in &lt;code>terraform.tfvars&lt;/code>. To get a list of flavors you can use:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ openstack flavor list
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ fedcloud openstack --site CESGA --vo vo.notebooks.egi.eu flavor list
 +--------------------------------------+----------------+-------+------+-----------+-------+-----------+
 &lt;span style="color:#000;font-weight:bold">|&lt;/span> ID &lt;span style="color:#000;font-weight:bold">|&lt;/span> Name &lt;span style="color:#000;font-weight:bold">|&lt;/span> RAM &lt;span style="color:#000;font-weight:bold">|&lt;/span> Disk &lt;span style="color:#000;font-weight:bold">|&lt;/span> Ephemeral &lt;span style="color:#000;font-weight:bold">|&lt;/span> VCPUs &lt;span style="color:#000;font-weight:bold">|&lt;/span> Is Public &lt;span style="color:#000;font-weight:bold">|&lt;/span>
 +--------------------------------------+----------------+-------+------+-----------+-------+-----------+
