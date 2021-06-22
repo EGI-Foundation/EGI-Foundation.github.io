@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EGI Docs – Applications on Demand (AoD)</title><link>/users/applications-on-demand/</link><description>Recent content in Applications on Demand (AoD) on EGI Docs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/users/applications-on-demand/index.xml" rel="self" type="application/rss+xml"/><item><title>Users: Chipster</title><link>/users/applications-on-demand/chipster/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/applications-on-demand/chipster/</guid><description>
 &lt;p>&lt;a href="http://chipster.csc.fi/">Chipster&lt;/a> is a user-friendly software for analysing
-high-throughput data such as NGS and microarrays and provided as part of EGI's
-AoD service.&lt;/p>
+high-throughput sequencing and microarray data, provided as part of EGI's
+Applications on Demand service.&lt;/p>
 &lt;p>The software contains over 400 analysis tools and a large collection of
 reference genomes.&lt;/p>
 &lt;p>Users can save and share automatic analysis workflows, and visualize data
@@ -16,33 +16,27 @@ interactively using for example the built-in genome browser.&lt;/p>
 &lt;li>Chipster (v3.16.3).&lt;/li>
 &lt;/ul>
 &lt;p>For accessing this testbed you need to be a member of the
-&lt;a href="https://www.egi.eu/services/applications-on-demand/">Applications on Demand&lt;/a>.&lt;/p>
+&lt;a href="../">Applications on Demand&lt;/a>.&lt;/p>
 &lt;h2 id="createreview-a-temporary-account">Create/Review a temporary account&lt;/h2>
-&lt;p>You need to create a temporary account to access the Chipster server, by default
-this account is valid for &lt;strong>one month&lt;/strong>.&lt;/p>
 &lt;p>Go to
 &lt;a href="https://fgsg.egi.eu/egissod/web/ssod/chipster-accounts">Chipster entry in Science Software on Demand Portal&lt;/a>
-and:&lt;/p>
-&lt;ul>
-&lt;li>Click on the &lt;em>&amp;quot;Show form&amp;quot;&lt;/em>.&lt;/li>
-&lt;li>If the account has expired, the Science Gateway will automatically generate a
-new password for you.
-&lt;ul>
-&lt;li>To activate the new account, click on the &lt;em>&amp;quot;Execute&amp;quot;&lt;/em> button to trigger
-the creation/update of the temporary account in the Chipster testbed. This
-operation may takes a few minutes.&lt;/li>
-&lt;li>You can monitor the account creation by clicking in the &lt;em>&amp;quot;Show&amp;quot;&lt;/em> button.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Once your account is available, the web interface will show a link to access
-the &lt;a href="http://chipster.aod.fedcloud.eu:8081/chipster.jnlp">Chipster server&lt;/a> with
-the new credentials.&lt;/li>
-&lt;/ul>
+and log in with your &lt;a href="../../check-in">EGI Check-In account&lt;/a>&lt;/p>
+&lt;p>The first time you log in, you need to generate a temporary password by clicking
+on the &lt;em>&amp;quot;Execute&amp;quot;&lt;/em> button, as shown below.&lt;/p>
+&lt;p>&lt;img src="./chipster-execute.png" alt="First log in with Chipster">&lt;/p>
+&lt;p>Please refresh the web page after your password has been successfully generated.
+Once the page is reloaded (see screenshot below) you are presented with a link
+to access the
+&lt;a href="http://chipster.aod.fedcloud.eu:8081/chipster.jnlp">Chipster server&lt;/a> that you
+can access with the new credentials.&lt;/p>
 &lt;p>&lt;img src="./chipster.png" alt="Chipster in Science Software on Demand">&lt;/p>
+&lt;p>If your account has expired the Science Gateway will automatically generate a
+new password for you. Just click on the &lt;em>&amp;quot;Show form&amp;quot;&lt;/em> button to manage your
+credentials.&lt;/p>
 &lt;div class="alert alert-info" role="alert">
 &lt;h4 class="alert-heading">Acknowledgment&lt;/h4>
-&lt;p>Please provide appropriate acknowledgement of the use in scientific
-publications. You can use this The following acknowledgement text this purpose:&lt;/p>
+&lt;p>Please provide appropriate acknowledgement of the use of this service in your
+scientific publications. Here is an example:&lt;/p>
 &lt;p>&lt;strong>This work used the EGI Applications on Demand service, which is co-funded by
 the EOSC-hub project (grant number 777536)&lt;/strong>&lt;/p>
 &lt;/div></description></item><item><title>Users: Exoscale vouchers</title><link>/users/applications-on-demand/exoscale/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/applications-on-demand/exoscale/</guid><description>
