@@ -409,12 +409,12 @@ accounts.&lt;/p>
 &lt;p>The extensive &lt;a href="https://docs.openstack.org/user/">OpenStack user documentation&lt;/a>
 includes details on every OpenStack project, most providers offer access to:&lt;/p>
 &lt;ul>
-&lt;li>keystone, for identity&lt;/li>
-&lt;li>nova, for VM management&lt;/li>
-&lt;li>glance, for VM image management&lt;/li>
-&lt;li>cinder, for block storage&lt;/li>
-&lt;li>neutron, for network management&lt;/li>
-&lt;li>horizon, as a web dashboard&lt;/li>
+&lt;li>Keystone, for identity&lt;/li>
+&lt;li>Nova, for VM management&lt;/li>
+&lt;li>Glance, for VM image management&lt;/li>
+&lt;li>Cinder, for block storage&lt;/li>
+&lt;li>Neutron, for network management&lt;/li>
+&lt;li>Horizon, as a web dashboard&lt;/li>
 &lt;/ul>
 &lt;p>Web-dashboard of the integrated providers can be accessed using your EGI
 Check-in credentials directly: select &lt;em>OpenID Connect&lt;/em> or &lt;em>EGI Check-in&lt;/em> in the
@@ -423,18 +423,32 @@ Check-in credentials directly: select &lt;em>OpenID Connect&lt;/em> or &lt;em>EG
 for more information on how to manage your resources from the browser. The rest
 of this guide will focus on CLI/API access.&lt;/p>
 &lt;h2 id="installation">Installation&lt;/h2>
-&lt;p>TBC&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">pip install requests
-pip install openstackclient
-&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
-&lt;li>&lt;code>jq&lt;/code> to easily manage JSON output&lt;/li>
+&lt;p>The OpenStack client is a command-line client for OpenStack that brings the
+command set for Compute, Identity, Image, Object Storage and Block Storage APIs
+together in a single shell with a uniform command structure.&lt;/p>
+&lt;blockquote>
+&lt;p>If installing on Windows, as there are non-pure Python packages needed for
+installation, the
+&lt;a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft C++ Build Tools&lt;/a>
+is a prerequisite, please make sure it&amp;rsquo;s installed with the following options
+selected:&lt;/p>
+&lt;ul>
+&lt;li>C++ CMake tools for Windows&lt;/li>
+&lt;li>C++ ATL for latest v142 build tools (x86 &amp;amp; x64)&lt;/li>
+&lt;li>Testing tools core features - Build Tools&lt;/li>
+&lt;li>Windows 10 SDK (&lt;code>&amp;lt;latest&lt;/code>&amp;gt;)&lt;/li>
 &lt;/ul>
-&lt;p>Add IGTF CA to python's CA store:&lt;/p>
+&lt;p>In case you prefer to use non-Microsoft alternatives for building non-pure
+packages, please see &lt;a href="https://wiki.python.org/moin/WindowsCompilers">here&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;p>Installation of the OpenStack client can be done using:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">pip install openstackclient
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Add IGTF CA to python's CA store:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cat /etc/grid-security/certificates/*.pem &amp;gt;&amp;gt; &lt;span style="color:#204a87;font-weight:bold">$(&lt;/span>python -m requests.certs&lt;span style="color:#204a87;font-weight:bold">)&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="authentication">Authentication&lt;/h2>
 &lt;p>Check the documentation at the
-&lt;a href="../auth/">authentication and authorisation section&lt;/a>
-on how to get the right credentials for accessing the providers.&lt;/p>
+&lt;a href="../auth/">authentication and authorisation section&lt;/a> on how to get the right
+credentials for accessing the providers.&lt;/p>
 &lt;h3 id="openstack-token-for-other-clients">OpenStack token for other clients&lt;/h3>
 &lt;p>Most OpenStack clients allow authentication with tokens, so you can easily use
 them with EGI Cloud providers just doing a first step for obtaining the token.
@@ -448,10 +462,12 @@ variable with the needed token:&lt;/p>
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>You can easily obtain an OpenStack token with the &lt;code>fedcloud&lt;/code> command:&lt;/p>
 &lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">fedcloud openstack --site &amp;lt;NAME_OF_THE_SITE&amp;gt; --vo &amp;lt;NAME_OF_VO&amp;gt; token issue
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-commands-with-openstack-cli">Useful commands with OpenStack CLI&lt;/h2>
+&lt;p>Usage of the OpenStack client is described in detail
+&lt;a href="https://docs.openstack.org/python-openstackclient/latest">here&lt;/a>.&lt;/p>
 &lt;p>Please refer to the
-&lt;a href="https://docs.openstack.org/nova/latest/user/">nova documentation&lt;/a> for a complete
-guide on the VM management features of OpenStack. We list in the sections below
-some useful commands for the EGI Cloud.&lt;/p>
+&lt;a href="https://docs.openstack.org/nova/latest/user/">nova documentation&lt;/a> for a
+complete guide on the VM management features of OpenStack. We list in the
+sections below some useful commands for the EGI Cloud.&lt;/p>
 &lt;h3 id="registering-an-existing-ssh-key">Registering an existing ssh key&lt;/h3>
 &lt;p>It's possible to register an ssh key that can later be used as the default ssh
 key for the default user of the VM (via the &lt;code>--key-name&lt;/code> argument to
@@ -598,7 +614,7 @@ Note: You didn&lt;span style="color:#4e9a06">&amp;#39;t specify an &amp;#34;-out
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Note that as in the example above you can get images using information from
 AppDB if needed.&lt;/p>
 &lt;h2 id="libcloud">libcloud&lt;/h2>
-&lt;p>&lt;a href="https://libcloud.apache.org/index.html">Apache libcloud&lt;/a> support OpenStack and
+&lt;p>&lt;a href="https://libcloud.apache.org/index.html">Apache libcloud&lt;/a> supports OpenStack and
 EGI authentication mechanisms by setting the &lt;code>ex_force_auth_version&lt;/code> to
 &lt;code>3.x_oidc_access_token&lt;/code> or &lt;code>2.0_voms&lt;/code> respectively. Check the
 &lt;a href="https://libcloud.readthedocs.io/en/latest/compute/drivers/openstack.html#connecting-to-the-openstack-installation">libcloud docs on connecting to OpenStack&lt;/a>
