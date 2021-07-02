@@ -831,7 +831,7 @@ Machine will make the hardware available to the user.&lt;/p>
 &lt;/tr>
 &lt;tr>
 &lt;td>IFCA-LCG2&lt;/td>
-&lt;td>up to 4 NVIDIA GT200GL, up to 1 NVIDIA TITAN X, up to 10 NVIDIA GeForce GTX 1080Ti&lt;/td>
+&lt;td>up to 2 NVIDIA T4, up to 2 NVIDIA V100&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>&lt;/td>
 &lt;td>Pay-per-use&lt;/td>
