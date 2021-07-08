@@ -1088,7 +1088,7 @@ for accessing the resources.&lt;/p>
 by Check-in OpenID Connect Identity provider. Support builds on the
 &lt;a href="https://wiki.egi.eu/wiki/AAI_guide_for_SPs">AAI guide for SPs&lt;/a> with detailed
 configuration provided at the
-&lt;a href="https://egi-federated-cloud-integration.readthedocs.io/en/latest/openstack.html#openid-connect-support">EGI Cloud integration manual&lt;/a>.&lt;/p>
+&lt;a href="../../../providers/cloud-compute/openstack/#openid-connect-support">EGI IaaS Service providers documentation&lt;/a>.&lt;/p>
 &lt;p>The integration relies on the OpenStack Keystone
 &lt;a href="https://developer.openstack.org/api-ref/identity/v3-ext/index.html#os-federation-api">OS-FEDERATION API&lt;/a>.&lt;/p>
 &lt;h4 id="legacy-voms--x509-certificates">Legacy VOMS / X.509 certificates&lt;/h4>
