@@ -402,7 +402,21 @@ details about it, clicking on a VM of a topology will give you details about its
 status and IP. VMOps will create a default &lt;code>cloudadm&lt;/code> user for you and create
 ssh-key pair for login (you can create as many users as needed with the
 contextualisation options of the wizard described above).&lt;/p>
-&lt;p>&lt;img src="vmops_vm.png" alt="VM details">&lt;/p></description></item><item><title>Users: Using OpenStack providers</title><link>/users/cloud-compute/openstack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/openstack/</guid><description>
+&lt;p>&lt;img src="vmops_vm.png" alt="VM details">&lt;/p></description></item><item><title>Users: Infrastructure Manager</title><link>/users/cloud-compute/im/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/im/</guid><description>
+&lt;p>&lt;a href="https://www.grycap.upv.es/im">Infrastructure Manager&lt;/a> is a tool that
+streamlines the access and the usability of IaaS clouds by automating the
+configuration, deployment, and monitoring of &lt;a href="../vmi">Virtual Appliances&lt;/a>.&lt;/p>
+&lt;p>It supports APIs from a large number of &lt;em>Cloud Management Frameworks (CMFs)&lt;/em>
+making user applications cloud-agnostic. In addition it integrates a
+contextualization system to enable the installation and configuration of user
+specific applications.&lt;/p>
+&lt;p>It is a service that features a web-based GUI, a XML-RPC API, a REST API and a
+command-line interface. For detailed information about Infrastructure Manager
+please visit its &lt;a href="https://imdocs.readthedocs.io">documentation pages&lt;/a>.&lt;/p>
+&lt;p>IM is integrated with the &lt;a href="../../check-in">EGI Check-In Service&lt;/a>. A very easy
+way to deploy your first Virtual Machine in the EGI Federation is using the
+&lt;a href="https://appsgrycap.i3m.upv.es:31443/im-dashboard/">web-based GUI&lt;/a>. Please see
+tutorial &lt;a href="https://imdocs.readthedocs.io/en/latest/dashboard.html#usage">here&lt;/a>.&lt;/p></description></item><item><title>Users: Using OpenStack providers</title><link>/users/cloud-compute/openstack/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/users/cloud-compute/openstack/</guid><description>
 &lt;p>&lt;a href="https://openstack.org">OpenStack&lt;/a> providers of the EGI Cloud Compute service
 offer native OpenStack features via native APIs integrated with EGI Check-in
 accounts.&lt;/p>
@@ -849,7 +863,7 @@ Machine will make the hardware available to the user.&lt;/p>
 &lt;h2 id="access-to-gpu-resources-on-egi-cloud">Access to GPU resources on EGI Cloud&lt;/h2>
 &lt;p>GPUs sites can be accessed by different ways: via site-specific dashboards and
 endpoints or via common federated-cloud services like common Horizon dashboard,
-VMOps dashboard, or Infrastructure manager.&lt;/p>
+&lt;a href="../vmops">VMOps dashboard&lt;/a>, or &lt;a href="../im">Infrastructure manager&lt;/a>.&lt;/p>
 &lt;p>Site-specific dashboards and endpoints are described in the following table:&lt;/p>
 &lt;!-- markdownlint-disable line-length -->
 &lt;table>
@@ -1054,8 +1068,8 @@ HEPiX image lists format.&lt;/p>
 available for visualisation at
 &lt;a href="https://accounting.egi.eu">EGI Accounting portal&lt;/a>.&lt;/p>
 &lt;p>Those endpoints published in the EGI Configuration Database are monitored via
-&lt;a href="https://argoeu.github.io/">ARGO&lt;/a>. The set of probes check the availability of
-the providers and their correct functionality.&lt;/p>
+&lt;a href="https://argo.egi.eu/">ARGO&lt;/a>. The set of probes check the availability of the
+providers and their correct functionality.&lt;/p>
 &lt;p>Users and Community platforms built on top of the EGI IaaS can interact with the
 cloud providers at three different layers:&lt;/p>
 &lt;ul>
@@ -1066,15 +1080,15 @@ dealing with different providers in a uniform way. These tools include:
 &lt;ul>
 &lt;li>IaaS provisioning systems that allow to define infrastructure as code and
 manage and combine resources from different providers, thus enabling the
-portability of application deployments between them (e.g. IM or Terraform);
+portability of application deployments between them (e.g.
+&lt;a href="../im">Infrastructure Manager&lt;/a> or &lt;a href="https://www.terraform.io/">Terraform&lt;/a>);
 and&lt;/li>
 &lt;li>cloud brokers, that provide matchmaking for workloads to available providers
-(e.g. the INDIGO-DataCloud Orchestrator).&lt;/li>
+(e.g. the
+&lt;a href="https://indigo-dc.gitbook.io/indigo-paas-orchestrator/">INDIGO-DataCloud Orchestrator&lt;/a>).&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Using the AppDB VMOps dashboard, a web-based GUI that simplifies the
-management of VMs on any provider of the EGI infrastructure. AppDB VMOps in
-turn relies on the Infrastructure Manager.&lt;/li>
+&lt;li>Using &lt;a href="../vmops">VMOps dashboard&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p>EGI provides ready-to-use software components to enable the federation for
 OpenStack and OpenNebula. These components rely on public APIs of the IaaS
